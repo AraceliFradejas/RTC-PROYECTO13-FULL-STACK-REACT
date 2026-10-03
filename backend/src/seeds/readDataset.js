@@ -5,7 +5,7 @@ const directory = new URL('../../../data/csv/', import.meta.url);
 const unique = (rows, name) => {
   if (new Set(rows.map(row => row.seedKey)).size !== rows.length) throw new Error(`Claves repetidas en ${name}.`);
 };
-const dealerSchema = z.object({ seedKey: z.string().min(1), name: z.string().min(1), city: z.string().min(1), address: z.string(), hours: z.string().min(1), demo: z.literal('true') });
+const dealerSchema = z.object({ seedKey: z.string().min(1), name: z.string().min(1), city: z.string().min(1), address: z.string().min(1), area: z.string().min(1), latitude: z.coerce.number().min(-90).max(90), longitude: z.coerce.number().min(-180).max(180), hours: z.string().min(1), demo: z.literal('true') });
 const vehicleSchema = z.object({
   seedKey: z.string().min(1), brand: z.string().min(1), model: z.string().min(1),
   bodyType: z.string().min(1), fuel: z.string().min(1),

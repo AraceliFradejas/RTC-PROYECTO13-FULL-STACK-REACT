@@ -1,6 +1,25 @@
 {
-  "name": "@kelsets-cars/frontend", "private": true, "version": "0.1.0", "type": "module",
-  "scripts": { "dev": "vite --host 127.0.0.1", "build": "vite build", "preview": "vite preview --host 127.0.0.1", "test": "vitest run" },
-  "dependencies": { "react": "^19.1.1", "react-dom": "^19.1.1", "react-router-dom": "^7.9.3", "@kelsets-cars/contracts": "*", "@kelsets-cars/api-client": "*" },
-  "devDependencies": { "vite": "^7.1.9", "@vitejs/plugin-react": "^5.0.4", "vitest": "^3.2.4" }
+  "name": "@kelsets-cars/frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kelsets-cars/api-client": "*",
+    "@kelsets-cars/contracts": "*",
+    "leaflet": "^1.9.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
+  }
 }
