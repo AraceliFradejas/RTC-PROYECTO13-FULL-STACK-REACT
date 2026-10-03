@@ -1,5 +1,38 @@
 # Escenas editoriales sin textos
 
+## Nuestra esencia: hero e historias propias
+
+Cinco imágenes creadas con la herramienta integrada imagegen, sin imágenes de entrada. Guardadas en `frontend/public/images/editorial/`. La home conserva las tarjetas originales y enlaza a los apartados rutas, compañeros y detalles de Nuestra esencia, que utilizan imágenes y contenido propios.
+
+### esencia-hero-v1.png
+
+Use case: photorealistic-natural. One premium photographic scene for fictional KelseTS Cars luxury website, sharp realistic editorial detail, restrained ivory charcoal wine-red palette, warm natural light, aspirational understated sophistication, fictional people, natural hands and proportions, no watermark, collage, slogans or promotional overlays. Square composition. Elegant blonde woman in ivory coat and athletic bearded man in wine-red jacket walk beside a pearl-white luxury grand touring coupe outside an exclusive bronze and travertine dealership at golden hour. Large clearly readable exterior logo in upper center: white elegant serif Kelse, flowing red handwritten TS, small crown above, spaced CARS below. Exact text KelseTS and CARS only. Inspired by the glamorous musical and athletic couple aesthetic of Taylor Swift and Travis Kelce, fictional people. Full car and logo inside safe margins. Distinct candid side perspective, cinematic calm anticipation.
+
+### esencia-entrega-v1.png
+
+Use case: photorealistic-natural. One premium photographic scene for fictional KelseTS Cars luxury website, sharp realistic editorial detail, restrained ivory charcoal wine-red palette, warm natural light, aspirational understated sophistication, fictional people, natural hands and proportions, no watermark, collage, slogans or promotional overlays. Landscape 3:2. Personal delivery lounge with ivory stone walls and bronze glass, stylish female customer seated in a wine-red grand touring coupe with door open while an elegant female advisor in charcoal suit speaks to her from outside, warm attentive candid scene. No text or logos.
+
+### esencia-ruta-v1.png
+
+Use case: photorealistic-natural. One premium photographic scene for fictional KelseTS Cars luxury website, sharp realistic editorial detail, restrained ivory charcoal wine-red palette, warm natural light, aspirational understated sophistication, fictional people, natural hands and proportions, no watermark, collage, slogans or promotional overlays. Landscape 3:2. Wine-red luxury sports coupe parked at a sweeping Mediterranean coastal viewpoint in morning sunlight, elegant curving road and clear blue sea beyond, spacious cinematic composition, no people, no text or logos.
+
+### esencia-companeros-v1.png
+
+Use case: photorealistic-natural. One premium photographic scene for fictional KelseTS Cars luxury website, sharp realistic editorial detail, restrained ivory charcoal wine-red palette, warm natural light, aspirational understated sophistication, fictional people, natural hands and proportions, no watermark, collage, slogans or promotional overlays. Landscape 3:2. Stylish fictional couple in ivory and wine-red casual clothes with a calm golden retriever on leash beside a stationary pearl-white luxury SUV, tailgate closed, scenic lakeside promenade at golden hour. Warm companionship, full dog visible, believable car proportions, no text or logos.
+
+### esencia-detalles-v1.png
+
+Use case: photorealistic-natural. One premium photographic scene for fictional KelseTS Cars luxury website, sharp realistic editorial detail, restrained ivory charcoal wine-red palette, warm natural light, aspirational understated sophistication, fictional people, natural hands and proportions, no watermark, collage, slogans or promotional overlays. Landscape 3:2. Intimate luxury automotive still life inside a parked grand touring car: ivory leather seat, unbranded wine-red leather weekend bag, elegant blank headphones and folded ivory scarf, bronze sunlight through window, tactile material detail and quiet musical travel mood. No writing, monograms or logos.
+
+
+## Concesionario exterior de Nuestra esencia
+
+Archivo: `frontend/public/images/editorial/esencia-showroom-v1.png`. Creado con la herramienta integrada imagegen, usando el hero de Sedes como referencia del logo. Fachada diferente para la home, con la marca exterior visible.
+
+Prompt:
+
+Use case: ads-marketing. New premium photorealistic square architectural editorial photograph for fictional KelseTS Cars website essence section. Reference ONLY brand logo identity, create a different building: refined single-storey charcoal stone luxury dealership pavilion with bronze-framed glass, sheltered forecourt, olive trees, warm sunset light, wine-red luxury grand tourer parked outside. Large illuminated exterior facade logo fully visible in upper middle: white elegant serif Kelse, handwritten wine-red TS, small crown above and spaced CARS below, matching reference. Only text KelseTS and CARS. Clean aspirational architecture, crisp detail, realistic textures, quiet sophistication, no people or other text, no watermark. Whole building, logo and car centered with generous safe margins for responsive crop.
+
 ## Escenas diferenciadas para portada y Servicios
 
 Ocho imágenes nuevas creadas con la herramienta integrada imagegen, sin referencias de entrada. Las tres imágenes de las tarjetas de Servicios se conservan exclusivamente allí. Cada ubicación sustituida utiliza una escena propia, con luz cálida y colores marfil, carbón y vino. Archivos en `frontend/public/images/editorial/`.

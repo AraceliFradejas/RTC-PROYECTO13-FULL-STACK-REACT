@@ -7,6 +7,7 @@
   --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-editorial: Georgia, 'Times New Roman', serif;
   --content-width: 1440px; --radius: 3px; --radius-card: 1.5rem;
+  --image-ratio: 3 / 2;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); line-height: 1.6; }

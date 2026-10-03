@@ -15,10 +15,19 @@ export function Layout() {
   const main = useRef(null);
   const previousPath = useRef(location.pathname);
   useEffect(() => {
-    if (previousPath.current !== location.pathname) {
-      main.current?.focus(); window.scrollTo({ top: 0 }); previousPath.current = location.pathname;
+    const pathChanged = previousPath.current !== location.pathname;
+    previousPath.current = location.pathname;
+    if (location.hash) {
+      const frame = requestAnimationFrame(() => {
+        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) { target.focus({ preventScroll: true }); target.scrollIntoView({ block: 'start' }); }
+      });
+      return () => cancelAnimationFrame(frame);
     }
-  }, [location.pathname]);
+    if (pathChanged) {
+      main.current?.focus(); window.scrollTo({ top: 0 });
+    }
+  }, [location.pathname, location.hash]);
   return <>
     <a className="skip-link" href="#contenido">Saltar al contenido</a>
     <header className={`site-header ${isHome ? 'cinematic-header' : ''} ${isHome && scrolled ? 'is-scrolled' : ''}`}>

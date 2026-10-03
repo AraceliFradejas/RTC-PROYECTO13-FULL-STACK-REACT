@@ -19,6 +19,9 @@
 .story-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin-bottom: var(--space-3); }
 .story-grid h3 { font-size: 1.7rem; }
 .story-grid p { color: var(--color-muted); font-size: .9rem; }
+.story-link { display: flex; flex-direction: column; height: 100%; text-decoration: none; }
+.story-link .text-link { margin-top: auto; padding-top: var(--space-2); font-size: .8rem; text-decoration: underline; }
+.story-link:hover h3 { text-decoration: underline; text-underline-offset: .15em; }
 .account-banner { background: var(--color-ink); color: var(--color-paper); max-width: none; display: flex; justify-content: space-between; gap: var(--space-4); align-items: center; }
 .account-banner p:not(.eyebrow) { color: #cdd4cf; margin-top: var(--space-3); }
 .account-banner .button { flex-shrink: 0; }
@@ -84,3 +87,53 @@
 .professional-grid h3 { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
 .professional-grid p { color: var(--color-muted); max-width: 560px; }
 @media (max-width: 680px) { .professional-grid { grid-template-columns: 1fr; gap: var(--space-5); } }
+
+/* Shared image proportions and layouts across home and interior pages. */
+.editorial-panel, .faq-section, .catalog-hero, .access-shell, .visit-section { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.editorial-panel-image { max-width: none; }
+.editorial-panel-image img, .service-image, .story-grid img, .professional-grid img { height: auto; aspect-ratio: var(--image-ratio); object-fit: cover; }
+.catalog-hero figure { aspect-ratio: 1; align-self: center; overflow: hidden; }
+.catalog-hero img { height: 100%; }
+.catalog-hero figcaption { max-width: calc(100% - 2rem); }
+.catalog-hero .button { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
+.catalog-hero .button:hover { background: var(--color-accent); border-color: var(--color-accent); }
+.brand-film { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 0; align-items: center; }
+.brand-film > img { position: static; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; grid-column: 2; grid-row: 1; z-index: auto; }
+.brand-film-copy { grid-column: 1; grid-row: 1; padding: clamp(2rem, 5vw, 6rem); }
+.brand-film-shade { display: none; }
+.cinematic-collection .editorial-card h3 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+.cinematic-collection .editorial-card > div { padding: clamp(1rem, 3vw, 2rem); }
+.site-header nav { flex-wrap: wrap; }
+.specs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.specs dd { overflow-wrap: anywhere; }
+@media (max-width: 1000px) {
+  .site-header { flex-wrap: wrap; gap: var(--space-2); }
+  .site-header nav { order: 3; width: 100%; justify-content: center; gap: var(--space-3); }
+  .cinematic-header nav { margin-top: 0; }
+  .service-grid, .story-grid { gap: var(--space-3); }
+  .cinematic-copy { max-width: calc(100% - 3rem); }
+  .cinematic-collection .editorial-card a { margin-top: var(--space-2); }
+}
+@media (max-width: 760px) {
+  .editorial-panel, .faq-section, .catalog-hero, .access-shell, .visit-section, .brand-film { grid-template-columns: 1fr; }
+  .service-grid, .story-grid { grid-template-columns: 1fr; }
+  .editorial-panel-reverse .editorial-panel-image { grid-column: auto; grid-row: auto; }
+  .brand-film > img { grid-column: 1; grid-row: 2; opacity: 1; }
+  .brand-film-copy { grid-column: 1; grid-row: 1; padding: var(--space-5) var(--space-3); }
+  .account-banner, .service-end { flex-direction: column; align-items: flex-start; }
+  .catalog-hero-copy { padding: var(--space-5) var(--space-3); }
+  .catalog-hero figure { width: 100%; }
+}
+@media (max-width: 480px) {
+  .cinematic-hero { height: auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 13rem 1.25rem 2rem; gap: var(--space-4); }
+  .cinematic-copy, .cinematic-bottom { position: static; max-width: none; }
+  .cinematic-copy h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+  .cinematic-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-playback-controls { justify-content: flex-start; }
+  .cinematic-cta { gap: var(--space-3); padding: .85rem 1rem; }
+  .cinematic-collection h2 { font-size: clamp(2rem, 9vw, 3rem); }
+  .catalog-modes { display: flex; width: 100%; }
+  .catalog-modes button { flex: 1; padding: .8rem .5rem; }
+  .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-panel { padding: var(--space-3); }
+}
