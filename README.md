@@ -4,7 +4,7 @@ Proyecto full stack del máster **Rock The Code · The Power Tech School**.
 
 > **El carácter se lleva dentro. El camino lo eliges tú.**
 
-KelseTS Cars es una marca ficticia que lleva el universo KelseTS al automóvil. La propuesta une un catálogo de vehículos, sus sedes de referencia y un área personal para organizar citas.
+KelseTS Cars es una red ficticia de concesionarios de vehículos de lujo. En la web puedes consultar el catálogo, conocer nuestras cuatro sedes y solicitar una cita para una prueba de conducción, asesoramiento o mantenimiento.
 
 ## Contenido
 
@@ -18,25 +18,39 @@ KelseTS Cars es una marca ficticia que lleva el universo KelseTS al automóvil. 
 
 ## Una historia personal
 
-KelseTS Cars continúa mi recorrido con KelseTS Lifestyle, KelseTS Store, KelseTS Business School y KelseTS Talks. Para este trabajo he elegido el automóvil como punto de encuentro entre diseño, tecnología y experiencia de usuario.
+KelseTS Cars es un nuevo proyecto dentro de la marca KelseTS, después de KelseTS Lifestyle, KelseTS Store, KelseTS Business School y KelseTS Talks. La música, el deporte y el universo swiftie siguen siendo parte de la inspiración, esta vez en una web dedicada a los coches de lujo.
 
-El público del proyecto son personas que quieren explorar vehículos de gama alta, consultar información ordenada y organizar una visita. El objetivo académico es conectar ese recorrido con una API, una base de datos y una interfaz React.
+Para este último trabajo de Rock The Code he querido crear una web que tenga una identidad propia y una utilidad clara. Está pensada para personas que quieren conocer distintos modelos, comparar opciones y organizar una visita al concesionario con tiempo.
+
+He mantenido los colores y el estilo de KelseTS, con imágenes aspiracionales y una atención especial al diseño. Además de cuidar la parte visual, el proyecto me permite poner en práctica lo aprendido sobre React, Node.js y bases de datos.
 
 ## Estado actual
 
-**Base inicial en desarrollo. No es todavía la entrega final.**
+**El proyecto sigue en desarrollo y todavía no está listo para la entrega final.**
 
-La estructura contiene backend modular, frontend React, contratos compartidos y cliente HTTP reutilizable. La portada y las páginas editoriales utilizan cinco fotografías reales con sus créditos y un logo vectorial KelseTS Cars basado en las referencias de marca aportadas, además de un vídeo conceptual en el hero. Se han preparado pantallas iniciales para catálogo, acceso y citas; Atlas ya está conectado: se han cargado 100 vehículos y cuatro sedes, comprobado las relaciones y repetido la semilla sin duplicados. El catálogo ofrece búsqueda libre o filtros y dos fotografías de referencia por marca. Sedes incorpora mapa y distancias con ubicación automática o manual; autenticación y citas todavía necesitan comprobaciones integradas. La compilación y 15 pruebas locales han pasado; la portada se ha revisado en Safari.
+La conexión con MongoDB Atlas está configurada. Ya se han cargado 100 vehículos y cuatro concesionarios desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
 
-El CSV de partida contiene 100 registros de ejemplo. Su normalización conserva la procedencia y sustituye las imágenes genéricas cuando existe una fotografía revisada del modelo. El Excel definitivo, la ampliación de gama alta, las integraciones, las evidencias y el despliegue están pendientes. La carga inicial en Atlas está comprobada; Cloudinary todavía no está configurado.
+La web incluye:
+
+- Portada con vídeo, controles de sonido y pausa.
+- Catálogo con búsqueda libre o filtros y fichas de vehículos.
+- Página de sedes con mapa y cálculo de distancias desde una ubicación automática o elegida manualmente.
+- Páginas de Servicios y Nuestra esencia con imágenes propias.
+- Formularios de acceso y páginas para solicitar y consultar citas.
+
+El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
+
+La compilación y las 15 pruebas locales realizadas hasta ahora han pasado. También se han revisado la portada y varias páginas en Safari. Quedan por comprobar de principio a fin el acceso de usuarios y la gestión de citas, configurar Cloudinary y preparar el despliegue.
+
+Los datos iniciales proceden de un CSV de ejemplo. Todavía falta preparar el Excel definitivo y ampliar la selección de vehículos de gama alta. También están pendientes la versión en inglés y la revisión final de la documentación y las pruebas de entrega.
 
 ## Dos etapas
 
-**Rock The Code:** Node.js, React, Excel/CSV y semillas con `fs`, usuarios, al menos dos colecciones de negocio relacionadas, rutas protegidas, hooks con utilidad concreta, UX/UI y despliegue de ambas aplicaciones. Este es el alcance de la primera entrega.
+Primero voy a completar la entrega de **Rock The Code**: backend con Node.js, frontend con React, datos preparados en Excel y cargados desde CSV con `fs`, usuarios, colecciones relacionadas, rutas protegidas y despliegue de la web y la API.
 
-**BigSchool:** evolución posterior con app y módulos específicos. Se reserva `apps/mobile/` y se documentan los límites entre plataforma, negocio e interfaz. La app todavía no está implementada.
+Después continuaré el proyecto para el TFM de **BigSchool**, con una app y nuevas funcionalidades. La estructura ya separa el código de la web de las validaciones y las peticiones a la API que podrán aprovecharse más adelante. La carpeta `apps/mobile/` está reservada para esa segunda etapa; la app aún no está desarrollada.
 
-La [revisión de entrega](docs/REVISION-ENTREGA.md) distingue lo implementado de lo pendiente.
+Los requisitos y las tareas pendientes están en la [revisión de entrega](docs/REVISION-ENTREGA.md).
 
 ## Estructura
 
@@ -48,34 +62,34 @@ backend/src/
     appointments/  # Citas y permisos sobre la agenda
   config/          # Entorno y conexión a MongoDB
   middlewares/     # Sesión y comprobación de origen
-  routes/          # Composición de la API
+  routes/          # Rutas de la API
   seeds/           # Lectura, validación y carga de CSV
   utils/           # Errores y reglas comunes
 frontend/src/
-  app/             # Rutas y composición de la web
+  app/             # Rutas de la web
   features/        # Marca, catálogo, acceso y citas
   shared/          # Componentes, hooks y conexión HTTP
   styles/          # Variables, base y componentes
 packages/
-  contracts/       # Esquemas y vocabulario comunes
-  api-client/      # Peticiones sin dependencia de React ni DOM
-apps/mobile/       # Alcance previsto para la segunda etapa
+  contracts/       # Validaciones compartidas
+  api-client/      # Cliente de la API reutilizable
+apps/mobile/       # Carpeta reservada para la futura app
 data/
   csv/             # Datos que puede leer la semilla
-  media/           # Créditos y correspondencia de fotografías
+  media/           # Fotografías, fuentes y créditos
 docs/              # Arquitectura, diseño y seguimiento
 ```
 
 ## Tecnologías
 
-**Frontend:** React, React Router, Vite y CSS.
+**Frontend:** React, React Router, Vite, Leaflet y CSS.
 
 **Backend:** Node.js, Express, Mongoose, JWT, bcrypt, Zod, Multer y Cloudinary.
 
 **Datos:** MongoDB Atlas y lectura de CSV con `node:fs/promises`.
 **Pruebas:** `node:test`, Supertest y Vitest.
 
-Zod comparte validaciones entre la web y la API. La autorización permanece siempre en el servidor. No se acepta un rol enviado desde el formulario de registro.
+Utilizo Zod para validar los datos en la web y en la API. Los permisos se comprueban en el backend: una persona que se registra no puede asignarse el rol de administradora desde el formulario.
 
 ## Instalación local
 
@@ -90,13 +104,13 @@ npm run dev
 
 Configura `MONGODB_URI` y un `JWT_SECRET` de al menos 32 caracteres antes de arrancar el servidor. La web utiliza `http://localhost:5173` y la API `http://localhost:3000/api/v1`.
 
-Para revisar únicamente el diseño editorial sin base de datos:
+Para ver las páginas de presentación sin arrancar el backend:
 
 ```bash
 npm run dev -w frontend
 ```
 
-La portada, la esencia de marca, los modelos editoriales y los créditos se pueden consultar. El catálogo, la cuenta y las citas muestran errores reales si la API no está disponible; no sustituyen la base de datos por un catálogo simulado.
+Con este comando puedes ver la portada, Nuestra esencia, Servicios, la selección de modelos y los créditos. Para consultar el catálogo y utilizar la cuenta o las citas necesitas tener también el backend en marcha.
 
 ## Variables de entorno
 
@@ -123,19 +137,21 @@ npm run seed:check   # CSV y relaciones, sin conectar a Atlas
 npm run seed         # inserción en la base de datos configurada
 ```
 
-La semilla utiliza claves estables e inserta solo los registros que faltan. No borra colecciones ni sobrescribe vehículos existentes. Las imágenes subidas posteriormente no se sustituyen al repetirla. Modificar un CSV de una unidad ya insertada todavía no actualiza esa unidad.
+La semilla carga los datos de los CSV en MongoDB. Cada registro tiene una clave para evitar duplicados. Al repetirla, se añaden los vehículos que faltan y se actualizan los datos de las sedes; los vehículos ya guardados y sus imágenes se conservan. Por eso, cambiar un vehículo en el CSV no modifica automáticamente su ficha en la base de datos.
 
 ## Datos y fotografías
 
-El ejemplo contiene VIN, precios con símbolo `$`, kilometrajes, colores y fechas de demostración. No acredita unidades reales. Los precios originales se conservan como texto en el CSV; no se les asigna una moneda ni se convierten en precios de venta verificados. Los VIN originales tampoco se publican como identificadores reales en la API.
+El CSV inicial contiene datos de ejemplo: VIN, precios, kilometrajes, colores y fechas. Son datos para trabajar en el proyecto, no vehículos reales puestos a la venta. Los precios se conservan tal como aparecen en el archivo, sin asumir una moneda ni presentarlos como precios comprobados. Los VIN del ejemplo no se muestran en la API.
 
-Las fotografías revisadas cubren Tesla Model S, Audi Q5 y Mercedes Clase S del CSV, además de Porsche Taycan y Ferrari Roma de la selección editorial. Las fotos pueden corresponder a una generación o acabado diferente. Cuando no hay foto específica, se muestra una referencia de la misma marca, identificada como tal. Cada marca del CSV dispone de dos referencias y se conserva la misma asignación en tarjeta y ficha.
+He añadido fotografías de Tesla Model S, Audi Q5 y Mercedes Clase S, además de Porsche Taycan y Ferrari Roma para la selección de la portada. Algunas fotos pueden mostrar otra generación o acabado del modelo. Cuando no hay una imagen específica, utilizo una fotografía de la misma marca y la identifico como imagen de referencia. Cada marca del CSV tiene dos imágenes disponibles, y cada vehículo muestra la misma foto en la tarjeta y en su ficha.
+
+Las imágenes de los concesionarios, los profesionales y las historias de KelseTS son escenas ficticias creadas para el proyecto. El vídeo del hero es propio y su música está creada con Suno. Los recursos utilizados se recogen en la documentación.
 
 Fuentes y licencias en [Recursos](docs/RECURSOS.md) y en la página `/creditos`.
 
-## API inicial
+## API
 
-Todas las rutas de negocio se publican bajo `/api/v1`.
+La dirección base de la API es `/api/v1`.
 
 | Método | Ruta | Acceso |
 | --- | --- | --- |
@@ -147,11 +163,11 @@ Todas las rutas de negocio se publican bajo `/api/v1`.
 | GET / POST | `/appointments` | Sesión |
 | PATCH | `/appointments/:id` | Propietario para cancelar; personal autorizado para gestionar |
 
-La respuesta utiliza `{ success, data }` o `{ success: false, error }`. La sesión web utiliza una cookie `HttpOnly`; las operaciones de escritura comprueban `Origin`. Las llamadas manuales de Insomnia deben incluir un origen permitido. El índice de citas permite una cita activa por sede y hora.
+La API devuelve `{ success, data }` cuando la petición funciona y `{ success: false, error }` si hay un error. La sesión se guarda en una cookie `HttpOnly`. Para crear o modificar datos se comprueba el origen de la petición; en Insomnia hay que incluir un `Origin` permitido. Solo puede haber una cita activa en una misma sede y franja horaria.
 
 ## Documentación
 
-- [Memoria inicial](MEMORIA.md).
+- [Memoria del proyecto](MEMORIA.md).
 - [Arquitectura y evolución hacia la app](docs/ARQUITECTURA.md).
 - [Dirección visual](docs/DISENO.md).
 - [Logo e identidad de marca](docs/MARCA.md).
@@ -160,7 +176,7 @@ La respuesta utiliza `{ success, data }` o `{ success: false, error }`. La sesi�
 
 ## Despliegue
 
-Pendiente. Los archivos de Vercel son una base de configuración; hay que sustituir el dominio de ejemplo de la API y comprobar cookies, CORS y enlaces directos. Se propone que la web publique `/api/v1` mediante un proxy al backend para evitar depender de cookies entre sitios distintos.
+El despliegue todavía está pendiente. Ya hay archivos de configuración para Vercel, pero falta indicar la dirección definitiva de la API y comprobar el funcionamiento de la sesión, los permisos de conexión y los enlaces directos a cada página. Cuando estén publicados el frontend y el backend, añadiré aquí los enlaces.
 
 ## Aviso académico y autora
 
@@ -170,4 +186,4 @@ KelseTS Cars es una marca ficticia para fines educativos y de portfolio. No exis
 
 [GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/)
 
-La [organización de las secciones y referencias](docs/SECCIONES.md) distingue la entrega Rock The Code de los módulos previstos para BigSchool.
+La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega y las ideas que desarrollaré después para BigSchool.
