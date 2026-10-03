@@ -1,5 +1,9 @@
 # Validación de la base inicial
 
+## Conexión e importación en Atlas · 3 de octubre de 2026
+
+Se ha comprobado la conexión local a Atlas mediante ping. La semilla se ha ejecutado dos veces: después de ambas ejecuciones hay 100 vehículos, 4 sedes y 100 claves de vehículo únicas, sin referencias de sede ausentes. El endpoint local `GET /api/v1/vehicles` devuelve HTTP 200, total 100, 12 resultados en la primera página y la sede relacionada incluida. Estas comprobaciones no acreditan todavía autenticación, citas ni despliegue. El inventario cargado es el CSV inicial; el Excel definitivo y su revisión siguen pendientes.
+
 Comprobaciones locales del 3 de octubre de 2026: `npm run build` completado, `npm test` con **15 pruebas superadas** (8 backend, 3 horario de interfaz y 4 cliente HTTP) y `npm run seed:check` con **100 vehículos y 4 sedes relacionadas**. Atlas, Cloudinary y producción no se han validado todavía.
 
 ## Alcance de las comprobaciones
@@ -28,3 +32,7 @@ La compilación de la portada ampliada, Servicios y Nuestra esencia pasa. En Saf
 La sustitución de las ocho escenas compila correctamente. Se han inspeccionado individualmente los ocho archivos para comprobar composición, ausencia de textos y detalle. Safari muestra la escena eléctrica nueva integrada y confirma la carga del showroom tras recargar.
 
 La serie de profesionales incorpora cuatro imágenes inspeccionadas individualmente: asesoramiento, taller, revisión técnica y entrega. La compilación pasa. Se ha revisado en Safari la integración del taller y la técnica en Servicios.
+
+## Sedes y mapa · 3 de octubre de 2026
+
+Las cuatro sedes se han actualizado en Atlas con direcciones inventadas, zonas y coordenadas aproximadas. Safari muestra las direcciones servidas por la API y el mapa Leaflet/OpenStreetMap con los cuatro puntos. La fórmula de distancia se ha comprobado con puntos iguales (0 km) y Madrid–Barcelona (unos 498 km en línea recta). La geolocalización requiere una acción y permiso del visitante; no se ha concedido acceso a la ubicación personal durante esta comprobación. Se gestionan permiso denegado, tiempo agotado y navegador sin geolocalización.

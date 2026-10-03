@@ -26,9 +26,9 @@ El público del proyecto son personas que quieren explorar vehículos de gama al
 
 **Base inicial en desarrollo. No es todavía la entrega final.**
 
-La estructura contiene backend modular, frontend React, contratos compartidos y cliente HTTP reutilizable. La portada y las páginas editoriales utilizan cinco fotografías reales con sus créditos y un logo vectorial KelseTS Cars basado en las referencias de marca aportadas, además de un vídeo conceptual en el hero. Se han preparado pantallas iniciales para catálogo, acceso y citas; las funciones que necesitan persistencia requieren configurar y comprobar MongoDB Atlas. La compilación y 15 pruebas locales han pasado; la portada se ha revisado en Safari.
+La estructura contiene backend modular, frontend React, contratos compartidos y cliente HTTP reutilizable. La portada y las páginas editoriales utilizan cinco fotografías reales con sus créditos y un logo vectorial KelseTS Cars basado en las referencias de marca aportadas, además de un vídeo conceptual en el hero. Se han preparado pantallas iniciales para catálogo, acceso y citas; Atlas ya está conectado: se han cargado 100 vehículos y cuatro sedes, comprobado las relaciones y repetido la semilla sin duplicados. El catálogo ofrece búsqueda libre o filtros y dos fotografías de referencia por marca. Sedes incorpora mapa y distancias con ubicación automática o manual; autenticación y citas todavía necesitan comprobaciones integradas. La compilación y 15 pruebas locales han pasado; la portada se ha revisado en Safari.
 
-El CSV de partida contiene 100 registros de ejemplo. Su normalización conserva la procedencia y sustituye las imágenes genéricas cuando existe una fotografía revisada del modelo. El Excel definitivo, la ampliación de gama alta, las integraciones, las evidencias y el despliegue están pendientes. No se han ejecutado operaciones contra Atlas ni Cloudinary.
+El CSV de partida contiene 100 registros de ejemplo. Su normalización conserva la procedencia y sustituye las imágenes genéricas cuando existe una fotografía revisada del modelo. El Excel definitivo, la ampliación de gama alta, las integraciones, las evidencias y el despliegue están pendientes. La carga inicial en Atlas está comprobada; Cloudinary todavía no está configurado.
 
 ## Dos etapas
 
@@ -129,7 +129,7 @@ La semilla utiliza claves estables e inserta solo los registros que faltan. No b
 
 El ejemplo contiene VIN, precios con símbolo `$`, kilometrajes, colores y fechas de demostración. No acredita unidades reales. Los precios originales se conservan como texto en el CSV; no se les asigna una moneda ni se convierten en precios de venta verificados. Los VIN originales tampoco se publican como identificadores reales en la API.
 
-Las fotografías revisadas cubren Tesla Model S, Audi Q5 y Mercedes Clase S del CSV, además de Porsche Taycan y Ferrari Roma de la selección editorial. Las fotos pueden corresponder a una generación o acabado diferente. Los demás modelos quedan sin fotografía antes que mostrar una imagen de otro coche.
+Las fotografías revisadas cubren Tesla Model S, Audi Q5 y Mercedes Clase S del CSV, además de Porsche Taycan y Ferrari Roma de la selección editorial. Las fotos pueden corresponder a una generación o acabado diferente. Cuando no hay foto específica, se muestra una referencia de la misma marca, identificada como tal. Cada marca del CSV dispone de dos referencias y se conserva la misma asignación en tarjeta y ficha.
 
 Fuentes y licencias en [Recursos](docs/RECURSOS.md) y en la página `/creditos`.
 

@@ -22,7 +22,7 @@ El [logo KelseTS Cars](MARCA.md) toma como referencia la marca KelseTS Business 
 Las imágenes de referencia y el vídeo se han recibido en `DocBase/assets`, carpeta excluida del repositorio. Solo se incorporan a `frontend/public` los archivos utilizados por la web:
 
 - `images/editorial/showroom-v2.png`: escena conceptual reconstruida a partir de `03_showroom_concesionario.png`, utilizada en la sección de marca.
-- `videos/kelsets-drive.mp4`: vídeo conceptual aportado, de diez segundos y 1280 × 720. Se elimina la pista de sonido y se prepara para reproducción progresiva.
+- `videos/kelsets-hero.mp4`: película aportada en `DocBase/assets/kelsetscars.mp4`, de unos dos minutos y 1280 × 720. Se comprime para la web, se conserva la música creada con Suno según indica la autora y se prepara para reproducción progresiva. Arranca silenciado y permite activar o desactivar el sonido desde el hero. El vídeo anterior se conserva como recurso previo.
 - `images/editorial/hero-drive.jpg`: fotograma del vídeo para portada estática y respaldo de reproducción.
 
 Estas escenas no acreditan vehículos ni instalaciones reales. Su procedencia se indica también en la página de créditos. Los diseños que muestran app, financiación, comunidad o taller permanecen como referencias para la segunda etapa; no implican funcionalidades implementadas.
@@ -44,3 +44,15 @@ Las nuevas láminas editoriales aportadas se guardan como conduccion.png, llaves
 Los recursos de las secciones se sustituyen por ocho imágenes creadas desde cero, sin textos incorporados: showroom-clean.png, conduccion-clean.png, electrico-clean.png, llaves-clean.png, ruta-clean.png, companeros-clean.png, lifestyle-clean.png y libertad-clean.png. Se guardan en `frontend/public/images/editorial/`. Los textos y las acciones se presentan mediante React. La dirección visual y los prompts se recogen en [ESCENAS-EDITORIALES.md](ESCENAS-EDITORIALES.md). Las imágenes aportadas permanecen como referencias, y las fotografías de modelos mantienen las atribuciones de Commons.
 
 La serie de atención y cuidado añade asesoramiento-clean.png, taller-clean.png, profesional-clean.png y entrega-clean.png, creadas desde cero con imagegen y guardadas en frontend/public/images/editorial. Sus prompts se conservan en ESCENAS-EDITORIALES.md. Las escenas muestran personas ficticias e ilustran los valores de la marca.
+
+## Referencias de marca · 3 de octubre de 2026
+
+Se han incorporado 17 fotografías de Wikimedia Commons como respaldo para las marcas sin foto propia de modelo. Los 100 vehículos del CSV inicial disponen de fotografía específica o referencia de su misma marca. Estas referencias se resuelven en la interfaz sin sobrescribir fotos de Atlas o Cloudinary. Cada una se identifica como «Imagen de referencia» y conserva autor, fuente y licencia en `data/media/vehicles.json` y en la página de créditos. Se han inspeccionado los 17 archivos descargados.
+
+## Variedad por marca
+
+Se añaden 20 variantes inspeccionadas, una para cada marca del CSV inicial. Cada marca dispone de dos referencias. `scripts/assign-reference-photos.js` distribuye las referencias por marca y clave de vehículo y genera `data/media/vehicle-photo-assignments.json`. Tarjeta y ficha usan la misma asignación estable. Las fotografías subidas a Cloudinary conservan prioridad sobre las referencias locales. Los archivos y créditos están recogidos en el manifiesto.
+
+## Mapa de sedes
+
+Mapa implementado con Leaflet y teselas de OpenStreetMap, con atribución visible. Las calles KelseTS son inventadas. Los puntos representan aproximadamente Salamanca–Milla de Oro, Pedralbes, Miraconcha y Monte Sancha–La Caleta, no locales existentes. La distancia es geodésica en línea recta, calculada en el navegador; no se guarda la ubicación del visitante en Atlas. El hero reutiliza `showroom-v2.png`.

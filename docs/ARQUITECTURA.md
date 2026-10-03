@@ -33,6 +33,14 @@ flowchart LR
 
 La API tiene versión `/api/v1`. Una futura incompatibilidad debe producir una nueva versión o una migración explícita, sin romper la web entregada.
 
+## Idiomas del universo KelseTS
+
+KelseTS Cars debe ofrecer versiones completas en castellano e inglés desde la entrega web de Rock The Code, como el resto de webs de la marca. Esta funcionalidad está pendiente de implementación.
+
+Se utilizará un selector de idioma accesible y se conservará la elección del visitante. Las traducciones se organizarán por funcionalidad con claves estables, separadas de los componentes, para poder reutilizar el vocabulario en la futura app. El idioma del documento, los formatos de fechas y números, los formularios, los estados de carga, los errores y los textos accesibles deberán corresponder al idioma elegido. Cambiar de idioma conservará la pantalla y los filtros actuales.
+
+Los identificadores y valores de negocio de la API permanecerán estables; sus etiquetas se traducirán en la interfaz. La revisión de entrega comprobará los recorridos completos en ambos idiomas, sin textos mezclados ni claves de traducción visibles.
+
 ## Incorporar un módulo
 
 1. Definir el caso de uso y los permisos.
