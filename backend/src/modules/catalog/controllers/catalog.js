@@ -12,7 +12,9 @@ const querySchema = z.object({
 export async function listVehicles(req, res) {
   const { q, brand, fuel, page, sort } = querySchema.parse(req.query);
   const filter = {};
-  if (q) filter.$or = ['brand', 'model'].map(key => ({ [key]: new RegExp(escapeRegex(q), 'i') }));
+  if (q?.trim()) filter.$and = q.trim().split(/\s+/).map(term => ({
+    $or: ['brand', 'model'].map(key => ({ [key]: new RegExp(escapeRegex(term), 'i') })),
+  }));
   if (brand) filter.brand = brand;
   if (fuel) filter.fuel = fuel;
   const order = sort === 'brand' ? { brand: 1, model: 1, seedKey: 1 } : { price: sort === 'price-asc' ? 1 : -1, seedKey: 1 };
