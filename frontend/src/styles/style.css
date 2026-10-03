@@ -1,0 +1,36 @@
+:root {
+  --color-ink: #101919; --color-muted: #53615d; --color-paper: #f7f6f2;
+  --color-white: #fff; --color-accent: #d9bb81; --color-line: #d9ddd7;
+  --color-error: #9b2525; --color-focus: #996819;
+  --space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem;
+  --space-5: 3rem; --space-6: 5rem; --space-7: 7rem;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-editorial: Georgia, 'Times New Roman', serif;
+  --content-width: 1440px; --radius: 3px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); line-height: 1.6; }
+button, input, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: inherit; text-underline-offset: .25em; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0 0 var(--space-2); }
+h1, h2, h3 { line-height: 1.08; font-weight: 400; letter-spacing: -.04em; }
+h1 { font-size: clamp(2.8rem, 5.8vw, 6rem); }
+h2 { font-size: clamp(2rem, 3.5vw, 3.6rem); }
+h3 { font-size: 2.1rem; }
+em { font-family: var(--font-editorial); font-weight: 400; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 5px; }
+main:focus { outline: none; }
+::selection { background: var(--color-accent); color: var(--color-ink); }
+.section, .page-shell { max-width: var(--content-width); margin: 0 auto; padding: var(--space-6) clamp(1.25rem, 5vw, 5rem); }
+.page-shell { min-height: 60vh; }
+.eyebrow { font-size: .7rem; font-weight: 600; letter-spacing: .19em; line-height: 1.7; }
+.small { font-size: .8rem; color: var(--color-muted); }
+.lead { font-size: 1.3rem; }
+.reading-page { max-width: 950px; }
+.reading-page h2 { font-size: 2rem; margin-top: var(--space-5); }
+.skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 20; padding: 1rem; background: white; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }

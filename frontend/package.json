@@ -1,0 +1,6 @@
+{
+  "name": "@kelsets-cars/frontend", "private": true, "version": "0.1.0", "type": "module",
+  "scripts": { "dev": "vite --host 127.0.0.1", "build": "vite build", "preview": "vite preview --host 127.0.0.1", "test": "vitest run" },
+  "dependencies": { "react": "^19.1.1", "react-dom": "^19.1.1", "react-router-dom": "^7.9.3", "@kelsets-cars/contracts": "*", "@kelsets-cars/api-client": "*" },
+  "devDependencies": { "vite": "^7.1.9", "@vitejs/plugin-react": "^5.0.4", "vitest": "^3.2.4" }
+}

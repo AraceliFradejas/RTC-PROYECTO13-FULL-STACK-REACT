@@ -1,0 +1,12 @@
+DocBase/
+.DS_Store
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+.vercel/
+*.log
+backend/.uploads/
+docs/screenshots/local/

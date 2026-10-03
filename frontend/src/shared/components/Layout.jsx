@@ -1,0 +1,32 @@
+import { BrandLogo } from './BrandLogo.jsx';
+import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useAuth } from '../../features/auth/AuthProvider.jsx';
+export function Layout() {
+  const { user } = useAuth();
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const isHome = location.pathname === '/';
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 80);
+    update(); window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, [isHome]);
+  const main = useRef(null);
+  const previousPath = useRef(location.pathname);
+  useEffect(() => {
+    if (previousPath.current !== location.pathname) {
+      main.current?.focus(); window.scrollTo({ top: 0 }); previousPath.current = location.pathname;
+    }
+  }, [location.pathname]);
+  return <>
+    <a className="skip-link" href="#contenido">Saltar al contenido</a>
+    <header className={`site-header ${isHome ? 'cinematic-header' : ''} ${isHome && scrolled ? 'is-scrolled' : ''}`}>
+      <Link className="wordmark" to="/" aria-label="KelseTS Cars, inicio"><BrandLogo /></Link>
+      <nav aria-label="Navegación principal"><NavLink to="/catalogo">Colección</NavLink><NavLink to="/servicios">Servicios</NavLink><NavLink to="/experiencia">Nuestra esencia</NavLink><NavLink to="/sedes">Sedes</NavLink></nav>
+      <Link className="account-link" to={user ? '/mi-cuenta' : '/acceso'}>{user ? 'Mi cuenta' : 'Acceder'} <span aria-hidden="true">↗</span></Link>
+    </header>
+    <main id="contenido" ref={main} tabIndex={-1}><Outlet /></main>
+    <footer className="site-footer"><div><Link className="wordmark footer-wordmark" to="/" aria-label="KelseTS Cars, inicio"><BrandLogo /></Link><p>El carácter se lleva dentro.<br />El camino lo eliges tú.</p></div><div><p>Madrid · Barcelona<br />San Sebastián · Málaga</p><Link to="/creditos">Fotografías y créditos</Link></div><p className="legal">Marca ficticia · Proyecto académico de Araceli Fradejas Muñoz.<br />Sin vinculación con los fabricantes. Las fotografías ilustran modelos, no unidades a la venta.</p></footer>
+  </>;
+}
