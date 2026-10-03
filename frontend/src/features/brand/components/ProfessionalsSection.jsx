@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../../../shared/components/Reveal.jsx';
 const values = [
-  { image: 'asesoramiento-clean', title: 'Escuchar antes de proponer.', text: 'La sofisticación empieza en el trato: entender qué buscas y darte espacio para decidir.', alt: 'Asesora y clientes ficticios conversando en un showroom de lujo', to: '/servicios', action: 'Conocer el asesoramiento' },
+  { image: 'asesora-equipo-v1', title: 'Escuchar antes de proponer.', text: 'La sofisticación empieza en el trato: entender qué buscas y darte espacio para decidir.', alt: 'Retrato de una asesora ficticia junto a un coupé blanco en el showroom', to: '/servicios', action: 'Conocer el asesoramiento' },
   { image: 'entrega-clean', title: 'El comienzo de algo tuyo.', text: 'Cercanía, atención y la ilusión de empezar un nuevo camino.', alt: 'Asesor ficticio entregando una llave a una clienta en un showroom', to: '/experiencia', action: 'Descubrir nuestra esencia' },
-  { image: 'taller-clean', title: 'Un espacio para el cuidado.', text: 'Orden, precisión y atención al vehículo: los valores que definen nuestra visión del taller.', alt: 'Profesionales ficticios trabajando en un taller de vehículos de lujo', to: '/servicios', action: 'Conocer el mantenimiento' },
+  { image: 'taller-equipo-v1', title: 'Un espacio para el cuidado.', text: 'Orden, precisión y atención al vehículo: los valores que definen nuestra visión del taller.', alt: 'Profesionales ficticios trabajando en un taller de vehículos de lujo', to: '/servicios', action: 'Conocer el mantenimiento' },
   { image: 'profesional-clean', title: 'Cuidar cada detalle.', text: 'Una mirada atenta, precisión y respeto por lo que te mueve. Así imaginamos el cuidado KelseTS.', alt: 'Profesional ficticia inspeccionando la rueda de un coche en un taller', to: '/servicios', action: 'Descubrir el cuidado KelseTS' },
 ];
 export function ProfessionalsSection() {

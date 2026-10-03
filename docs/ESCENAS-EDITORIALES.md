@@ -1,5 +1,50 @@
 # Escenas editoriales sin textos
 
+## Escenas diferenciadas para portada y Servicios
+
+Ocho imágenes nuevas creadas con la herramienta integrada imagegen, sin referencias de entrada. Las tres imágenes de las tarjetas de Servicios se conservan exclusivamente allí. Cada ubicación sustituida utiliza una escena propia, con luz cálida y colores marfil, carbón y vino. Archivos en `frontend/public/images/editorial/`.
+
+### volante-editorial-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. A wine-red luxury convertible parked at a scenic Mediterranean overlook, stylish blonde woman in ivory seated at the wheel viewed from outside passenger side, elegant cockpit and turquoise sea visible. Car stationary, calm anticipation, cinematic wide composition.
+
+### consulta-servicios-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Private consultation in an ivory showroom lounge: female advisor in charcoal suit seated across from a stylish couple at a bronze table with closed blank leather portfolio, pearl luxury coupe softly visible beyond glass. Wide candid editorial scene, personal listening.
+
+### revision-servicios-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Close medium view of a technician in charcoal uniform carefully inspecting the open engine bay of a stationary wine-red luxury grand tourer, clean organized warm-lit premium workshop, attentive professional craftsmanship, no lift.
+
+### asesora-equipo-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Confident female luxury automotive advisor in tailored charcoal suit and ivory blouse standing beside a pearl-white coupe in a minimalist glass showroom, relaxed three-quarter professional portrait, warm light, subtle wine-red detail.
+
+### taller-equipo-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Wide architectural photograph of a luxurious immaculate service atelier, ivory walls and dark tool cabinets, graphite grand touring car safely on the floor, two technicians consulting beside a neatly arranged workbench, warm linear ceiling lighting.
+
+### prueba-portada-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Pearl-white convertible at a golden-hour coastal road overlook, elegant couple in ivory and wine-red outfits standing beside the car admiring the sea, full car visible, inviting journey, no driving action.
+
+### asesoramiento-portada-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Male automotive advisor in navy tailored suit pointing gently toward a wine-red grand tourer while a stylish female customer in ivory listens inside a sunlit travertine showroom, relaxed attentive service, wide medium view.
+
+### mantenimiento-portada-v1.png
+
+Use case: photorealistic-natural. Create a single new landscape 3:2 luxury automotive editorial photograph for fictional KelseTS Cars. Understated aspirational sophistication, ivory stone, charcoal and restrained wine-red accents, warm natural light, sharp believable detail, natural skin and anatomically correct hands. Fictional people. No text, lettering, logos, watermark, collage or overlays. Close editorial detail of a gloved technician carefully polishing a pearl-white luxury coupe headlight with clean microfiber cloth in a premium charcoal workshop, precision and care, crisp reflections, no visible face needed.
+
+
+## Hero de Servicios
+
+Imagen aspiracional propia para Servicios, creada con la herramienta integrada imagegen. Archivo: `frontend/public/images/editorial/servicios-hero-v1.png`. La imagen de Sedes se utiliza únicamente como referencia de identidad visual. Pareja y asesora ficticias en un showroom, con un gran turismo blanco y el logo KelseTS Cars; inspiración en el estilo musical y deportivo de Taylor Swift y Travis Kelce. No representa una colaboración comercial con ellos.
+
+Prompt utilizado:
+
+Use case: ads-marketing. Asset type: square photographic hero for the Services page of fictional luxury dealership KelseTS Cars. Input image is ONLY reference for exact brand logo and ivory/wine-red sophisticated mood; create an entirely new scene, not that facade. Aspirational cinematic luxury automotive editorial photograph: inside a spacious ivory travertine and bronze glass showroom at golden hour, a stylish blonde woman with soft fringe in a tailored ivory outfit and an athletic tall man with short brown hair and neatly trimmed beard in a deep wine-red jacket stand beside a pearl-white elegant sports grand tourer, listening warmly to a professional female advisor in a charcoal suit. Fictional people, with the glamorous musical and athletic couple style associated with Taylor Swift and Travis Kelce, no celebrity endorsement. Sophistication, personal attention and anticipation of a new journey. Natural candid expressions, believable proportions, hands relaxed and anatomically correct. Entire car visible in lower half; people framed three-quarter length behind its front quarter, not obscured; large clearly readable wall logo above in upper center: elegant serif Kelse, flowing handwritten red TS, small crown above, spaced CARS beneath, matching reference. Exact text only "KelseTS" and "CARS", no slogans, no watermarks or other text. Sharp premium architectural and automotive detail, natural skin texture, warm restrained lighting, refined cream charcoal wine-red palette. Keep logo, people and car well within square crop safe area. No collage, no promotional typography overlays.
+
 ## Serie de atención y cuidado
 
 Cuatro escenas adicionales creadas desde cero con imagegen: asesoramiento-clean.png, taller-clean.png, profesional-clean.png y entrega-clean.png. Se guardan junto a las ocho escenas iniciales en frontend/public/images/editorial. Representan atención, precisión, cercanía y cuidado. Las personas y espacios son conceptuales. Se utilizan en portada, Servicios y Nuestra esencia.
@@ -60,3 +105,12 @@ Use case: photorealistic-natural. Create a new premium editorial photograph from
 ### libertad-clean
 
 Use case: photorealistic-natural. Create a new premium editorial photograph from scratch for a fictional luxury car dealership website. Cohesive photographic art direction inspired by romantic road trips, pop concert culture and American football lifestyle associated with Taylor Swift and Travis Kelce, using fictional people rather than celebrity portraits. Restrained warm ivory, charcoal, wine red accents, soft golden hour, natural fine textures, precise sharp detail, realistic geometry, luxurious but candid and tasteful. Landscape composition 3:2. Absolutely no text, lettering, numbers, signs, logos, slogans, watermarks, badges or collage borders anywhere. Cars must look plausible, clean luxury automotive designs with no visible brand badges. One complete photo only. Scene: Fictional blonde woman with softly wavy hair and a fictional tall athletic man, seen from behind while standing beside a parked dark luxury convertible on a coastal overlook at golden hour. Woman wears ivory knitwear, man wears a simple deep red jacket with no lettering or numbers. Relaxed romantic travel mood, car door closed, ocean horizon, natural editorial intimacy. Not recognizable celebrity likenesses, no text or emblems.
+# Hero propio de Sedes
+
+Archivo: `frontend/public/images/editorial/sedes-showroom-v1.png`. Generado con la herramienta integrada de imágenes; referencia de estilo e identidad: `showroom-v2.png`. Fachada curva en piedra clara, cristal y bronce, logo iluminado y dos deportivos al anochecer. Escena conceptual distinta del concesionario del catálogo.
+
+Prompt final:
+
+```text
+Use case: ads-marketing. Create a brand new premium photorealistic architectural photograph for the KelseTS Cars dealerships page hero, square composition. The reference image is ONLY a brand identity/style reference, not the building to reproduce. Completely DIFFERENT dealership: striking sculptural pavilion with curved ivory travertine facade, bronze slender fins, two-storey glass atrium, Mediterranean landscaping with olive trees, generous clean forecourt, blue-hour twilight and warm interior light. Wide three-quarter architectural view showing the whole facade. Two elegant luxury sports cars parked with generous breathing room: wine-red low sports coupe and pearl-white grand touring coupe; believable proportions. On the upper central stone facade place one clearly legible illuminated KelseTS CARS logo matching reference: white elegant serif Kelse, flowing wine-red handwritten TS, small white crown above Kelse, spaced CARS underneath. Exact text only KelseTS and CARS; no slogans, no other typography, no watermarks. Sophisticated, natural texture, sharp architectural details, premium editorial photography. Do not repeat the original dark rectangular facade, diagonal composition, Mercedes lineup or sunset orange sky. Keep the whole logo and both cars within the central safe composition for responsive crop.
+```
