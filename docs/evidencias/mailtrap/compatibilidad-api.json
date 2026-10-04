@@ -1,0 +1,611 @@
+{
+  "report": {
+    "status": "success",
+    "errors": [
+      {
+        "error_line": 3,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 3,
+        "rule_name": "margin",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 4,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 4,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 5,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 5,
+        "rule_name": "max-width",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "BlackBerry",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app"
+          ]
+        }
+      },
+      {
+        "error_line": 5,
+        "rule_name": "width",
+        "email_clients": {
+          "desktop": [
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "border-bottom",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "border",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "height",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ],
+          "mobile": [
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "width",
+        "email_clients": {
+          "desktop": [
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 6,
+        "rule_name": "display",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "BlackBerry",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 7,
+        "rule_name": "border",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 7,
+        "rule_name": "height",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ],
+          "mobile": [
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 7,
+        "rule_name": "max-width",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "BlackBerry",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app"
+          ]
+        }
+      },
+      {
+        "error_line": 7,
+        "rule_name": "width",
+        "email_clients": {
+          "desktop": [
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 7,
+        "rule_name": "display",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "BlackBerry",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 8,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 8,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 8,
+        "rule_name": "margin",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 9,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 9,
+        "rule_name": "margin",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 11,
+        "rule_name": "margin",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 11,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 11,
+        "rule_name": "border-radius",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Windows Phone 8 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 11,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 11,
+        "rule_name": "display",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "BlackBerry",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 12,
+        "rule_name": "background",
+        "email_clients": {
+          "desktop": [
+            "AOL Desktop",
+            "IBM Notes 9",
+            "Outlook 2000–03",
+            "Outlook 2007–16",
+            "Outlook Express",
+            "Postbox",
+            "Windows 10 Mail",
+            "Windows Live Mail"
+          ],
+          "mobile": [
+            "Android 4.2.2 Mail",
+            "Android 4.4.4 Mail",
+            "AOL Alto Android app",
+            "BlackBerry",
+            "Gmail Android app",
+            "Gmail Android app IMAP",
+            "Google Inbox Android app",
+            "Outlook Android app",
+            "Windows Phone 8 Mail",
+            "Yahoo! Mail Android app",
+            "Yahoo! Mail iOS app"
+          ],
+          "web": [
+            "Yahoo! Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 12,
+        "rule_name": "border-top",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 12,
+        "rule_name": "padding",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      },
+      {
+        "error_line": 12,
+        "rule_name": "margin",
+        "email_clients": {
+          "desktop": [
+            "IBM Notes 9",
+            "Outlook 2007–16",
+            "Windows 10 Mail"
+          ]
+        }
+      }
+    ]
+  }
+}

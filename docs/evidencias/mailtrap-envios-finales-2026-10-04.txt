@@ -1,0 +1,14 @@
+
+> @kelsets-cars/backend@0.1.0 email:sandbox
+> node src/modules/communications/sandboxPreview.js
+
+Sandbox: client.welcome aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.received aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.approved aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.rejected aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.pending aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.confirmed aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.cancelled aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.completed aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.assigned aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.assignment aceptado. Sin entrega a buzones personales.

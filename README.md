@@ -203,6 +203,6 @@ La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega 
 
 Para revisar el backend sin usar la web, he incluido una [colección de pruebas de Insomnia y su guía](docs/INSOMNIA.md). Las credenciales se configuran en un entorno privado; el archivo del repositorio contiene solo datos ficticios.
 
-Las comunicaciones tienen [diez muestras para revisar en Mailtrap Sandbox](docs/MAILTRAP.md), con HTML y texto y sin entrega a buzones personales. La bienvenida de cliente y la aprobación de taller ya han sido aceptadas por el Sandbox. Utilizan el logo de la web, imágenes exclusivas para cada perfil y un footer común editable; las [evidencias locales](docs/evidencias/README.md) recogen el diseño actualizado. Falta completar la revisión de los diez tipos, texto y móvil.
+Las [diez comunicaciones](docs/MAILTRAP.md) ya se han recibido en Mailtrap Sandbox con datos ficticios, HTML y texto. Cada una tiene una imagen exclusiva según su contenido, el mismo logo de la web y un footer común editable. He guardado los mensajes recibidos y su verificación en [evidencias](docs/evidencias/README.md). Los eventos de la aplicación siguen dejando mensajes en la bandeja privada de demostración. Quedan pendientes la revisión móvil de todos los tipos y las pruebas en clientes de correo reales.
 
 Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).

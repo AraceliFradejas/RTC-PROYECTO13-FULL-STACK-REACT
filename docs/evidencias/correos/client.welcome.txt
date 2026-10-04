@@ -1,0 +1,19 @@
+Muestra ficticia para Mailtrap Sandbox.
+
+Bienvenida a KelseTS Cars
+
+Hola, Alex Demo.
+
+Tu cuenta está creada. Puedes explorar el catálogo y solicitar una cita de prueba de conducción, asesoramiento o mantenimiento. Encontrarás las novedades de tus citas en tu área personal.
+
+Explorar vehículos: http://localhost:5173/catalogo
+
+KelseTS Cars
+El carácter se lleva dentro. El camino lo eliges tú.
+Madrid · Barcelona · San Sebastián · Málaga
+Nuestra esencia: http://localhost:5173/experiencia
+Nuestras sedes: http://localhost:5173/sedes
+Mi cuenta: http://localhost:5173/mi-cuenta
+
+Marca ficticia · Proyecto académico.
+Abrir el enlace no modifica citas ni solicitudes.

@@ -26,3 +26,10 @@ export function renderEmail(message, { sandbox = false, webUrl, media } = {}) {
 <tr><td style="padding:28px;background:#eeede7;border-top:1px solid #deddd5"><p style="margin:0 0 12px;font:20px Georgia,'Times New Roman',serif;line-height:1.5">${emailFooter.motto}</p><p style="font-size:12px;line-height:1.6;color:#53615d">${emailFooter.locations}</p><p style="font-size:13px;line-height:2"><a href="${link('/experiencia')}" style="color:#101919">Nuestra esencia</a> &nbsp;·&nbsp; <a href="${link('/sedes')}" style="color:#101919">Nuestras sedes</a> &nbsp;·&nbsp; <a href="${link('/mi-cuenta')}" style="color:#101919">Mi cuenta</a></p><p style="margin:18px 0 0;font-size:11px;line-height:1.6;color:#53615d">KelseTS Cars · Marca ficticia · Proyecto académico.<br>${notice}<br>Abrir el enlace no modifica citas ni solicitudes.</p></td></tr>
 </table></td></tr></table></body></html>`;
 }
+
+export function renderEmailText(message, { sandbox = false, webUrl } = {}) {
+  // Reutilizar la validación de destinos antes de incluir los enlaces en texto.
+  renderEmail(message, { sandbox, webUrl });
+  const link = path => webUrl ? new URL(path, webUrl).href : path;
+  return `${sandbox ? 'Muestra ficticia para Mailtrap Sandbox.' : 'Comunicación de demostración. Sin envío real.'}\n\n${message.subject}\n\n${message.text}\n\n${message.actionLabel}: ${link(message.actionPath)}\n\nKelseTS Cars\n${emailFooter.motto}\n${emailFooter.locations}\nNuestra esencia: ${link('/experiencia')}\nNuestras sedes: ${link('/sedes')}\nMi cuenta: ${link('/mi-cuenta')}\n\nMarca ficticia · Proyecto académico.\nAbrir el enlace no modifica citas ni solicitudes.`;
+}

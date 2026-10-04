@@ -1,0 +1,23 @@
+Muestra ficticia para Mailtrap Sandbox.
+
+Resultado de la solicitud de tu taller
+
+Hola, Alex Demo.
+
+Tras revisar la solicitud de KelseTS Atelier Demo, no podemos aprobarla en este momento.
+
+Motivo: Falta información sobre las especialidades del taller.
+
+Puedes consultar el resultado en tu cuenta.
+
+Consultar el resultado: http://localhost:5173/mi-cuenta
+
+KelseTS Cars
+El carácter se lleva dentro. El camino lo eliges tú.
+Madrid · Barcelona · San Sebastián · Málaga
+Nuestra esencia: http://localhost:5173/experiencia
+Nuestras sedes: http://localhost:5173/sedes
+Mi cuenta: http://localhost:5173/mi-cuenta
+
+Marca ficticia · Proyecto académico.
+Abrir el enlace no modifica citas ni solicitudes.

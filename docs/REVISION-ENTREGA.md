@@ -43,5 +43,6 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 - [x] Completar el recorrido en navegador de cliente, cita, asignación y confirmación desde Team, agenda del taller y cierre.
 - [ ] Completar registro de taller y su aprobación y rechazo desde Team en navegador.
 
-- [ ] Capturar y revisar diez muestras de comunicación en Mailtrap Sandbox, en HTML y texto.
+- [x] Capturar y verificar las diez muestras en Mailtrap Sandbox, en HTML y texto, con sus cuerpos recibidos y registro de verificación.
+- [ ] Completar la revisión visual móvil de los diez correos y las pruebas en clientes de correo reales.
 - [ ] Revisar cada perfil privado a 320, 390, 768 y 1440 px, incluyendo textos largos, formularios y errores; completar comprobación en dispositivo real.

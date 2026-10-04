@@ -1,0 +1,12 @@
+Mailtrap Sandbox · 4 de octubre de 2026
+Datos ficticios @kelsets.example. No entrega a buzones personales.
+Las muestras definitivas client.welcome y workshop.approved ya fueron aceptadas en la ronda anterior.
+
+Sandbox: workshop.received aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.rejected aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.pending aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.confirmed aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.cancelled aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.completed aceptado. Sin entrega a buzones personales.
+Sandbox: appointment.assigned aceptado. Sin entrega a buzones personales.
+Sandbox: workshop.assignment aceptado. Sin entrega a buzones personales.

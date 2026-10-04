@@ -1,0 +1,23 @@
+Muestra ficticia para Mailtrap Sandbox.
+
+Taller asignado a tu cita
+
+Hola, Alex Demo.
+
+KelseTS Cars Team ha asignado la cita de Mantenimiento para Mercedes-Benz Clase S a KelseTS Atelier Demo.
+Sede coordinadora: KelseTS Cars Madrid.
+6 de octubre de 2026 a las 10:00 (hora de Madrid)
+
+La asignación organiza la atención; no confirma por sí sola la cita ni constituye un presupuesto de reparación. Consulta los detalles en tu cuenta.
+
+Consultar la asignación: http://localhost:5173/mi-cuenta
+
+KelseTS Cars
+El carácter se lleva dentro. El camino lo eliges tú.
+Madrid · Barcelona · San Sebastián · Málaga
+Nuestra esencia: http://localhost:5173/experiencia
+Nuestras sedes: http://localhost:5173/sedes
+Mi cuenta: http://localhost:5173/mi-cuenta
+
+Marca ficticia · Proyecto académico.
+Abrir el enlace no modifica citas ni solicitudes.

@@ -1,0 +1,19 @@
+Muestra ficticia para Mailtrap Sandbox.
+
+Tu taller ya forma parte de la red KelseTS
+
+Hola, Alex Demo.
+
+La solicitud de KelseTS Atelier Demo está aprobada. Tu perfil profesional ya está activo. Puedes consultar tu perfil y las citas de mantenimiento que KelseTS Cars Team asigne a tu taller. El seguimiento de reparaciones y siniestros se incorporará en la siguiente fase.
+
+Ver mi perfil profesional: http://localhost:5173/mi-cuenta
+
+KelseTS Cars
+El carácter se lleva dentro. El camino lo eliges tú.
+Madrid · Barcelona · San Sebastián · Málaga
+Nuestra esencia: http://localhost:5173/experiencia
+Nuestras sedes: http://localhost:5173/sedes
+Mi cuenta: http://localhost:5173/mi-cuenta
+
+Marca ficticia · Proyecto académico.
+Abrir el enlace no modifica citas ni solicitudes.

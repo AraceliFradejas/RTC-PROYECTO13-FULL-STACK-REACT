@@ -1,0 +1,19 @@
+Muestra ficticia para Mailtrap Sandbox.
+
+Hemos recibido la solicitud de tu taller
+
+Hola, Alex Demo.
+
+Hemos recibido la solicitud de KelseTS Atelier Demo. Revisaremos la ubicación y las especialidades antes de aprobar su incorporación. Mientras esté pendiente, la cuenta no tendrá acceso a citas ni a datos de clientes. Puedes consultar el estado aquí.
+
+Consultar mi solicitud: http://localhost:5173/mi-cuenta
+
+KelseTS Cars
+El carácter se lleva dentro. El camino lo eliges tú.
+Madrid · Barcelona · San Sebastián · Málaga
+Nuestra esencia: http://localhost:5173/experiencia
+Nuestras sedes: http://localhost:5173/sedes
+Mi cuenta: http://localhost:5173/mi-cuenta
+
+Marca ficticia · Proyecto académico.
+Abrir el enlace no modifica citas ni solicitudes.

@@ -55,12 +55,30 @@ Este comando no se conecta a Atlas, no crea citas y no cambia la entrega de los 
 
 Guardar una captura HTML y otra del texto de cada tipo, o una selección representativa con la lista de diez capturas recibidas. Comprobar ancho móvil, lectura, botón redondeado y enlace: debe abrir la web y puede pedir iniciar sesión. Abrir el enlace nunca confirma ni cancela una cita. Anotar fecha, tipo, resultado y cualquier incidencia de compatibilidad que muestre Mailtrap. No afirmar compatibilidad con todos los clientes de correo sin probarlos.
 
-El 4 de octubre de 2026, después de una respuesta HTTP 401, se contrastó la configuración con el ejemplo CURL de My Sandbox. El ID guardado no correspondía a esa bandeja. Se corrigió únicamente `MAILTRAP_INBOX_ID` en el archivo privado y se volvió a enviar `client.welcome`: la API aceptó la muestra. No fue necesario regenerar el token. Los rechazos anteriores quedan como incidencia resuelta de configuración; todavía está pendiente revisar el correo recibido en la interfaz de Mailtrap, su HTML, texto y enlace, y validar las otras nueve muestras.
+## Resultado · 4 de octubre de 2026
+
+Las diez muestras definitivas se han recibido en el Sandbox. La [verificación](evidencias/mailtrap/verificacion.json) conserva tipo, identificador, fecha de recepción, fotografía elegida, enlaces y hashes de los cuerpos descargados. Se ha comprobado que cada mensaje incluye HTML y texto, que el texto coincide con la plantilla actual y que sus cinco enlaces pertenecen al origen web configurado. El HTML contiene las referencias CID del logo y de la fotografía; esta comprobación no compara el contenido binario de los adjuntos.
+
+Para repetir la lectura y exportar los mensajes recibidos, sin enviar nuevas muestras:
+
+```bash
+node scripts/verify-mailtrap-samples.mjs
+```
+
+Para regenerar las evidencias locales HTML y texto:
+
+```bash
+node scripts/export-email-evidence.mjs
+```
+
+Los HTML locales usan rutas relativas a los recursos del proyecto. Los HTML descargados de Mailtrap conservan referencias CID, por lo que sus imágenes se revisan en el Sandbox. El [índice de evidencias](evidencias/README.md) enlaza ambos conjuntos y las capturas disponibles.
 
 ## Identidad de los correos
 
-El encabezado utiliza una exportación PNG del mismo SVG de `BrandLogo.jsx`, con corona y trazo TS, para mantener el logo de la web en clientes de correo que no admiten SVG. El footer se configura en `emailBrand.js`: lema, cuatro ciudades y enlaces a esencia, sedes y cuenta. Las imágenes conceptuales `email-clientes-v1.png` y `email-talleres-v1.png` son exclusivas de estas comunicaciones y no se reutilizan en las secciones de la web. La variante se elige por el tipo de mensaje: `workshop.*` para profesionales y los demás para clientes. El nombre y los datos de la cita siguen procediendo de la plantilla del evento.
+El encabezado utiliza una exportación PNG del mismo SVG de `BrandLogo.jsx`, con corona y trazo TS. El footer se configura en `emailBrand.js`: lema, cuatro ciudades y enlaces a esencia, sedes y cuenta. Cada uno de los diez tipos tiene su propia escena conceptual, exclusiva de los correos. No se reutilizan estas fotos en las secciones de la web. La bienvenida, la atención del taller, la confirmación y el cierre se acompañan de escenas acordes con su contenido; el nombre y los datos de la cita proceden de la plantilla.
 
-Las muestras Sandbox adjuntan logo y fotografía con identificadores CID; no dependen de que Mailtrap pueda acceder a localhost para mostrar imágenes. Los enlaces sí utilizan la URL web configurada. El HTML emplea tablas de presentación, estilos en línea, ancho máximo de 600 px e imágenes fluidas. Se han generado las diez vistas locales y han pasado las cinco pruebas de comunicaciones; la revisión móvil en Mailtrap y la compatibilidad en clientes de correo siguen pendientes.
+Sandbox adjunta logo y fotografía mediante CID, sin depender de localhost para mostrar imágenes. Los enlaces utilizan la URL web configurada y deberán apuntar al despliegue cuando esté disponible. La versión de texto conserva contenido, llamada a la acción y footer. El HTML emplea tablas de presentación, estilos en línea, ancho máximo de 600 px e imágenes fluidas.
 
-La API aceptó las muestras rediseñadas `client.welcome` y `workshop.approved` el 4 de octubre. Un envío consecutivo de taller recibió HTTP 429; una prueba individual posterior fue aceptada. Después se corrigió el recorte de la exportación del logo y se sustituyeron las imágenes reutilizadas por las dos exclusivas. El encabezado completo y el footer se revisaron en Safari con la bienvenida local. Hay que abrir en Mailtrap las muestras más recientes para comprobar su renderizado con imágenes CID; las muestras anteriores conservan el diseño anterior.
+Se ha guardado la bienvenida en la interfaz de Mailtrap, en escritorio y en su preset Phone. Queda pendiente completar la revisión móvil de los demás tipos y las pruebas en Gmail, Outlook u otros clientes reales. El análisis de compatibilidad y su captura se conservan como diagnóstico: indican estilos con soporte desigual, no errores de entrega ni una garantía de renderizado.
+
+La configuración inicial tenía un ID de bandeja incorrecto, corregido al contrastarlo con la integración del Sandbox. Un envío demasiado próximo recibió HTTP 429. El comando espera ahora doce segundos entre muestras y se detiene ante rechazos, sin reintentos automáticos. Las muestras anteriores permanecen en el Sandbox: la verificación selecciona el mensaje más reciente de cada tipo.

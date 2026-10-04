@@ -1,0 +1,196 @@
+{
+  "reviewedOn": "2026-10-04",
+  "scope": "Muestras ficticias de Mailtrap Sandbox; no entrega personal ni eventos automáticos de la aplicación.",
+  "messages": [
+    {
+      "type": "client.welcome",
+      "messageId": 5736363480,
+      "receivedAt": "2026-10-04T16:30:10.960Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/catalogo",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-clientes-v1.png",
+      "htmlSha256": "854eb98f9104a2e803c52dd96a3f98c34fbe09999a54115ae96b38179740c3c0",
+      "textSha256": "96b2ce015b964f0e2b0e4e0cd78248baac7fe1e53f40b9fd7d0eeb8a710c19c7"
+    },
+    {
+      "type": "workshop.received",
+      "messageId": 5736363741,
+      "receivedAt": "2026-10-04T16:30:23.476Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-taller-solicitud-v1.png",
+      "htmlSha256": "66b29d434f216ce45bb85cad27e20ef2e0fe483da0e03e9c3274981ff2183d61",
+      "textSha256": "7a5992cfc65d615d4015d8617e8a9551485cfa75bcbbadcd6b130c3fbeeb8e1f"
+    },
+    {
+      "type": "workshop.approved",
+      "messageId": 5736363919,
+      "receivedAt": "2026-10-04T16:30:36.722Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-talleres-v1.png",
+      "htmlSha256": "a58132cddfa57cce7cf653b9f3410aa4e165b4b1e28648d28963a19b41f3896f",
+      "textSha256": "b106d316fb05b8463ea4afb9662cbe4852fe60a33c8b5f00974068f9261a83ec"
+    },
+    {
+      "type": "workshop.rejected",
+      "messageId": 5736364100,
+      "receivedAt": "2026-10-04T16:30:50.277Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-taller-resultado-v1.png",
+      "htmlSha256": "f9a3a0ff220077cd86786ba7b7c725d33c21a527c8db27a260e3ef6ae2402718",
+      "textSha256": "2232b07973e22ea4e8aca0f567532fe70cc03c50c0a34115cf213ad9bff7fae7"
+    },
+    {
+      "type": "appointment.pending",
+      "messageId": 5736364325,
+      "receivedAt": "2026-10-04T16:31:02.880Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-cita-solicitud-v1.png",
+      "htmlSha256": "6848432be8f85fdccc70c7cb576f802400823d9f19130f6c53a465da9b625e3e",
+      "textSha256": "7416fb6d5e587ac2409e5a030ba8bc054b97e6057049a8331b683936f21cf6dc"
+    },
+    {
+      "type": "appointment.confirmed",
+      "messageId": 5736364691,
+      "receivedAt": "2026-10-04T16:31:15.752Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-cita-confirmada-v1.png",
+      "htmlSha256": "e0a5072f4063cf14b17f5ca7d3f31d0877cd4e30c8863418d5de322014053658",
+      "textSha256": "1da48fd1901d3a39f3dc49027532e2ea2c32d1b914755a082f32f33fe4a2e03b"
+    },
+    {
+      "type": "appointment.cancelled",
+      "messageId": 5736364805,
+      "receivedAt": "2026-10-04T16:31:28.319Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-cita-cancelada-v1.png",
+      "htmlSha256": "de0724eb979d65094e31154ccb28e4b281c2ded4ccf0d601df91093f0c9dba69",
+      "textSha256": "9ff37d2673a670f73d300d07bff862015fe55571170cf440599adf18e1cdfcf2"
+    },
+    {
+      "type": "appointment.completed",
+      "messageId": 5736364923,
+      "receivedAt": "2026-10-04T16:31:40.840Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-cita-completada-v1.png",
+      "htmlSha256": "2c13c2e99abbbbbc67f7033e817c6df9d1644ce672ceafebce48801638607f97",
+      "textSha256": "55e353a78cc7b65f58edcd9ce38a0bb96294244db5a7803aa00914984296efa7"
+    },
+    {
+      "type": "appointment.assigned",
+      "messageId": 5736365018,
+      "receivedAt": "2026-10-04T16:31:53.325Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-cita-asignada-v1.png",
+      "htmlSha256": "6202125a3275c3a942ecb266debec52c22991122172b6a4e39e73e5fb9bdae16",
+      "textSha256": "54fec897495353ec0e363c32f42009a06a4baf9617b31e2d6979d2641eec7929"
+    },
+    {
+      "type": "workshop.assignment",
+      "messageId": 5736365125,
+      "receivedAt": "2026-10-04T16:32:06.528Z",
+      "html": true,
+      "text": true,
+      "textMatchesTemplate": true,
+      "cidImages": true,
+      "links": [
+        "http://localhost:5173/",
+        "http://localhost:5173/mi-cuenta",
+        "http://localhost:5173/experiencia",
+        "http://localhost:5173/sedes",
+        "http://localhost:5173/mi-cuenta"
+      ],
+      "image": "email-taller-asignacion-v1.png",
+      "htmlSha256": "237eba6c0ac9930a26308e32b64daf0a31b33a4545524a2ad08aff72a3ed8949",
+      "textSha256": "e38f68b19bfc7358d923c7eea767f69b96be5a1635cf240c4b61312ba261ca34"
+    }
+  ]
+}

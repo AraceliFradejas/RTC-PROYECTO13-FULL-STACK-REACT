@@ -15,12 +15,21 @@ Estos diez HTML se generan con las plantillas del backend y datos ficticios. Son
 - [workshop.received](correos/workshop.received.html)
 - [workshop.rejected](correos/workshop.rejected.html)
 
-Los enlaces apuntan a la web local de desarrollo. La API de Mailtrap ha aceptado las muestras definitivas de bienvenida de cliente y aprobación de taller, con imágenes CID. Los diez HTML de esta carpeta muestran el diseño actualizado, pero no acreditan que se hayan recibido los diez tipos en Mailtrap.
+Cada HTML tiene su versión `.txt` en la misma carpeta. Se regeneran con `node scripts/export-email-evidence.mjs`; las imágenes se cargan desde los recursos del proyecto.
 
-- [Logo e imagen exclusiva de clientes](correo-identidad-2026-10-04.png).
-- [Contenido, botón y footer editable](correo-footer-2026-10-04.png).
+## Recepción en Mailtrap · 4 de octubre de 2026
 
-Capturas locales en Safari de escritorio, 2648 × 1988 píxeles Retina. La aprobación visual de las dos variantes en Mailtrap la ha realizado la autora durante la sesión; quedan pendientes las capturas de la interfaz de Mailtrap, el texto y la revisión móvil.
+Las diez muestras definitivas se han recibido con destinatario ficticio. El [registro de verificación](mailtrap/verificacion.json) incluye los identificadores y las fechas, coincidencia del texto con la plantilla actual, referencias CID, destinos de los cinco enlaces y hashes de HTML y texto. Los cuerpos realmente descargados están en [mailtrap/recibidos](mailtrap/recibidos). Sus imágenes CID se visualizan dentro de Mailtrap; para una vista local usar los HTML del apartado anterior.
+
+- [Registro de los diez envíos definitivos](mailtrap-envios-finales-2026-10-04.txt).
+- [Bienvenida recibida, HTML](mailtrap/client.welcome-html.png).
+- [Bienvenida, preset Phone de Mailtrap](mailtrap/client.welcome-phone.png).
+- [Diagnóstico HTML de la interfaz](mailtrap/compatibilidad-inicial.png) y [análisis de la API](mailtrap/compatibilidad-api.json).
+- [Pruebas de esta ronda: 24 pasan y una integración opcional omitida](pruebas-comunicaciones-2026-10-04.txt).
+
+La captura `client.welcome-text.png` corresponde a una versión anterior, antes de completar el footer de texto. El texto definitivo recibido está en [client.welcome.txt](mailtrap/recibidos/client.welcome.txt). Las capturas locales anteriores de [identidad](correo-identidad-2026-10-04.png) y [footer](correo-footer-2026-10-04.png) también se conservan como revisión previa.
+
+Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Quedan pendientes la revisión visual móvil de todos los tipos y las pruebas en clientes de correo reales; el preset de Mailtrap no sustituye estas últimas.
 
 ## Registro de pruebas
 
@@ -41,7 +50,7 @@ Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capt
 6. [Taller: comunicación de cierre](recorrido/06-taller-cierre.png).
 7. [Cliente: comunicación de cierre](recorrido/07-cliente-cierre.png).
 
-La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. Quedan pendientes las capturas de Mailtrap, el registro y revisión de talleres en navegador y la validación móvil completa.
+La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. El registro y revisión de talleres en navegador y la validación móvil completa siguen pendientes. La recepción de las muestras de Mailtrap se documenta por separado.
 
 ## Catálogo ampliado · 4 de octubre
 
