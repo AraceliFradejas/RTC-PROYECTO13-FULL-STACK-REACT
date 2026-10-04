@@ -29,4 +29,12 @@ export async function getVehicle(req, res) {
   if (!vehicle) throw new HttpError(404, 'Vehículo no encontrado.');
   send(res, vehicle);
 }
+export async function searchOptions(req, res) {
+  const options = await Vehicle.aggregate([
+    { $group: { _id: { brand: '$brand', model: '$model' } } },
+    { $sort: { '_id.brand': 1, '_id.model': 1 } },
+    { $project: { _id: 0, brand: '$_id.brand', model: '$_id.model' } },
+  ]);
+  send(res, options);
+}
 export async function listDealerships(req, res) { send(res, await Dealership.find().sort({ city: 1 })); }

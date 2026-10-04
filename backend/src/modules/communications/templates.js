@@ -8,7 +8,7 @@ export function messageTemplate(type, data) {
   };
   if (type === 'appointment.assigned' || type === 'workshop.assignment') {
     const date = new Intl.DateTimeFormat('es-ES', { dateStyle: 'long', timeStyle: 'short', timeZone: 'Europe/Madrid' }).format(new Date(data.date));
-    return { subject: type === 'appointment.assigned' ? 'Taller asignado a tu cita' : 'Nueva cita asignada a tu taller', text: `${greeting}\n\nKelseTS Cars Team ha asignado la cita de ${data.service} para ${data.vehicle} a ${data.workshopName}.\nSede coordinadora: ${data.dealership}.\n${date} (hora de Madrid)\n\nLa asignación organiza la atención; no confirma por sí sola la cita ni constituye un presupuesto de reparación. Consulta los detalles en tu cuenta.`, actionPath: '/mi-cuenta', actionLabel: 'Consultar la asignación' };
+    return { type, subject: type === 'appointment.assigned' ? 'Taller asignado a tu cita' : 'Nueva cita asignada a tu taller', text: `${greeting}\n\nKelseTS Cars Team ha asignado la cita de ${data.service} para ${data.vehicle} a ${data.workshopName}.\nSede coordinadora: ${data.dealership}.\n${date} (hora de Madrid)\n\nLa asignación organiza la atención; no confirma por sí sola la cita ni constituye un presupuesto de reparación. Consulta los detalles en tu cuenta.`, actionPath: '/mi-cuenta', actionLabel: 'Consultar la asignación' };
   }
   if (type.startsWith('appointment.')) {
     const labels = { pending: 'Solicitud de cita recibida', confirmed: 'Tu cita está confirmada', cancelled: 'Tu cita ha sido cancelada', completed: 'Tu visita ha finalizado' };
@@ -16,8 +16,8 @@ export function messageTemplate(type, data) {
     if (!labels[status]) throw new Error('Tipo de comunicación desconocido.');
     const date = new Intl.DateTimeFormat('es-ES', { dateStyle: 'long', timeStyle: 'short', timeZone: 'Europe/Madrid' }).format(new Date(data.date));
     const next = status === 'pending' ? 'La sede todavía debe confirmar tu solicitud.' : status === 'cancelled' ? 'La franja vuelve a estar disponible. Si lo necesitas, puedes solicitar otra cita.' : status === 'confirmed' ? 'Consulta los datos de tu visita en tu cuenta.' : 'Gracias por compartir este paso con KelseTS Cars.';
-    return { subject: labels[status], text: `${greeting}\n\n${labels[status]}.\n${data.service} · ${data.vehicle}\n${data.dealership}\n${date} (hora de Madrid)\n\n${next}`, actionPath: '/mi-cuenta', actionLabel: 'Consultar mis citas' };
+    return { type, subject: labels[status], text: `${greeting}\n\n${labels[status]}.\n${data.service} · ${data.vehicle}\n${data.dealership}\n${date} (hora de Madrid)\n\n${next}`, actionPath: '/mi-cuenta', actionLabel: 'Consultar mis citas' };
   }
   if (!templates[type]) throw new Error('Tipo de comunicación desconocido.');
-  return templates[type];
+  return { type, ...templates[type] };
 }

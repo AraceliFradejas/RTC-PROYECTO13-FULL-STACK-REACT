@@ -23,6 +23,7 @@ router.get('/workshops/jobs', authenticate, allowRoles('workshop'), workshops.my
 router.get('/workshops/applications', authenticate, allowRoles('admin'), workshops.listApplications);
 router.patch('/workshops/:id/review', authenticate, allowRoles('admin'), workshops.reviewApplication);
 router.get('/vehicles', catalog.listVehicles);
+router.get('/vehicles/search-options', catalog.searchOptions);
 router.get('/vehicles/:id', catalog.getVehicle);
 router.post('/vehicles/:id/image', authenticate, allowRoles('admin'), upload.single('image'), uploadVehicleImage);
 router.get('/dealerships', catalog.listDealerships);

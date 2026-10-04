@@ -33,7 +33,7 @@ La conexión con MongoDB Atlas está configurada. Ya se han cargado 148 vehícul
 La web incluye:
 
 - Portada con vídeo, controles de sonido y pausa.
-- Catálogo con búsqueda libre o filtros y fichas de vehículos.
+- Catálogo con búsqueda libre, sugerencias de marcas y modelos mientras escribes, filtros y fichas de vehículos.
 - Página de sedes con cuatro concesionarios, cuatro talleres colaboradores, mapa y cálculo de distancias desde una ubicación automática o elegida manualmente.
 - Páginas de Servicios y Nuestra esencia con imágenes propias.
 - Formularios de acceso y páginas para solicitar y consultar citas.
@@ -42,7 +42,7 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 21 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil, configurar Cloudinary y preparar el despliegue.
+La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil, configurar Cloudinary y preparar el despliegue.
 
 El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. Falta completar la versión en inglés y cerrar la documentación y las pruebas de entrega.
 
@@ -157,6 +157,8 @@ He añadido fotografías de Tesla Model S, Audi Q5 y Mercedes Clase S, además d
 
 Las imágenes de los concesionarios, los profesionales y las historias de KelseTS son escenas ficticias creadas para el proyecto. El vídeo del hero es propio y su música está creada con Suno. Los recursos utilizados se recogen en la documentación.
 
+La biblioteca reúne 80 fotografías diferentes: he añadido 38 imágenes para los doce modelos de gama alta, con variantes de 640 px para pantallas pequeñas. La asignación da prioridad al mismo modelo y alterna las fotos disponibles entre sus registros. La [galería documentada](docs/GALERIA-VEHICULOS.md) recoge las nuevas fuentes, autores y licencias.
+
 Fuentes y licencias en [Recursos](docs/RECURSOS.md) y en la página `/creditos`.
 
 ## API
@@ -168,7 +170,7 @@ La dirección base de la API es `/api/v1`.
 | GET | `/health` | Público |
 | POST | `/auth/register`, `/auth/login`, `/auth/logout` | Origen permitido |
 | GET | `/auth/me` | Sesión |
-| GET | `/vehicles`, `/vehicles/:id`, `/dealerships` | Público |
+| GET | `/vehicles`, `/vehicles/search-options`, `/vehicles/:id`, `/dealerships` | Público |
 | POST | `/vehicles/:id/image` | Administradora |
 | GET / POST | `/appointments` | Sesión |
 | PATCH | `/appointments/:id` | Propietario para cancelar; personal autorizado para gestionar |
@@ -201,6 +203,6 @@ La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega 
 
 Para revisar el backend sin usar la web, he incluido una [colección de pruebas de Insomnia y su guía](docs/INSOMNIA.md). Las credenciales se configuran en un entorno privado; el archivo del repositorio contiene solo datos ficticios.
 
-Las comunicaciones tienen [diez muestras para revisar en Mailtrap Sandbox](docs/MAILTRAP.md), con HTML y texto y sin entrega a buzones personales.
+Las comunicaciones tienen [diez muestras para revisar en Mailtrap Sandbox](docs/MAILTRAP.md), con HTML y texto y sin entrega a buzones personales. La bienvenida de cliente y la aprobación de taller ya han sido aceptadas por el Sandbox. Utilizan el logo de la web, imágenes exclusivas para cada perfil y un footer común editable; las [evidencias locales](docs/evidencias/README.md) recogen el diseño actualizado. Falta completar la revisión de los diez tipos, texto y móvil.
 
 Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).

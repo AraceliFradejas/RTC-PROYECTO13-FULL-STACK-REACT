@@ -24,6 +24,7 @@ export function createApiClient({ baseUrl, fetchImpl = globalThis.fetch, getHead
       logout: () => request('/auth/logout', { method: 'POST' }),
     },
     catalog: {
+      searchOptions: options => request('/vehicles/search-options', options),
       list: (query = '', options) => request(`/vehicles${query ? `?${query}` : ''}`, options),
       detail: (id, options) => request(`/vehicles/${encodeURIComponent(id)}`, options),
       dealerships: options => request('/dealerships', options),

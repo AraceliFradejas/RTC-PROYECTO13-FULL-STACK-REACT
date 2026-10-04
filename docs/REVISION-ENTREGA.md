@@ -21,7 +21,7 @@ La app, el configurador completo y las integraciones específicas pertenecen a l
 
 ## Plan de entrega · 12 de octubre de 2026
 
-Revisión del 4 de octubre: el catálogo, la semilla del Excel y el recorrido de mantenimiento están comprobados. Hay 21 pruebas locales correctas y una integración de Atlas ejecutada por separado. Siguen pendientes el responsive completo, la versión en inglés, el registro y la revisión de talleres en navegador y el despliegue. No se garantiza una calificación concreta.
+Revisión del 4 de octubre: el catálogo, la semilla del Excel y el recorrido de mantenimiento están comprobados. Hay 24 pruebas locales correctas y una integración de Atlas ejecutada por separado. Siguen pendientes el responsive completo, la versión en inglés, el registro y la revisión de talleres en navegador y el despliegue. No se garantiza una calificación concreta.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |

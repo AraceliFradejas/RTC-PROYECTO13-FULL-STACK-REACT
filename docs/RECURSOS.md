@@ -12,7 +12,7 @@ Las cinco fotografías se descargan como recursos locales. Son imágenes ilustra
 
 Consulta: 3 de octubre de 2026. Se utilizan copias reducidas por Commons y encuadre adaptable mediante CSS. Las condiciones de cada licencia se conservan en la tabla y en la página de créditos. Las fotografías con CC BY-SA conservan su licencia; esta atribución no cambia la licencia del código.
 
-El manifiesto `data/media/vehicles.json` guarda URLs, autoría, licencia, texto alternativo y descripción de cambios. Tesla Model S, Audi Q5 y Mercedes Clase S se corresponden con modelos del CSV. Porsche Taycan y Ferrari Roma son recursos editoriales para la ampliación de lujo; todavía no se han incorporado como unidades al inventario.
+El manifiesto `data/media/vehicles.json` guarda URLs, autoría, licencia, texto alternativo y descripción de cambios. Tesla Model S, Audi Q5 y Mercedes Clase S se corresponden con modelos del CSV. Porsche Taycan y Ferrari Roma aparecen también como registros de demostración en la ampliación del inventario.
 
 El [logo KelseTS Cars](MARCA.md) toma como referencia la marca KelseTS Business School aportada por la autora.
 
@@ -56,3 +56,7 @@ Se añaden 20 variantes inspeccionadas, una para cada marca del CSV inicial. Cad
 ## Mapa de sedes
 
 Mapa implementado con Leaflet y teselas de OpenStreetMap, con atribución visible. Las calles KelseTS son inventadas. Los puntos representan aproximadamente Salamanca–Milla de Oro, Pedralbes, Miraconcha y Monte Sancha–La Caleta, no locales existentes. La distancia es geodésica en línea recta, calculada en el navegador; no se guarda la ubicación del visitante en Atlas. El hero reutiliza `showroom-v2.png`.
+
+## Biblioteca ampliada · 4 de octubre de 2026
+
+Se añaden 38 fotografías reales revisadas visualmente a las 42 existentes: 80 imágenes diferentes. Los doce modelos nuevos disponen de referencias de su modelo, aunque versión, generación o equipamiento pueden variar. Autor, fuente y licencia se muestran en la página de créditos y se recogen en la [galería documentada](GALERIA-VEHICULOS.md). Se conservan copias de 1920 px y variantes de 640 px con la licencia original. La asignación prioriza el modelo, alterna fotografías y conserva la prioridad de imágenes externas. Se ha completado también la atribución de la referencia anterior de Dodge Charger a Jerry Åman y su versión de Dha.

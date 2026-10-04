@@ -80,3 +80,25 @@ El [libro de datos](../outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 veh�
 El Excel incorpora 48 registros de demostración de doce modelos de gama alta. Carrocería y motorización tienen fuente oficial; año, kilometraje, precio, VIN y adquisición permanecen ausentes. La exportación y comparación completa pasan con 148 vehículos, cuatro sedes y cuatro talleres. La semilla termina correctamente en Atlas. La API local responde 200 y devuelve 148 vehículos, 16 Porsche, 8 Ferrari y 4 resultados para Porsche Taycan. Las fotografías locales de referencia están asignadas a los 48 registros.
 
 Pasan 21 pruebas ordinarias (14 backend, 3 frontend y 4 cliente HTTP) y la compilación. La integración opcional de Atlas se omite en esta ronda; su ejecución anterior está documentada por separado. La ficha muestra carrocería, motorización y enlace a la fuente. En Safari se han comprobado la búsqueda Porsche, las fotografías de referencia y la ficha del 911 Carrera. En ventana de 574 px se ha ajustado la cuadrícula de datos a dos columnas y guardado una captura. Esto no sustituye la revisión completa de 320/390 px y tablet. Excel de escritorio sigue pendiente.
+
+## Biblioteca de fotografías · 4 de octubre
+
+Se han descargado 51 candidatas y revisado visualmente todas mediante hojas de contacto. Se incorporan 38 y se descartan 13. La biblioteca suma 80 fotografías distintas con autor, fuente y licencia completos; se ha corregido una atribución vacía de una referencia anterior de Dodge. Los 38 archivos nuevos y sus copias pequeñas se han abierto para comprobar formato y dimensiones reales de srcSet. Las 148 asignaciones referencian archivos existentes y respetan su marca; los 48 registros nuevos tienen fotografía de su modelo.
+
+En Safari se han inspeccionado la nueva foto del 911 Carrera en su ficha y la tarjeta del Ferrari 296 GTB. Se muestra la etiqueta del modelo, con aviso de que versión y año pueden diferir. La cuadrícula del catálogo conserva el vehículo completo mediante encuadre contenido. La compilación pasa. Las fotografías subidas desde un servicio externo conservan prioridad. Las fuentes y licencias se recogen en GALERIA-VEHICULOS.md y en la página de créditos.
+
+## Buscador con sugerencias · 4 de octubre
+
+Se separa el contador del formulario y se muestra una lista de sugerencias dentro del flujo de la página. El endpoint público /vehicles/search-options devuelve 56 combinaciones únicas de marca y modelo del inventario; no devuelve datos de clientes ni unidades completas. La web carga esa lista y filtra localmente mientras se escribe, con un máximo de ocho propuestas. Si falla la carga, se conserva la búsqueda libre y se reintenta al volver a enfocar el campo.
+
+En Safari de escritorio se han comprobado sugerencias para au y tay, selección de Audi Q5 mediante dos flechas abajo y Enter (dos resultados), selección de Porsche Taycan con ratón (cuatro resultados), Escape sin borrar texto y búsqueda libre sin coincidencias (cero resultados). El foco permanece en el campo al seleccionar. Se ha inspeccionado el contador visible con y sin lista de sugerencias. La revisión táctil y de lectores de pantalla sigue pendiente.
+
+Pasan las tres pruebas nuevas de coincidencias, marcas únicas, acentos y texto libre, las tres pruebas existentes del frontend, 14 del backend y cuatro del cliente HTTP: 24 en total. La integración opcional de Atlas se omite en esta ronda. La compilación pasa.
+
+## Equilibrio de los modos de búsqueda · 4 de octubre
+
+Búsqueda libre y filtros comparten un panel con explicación de sus ventajas. Campos y botones tienen una altura mínima de 56 px y tipografía de 1 rem. Los tres filtros ocupan columnas amplias y sus acciones van en una fila propia; los estilos pasan a dos columnas en tablet y una en pantallas estrechas. En Safari se han inspeccionado ambos modos y el contador separado. Se ha corregido la apariencia nativa de los selectores para que Safari respete su altura. La revisión táctil completa sigue pendiente.
+
+## Comunicaciones con identidad de marca · 4 de octubre
+
+Se corrigió el ID privado de Mailtrap Sandbox y la API aceptó las muestras definitivas de bienvenida de cliente y aprobación de taller. El diseño utiliza el logo exportado del SVG de la web y dos imágenes conceptuales exclusivas. La autora ha aprobado visualmente las variantes durante la sesión. Se guardan diez HTML actualizados y dos capturas locales de Safari en evidencias. Estas capturas no acreditan la recepción de los otros ocho tipos ni compatibilidad con todos los clientes de correo; quedan pendientes capturas de Mailtrap, texto y móvil.

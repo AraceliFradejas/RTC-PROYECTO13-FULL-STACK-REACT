@@ -1,4 +1,5 @@
 import '../../config/env.js';
+import { emailMedia } from './emailBrand.js';
 import { messageTemplate } from './templates.js';
 import { renderEmail } from './renderEmail.js';
 import { sampleTypes, sampleData } from './samples.js';
@@ -9,10 +10,11 @@ const selected = process.argv[2];
 if (selected && !sampleTypes.includes(selected)) throw new Error('Tipo de muestra no válido.');
 for (const type of selected ? [selected] : sampleTypes) {
   const message = messageTemplate(type, sampleData);
+  const media = await emailMedia(type, { inline: true });
   const response = await fetch(`https://sandbox.api.mailtrap.io/api/send/${inbox}`, {
     method: 'POST', signal: AbortSignal.timeout(15000),
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: { email: 'comunicaciones@kelsets.example', name: 'KelseTS Cars · Pruebas' }, to: [{ email: 'demo@kelsets.example', name: 'Alex Demo' }], subject: `[MUESTRA ${type}] ${message.subject}`, text: `Muestra ficticia para Mailtrap Sandbox.\n\n${message.text}`, html: renderEmail(message, { sandbox: true, webUrl: process.env.EMAIL_PREVIEW_WEB_URL || 'http://localhost:5173' }) }),
+    body: JSON.stringify({ from: { email: 'comunicaciones@kelsets.example', name: 'KelseTS Cars · Pruebas' }, to: [{ email: 'demo@kelsets.example', name: 'Alex Demo' }], subject: `[MUESTRA ${type}] ${message.subject}`, text: `Muestra ficticia para Mailtrap Sandbox.\n\n${message.text}`, attachments: media.attachments, html: renderEmail(message, { media, sandbox: true, webUrl: process.env.EMAIL_PREVIEW_WEB_URL || 'http://localhost:5173' }) }),
   });
   let result;
   try { result = await response.json(); } catch { throw new Error(`Mailtrap devolvió una respuesta no válida (HTTP ${response.status}).`); }

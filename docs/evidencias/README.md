@@ -15,7 +15,12 @@ Estos diez HTML se generan con las plantillas del backend y datos ficticios. Son
 - [workshop.received](correos/workshop.received.html)
 - [workshop.rejected](correos/workshop.rejected.html)
 
-Los enlaces de estas muestras son relativos y no funcionan como una sesión de la web. Las muestras enviadas al Sandbox utilizan EMAIL_PREVIEW_WEB_URL. La revisión de HTML y texto en Mailtrap queda pendiente: la última respuesta fue HTTP 403, Too many failed login attempts. No se conoce el tiempo de desbloqueo.
+Los enlaces apuntan a la web local de desarrollo. La API de Mailtrap ha aceptado las muestras definitivas de bienvenida de cliente y aprobación de taller, con imágenes CID. Los diez HTML de esta carpeta muestran el diseño actualizado, pero no acreditan que se hayan recibido los diez tipos en Mailtrap.
+
+- [Logo e imagen exclusiva de clientes](correo-identidad-2026-10-04.png).
+- [Contenido, botón y footer editable](correo-footer-2026-10-04.png).
+
+Capturas locales en Safari de escritorio, 2648 × 1988 píxeles Retina. La aprobación visual de las dos variantes en Mailtrap la ha realizado la autora durante la sesión; quedan pendientes las capturas de la interfaz de Mailtrap, el texto y la revisión móvil.
 
 ## Registro de pruebas
 
@@ -41,3 +46,13 @@ La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de 
 ## Catálogo ampliado · 4 de octubre
 
 [Ficha del 911 Carrera](ficha-lujo-2026-10-04.png), sin datos personales ni sesión visible. Safari en ventana de 574 px; captura Retina de 1148 × 1272 píxeles. Fotografía de referencia de Porsche, datos pendientes sin kilometraje cero y cuadrícula de dos columnas. No acredita la revisión de dispositivos móviles completos.
+
+## Fotos de modelo · 4 de octubre
+
+[Ficha con fotografía del 911 Carrera](ficha-fotografia-modelo-2026-10-04.png). Safari en ventana de 574 px, captura Retina de 1148 × 1272 píxeles. Sustituye la referencia de otro modelo por una foto del 911 Carrera, con versión y año orientativos. La [galería de fuentes](../GALERIA-VEHICULOS.md) recoge las 38 nuevas fotografías y sus licencias.
+
+## Búsqueda predictiva · 4 de octubre
+
+[Buscador con sugerencias de Audi](buscador-predictivo-2026-10-04.png). Safari de escritorio, captura Retina de 2648 × 1988 píxeles. Lista abierta para au y contador de diez resultados de la búsqueda aplicada Audi, visible debajo. Las sugerencias no tapan el contador ni las tarjetas.
+
+[Diseño de filtros y explicación de ambos modos](modos-busqueda-2026-10-04.png): Safari de escritorio, captura Retina de 2648 × 1988 píxeles; controles amplios y contador fuera del panel.
