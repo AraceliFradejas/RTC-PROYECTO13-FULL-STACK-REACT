@@ -8,7 +8,7 @@
 | Formación | TFM Rock The Code · The Power Tech School |
 | Autora | Araceli Fradejas Muñoz |
 | Tecnologías | JavaScript, Node.js, Express, React y MongoDB |
-| Etapa | Base inicial · 3 de octubre de 2026 |
+| Etapa | Desarrollo y validación · 4 de octubre de 2026 |
 | Despliegue | Pendiente |
 | Evolución posterior | TFM BigSchool con app y módulos específicos |
 
@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. La estructura y las primeras pantallas existen; la entrega final, las integraciones y el despliegue todavía no están completos.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la versión en inglés de la web, la revisión móvil completa y el despliegue.
 
 ## 4. Tecnologías
 
@@ -46,7 +46,7 @@ El backend es un monolito modular: comparte despliegue y base de datos, pero agr
 
 La portada editorial permite conocer la marca y los modelos seleccionados. El catálogo consulta el inventario mediante la API. Una ficha enlaza con la solicitud de cita; si falta sesión, la navegación pasa por acceso y conserva el destino. El área personal consulta citas y permite solicitar su cancelación.
 
-Estos recorridos están preparados en código y deben comprobarse con Atlas antes de calificarlos como funcionalidad integrada.
+El recorrido de mantenimiento se ha comprobado con Atlas desde Safari, entre cliente, Team y taller. El registro y la revisión de talleres en navegador siguen pendientes.
 
 ## 7. Modelos y relaciones
 
@@ -74,7 +74,7 @@ He separado los datos del modelo de los datos de una unidad concreta. El nombre,
 
 El registro fuerza el rol `client`; el servidor no acepta un rol arbitrario enviado por la interfaz. Las contraseñas se resumen con bcrypt. La cookie de sesión es `HttpOnly` y las escrituras comprueban el origen permitido.
 
-El cliente solo puede cancelar citas propias. El personal consulta y gestiona su sede; la administradora dispone de acceso global. Los archivos de imagen tienen límite de tamaño y comprobación de cabecera. Las integraciones y los casos negativos necesitan validación contra la base de datos.
+El cliente solo puede cancelar citas propias. El personal consulta y gestiona su sede; la administradora dispone de acceso global. Los archivos de imagen tienen límite de tamaño y comprobación de cabecera. Los permisos y los casos negativos se han comprobado mediante la API en una base temporal de Atlas. Las pruebas de Cloudinary incluyen archivos incorrectos y accesos sin permiso.
 
 ## 10. Hooks y experiencia de usuario
 
@@ -100,9 +100,33 @@ La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de or
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido completo desde los formularios, la revisión móvil completa y la producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. El registro y la revisión de talleres en navegador, la revisión móvil completa y la producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
 
-Las evidencias de la entrega final deberán diferenciar pruebas locales, integración con servicios y recorrido manual del despliegue, siguiendo la presentación utilizada en mis proyectos anteriores.
+Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. El recorrido del despliegue sigue pendiente. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
+
+### Catálogo y búsqueda
+
+La búsqueda predictiva sugiere marcas y modelos sin cubrir el contador ni las tarjetas. Los filtros son una alternativa para quien prefiera acotar por características.
+
+![Sugerencias de marcas y modelos en el catálogo](docs/evidencias/buscador-predictivo-2026-10-04.png)
+
+![Alternativas de búsqueda libre y filtros](docs/evidencias/modos-busqueda-2026-10-04.png)
+
+La ficha del catálogo ampliado muestra la propuesta de gama alta y mantiene los datos no comprobados como pendientes.
+
+![Ficha de vehículo del catálogo ampliado](docs/evidencias/ficha-lujo-2026-10-04.png)
+
+### Recorrido de mantenimiento
+
+Las capturas muestran la solicitud del cliente, la confirmación desde Team, la asignación al taller y el cierre comunicado al cliente. La cita de demostración se cerró anticipadamente para revisar el flujo; no acredita un mantenimiento real.
+
+![Cliente: solicitud de mantenimiento](docs/evidencias/recorrido/01-cliente-solicitud.png)
+
+![Team: confirmación de la cita](docs/evidencias/recorrido/02-team-confirmacion.png)
+
+![Taller: cita de mantenimiento asignada](docs/evidencias/recorrido/04-taller-asignacion.png)
+
+![Cliente: cierre de la cita y comunicación](docs/evidencias/recorrido/07-cliente-cierre.png)
 
 ## 13. Evolución posterior
 
@@ -133,6 +157,10 @@ El 4 de octubre he enviado las diez muestras al Sandbox y he comprobado su recep
 
 Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los mensajes descargados del Sandbox. He revisado en Safari el encabezado, la fotografía, el botón y el footer de los diez tipos en el preset Phone de Mailtrap, con capturas de cada uno. El mensaje largo de asignación al taller tiene también una captura del contenido. Falta probar clientes de correo y dispositivos reales. El análisis de Mailtrap señala estilos que algunos clientes pueden interpretar de otra forma; no lo considero una prueba de compatibilidad universal. Estas muestras no envían correo a buzones personales ni demuestran un envío automático desde un evento de la aplicación.
 
+![Identidad visual de la muestra de correo](docs/evidencias/correo-identidad-2026-10-04.png)
+
+![Footer de la muestra de correo](docs/evidencias/correo-footer-2026-10-04.png)
+
 ## Gestión de fotografías · 4 de octubre
 
 He incorporado la subida de imágenes desde el frontend porque permite que el equipo mantenga el catálogo sin editar archivos del proyecto. La gestión parte de la ficha de cada unidad, donde ya se identifican el modelo y la sede. Antes de guardar aparece una vista previa y se puede descartar la selección. He mantenido los colores, los botones redondeados y un título contenido, con una columna en pantallas pequeñas.
@@ -143,6 +171,14 @@ La prueba de integración utiliza una base temporal y dos imágenes de prueba qu
 
 Las [evidencias](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Esta revisión de distribución no sustituye a probar la selección de archivos, los errores y la subida en un teléfono real, que siguen pendientes.
 
+![Vista previa de la fotografía desde Team en Safari](docs/evidencias/cloudinary/01-vista-previa-safari.png)
+
+![Confirmación de la subida a Cloudinary en Safari](docs/evidencias/cloudinary/02-guardado-safari.png)
+
+El formulario vacío también se revisó a 390 px dentro de un marco de Safari. Esta captura muestra la distribución, no una subida desde un teléfono.
+
+![Formulario de fotografía a 390 px en Safari](docs/evidencias/cloudinary/04-formulario-390-safari.png)
+
 ## Fotografías del entorno de las sedes · 4 de octubre
 
 He añadido una fotografía diferente a cada uno de los cuatro concesionarios y los cuatro talleres. Quería que se entendiera mejor el entorno elegido para la red: Salamanca, Pedralbes, Miraconcha y La Caleta. Las imágenes muestran calles, arquitectura y patrimonio de esos barrios; las instalaciones y las direcciones de KelseTS Cars siguen siendo ficticias, y las tarjetas lo indican.
@@ -152,3 +188,5 @@ Las ocho fotografías proceden de Wikimedia Commons. He guardado sus autores, fu
 El enlace a Street View utiliza las coordenadas aproximadas del centro, sin enviar la ubicación del visitante. He elegido los [enlaces de Google Maps](https://developers.google.com/maps/documentation/urls/get-started), que no necesitan clave API. La panorámica disponible depende de Google y no representa nuestras instalaciones. Las fotografías tampoco se presentan como imágenes actuales de la calle.
 
 En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La compilación y las 24 pruebas locales pasan; queda ampliar la revisión a teléfonos reales. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
+
+![Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
