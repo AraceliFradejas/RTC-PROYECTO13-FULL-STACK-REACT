@@ -19,6 +19,6 @@ export async function uploadVehicleImage(req, res) {
   const previousId = vehicle.imagePublicId;
   try { vehicle.image = result.secure_url; vehicle.imagePublicId = result.public_id; await vehicle.save(); }
   catch (error) { await cloudinary.uploader.destroy(result.public_id).catch(() => {}); throw error; }
-  if (previousId) await cloudinary.uploader.destroy(previousId).catch(() => {});
+  if (previousId?.startsWith('kelsets-cars/')) await cloudinary.uploader.destroy(previousId).catch(() => {});
   send(res, vehicle);
 }

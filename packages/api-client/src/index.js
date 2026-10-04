@@ -27,6 +27,7 @@ export function createApiClient({ baseUrl, fetchImpl = globalThis.fetch, getHead
       searchOptions: options => request('/vehicles/search-options', options),
       list: (query = '', options) => request(`/vehicles${query ? `?${query}` : ''}`, options),
       detail: (id, options) => request(`/vehicles/${encodeURIComponent(id)}`, options),
+      uploadImage: (id, body) => request(`/vehicles/${encodeURIComponent(id)}/image`, { method: 'POST', body, multipart: true }),
       dealerships: options => request('/dealerships', options),
     },
     appointments: {

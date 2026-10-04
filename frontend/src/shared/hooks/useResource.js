@@ -13,5 +13,5 @@ export function useResource(load) {
     });
     return () => controller.abort();
   }, [load, attempt]);
-  return { ...state, retry: () => setAttempt(value => value + 1) };
+  return { ...state, retry: () => setAttempt(value => value + 1), setData: data => dispatch({ type: 'success', data }) };
 }

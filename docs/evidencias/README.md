@@ -84,3 +84,7 @@ La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de 
 [Buscador con sugerencias de Audi](buscador-predictivo-2026-10-04.png). Safari de escritorio, captura Retina de 2648 × 1988 píxeles. Lista abierta para au y contador de diez resultados de la búsqueda aplicada Audi, visible debajo. Las sugerencias no tapan el contador ni las tarjetas.
 
 [Diseño de filtros y explicación de ambos modos](modos-busqueda-2026-10-04.png): Safari de escritorio, captura Retina de 2648 × 1988 píxeles; controles amplios y contador fuera del panel.
+
+## Subida de fotografías a Cloudinary
+
+[Recorrido, capturas y resultados](cloudinary/README.md): prueba de integración real con datos temporales y subida desde React en Safari.

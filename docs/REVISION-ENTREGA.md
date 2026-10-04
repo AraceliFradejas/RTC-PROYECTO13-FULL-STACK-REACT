@@ -47,3 +47,8 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 - [x] Revisar logo, imágenes, botones y footer de los diez correos en el preset Phone de Mailtrap desde Safari.
 - [ ] Probar dispositivos y clientes de correo reales.
 - [ ] Revisar cada perfil privado a 320, 390, 768 y 1440 px, incluyendo textos largos, formularios y errores; completar comprobación en dispositivo real.
+
+- [x] Conectar Cloudinary y comprobar subida y sustitución con datos temporales.
+- [x] Incorporar selección, vista previa y guardado de fotografías desde React con acceso de administrador; comprobarlo en Safari.
+- [x] Revisar la distribución del formulario vacío de fotografías a 320, 390, 768 y 1440 px en Safari.
+- [ ] Revisar vista previa y errores del formulario a esos anchos y completar la prueba en dispositivo real.

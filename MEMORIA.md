@@ -100,7 +100,7 @@ La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de or
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido completo desde los formularios, las subidas a Cloudinary y la producción siguen pendientes.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido completo desde los formularios, la revisión móvil completa y la producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
 
 Las evidencias de la entrega final deberán diferenciar pruebas locales, integración con servicios y recorrido manual del despliegue, siguiendo la presentación utilizada en mis proyectos anteriores.
 
@@ -110,7 +110,7 @@ Después de entregar Rock The Code se abordarán la app, el configurador y otros
 
 ## 14. Aprendizaje y próximos pasos
 
-La decisión inicial es separar la lógica compartida de la plataforma. Atlas y el Excel relacionado ya permiten cargar el inventario inicial. Los siguientes pasos son configurar Cloudinary, completar la versión bilingüe y las pruebas de entrega y publicar ambas aplicaciones.
+La decisión inicial es separar la lógica compartida de la plataforma. Atlas y el Excel relacionado ya permiten cargar el inventario inicial. Los siguientes pasos son completar la revisión móvil de Cloudinary, la versión bilingüe y las pruebas de entrega y publicar ambas aplicaciones.
 
 ## Desarrollo de las secciones editoriales
 
@@ -132,3 +132,13 @@ He mantenido el mismo logotipo de la web en los correos, exportándolo desde el 
 El 4 de octubre he enviado las diez muestras al Sandbox y he comprobado su recepción consultando la API. He guardado el HTML y el texto recibidos, la fecha y el identificador de cada mensaje. El texto coincide con la plantilla actual y los cinco enlaces de cada HTML apuntan a la web configurada. La versión de texto incluye también el footer, para conservar la información cuando no se muestran imágenes.
 
 Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los mensajes descargados del Sandbox. He revisado en Safari el encabezado, la fotografía, el botón y el footer de los diez tipos en el preset Phone de Mailtrap, con capturas de cada uno. El mensaje largo de asignación al taller tiene también una captura del contenido. Falta probar clientes de correo y dispositivos reales. El análisis de Mailtrap señala estilos que algunos clientes pueden interpretar de otra forma; no lo considero una prueba de compatibilidad universal. Estas muestras no envían correo a buzones personales ni demuestran un envío automático desde un evento de la aplicación.
+
+## Gestión de fotografías · 4 de octubre
+
+He incorporado la subida de imágenes desde el frontend porque permite que el equipo mantenga el catálogo sin editar archivos del proyecto. La gestión parte de la ficha de cada unidad, donde ya se identifican el modelo y la sede. Antes de guardar aparece una vista previa y se puede descartar la selección. He mantenido los colores, los botones redondeados y un título contenido, con una columna en pantallas pequeñas.
+
+La operación usa `FormData`, Multer y el SDK de Cloudinary en Node. Solo una cuenta administradora puede realizarla; ocultar el formulario al resto de perfiles no sustituye al control del backend. También se comprueba el contenido del archivo y se limita su tamaño a 5 MB. La clave privada no llega a React. Esta implementación sigue la [documentación del SDK de Node](https://cloudinary.com/documentation/node_image_and_video_upload).
+
+La prueba de integración utiliza una base temporal y dos imágenes de prueba que se eliminan al terminar. Comprueba sesión, permisos de cliente, taller y personal, archivo ausente, imagen falsa, exceso de tamaño, campo incorrecto, persistencia de la URL y sustitución. Después he completado el recorrido desde Safari con una unidad del catálogo: Porsche 911 Carrera de Barcelona. Se ha conservado su fotografía de referencia y su atribución. La gestión no migra toda la biblioteca ni cambia la semilla del Excel.
+
+Las [evidencias](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Esta revisión de distribución no sustituye a probar la selección de archivos, los errores y la subida en un teléfono real, que siguen pendientes.

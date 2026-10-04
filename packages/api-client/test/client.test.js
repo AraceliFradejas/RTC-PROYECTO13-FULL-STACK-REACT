@@ -20,6 +20,6 @@ test('una respuesta HTML no se presenta como éxito', async () => {
 test('FormData se conserva sin fijar Content-Type ni boundary', async () => {
   const data = new FormData(); data.append('image', new Blob(['image']), 'foto.jpg'); let options;
   const api = createApiClient({ baseUrl: '/api/v1', fetchImpl: async (url, input) => { options = input; return success(null); } });
-  await api.request('/vehicles/123/image', { body: data, method: 'POST', multipart: true });
+  await api.catalog.uploadImage('123', data);
   assert.equal(options.body, data); assert.equal(options.headers['Content-Type'], undefined);
 });

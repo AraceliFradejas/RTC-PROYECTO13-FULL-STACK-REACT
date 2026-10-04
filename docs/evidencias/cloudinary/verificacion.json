@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-04T17:11:13.016Z",
+  "scope": "API HTTP multipart con Supertest, Atlas temporal y Cloudinary real; no prueba del navegador",
+  "checks": [
+    {
+      "case": "anonymous",
+      "status": 401
+    },
+    {
+      "case": "client",
+      "status": 403
+    },
+    {
+      "case": "workshop",
+      "status": 403
+    },
+    {
+      "case": "staff",
+      "status": 403
+    },
+    {
+      "case": "missing-file",
+      "status": 400
+    },
+    {
+      "case": "fake-image",
+      "status": 400
+    },
+    {
+      "case": "over-5MB",
+      "status": 413
+    },
+    {
+      "case": "wrong-field",
+      "status": 400
+    },
+    {
+      "case": "upload-save-public-read",
+      "status": 200
+    },
+    {
+      "case": "replace-and-delete-previous",
+      "status": 200
+    }
+  ],
+  "temporaryDatabaseDeleted": true,
+  "temporaryImagesDeleted": true
+}

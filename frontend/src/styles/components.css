@@ -75,3 +75,12 @@ input, select { width: 100%; min-width: 0; background: var(--color-white); borde
 }
 
 .brand-logo-vector { object-fit: contain; overflow: visible; }
+
+.vehicle-image-upload { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-5); padding: var(--space-4); background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius-card); }
+.vehicle-image-upload > *, .vehicle-image-upload form { min-width: 0; }
+.vehicle-image-upload h2 { font-size: clamp(1.65rem, 2.5vw, 2.3rem); }
+.upload-preview { margin: 0 0 var(--space-3); }
+.upload-preview img { width: 100%; aspect-ratio: var(--image-ratio); object-fit: contain; background: var(--color-paper); border-radius: var(--radius-field); }
+.upload-preview figcaption { font-size: .8rem; overflow-wrap: anywhere; margin-top: var(--space-1); }
+.upload-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+@media (max-width: 680px) { .vehicle-image-upload { grid-template-columns: 1fr; padding: var(--space-3); } .upload-actions .button { width: 100%; } }

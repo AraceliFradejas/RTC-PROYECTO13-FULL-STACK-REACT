@@ -42,7 +42,7 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil, configurar Cloudinary y preparar el despliegue.
+La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil completa y preparar el despliegue. La subida de fotografías a Cloudinary ya está conectada desde Team y comprobada en Safari.
 
 El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. Falta completar la versión en inglés y cerrar la documentación y las pruebas de entrega.
 
@@ -206,3 +206,11 @@ Para revisar el backend sin usar la web, he incluido una [colección de pruebas 
 Las [diez comunicaciones](docs/MAILTRAP.md) ya se han recibido en Mailtrap Sandbox con datos ficticios, HTML y texto. Cada una tiene una imagen exclusiva según su contenido, el mismo logo de la web y un footer común editable. He guardado los mensajes recibidos y su verificación en [evidencias](docs/evidencias/README.md). Los eventos de la aplicación siguen dejando mensajes en la bandeja privada de demostración. Los diez tipos tienen capturas del preset móvil de Mailtrap revisadas en Safari. Quedan pendientes las pruebas en clientes de correo reales.
 
 Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).
+
+## Fotografías desde KelseTS Cars Team
+
+Una cuenta administradora puede entrar en **Gestionar fotografías**, buscar un vehículo y abrir su ficha. Allí selecciona una imagen, comprueba la vista previa y la guarda. Se admiten JPEG, PNG y WebP de hasta 5 MB. La ficha se actualiza al terminar y muestra la confirmación sin recargar la página.
+
+React envía el archivo con `FormData` al backend. Node comprueba la sesión, el rol, el tamaño y la firma del archivo antes de subirlo a Cloudinary. Las credenciales permanecen en el backend; Atlas guarda la URL HTTPS y el identificador de la imagen. Al sustituir una foto se elimina la anterior si pertenece a nuestra carpeta de Cloudinary.
+
+He probado la subida y la sustitución con datos temporales de Atlas, junto con los rechazos por permisos y archivos incorrectos. También he subido desde Safari la fotografía ya asignada al Porsche 911 Carrera de Barcelona, conservando sus créditos. El resto de la biblioteca sigue sirviéndose como hasta ahora. Las capturas y el informe están en [las evidencias de Cloudinary](docs/evidencias/cloudinary/README.md).
