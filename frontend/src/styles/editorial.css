@@ -86,6 +86,24 @@
 .professional-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin-bottom: var(--space-3); border-radius: var(--radius); }
 .professional-grid h3 { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
 .professional-grid p { color: var(--color-muted); max-width: 560px; }
+.registration-types { margin: 0 0 var(--space-3); display: flex; }
+.registration-steps { padding-left: var(--space-3); }
+.registration-steps li { margin-bottom: var(--space-2); }
+.workshop-fields { padding: var(--space-3); border: 1px solid var(--color-line); margin: var(--space-3) 0; min-width: 0; }
+.specialties { padding: 0; border: 0; min-width: 0; }
+.specialties label { flex-direction: row; align-items: center; }
+.specialties input { width: auto; flex-shrink: 0; }
+.messages-section { margin-top: var(--space-5); }
+.message-card { border-bottom: 1px solid var(--color-line); }
+.message-card summary { cursor: pointer; padding: var(--space-3) 0; }
+.message-card summary span { display: block; color: var(--color-muted); font-size: .8rem; }
+.message-body { padding: var(--space-3); background: var(--color-white); }
+.message-body > p:first-child { white-space: pre-line; overflow-wrap: anywhere; }
+.review-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.registration-types { flex-wrap: wrap; border-radius: var(--radius-card); }
+.registration-types button { flex: 1 1 120px; }
+.map-legend { display: flex; gap: var(--space-3); flex-wrap: wrap; font-size: .85rem; }
+.legend-dealership { color: #b3152b; }.legend-workshop { color: #996819; }.legend-position { color: #246ea8; }
 @media (max-width: 680px) { .professional-grid { grid-template-columns: 1fr; gap: var(--space-5); } }
 
 /* Shared image proportions and layouts across home and interior pages. */
@@ -136,4 +154,86 @@
   .catalog-modes button { flex: 1; padding: .8rem .5rem; }
   .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-panel { padding: var(--space-3); }
+}
+
+/* El formulario es independiente del hero para reutilizarlo en otros accesos. */
+.access-hero { position: relative; isolation: isolate; min-height: 360px; display: flex; align-items: center; background: var(--color-ink); color: var(--color-paper); overflow: hidden; }
+.access-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; z-index: -2; }
+.access-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #101919eb, #10191985 55%, #10191930); z-index: -1; }
+.access-hero-copy { width: min(100%, var(--content-width)); margin: auto; padding: var(--space-5) clamp(1.25rem, 5vw, 5rem); }
+.access-hero h1 { font-size: clamp(2.2rem, 3.6vw, 3.6rem); max-width: 600px; }
+.access-hero-copy > p:not(.eyebrow) { max-width: 410px; font-size: .95rem; color: #e4e8e4; }
+.access-hero-link { font-size: .8rem; display: inline-block; padding-block: var(--space-1); }
+.access-content { position: relative; width: min(100% - 2.5rem, 660px); margin: calc(-1 * var(--space-4)) auto var(--space-6); scroll-margin-top: 140px; }
+.access-panel { border: 1px solid var(--color-line); border-radius: var(--radius-card); box-shadow: 0 16px 45px #1019190a; padding: clamp(1.25rem, 4vw, 2.5rem); }
+.access-panel h2 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin-bottom: var(--space-3); }
+.access-panel .registration-types { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 4px; border-radius: var(--radius-card); }
+.access-panel .registration-types button { min-height: 48px; padding: .6rem .4rem; font-size: .78rem; letter-spacing: 0; white-space: normal; }
+.access-panel form { gap: var(--space-2); }
+.access-panel label { font-size: .85rem; }
+.access-panel input:not([type="checkbox"]) { min-height: 48px; font-size: 1rem; }
+.access-panel form > .button { width: 100%; min-height: 48px; margin-top: var(--space-1); }
+.access-panel > .text-button { min-height: 48px; margin-top: var(--space-2); font-size: .85rem; }
+.access-panel .workshop-fields { padding: var(--space-2); min-width: 0; }
+.access-panel .specialties label { min-height: 44px; }
+.access-demo-note { margin: var(--space-2) var(--space-2) 0; text-align: center; }
+@media (max-width: 680px) {
+  .access-hero { min-height: 250px; }
+  .access-hero-copy { padding: var(--space-4) var(--space-3) var(--space-5); }
+  .access-hero h1 { font-size: 2.2rem; }
+  .access-hero-copy > p:not(.eyebrow) { max-width: 310px; font-size: .85rem; }
+  .access-content { width: calc(100% - 2rem); margin-top: calc(-1 * var(--space-2)); }
+  .access-panel .registration-types button { font-size: .72rem; }
+}
+
+.account-hero { min-height: 280px; }
+.account-hero h1 { font-size: clamp(2rem, 3vw, 3rem); }
+.account-content { min-height: 0; padding-top: var(--space-4); }
+.account-content h2 { font-size: clamp(1.4rem, 2.3vw, 1.9rem); }
+.account-content h3 { font-size: 1.2rem; line-height: 1.3; }
+.account-heading { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding-bottom: var(--space-3); margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-line); }
+.account-heading h2 { font-size: 1.4rem; overflow-wrap: anywhere; }
+.account-heading .text-button { flex-shrink: 0; min-height: 44px; }
+.account-content > section { margin-top: var(--space-5); }
+.account-content .notice { border-radius: var(--radius-card); background: var(--color-white); padding: var(--space-3); }
+.account-content .appointment-row { flex-wrap: wrap; gap: var(--space-3); }
+.account-content .button, .account-content .text-button { min-height: 44px; }
+@media (max-width: 680px) {
+  .account-hero { min-height: 210px; }
+  .account-hero h1 { font-size: 1.9rem; }
+  .account-heading { align-items: flex-start; }
+  .account-heading h2 { font-size: 1.15rem; }
+  .account-content { padding-inline: var(--space-3); }
+}
+
+.appointment-page h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
+.appointment-page .form-panel { border-radius: var(--radius-card); border: 1px solid var(--color-line); }
+.appointment-selection { padding-bottom: var(--space-3); margin-bottom: var(--space-3); border-bottom: 1px solid var(--color-line); }
+.appointment-selection h2 { font-size: 1.5rem; }
+.appointment-selection a { font-size: .85rem; }
+
+/* Vistas privadas: textos largos, formularios y acciones en pantallas estrechas. */
+.account-page, .access-page { min-width: 0; }
+.account-content, .appointment-page, .access-panel { overflow-wrap: anywhere; }
+.account-content .appointment-row > *, .account-content section, .account-content form { min-width: 0; }
+.account-content .appointment-row > div { flex: 1 1 240px; }
+.account-content .appointment-row form { flex: 1 1 260px; }
+.account-content .review-actions .button { flex: 1 1 180px; }
+.account-content .message-card summary { line-height: 1.5; }
+.account-content .message-body { border-radius: var(--radius-field); }
+.appointment-page .button { max-width: 100%; }
+@media (max-width: 480px) {
+  .account-heading { flex-wrap: wrap; }
+  .account-heading .text-button { margin: 0; }
+  .account-content .appointment-row > div { flex-basis: auto; }
+  .account-content .review-actions .button { width: 100%; flex-basis: 100%; }
+  .account-content .notice { padding: var(--space-2); }
+  .account-content h2 { font-size: 1.35rem; }
+  .account-content h3 { font-size: 1.1rem; }
+  .access-panel .registration-types { grid-template-columns: 1fr 1fr; }
+  .access-panel .registration-types button:last-child { grid-column: 1 / -1; }
+  .access-panel .registration-types button { font-size: .8rem; }
+  .access-panel .specialties label { align-items: flex-start; }
+  .access-panel .specialties input { margin-top: .35rem; }
+  .site-header nav { flex-wrap: wrap; row-gap: var(--space-1); }
 }

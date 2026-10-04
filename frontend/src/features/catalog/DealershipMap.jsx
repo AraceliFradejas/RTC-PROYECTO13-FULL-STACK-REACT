@@ -23,9 +23,9 @@ export function DealershipMap({ items, position, selected, picking, onPick }) {
       const point = [item.latitude, item.longitude]; points.push(point);
       const popup = document.createElement('div');
       const title = document.createElement('strong'); title.textContent = item.name;
-      const text = document.createElement('p'); text.textContent = `${item.area} · Ubicación ficticia aproximada`;
+      const text = document.createElement('p'); text.textContent = `${item.kind === 'workshop' ? 'Taller colaborador' : 'Concesionario'} · ${item.area} · Ubicación ficticia aproximada`;
       popup.append(title, text);
-      L.circleMarker(point, { radius: 10, color: '#f7f6f2', weight: 3, fillColor: '#b3152b', fillOpacity: 1 }).bindPopup(popup).addTo(layer);
+      L.circleMarker(point, { radius: item.kind === 'workshop' ? 6 : 11, color: '#f7f6f2', weight: 2, fillColor: item.kind === 'workshop' ? '#996819' : '#b3152b', fillOpacity: 1 }).bindPopup(popup).addTo(layer);
     }
     if (position) {
       const point = [position.latitude, position.longitude]; points.push(point);
@@ -45,5 +45,5 @@ export function DealershipMap({ items, position, selected, picking, onPick }) {
     instance.getContainer().style.cursor = 'crosshair';
     return () => { instance.off('click', choose); instance.getContainer().style.cursor = ''; };
   }, [picking, onPick]);
-  return <div className="dealership-map" ref={container} role="region" aria-label="Mapa de las cuatro sedes ficticias de KelseTS Cars" />;
+  return <div className="dealership-map" ref={container} role="region" aria-label="Mapa de concesionarios y talleres ficticios de KelseTS Cars" />;
 }

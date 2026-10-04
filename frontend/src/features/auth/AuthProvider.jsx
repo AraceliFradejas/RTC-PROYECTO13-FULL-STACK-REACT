@@ -14,6 +14,7 @@ export function AuthProvider({ children }) {
   }, []);
   async function access(mode, input) { const value = await api.auth[mode](input); setUser(value); setSessionError(null); return value; }
   async function logout() { await api.auth.logout(); setUser(null); }
-  return <AuthContext.Provider value={{ user, ready, sessionError, access, logout }}>{children}</AuthContext.Provider>;
+  async function refresh() { const value = await api.auth.me(); setUser(value); setSessionError(null); return value; }
+  return <AuthContext.Provider value={{ user, ready, sessionError, access, logout, refresh }}>{children}</AuthContext.Provider>;
 }
 export function useAuth() { return useContext(AuthContext); }

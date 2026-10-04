@@ -8,6 +8,9 @@
   --font-editorial: Georgia, 'Times New Roman', serif;
   --content-width: 1440px; --radius: 3px; --radius-card: 1.5rem;
   --image-ratio: 3 / 2;
+  --radius-control: 999px; --radius-field: .8rem;
+  --motion-control: 220ms; --ease-control: cubic-bezier(.2, .7, .2, 1);
+  --shadow-control: 0 8px 20px #10191914;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); line-height: 1.6; }

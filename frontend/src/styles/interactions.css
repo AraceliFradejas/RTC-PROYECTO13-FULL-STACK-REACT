@@ -1,0 +1,59 @@
+/* Interacciones compartidas por portada, catálogo y área privada. */
+.button, .cinematic-cta, .motion-control, .text-button, .account-link,
+.catalog-modes button {
+  border-radius: var(--radius-control);
+  min-height: 44px;
+  transition: background-color var(--motion-control) var(--ease-control),
+    color var(--motion-control) var(--ease-control),
+    border-color var(--motion-control) var(--ease-control),
+    box-shadow var(--motion-control) var(--ease-control),
+    transform var(--motion-control) var(--ease-control);
+}
+.button, .cinematic-cta { padding-inline: 1.6rem; text-align: center; }
+.text-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .65rem 1.15rem; border: 1px solid var(--color-line);
+  text-decoration: none;
+}
+.account-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid currentColor; padding: .55rem 1.15rem;
+}
+.cinematic-header .account-link { border-color: #ffffff80; }
+.cinematic-cta span { transition: transform var(--motion-control) var(--ease-control); }
+input:not([type="checkbox"]):not([type="radio"]), select {
+  border-radius: var(--radius-field);
+  transition: border-color var(--motion-control), box-shadow var(--motion-control);
+}
+input:focus-visible, select:focus-visible { border-color: var(--color-focus); }
+@media (hover: hover) and (pointer: fine) {
+  .button:not(:disabled):hover, .catalog-hero .button:not(:disabled):hover {
+    background: var(--color-accent); color: var(--color-ink);
+    border-color: var(--color-accent); transform: translateY(-2px);
+    box-shadow: var(--shadow-control);
+  }
+  .cinematic-cta:hover {
+    background: var(--color-paper); color: var(--color-ink);
+    border-color: var(--color-paper); transform: translateY(-2px);
+    box-shadow: var(--shadow-control);
+  }
+  .cinematic-cta:hover span { transform: translate(2px, -2px); }
+  .text-button:not(:disabled):hover, .account-link:hover,
+  .catalog-modes button:not(:disabled):not([aria-pressed="true"]):hover {
+    background: var(--color-accent); color: var(--color-ink);
+    border-color: var(--color-accent);
+  }
+  .motion-control:not(:disabled):hover {
+    background: var(--color-paper); color: var(--color-ink);
+    border-color: var(--color-paper);
+  }
+}
+.button:not(:disabled):active, .cinematic-cta:active, .motion-control:not(:disabled):active,
+.text-button:not(:disabled):active, .catalog-modes button:not(:disabled):active {
+  transform: scale(.98); box-shadow: none;
+}
+.button:disabled { transform: none; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .button, .cinematic-cta, .cinematic-cta span, .motion-control, .text-button,
+  .account-link, .catalog-modes button { transition: none; transform: none !important; }
+}

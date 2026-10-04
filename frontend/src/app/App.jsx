@@ -16,6 +16,7 @@ function Protected({ children }) {
   const { user, ready, sessionError } = useAuth(); const location = useLocation();
   if (!ready) return <p className="notice" role="status">Comprobando sesión…</p>;
   if (sessionError && !user) return <p className="notice" role="alert">{sessionError} Vuelve a cargar la página para intentarlo de nuevo.</p>;
+  if (user?.accountType === 'workshop' && location.pathname === '/citas/nueva') return <Navigate to="/mi-cuenta" replace />;
   return user ? children : <Navigate to="/acceso" state={{ from: location.pathname + location.search }} replace />;
 }
 export function App() {
