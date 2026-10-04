@@ -29,7 +29,26 @@ Las diez muestras definitivas se han recibido con destinatario ficticio. El [reg
 
 La captura `client.welcome-text.png` corresponde a una versión anterior, antes de completar el footer de texto. El texto definitivo recibido está en [client.welcome.txt](mailtrap/recibidos/client.welcome.txt). Las capturas locales anteriores de [identidad](correo-identidad-2026-10-04.png) y [footer](correo-footer-2026-10-04.png) también se conservan como revisión previa.
 
-Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Quedan pendientes la revisión visual móvil de todos los tipos y las pruebas en clientes de correo reales; el preset de Mailtrap no sustituye estas últimas.
+Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Se han revisado en Safari el logo, las imágenes, los botones y el footer de los diez tipos con el preset Phone. Quedan pendientes las pruebas en dispositivos y clientes de correo reales; el preset de Mailtrap no sustituye estas últimas.
+
+## Revisión Phone en Safari · 4 de octubre
+
+Capturas nativas de 2648 × 1988 píxeles Retina. El tamaño de la captura corresponde a la ventana de Safari, no al ancho CSS del correo. En las zonas revisadas no se observan desbordamientos horizontales; las imágenes y el logo cargan y los botones caben en el mensaje.
+
+| Comunicación | Encabezado e imagen | Botón y footer |
+| --- | --- | --- |
+| `client.welcome` | [Captura](mailtrap/client.welcome-phone-safari.png) | [Captura](mailtrap/client.welcome-phone-footer-safari.png) |
+| `workshop.received` | [Captura](mailtrap/workshop.received-phone-safari.png) | [Captura](mailtrap/workshop.received-phone-footer-safari.png) |
+| `workshop.approved` | [Captura](mailtrap/workshop.approved-phone-safari.png) | [Captura](mailtrap/workshop.approved-phone-footer-safari.png) |
+| `workshop.rejected` | [Captura](mailtrap/workshop.rejected-phone-safari.png) | [Captura](mailtrap/workshop.rejected-phone-footer-safari.png) |
+| `appointment.pending` | [Captura](mailtrap/appointment.pending-phone-safari.png) | [Captura](mailtrap/appointment.pending-phone-footer-safari.png) |
+| `appointment.confirmed` | [Captura](mailtrap/appointment.confirmed-phone-safari.png) | [Captura](mailtrap/appointment.confirmed-phone-footer-safari.png) |
+| `appointment.cancelled` | [Captura](mailtrap/appointment.cancelled-phone-safari.png) | [Captura](mailtrap/appointment.cancelled-phone-footer-safari.png) |
+| `appointment.completed` | [Captura](mailtrap/appointment.completed-phone-safari.png) | [Captura](mailtrap/appointment.completed-phone-footer-safari.png) |
+| `appointment.assigned` | [Captura](mailtrap/appointment.assigned-phone-safari.png) | [Captura](mailtrap/appointment.assigned-phone-footer-safari.png) |
+| `workshop.assignment` | [Captura](mailtrap/workshop.assignment-phone-safari.png) | [Captura](mailtrap/workshop.assignment-phone-footer-safari.png) |
+
+También se conserva el [contenido largo de asignación al taller](mailtrap/workshop.assignment-phone-contenido-safari.png) y el [texto definitivo de bienvenida](mailtrap/client.welcome-text-final-safari.png), con su footer completo. Las capturas del encabezado y del footer no muestran todo el texto intermedio de cada mensaje; los diez cuerpos completos recibidos están en la carpeta `recibidos`.
 
 ## Registro de pruebas
 
