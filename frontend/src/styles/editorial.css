@@ -258,3 +258,13 @@
   .access-panel .specialties input { margin-top: .35rem; }
   .site-header nav { flex-wrap: wrap; row-gap: var(--space-1); }
 }
+
+.neighborhood-preview { margin: var(--space-3) 0; }
+.neighborhood-preview figure { margin: 0; border-radius: var(--radius-field); overflow: hidden; background: var(--color-paper); }
+.neighborhood-preview img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; }
+.neighborhood-preview figcaption { display: flex; flex-direction: column; gap: .25rem; padding: var(--space-2); font-size: .85rem; }
+.neighborhood-preview figcaption small { color: var(--color-muted); font-size: .75rem; }
+.neighborhood-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); padding-top: var(--space-2); }
+.neighborhood-links a { font-size: .8rem; min-height: 44px; display: inline-flex; align-items: center; }
+.credit-row[id] { scroll-margin-top: var(--space-5); }
+@media (max-width: 680px) { .neighborhood-preview img { aspect-ratio: 16 / 9; } }

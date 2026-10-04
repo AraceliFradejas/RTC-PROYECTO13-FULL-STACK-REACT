@@ -34,7 +34,7 @@ La web incluye:
 
 - Portada con vídeo, controles de sonido y pausa.
 - Catálogo con búsqueda libre, sugerencias de marcas y modelos mientras escribes, filtros y fichas de vehículos.
-- Página de sedes con cuatro concesionarios, cuatro talleres colaboradores, mapa y cálculo de distancias desde una ubicación automática o elegida manualmente.
+- Página de sedes con cuatro concesionarios, cuatro talleres colaboradores, mapa y cálculo de distancias desde una ubicación automática o elegida manualmente. Cada tarjeta tiene una fotografía distinta del barrio, sus créditos y un enlace a Street View.
 - Páginas de Servicios y Nuestra esencia con imágenes propias.
 - Formularios de acceso y páginas para solicitar y consultar citas.
 - Accesos para clientes, talleres y KelseTS Cars Team, con revisión de solicitudes y asignación de citas de mantenimiento por una administradora.

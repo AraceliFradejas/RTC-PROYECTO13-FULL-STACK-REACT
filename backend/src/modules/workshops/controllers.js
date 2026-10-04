@@ -9,7 +9,7 @@ export async function myWorkshop(req, res) {
   send(res, await Workshop.findOne({ user: req.user._id }));
 }
 export async function listPublicWorkshops(req, res) {
-  send(res, await Workshop.find({ status: 'approved', public: true }).select('name city address area specialties dealership latitude longitude demo').populate('dealership', 'name city').sort({ city: 1 }).limit(100));
+  send(res, await Workshop.find({ status: 'approved', public: true }).select('name city address area specialties dealership latitude longitude demo seedKey').populate('dealership', 'name city').sort({ city: 1 }).limit(100));
 }
 export async function assignableWorkshops(req, res) {
   send(res, await Workshop.find({ status: 'approved' }).select('name city dealership').sort({ city: 1 }).limit(250));

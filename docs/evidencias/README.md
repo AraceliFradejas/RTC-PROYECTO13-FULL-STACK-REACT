@@ -88,3 +88,7 @@ La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de 
 ## Subida de fotografías a Cloudinary
 
 [Recorrido, capturas y resultados](cloudinary/README.md): prueba de integración real con datos temporales y subida desde React en Safari.
+
+## Entorno de concesionarios y talleres
+
+La [revisión de las tarjetas de sedes](sedes/README.md) recoge las ocho fotografías diferentes, las atribuciones y una captura de Safari en ventana estrecha.
