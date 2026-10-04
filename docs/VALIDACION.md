@@ -36,3 +36,31 @@ La serie de profesionales incorpora cuatro imágenes inspeccionadas individualme
 ## Sedes y mapa · 3 de octubre de 2026
 
 Las cuatro sedes se han actualizado en Atlas con direcciones inventadas, zonas y coordenadas aproximadas. Safari muestra las direcciones servidas por la API y el mapa Leaflet/OpenStreetMap con los cuatro puntos. La fórmula de distancia se ha comprobado con puntos iguales (0 km) y Madrid–Barcelona (unos 498 km en línea recta). La geolocalización requiere una acción y permiso del visitante; no se ha concedido acceso a la ubicación personal durante esta comprobación. Se gestionan permiso denegado, tiempo agotado y navegador sin geolocalización.
+
+## Clientes, talleres y Team · 4 de octubre de 2026
+
+La compilación pasa y las pruebas ordinarias suman 18 resultados correctos; la integración de Atlas se omite en esa ejecución. Activada por separado, la integración ha pasado contra una base temporal eliminada al terminar: registro, duplicados, acceso por perfil, aprobación y rechazo, permisos, asignación de mantenimiento y mensajes privados de solicitud, asignación, confirmación y cancelación. También comprueba que un taller no recibe el correo del cliente ni puede consultar la agenda general.
+
+La semilla ha cargado cuatro talleres ficticios relacionados con las cuatro sedes. En Safari se han comprobado los tres accesos y las ocho tarjetas del directorio con el mapa. No se ha concedido geolocalización durante esta revisión. El recorrido completo de formularios en navegador, la revisión móvil, Cloudinary y el despliegue siguen pendientes. Las comunicaciones son registros simulados; no se ha enviado ningún correo.
+
+El acceso y el panel de Team incorporan un hero compacto y títulos reducidos. Ambos se han revisado visualmente en Safari de escritorio. El formulario se ha separado del marco de la página para reutilizarlo en futuras vistas web; una aplicación nativa requerirá su propia interfaz. Los estilos incluyen adaptación móvil y controles táctiles de 44–48 px; su revisión en dispositivo sigue pendiente.
+
+## Colección de Insomnia · 4 de octubre de 2026
+
+Se han verificado el JSON, las referencias internas y la sintaxis de los scripts de las 78 peticiones. Las 76 del recorrido principal y sus scripts se han ejecutado con un adaptador local sobre Supertest contra una base temporal de Atlas: 76 respuestas y 171 comprobaciones correctas. Esa base se ha eliminado al terminar. No se han utilizado las credenciales Team personales ni se ha llamado a Cloudinary. Esta ejecución valida los casos y los scripts, pero no sustituye la importación, las cookies ni el ejecutor de la aplicación Insomnia, que siguen pendientes de comprobar allí.
+
+El formulario de cita ahora muestra vehículo y sede, comprueba la selección, limita el calendario y explica el estado pendiente de confirmación. La compilación y las tres pruebas existentes del horario de Madrid pasan; el envío completo desde ese formulario continúa pendiente.
+
+## Heroes privados y muestras de correo · 4 de octubre
+
+Acceso, cliente, taller, Team y solicitud de cita utilizan un hero compartido con imágenes distintas por vista. Se han inspeccionado los cuatro recursos nuevos. Los títulos privados están acotados y los estilos contemplan textos largos, acciones, campos y especialidades en pantallas estrechas. Safari se ha revisado en una ventana de 574 px para Team y solicitud de cita, además de escritorio; falta comprobar cliente y taller con sesión propia y tamaños de 320/390 px, tablet y dispositivos reales. No se considera todavía validado un responsive completo.
+
+Se han generado diez muestras HTML locales. El comando de Mailtrap usa exclusivamente Email Sandbox, datos ficticios y las mismas plantillas; falta configuración privada para capturarlas allí. Las 19 pruebas locales pasan (12 backend, 3 frontend y 4 cliente HTTP), con la integración Atlas omitida en esa ronda.
+
+## Revisión con perfiles propios y archivos de evidencia · 4 de octubre
+
+Se han preparado dos cuentas ficticias identificadas como revisión visual en la base de desarrollo: cliente y taller aprobado. No se han publicado sus datos en el mapa ni se ha enviado correo. Su preparación directa sirve para revisar diseño y no acredita el formulario de registro ni la aprobación desde Team.
+
+Se ha iniciado sesión desde Safari con cada perfil. Cliente: hero, saludo, agenda vacía y apertura de la bienvenida en la bandeja. Taller: hero, solicitud aprobada, información profesional, agenda propia vacía y dos comunicaciones disponibles. Ambos se han inspeccionado en escritorio y ventana de 574 px; los perfiles más estrechos y dispositivos reales siguen pendientes. Las cuentas permanecen disponibles para continuar la revisión.
+
+Las diez muestras locales están en [evidencias/correos](evidencias/README.md). La de asignación se ha abierto e inspeccionado visualmente en Safari: nombre, vehículo, taller, sede y hora de Madrid visibles. Se ha añadido la fecha a las comunicaciones de asignación. Los enlaces relativos de archivos locales son orientativos y no se consideran probados.

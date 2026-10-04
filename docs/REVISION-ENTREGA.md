@@ -35,3 +35,12 @@ La autora trabaja en el proyecto los fines de semana. Cloudinary es una mejora p
 Atlas y Cloudinary necesitan configuración local mediante variables de entorno excluidas de Git. No guardar secretos en la documentación. El primer despliegue se adelanta para detectar problemas de cookies, proxy, rutas y archivos de la semilla antes del cierre.
 
 La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunciado no exige un CRUD completo ni Cloudinary. La versión bilingüe es un requisito de marca solicitado por la autora. Se aplazan app, configurador, pagos, notificaciones e integraciones de fabricantes a BigSchool.
+
+## Tareas añadidas · 4 de octubre
+
+- [x] Preparar una colección importable de Insomnia para validar el backend, con datos ficticios, casos correctos, errores y permisos.
+- [ ] Importar y ejecutar la colección en Insomnia; guardar resultados y capturas de la ronda final.
+- [ ] Completar el recorrido en navegador de cliente, cita, revisión de taller y asignación desde Team.
+
+- [ ] Capturar y revisar diez muestras de comunicación en Mailtrap Sandbox, en HTML y texto.
+- [ ] Revisar cada perfil privado a 320, 390, 768 y 1440 px, incluyendo textos largos, formularios y errores; completar comprobación en dispositivo real.

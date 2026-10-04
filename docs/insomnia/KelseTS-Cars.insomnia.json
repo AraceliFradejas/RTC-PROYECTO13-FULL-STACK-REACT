@@ -1,0 +1,2864 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-04T12:00:00.000Z",
+  "__export_source": "kelsets-cars",
+  "resources": [
+    {
+      "_id": "wrk_kelsets_validation",
+      "_type": "workspace",
+      "name": "KelseTS Cars · Validación backend",
+      "description": "Ejecutar en orden. Datos ficticios. Credenciales Team solo en entorno privado. Ver docs/INSOMNIA.md.",
+      "scope": "collection",
+      "created": 1791115200000,
+      "modified": 1791115200000,
+      "parentId": null
+    },
+    {
+      "_id": "env_kelsets_base",
+      "_type": "environment",
+      "parentId": "wrk_kelsets_validation",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000/api/v1",
+        "origin": "http://localhost:5173",
+        "admin_email": "",
+        "admin_password": "",
+        "demo_password": "Demo-Insomnia-2026",
+        "client_email": "",
+        "workshop_email": "",
+        "rejected_email": "",
+        "other_email": "",
+        "vehicle_id": "",
+        "dealership_id": "",
+        "workshop_id": "",
+        "rejected_workshop_id": "",
+        "appointment_id": "",
+        "other_appointment_id": "",
+        "appointment_date": "",
+        "other_date": ""
+      },
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_2",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "01 · Preparación y catálogo público",
+      "environment": {},
+      "metaSortKey": 2,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_001",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "01 · Salud e iniciar una ronda nueva",
+      "method": "GET",
+      "url": "{{ _.base_url }}/health",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 1,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "const run = Date.now().toString();\nfor (const kind of ['client', 'workshop', 'rejected', 'other']) insomnia.environment.set(kind + '_email', kind + '.' + run + '@kelsets.example');\nfor (const key of ['vehicle_id', 'dealership_id', 'workshop_id', 'rejected_workshop_id', 'appointment_id', 'other_appointment_id']) insomnia.environment.set(key, '');\nconst next = new Date(Date.now() + 7 * 86400000);\nfunction slot(value) {\n while ([0,6].includes(value.getUTCDay())) value.setUTCDate(value.getUTCDate() + 1);\n const day = value.toISOString().slice(0,10);\n const probe = new Date(day + 'T10:00:00Z');\n const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(probe).map(p => [p.type,p.value]));\n const offset = Date.UTC(+parts.year,+parts.month-1,+parts.day,+parts.hour,+parts.minute,+parts.second) - probe.getTime();\n return new Date(probe.getTime()-offset).toISOString();\n}\ninsomnia.environment.set('appointment_date', slot(next));\nnext.setUTCDate(next.getUTCDate()+1);\ninsomnia.environment.set('other_date', slot(next));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_002",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "02 · Cerrar cualquier sesión anterior",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 2,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_003",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "03 · Sesión anónima rechazada",
+      "method": "GET",
+      "url": "{{ _.base_url }}/auth/me",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 3,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 401. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_004",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "04 · Directorio de sedes",
+      "method": "GET",
+      "url": "{{ _.base_url }}/dealerships",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 4,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Sedes disponibles', () => insomnia.expect(payload.data.length).to.be.at.least(4));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_005",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "05 · Talleres públicos sin datos privados",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Directorio sin cuentas', () => payload.data.forEach(item => { insomnia.expect(item).not.to.have.property('user'); insomnia.expect(item).not.to.have.property('email'); }));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_006",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "06 · Catálogo y guardar vehículo disponible",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 6,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Inventario de al menos 100 registros', () => insomnia.expect(payload.data.total).to.be.at.least(100));\nconst vehicle = payload.data.items.find(item => !['Vendido','Reservado'].includes(item.status));\ninsomnia.test('Vehículo disponible con sede', () => insomnia.expect(Boolean(vehicle && vehicle.dealership)).to.eql(true));\nif (vehicle) { insomnia.environment.set('vehicle_id',vehicle._id); insomnia.environment.set('dealership_id',vehicle.dealership._id); }\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_007",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "07 · Ficha del vehículo",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles/{{ _.vehicle_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 7,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_008",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "08 · Búsqueda libre",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles?q=Audi",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 8,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Coinciden los resultados', () => payload.data.items.forEach(item => insomnia.expect((item.brand+' '+item.model).toLowerCase()).to.include('audi')));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_009",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "09 · Filtro por marca",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles?brand=Porsche&page=1",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 9,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Marca filtrada', () => payload.data.items.forEach(item => insomnia.expect(item.brand).to.eql('Porsche')));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_010",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "10 · Página inválida",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles?page=0",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 10,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_011",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "11 · ID inválido",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles/no-es-un-id",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 11,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_012",
+      "_type": "request",
+      "parentId": "fld_2",
+      "name": "12 · Vehículo inexistente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/vehicles/000000000000000000000000",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 12,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 404', () => insomnia.expect(insomnia.response.status).to.eql(404));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 404. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_15",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "02 · Cliente y cita pendiente",
+      "environment": {},
+      "metaSortKey": 15,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_013",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "13 · Bloqueo de un origen no permitido",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"portal\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 13,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "insomnia.request.addHeader({key:'Origin',value:'https://origen-ajeno.example'});",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_014",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "14 · No se puede registrar un administrador",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Cliente de prueba\",\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"client\",\n  \"role\": \"admin\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 14,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_015",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "15 · Registro de cliente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Cliente de prueba\",\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 15,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol decidido por servidor y sin contraseña', () => { insomnia.expect(payload.data.role).to.eql('client'); insomnia.expect(payload.data).not.to.have.property('password'); });",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_016",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "16 · Registro duplicado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Cliente de prueba\",\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 16,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 409. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_017",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "17 · Mi sesión cliente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/auth/me",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 17,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_018",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "18 · Bienvenida privada simulada",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 18,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Bienvenida sin envío', () => { insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(true); payload.data.forEach(item => insomnia.expect(item.delivery).to.eql('simulated')); });",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_019",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "19 · Cliente no revisa talleres",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/applications",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 19,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_020",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "20 · Cliente no sube imágenes",
+      "method": "POST",
+      "url": "{{ _.base_url }}/vehicles/{{ _.vehicle_id }}/image",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": []
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 20,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_021",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "21 · Cita fuera de fecha",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"vehicle\": \"{{ _.vehicle_id }}\",\n  \"dealership\": \"{{ _.dealership_id }}\",\n  \"date\": \"2020-01-01T10:00:00.000Z\",\n  \"service\": \"Mantenimiento\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 21,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_022",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "22 · Solicitar mantenimiento",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"vehicle\": \"{{ _.vehicle_id }}\",\n  \"dealership\": \"{{ _.dealership_id }}\",\n  \"date\": \"{{ _.appointment_date }}\",\n  \"service\": \"Mantenimiento\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 22,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cita pendiente', () => insomnia.expect(payload.data.status).to.eql('Pendiente')); if(payload.success) insomnia.environment.set('appointment_id',payload.data._id);",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_023",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "23 · La misma franja está ocupada",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"vehicle\": \"{{ _.vehicle_id }}\",\n  \"dealership\": \"{{ _.dealership_id }}\",\n  \"date\": \"{{ _.appointment_date }}\",\n  \"service\": \"Mantenimiento\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 23,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 409. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_024",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "24 · Cliente no confirma la cita",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Confirmada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 24,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_025",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "25 · Cliente no asigna talleres",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}/workshop",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"workshop\": \"000000000000000000000000\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_026",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "26 · Cerrar sesión cliente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 26,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_027",
+      "_type": "request",
+      "parentId": "fld_15",
+      "name": "27 · Contraseña incorrecta",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"Incorrecta-de-prueba\",\n  \"portal\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 27,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 401. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_31",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "03 · Solicitud de colaboración",
+      "environment": {},
+      "metaSortKey": 31,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_028",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "28 · Registro sin especialidades",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Contacto de prueba\",\n  \"email\": \"{{ _.workshop_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"workshop\",\n  \"workshopName\": \"Atelier de pruebas Insomnia\",\n  \"city\": \"Madrid\",\n  \"address\": \"Pasaje ficticio de Pruebas 12\",\n  \"phone\": \"600000000\",\n  \"specialties\": []\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 28,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_029",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "29 · Registro de taller",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Contacto de prueba\",\n  \"email\": \"{{ _.workshop_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"workshop\",\n  \"workshopName\": \"Atelier de pruebas Insomnia\",\n  \"city\": \"Madrid\",\n  \"address\": \"Pasaje ficticio de Pruebas 12\",\n  \"phone\": \"600000000\",\n  \"specialties\": [\n    \"Mecánica\",\n    \"Revisiones y mantenimiento\"\n  ]\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 29,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_030",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "30 · Guardar solicitud pendiente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/me",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 30,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Pendiente de aprobación', () => insomnia.expect(payload.data.status).to.eql('pending')); if(payload.success) insomnia.environment.set('workshop_id',payload.data._id);",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_031",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "31 · Mensaje de recepción del taller",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 31,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo recepción propia', () => { insomnia.expect(payload.data.some(item => item.type==='workshop.received')).to.eql(true); insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(false); });",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_032",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "32 · Taller pendiente no accede a trabajos",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/jobs",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 32,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_033",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "33 · Taller no accede a agenda general",
+      "method": "GET",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 33,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_034",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "34 · Taller no puede aprobarse",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/workshops/{{ _.workshop_id }}/review",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"approved\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 34,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_035",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "35 · Cerrar sesión taller",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 35,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_036",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "36 · Alta de otra solicitud para rechazo",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Contacto de prueba\",\n  \"email\": \"{{ _.rejected_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"workshop\",\n  \"workshopName\": \"Atelier de prueba pendiente de datos\",\n  \"city\": \"Madrid\",\n  \"address\": \"Pasaje ficticio de Pruebas 12\",\n  \"phone\": \"600000000\",\n  \"specialties\": [\n    \"Mecánica\",\n    \"Revisiones y mantenimiento\"\n  ]\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 36,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_037",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "37 · Guardar segunda solicitud",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/me",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 37,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('rejected_workshop_id',payload.data._id);",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_038",
+      "_type": "request",
+      "parentId": "fld_31",
+      "name": "38 · Cerrar segunda solicitud",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 38,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_43",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "04 · KelseTS Cars Team",
+      "environment": {},
+      "metaSortKey": 43,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_039",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "39 · Team no entra por portal cliente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.admin_email }}\",\n  \"password\": \"{{ _.admin_password }}\",\n  \"portal\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 39,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_040",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "40 · Entrar en Team",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.admin_email }}\",\n  \"password\": \"{{ _.admin_password }}\",\n  \"portal\": \"team\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 40,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cuenta administradora', () => insomnia.expect(payload.data.role).to.eql('admin'));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_041",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "41 · Consultar solicitudes",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/applications",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 41,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_042",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "42 · Aprobar taller",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/workshops/{{ _.workshop_id }}/review",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"approved\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 42,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_043",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "43 · No aprobar dos veces",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/workshops/{{ _.workshop_id }}/review",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"approved\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 43,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 409. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_044",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "44 · Rechazo exige motivo",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/workshops/{{ _.rejected_workshop_id }}/review",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"rejected\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 44,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_045",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "45 · Rechazar con motivo",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/workshops/{{ _.rejected_workshop_id }}/review",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"rejected\",\n  \"reason\": \"Faltan datos para revisar la colaboración.\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 45,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_046",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "46 · Talleres asignables",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/assignable",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 46,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_047",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "47 · Asignar mantenimiento al taller aprobado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}/workshop",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"workshop\": \"{{ _.workshop_id }}\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 47,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_048",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "48 · No asignar dos veces",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}/workshop",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"workshop\": \"{{ _.workshop_id }}\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 48,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 409. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_049",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "49 · Confirmar cita",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Confirmada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 49,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_050",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "50 · Agenda de Team",
+      "method": "GET",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 50,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_051",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "51 · Imagen ausente rechazada sin llamar Cloudinary",
+      "method": "POST",
+      "url": "{{ _.base_url }}/vehicles/{{ _.vehicle_id }}/image",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": []
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 51,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 400. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_052",
+      "_type": "request",
+      "parentId": "fld_43",
+      "name": "52 · Cerrar Team",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 52,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_58",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "05 · Taller aprobado y aislamiento",
+      "environment": {},
+      "metaSortKey": 58,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_053",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "53 · Entrar taller aprobado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.workshop_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"portal\": \"workshop\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 53,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol profesional', () => insomnia.expect(payload.data.role).to.eql('workshop'));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_054",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "54 · Solo trabajos asignados sin email del cliente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/jobs",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 54,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Asignación propia y privacidad', () => { insomnia.expect(payload.data.some(item => item._id===insomnia.environment.get('appointment_id'))).to.eql(true); payload.data.forEach(item=>{ insomnia.expect(item.user).not.to.have.property('email'); }); });",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_055",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "55 · Taller aprobado tampoco ve agenda general",
+      "method": "GET",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 55,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_056",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "56 · Comunicaciones del taller",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 56,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Aprobación y asignación notificadas', () => { for(const type of ['workshop.approved','workshop.assignment','appointment.confirmed']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true); insomnia.expect(payload.data.some(item=>item.type==='client.welcome')).to.eql(false); });",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_057",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "57 · Cerrar taller aprobado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 57,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_058",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "58 · Entrar taller rechazado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.rejected_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"portal\": \"workshop\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 58,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_059",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "59 · Rechazado sin agenda profesional",
+      "method": "GET",
+      "url": "{{ _.base_url }}/workshops/jobs",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 59,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 403. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_060",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "60 · Comunicación del rechazo",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 60,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Resultado explicado',()=>insomnia.expect(payload.data.some(item=>item.type==='workshop.rejected')).to.eql(true));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_061",
+      "_type": "request",
+      "parentId": "fld_58",
+      "name": "61 · Cerrar taller rechazado",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 61,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_68",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "06 · Otro cliente y final del recorrido",
+      "environment": {},
+      "metaSortKey": 68,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_062",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "62 · Registrar segundo cliente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/register",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Otro cliente ficticio\",\n  \"email\": \"{{ _.other_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"accountType\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 62,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_063",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "63 · Agenda aislada",
+      "method": "GET",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 63,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('No accede a cita ajena',()=>insomnia.expect(payload.data.some(item=>item._id===insomnia.environment.get('appointment_id'))).to.eql(false));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_064",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "64 · No cancela cita de otro cliente",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Cancelada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 64,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 409. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_065",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "65 · Bandeja aislada",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 65,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo bienvenida del segundo cliente',()=>insomnia.expect(payload.data.map(item=>item.type)).to.eql(['client.welcome']));",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_066",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "66 · Solicitar cita para completar",
+      "method": "POST",
+      "url": "{{ _.base_url }}/appointments",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"vehicle\": \"{{ _.vehicle_id }}\",\n  \"dealership\": \"{{ _.dealership_id }}\",\n  \"date\": \"{{ _.other_date }}\",\n  \"service\": \"Asesoramiento\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 66,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('other_appointment_id',payload.data._id);",
+      "description": "Esperado: HTTP 201. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_067",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "67 · Cerrar segundo cliente",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 67,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_068",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "68 · Entrar cliente inicial",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.client_email }}\",\n  \"password\": \"{{ _.demo_password }}\",\n  \"portal\": \"client\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 68,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_069",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "69 · Cancelar cita propia",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Cancelada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 69,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_070",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "70 · Comunicaciones del cliente",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 70,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Ciclo de cita notificado',()=>{for(const type of ['appointment.pending','appointment.assigned','appointment.confirmed','appointment.cancelled']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true);});",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_071",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "71 · Cerrar cliente inicial",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 71,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_072",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "72 · Team para completar visita",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.admin_email }}\",\n  \"password\": \"{{ _.admin_password }}\",\n  \"portal\": \"team\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 72,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_073",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "73 · Confirmar segunda visita",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.other_appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Confirmada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 73,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_074",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "74 · Completar segunda visita",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/appointments/{{ _.other_appointment_id }}",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"Completada\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 74,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_075",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "75 · Cerrar sesión final",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/logout",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_076",
+      "_type": "request",
+      "parentId": "fld_68",
+      "name": "76 · Sin sesión no hay mensajes",
+      "method": "GET",
+      "url": "{{ _.base_url }}/messages",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {},
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 76,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "description": "Esperado: HTTP 401. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "fld_84",
+      "_type": "request_group",
+      "parentId": "wrk_kelsets_validation",
+      "name": "07 · Cloudinary opcional · ejecución manual",
+      "environment": {},
+      "metaSortKey": 84,
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_077",
+      "_type": "request",
+      "parentId": "fld_84",
+      "name": "77 · Entrar Team para pruebas de imágenes",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/login",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.admin_email }}\",\n  \"password\": \"{{ _.admin_password }}\",\n  \"portal\": \"team\"\n}"
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 77,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "description": "Esperado: HTTP 200. Ver guía de ejecución.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    },
+    {
+      "_id": "req_kelsets_078",
+      "_type": "request",
+      "parentId": "fld_84",
+      "name": "78 · Subir imagen real de prueba (seleccionar archivo)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/vehicles/{{ _.vehicle_id }}/image",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Origin",
+          "value": "{{ _.origin }}"
+        }
+      ],
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "name": "image",
+            "type": "file",
+            "fileName": "",
+            "value": ""
+          }
+        ]
+      },
+      "authentication": {},
+      "parameters": [],
+      "metaSortKey": 78,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingFollowRedirects": "global",
+      "settingEncodeUrl": true,
+      "preRequestScript": "",
+      "afterResponseScript": "insomnia.test('Subida correcta',()=>insomnia.expect(insomnia.response.status).to.eql(200));",
+      "description": "Manual. Seleccionar archivo JPEG/PNG/WebP <5 MB. Modifica la imagen del vehículo. Esperado 200 con Cloudinary configurado; 503 sin credenciales. No incluir en la ronda general.",
+      "created": 1791115200000,
+      "modified": 1791115200000
+    }
+  ]
+}

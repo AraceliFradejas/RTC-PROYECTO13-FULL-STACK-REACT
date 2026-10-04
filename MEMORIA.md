@@ -70,6 +70,14 @@ El cliente solo puede cancelar citas propias. El personal consulta y gestiona su
 
 ## 10. Hooks y experiencia de usuario
 
+### Clientes, talleres colaboradores y comunicaciones
+
+He añadido dos tipos de registro porque la relación con el cliente continúa después de elegir el coche. Un taller puede indicar su ubicación y sus especialidades de revisión, mecánica, chapa y pintura, lunas o eléctricos. La solicitud queda pendiente hasta que una administradora la revise; registrarse no concede acceso a datos de clientes. La aprobación activa el perfil profesional, pero Team puede asignar citas de mantenimiento a talleres aprobados, y el taller consulta únicamente las citas que le corresponden. El seguimiento de reparaciones y siniestros todavía requiere un módulo posterior.
+
+Para comunicar cada resultado he adaptado la idea que utilicé en [KelseTS Talks, otro proyecto de mi portfolio](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/docs/CORREO.md). Allí probé correos en Mailtrap Sandbox. En Cars los mensajes se guardan en una bandeja privada de demostración y se pueden generar muestras HTML locales, sin envío real. Hay bienvenida de cliente, recepción y resultado de solicitudes de talleres, y comunicaciones de solicitud, confirmación, cancelación y finalización de citas.
+
+Las referencias de Renault y Línea Directa me han servido para organizar la posventa y las especialidades, manteniendo la identidad propia de KelseTS. La [justificación, los permisos y las pruebas](docs/COMUNICACIONES-Y-TALLERES.md) explican qué está implementado y qué queda para después. `Workshop` referencia a su usuario y `Message` a su destinatario. Las altas y los cambios se guardan con sus comunicaciones en una transacción para evitar que aparezca un mensaje de éxito sin haberse completado la operación.
+
 `useResource` combina `useReducer`, cancelación mediante `AbortController` y reintento. Evita que una respuesta anterior actualice una pantalla después de cambiar filtros o ruta. `AuthProvider` comparte el estado de sesión sin copiarlo en cada página.
 
 La interfaz diferencia carga, error y ausencia de resultados. Las variables en `style.css` definen colores y espaciados. Se incluyen enlaces para saltar al contenido, etiquetas de formulario, foco visible y reducción de movimiento. Esto constituye una base de accesibilidad, no una auditoría completa.
@@ -82,7 +90,7 @@ Cinco fotografías reales se han incorporado con autor, licencia y enlace de ori
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). No se han ejecutado todavía registros, reservas ni subidas reales contra Atlas y Cloudinary. Tampoco existen capturas de producción.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido completo desde los formularios, las subidas a Cloudinary y la producción siguen pendientes.
 
 Las evidencias de la entrega final deberán diferenciar pruebas locales, integración con servicios y recorrido manual del despliegue, siguiendo la presentación utilizada en mis proyectos anteriores.
 
@@ -99,3 +107,8 @@ La decisión inicial es separar la lógica compartida de la plataforma. Los sigu
 La portada incorpora servicios, conducción, movilidad eléctrica, historias de marca, acceso al área personal y preguntas frecuentes. Servicios explica los pasos para solicitar una visita y Nuestra esencia desarrolla la identidad. Se reutilizan los componentes de panel editorial, servicios, historias y preguntas. La sección eléctrica enlaza al filtro de motorización del catálogo.
 
 Las imágenes aportadas sirven como referencias de dirección visual. Las secciones utilizan nuevas escenas conceptuales creadas sin textos incorporados. La [organización de referencias](docs/SECCIONES.md) recoge el destino de cada imagen y los módulos reservados para BigSchool. No se presentan app, financiación, configurador o reseñas reales como funcionalidades terminadas.
+
+
+## Red de talleres y acceso Team · 4 de octubre de 2026
+
+He añadido KelseTS Cars Team como acceso interno. Las cuentas no se registran públicamente y los permisos se comprueban en el backend. La red parte de cuatro talleres ficticios próximos a las cuatro sedes, cargados desde un nuevo CSV y visibles en el mapa con un color distinto. Cada taller inicial referencia su concesionario, y la cita puede relacionar a cliente, vehículo, sede y taller mediante `Appointment.workshop`. Los talleres registrados solo consultan sus asignaciones, sin acceso a la agenda general. Los talleres de demostración no tienen credenciales ni cuenta de usuario. La documentación distingue coordinación de citas de la futura gestión de reparaciones.

@@ -34,13 +34,15 @@ La web incluye:
 
 - Portada con vídeo, controles de sonido y pausa.
 - Catálogo con búsqueda libre o filtros y fichas de vehículos.
-- Página de sedes con mapa y cálculo de distancias desde una ubicación automática o elegida manualmente.
+- Página de sedes con cuatro concesionarios, cuatro talleres colaboradores, mapa y cálculo de distancias desde una ubicación automática o elegida manualmente.
 - Páginas de Servicios y Nuestra esencia con imágenes propias.
 - Formularios de acceso y páginas para solicitar y consultar citas.
+- Accesos para clientes, talleres y KelseTS Cars Team, con revisión de solicitudes y asignación de citas de mantenimiento por una administradora.
+- Bandeja privada de comunicaciones de demostración para altas, solicitudes y cambios de cita, sin envío de correos reales.
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 15 pruebas locales realizadas hasta ahora han pasado. También se han revisado la portada y varias páginas en Safari. Quedan por comprobar de principio a fin el acceso de usuarios y la gestión de citas, configurar Cloudinary y preparar el despliegue.
+La compilación y las 20 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he revisado los tres accesos y el directorio de ocho centros. Quedan el recorrido completo de los formularios en la web, la revisión móvil, configurar Cloudinary y preparar el despliegue.
 
 Los datos iniciales proceden de un CSV de ejemplo. Todavía falta preparar el Excel definitivo y ampliar la selección de vehículos de gama alta. También están pendientes la versión en inglés y la revisión final de la documentación y las pruebas de entrega.
 
@@ -173,6 +175,7 @@ La API devuelve `{ success, data }` cuando la petición funciona y `{ success: f
 - [Logo e identidad de marca](docs/MARCA.md).
 - [Revisión del enunciado](docs/REVISION-ENTREGA.md).
 - [Fotografías y recursos](docs/RECURSOS.md).
+- [Registro de talleres y comunicaciones](docs/COMUNICACIONES-Y-TALLERES.md), siguiendo el planteamiento de KelseTS Talks.
 
 ## Despliegue
 
@@ -187,3 +190,9 @@ KelseTS Cars es una marca ficticia para fines educativos y de portfolio. No exis
 [GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/)
 
 La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega y las ideas que desarrollaré después para BigSchool.
+
+Para revisar el backend sin usar la web, he incluido una [colección de pruebas de Insomnia y su guía](docs/INSOMNIA.md). Las credenciales se configuran en un entorno privado; el archivo del repositorio contiene solo datos ficticios.
+
+Las comunicaciones tienen [diez muestras para revisar en Mailtrap Sandbox](docs/MAILTRAP.md), con HTML y texto y sin entrega a buzones personales.
+
+Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).
