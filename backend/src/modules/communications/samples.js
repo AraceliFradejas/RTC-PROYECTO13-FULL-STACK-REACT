@@ -1,0 +1,2 @@
+export const sampleTypes = ['client.welcome', 'workshop.received', 'workshop.approved', 'workshop.rejected', 'appointment.pending', 'appointment.confirmed', 'appointment.cancelled', 'appointment.completed', 'appointment.assigned', 'workshop.assignment'];
+export const sampleData = { name: 'Alex Demo', workshopName: 'KelseTS Atelier Demo', reason: 'Falta información sobre las especialidades del taller.', date: '2026-10-06T08:00:00Z', service: 'Mantenimiento', vehicle: 'Mercedes-Benz Clase S', dealership: 'KelseTS Cars Madrid' };

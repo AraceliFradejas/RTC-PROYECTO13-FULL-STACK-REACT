@@ -9,4 +9,5 @@ coverage/
 .vercel/
 *.log
 backend/.uploads/
+backend/.email-previews/
 docs/screenshots/local/

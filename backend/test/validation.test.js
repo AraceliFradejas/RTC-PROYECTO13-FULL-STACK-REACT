@@ -21,7 +21,8 @@ test('las citas rechazan pasado, fecha inválida y más de 90 días', () => {
   for (const date of ['2026-10-02T08:00:00Z', '2027-03-01T09:00:00Z', 'invalid']) assert.equal(validateAppointmentDate(date, now), false);
 });
 test('el CSV cumple conteo y relaciones sin conectar a Atlas', async () => {
-  const { dealers, vehicles } = await readDataset();
+  const { dealers, vehicles, workshops } = await readDataset();
+  assert.equal(workshops.length, 4); assert.ok(workshops.every(value => dealers.some(dealer => dealer.seedKey === value.dealershipKey)));
   assert.equal(vehicles.length, 100); assert.equal(dealers.length, 4);
   assert.equal(new Set(vehicles.map(value => value.seedKey)).size, 100);
   assert.ok(vehicles.every(value => dealers.some(dealer => dealer.seedKey === value.dealershipKey)));

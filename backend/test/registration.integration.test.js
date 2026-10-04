@@ -1,0 +1,78 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import mongoose from 'mongoose';
+import request from 'supertest';
+import app from '../src/app.js';
+import { env } from '../src/config/env.js';
+import { User } from '../src/modules/auth/models/User.js';
+import { Workshop } from '../src/modules/workshops/Workshop.js';
+import { Message } from '../src/modules/communications/Message.js';
+import { Vehicle } from '../src/modules/catalog/models/Vehicle.js';
+import { Dealership } from '../src/modules/catalog/models/Dealership.js';
+import { Appointment } from '../src/modules/appointments/models/Appointment.js';
+import { validateAppointmentDate } from '../src/utils/validation.js';
+test('Atlas: registros, revisión de talleres, privacidad y comunicaciones de citas', { skip: process.env.RUN_ATLAS_TESTS !== 'true', timeout: 60000 }, async () => {
+  const database = `kelsets_test_reg_${Date.now()}`;
+  await mongoose.connect(env.mongoUri, { dbName: database, serverSelectionTimeoutMS: 8000 });
+  try {
+    await Promise.all([User, Workshop, Message, Vehicle, Dealership, Appointment].map(model => model.init()));
+    const origin = env.origins[0];
+    const client = request.agent(app), partner = request.agent(app), rejected = request.agent(app), admin = request.agent(app);
+    const base = { name: 'Alex Demo', email: 'client@example.com', password: 'Demo-private-2026' };
+    let response = await client.post('/api/v1/auth/register').set('Origin', origin).send({ ...base, role: 'admin' }); assert.equal(response.status, 400);
+    response = await client.post('/api/v1/auth/register').set('Origin', origin).send(base); assert.equal(response.status, 201); assert.equal(response.body.data.role, 'client');
+    assert.equal((await client.get('/api/v1/messages')).body.data[0].type, 'client.welcome');
+    assert.equal((await client.post('/api/v1/auth/register').set('Origin', origin).send(base)).status, 409);
+    const workshop = { ...base, accountType: 'workshop', email: 'workshop@example.com', workshopName: 'Taller Demo', city: 'Madrid', address: 'Calle Demo 10', phone: '600000000', specialties: ['Mecánica', 'Chapa y pintura'] };
+    assert.equal((await partner.post('/api/v1/auth/register').set('Origin', origin).send(workshop)).status, 201);
+    assert.equal((await partner.get('/api/v1/appointments')).status, 403);
+    assert.equal((await partner.get('/api/v1/workshops/applications')).status, 403);
+    let mine = (await partner.get('/api/v1/workshops/me')).body.data;
+    assert.equal(mine.status, 'pending'); const approvedWorkshopId = mine._id;
+    assert.equal((await partner.patch(`/api/v1/workshops/${mine._id}/review`).set('Origin', origin).send({ status: 'approved' })).status, 403);
+    const administrator = await User.findOne({ email: base.email }); administrator.role = 'admin'; await administrator.save();
+    assert.equal((await admin.post('/api/v1/auth/login').set('Origin', origin).send({ email: base.email, password: base.password, portal: 'client' })).status, 403);
+    assert.equal((await admin.post('/api/v1/auth/login').set('Origin', origin).send({ email: base.email, password: base.password, portal: 'team' })).status, 200);
+    assert.equal((await admin.patch(`/api/v1/workshops/${mine._id}/review`).set('Origin', origin).send({ status: 'approved' })).status, 200);
+    assert.equal((await admin.patch(`/api/v1/workshops/${mine._id}/review`).set('Origin', origin).send({ status: 'approved' })).status, 409);
+    assert.equal((await partner.get('/api/v1/auth/me')).body.data.role, 'workshop');
+    assert.equal((await partner.get('/api/v1/appointments')).status, 403);
+    let messages = (await partner.get('/api/v1/messages')).body.data;
+    assert.deepEqual(messages.map(value => value.type).sort(), ['workshop.approved', 'workshop.received']);
+    assert.ok(messages.every(value => value.delivery === 'simulated' && value.html.includes('SIN ENVÍO REAL')));
+    assert.equal((await rejected.post('/api/v1/auth/register').set('Origin', origin).send({ ...workshop, email: 'rejected@example.com' })).status, 201);
+    mine = (await rejected.get('/api/v1/workshops/me')).body.data;
+    assert.equal((await admin.patch(`/api/v1/workshops/${mine._id}/review`).set('Origin', origin).send({ status: 'rejected' })).status, 400);
+    assert.equal((await admin.patch(`/api/v1/workshops/${mine._id}/review`).set('Origin', origin).send({ status: 'rejected', reason: 'Falta información del taller.' })).status, 200);
+    assert.equal((await rejected.get('/api/v1/messages')).body.data[0].type, 'workshop.rejected');
+    administrator.role = 'client'; await administrator.save();
+    const dealer = await Dealership.create({ seedKey: 'test', name: 'Sede Demo', city: 'Madrid' });
+    const vehicle = await Vehicle.create({ seedKey: 'test', brand: 'Mercedes', model: 'Clase S', bodyType: 'Sedán', fuel: 'Gasolina', sourceUrl: 'https://example.com', dealership: dealer._id });
+    let date;
+    for (let hour = 1; hour < 240; hour++) { const candidate = new Date(); candidate.setUTCHours(candidate.getUTCHours() + hour, 0, 0, 0); if (validateAppointmentDate(candidate.toISOString())) { date = candidate.toISOString(); break; } }
+    assert.ok(date);
+    response = await client.post('/api/v1/appointments').set('Origin', origin).send({ vehicle: String(vehicle._id), dealership: String(dealer._id), date, service: 'Mantenimiento' });
+    assert.equal(response.status, 201); const appointmentId = response.body.data._id;
+    assert.equal((await client.get('/api/v1/messages')).body.data[0].type, 'appointment.pending');
+    administrator.role = 'admin'; await administrator.save();
+    assert.equal((await partner.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 403);
+    assert.equal((await admin.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 200);
+    assert.equal((await admin.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 409);
+    const jobs = (await partner.get('/api/v1/workshops/jobs')).body.data;
+    assert.equal(jobs.length, 1); assert.equal(jobs[0].user.email, undefined);
+    assert.equal((await rejected.get('/api/v1/workshops/jobs')).status, 403);
+    assert.equal((await admin.patch(`/api/v1/appointments/${appointmentId}`).set('Origin', origin).send({ status: 'Confirmada' })).status, 200);
+    administrator.role = 'client'; await administrator.save();
+    assert.equal((await client.patch(`/api/v1/appointments/${appointmentId}`).set('Origin', origin).send({ status: 'Cancelada' })).status, 200);
+    messages = (await client.get('/api/v1/messages')).body.data;
+    assert.deepEqual(messages.map(value => value.type).sort(), ['appointment.assigned', 'appointment.cancelled', 'appointment.confirmed', 'appointment.pending', 'client.welcome']);
+    assert.equal((await partner.get('/api/v1/messages')).body.data.length, 5);
+    assert.equal((await client.post('/api/v1/auth/logout').set('Origin', origin)).status, 200);
+    assert.equal((await client.get('/api/v1/messages')).status, 401);
+    assert.equal((await client.post('/api/v1/auth/login').set('Origin', origin).send({ email: base.email, password: 'incorrecta-demo' })).status, 401);
+    assert.equal((await client.post('/api/v1/auth/login').set('Origin', origin).send({ email: base.email, password: base.password })).status, 200);
+  } finally {
+    if (mongoose.connection.name !== database || !database.startsWith('kelsets_test_reg_')) throw new Error('Base de prueba inesperada.');
+    try { await mongoose.connection.dropDatabase(); } finally { await mongoose.disconnect(); }
+  }
+});

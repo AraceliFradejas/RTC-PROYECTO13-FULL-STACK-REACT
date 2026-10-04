@@ -5,8 +5,9 @@ import { connectDatabase } from '../config/database.js';
 import { Dealership } from '../modules/catalog/models/Dealership.js';
 import { Vehicle } from '../modules/catalog/models/Vehicle.js';
 import { User } from '../modules/auth/models/User.js';
-const { dealers, vehicles } = await readDataset();
-console.log(`CSV válidos: ${vehicles.length} vehículos y ${dealers.length} sedes relacionadas.`);
+import { Workshop } from '../modules/workshops/Workshop.js';
+const { dealers, vehicles, workshops } = await readDataset();
+console.log(`CSV válidos: ${vehicles.length} vehículos, ${dealers.length} sedes y ${workshops.length} talleres relacionados.`);
 if (!process.argv.includes('--check')) {
   const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
   const password = process.env.ADMIN_PASSWORD;
@@ -27,10 +28,14 @@ if (!process.argv.includes('--check')) {
           dealership: dealerMap.get(dealershipKey), image, photoKey },
       }, { upsert: true, runValidators: true });
     }
+    for (const input of workshops) {
+      const { dealershipKey, ...data } = input;
+      await Workshop.findOneAndUpdate({ seedKey: input.seedKey }, { $setOnInsert: { ...data, demo: true, public: true, status: 'approved', dealership: dealerMap.get(dealershipKey) } }, { upsert: true, runValidators: true });
+    }
     if (email) {
       await User.findOneAndUpdate({ email }, { $setOnInsert: { name: 'Administración KelseTS Cars', email, role: 'admin', password: await bcrypt.hash(password, 12) } }, { upsert: true, runValidators: true });
     }
-    await Promise.all([User.init(), Vehicle.init(), Dealership.init()]);
+    await Promise.all([User.init(), Vehicle.init(), Dealership.init(), Workshop.init()]);
     console.log('Semilla terminada. No se han eliminado ni sobrescrito vehículos existentes.');
   } finally { await mongoose.disconnect(); }
 }

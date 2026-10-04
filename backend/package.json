@@ -8,7 +8,9 @@
     "start": "node src/server.js",
     "test": "node --test",
     "seed:check": "node src/seeds/seed.js --check",
-    "seed": "node src/seeds/seed.js"
+    "seed": "node src/seeds/seed.js",
+    "email:preview": "node src/modules/communications/preview.js",
+    "email:sandbox": "node src/modules/communications/sandboxPreview.js"
   },
   "dependencies": {
     "express": "^5.1.0",

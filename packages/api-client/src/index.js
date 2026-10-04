@@ -32,6 +32,16 @@ export function createApiClient({ baseUrl, fetchImpl = globalThis.fetch, getHead
       list: options => request('/appointments', options),
       create: body => request('/appointments', { method: 'POST', body }),
       update: (id, body) => request(`/appointments/${encodeURIComponent(id)}`, { method: 'PATCH', body }),
+      assignWorkshop: (id, body) => request(`/appointments/${encodeURIComponent(id)}/workshop`, { method: 'POST', body }),
+    },
+    messages: { list: options => request('/messages', options) },
+    workshops: {
+      list: options => request('/workshops', options),
+      assignable: options => request('/workshops/assignable', options),
+      me: options => request('/workshops/me', options),
+      jobs: options => request('/workshops/jobs', options),
+      applications: options => request('/workshops/applications', options),
+      review: (id, body) => request(`/workshops/${encodeURIComponent(id)}/review`, { method: 'PATCH', body }),
     },
   };
 }
