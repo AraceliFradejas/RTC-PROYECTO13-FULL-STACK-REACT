@@ -23,4 +23,16 @@ Consultar [VALIDACION.md](../VALIDACION.md) para distinguir comprobaciones reali
 
 - [Salida de las pruebas locales del 4 de octubre](pruebas-locales-2026-10-04.txt).
 
-Las capturas mostradas durante la revisión en Safari no están aún guardadas como PNG en esta carpeta. Los HTML y el registro de pruebas sí son archivos entregables; falta completar las capturas finales de navegador y Mailtrap.
+## Recorrido de mantenimiento · 4 de octubre de 2026
+
+Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capturas de 3456 × 1988 píxeles (pantalla Retina; no equivalen a ese ancho CSS).
+
+1. [Cliente: solicitud pendiente y mensaje](recorrido/01-cliente-solicitud.png).
+2. [Team: taller asignado y cita confirmada](recorrido/02-team-confirmacion.png).
+3. [Cliente: comunicación de asignación](recorrido/03-cliente-asignacion.png).
+4. [Taller: comunicación de la cita asignada](recorrido/04-taller-asignacion.png).
+5. [Team: visita completada](recorrido/05-team-cierre.png).
+6. [Taller: comunicación de cierre](recorrido/06-taller-cierre.png).
+7. [Cliente: comunicación de cierre](recorrido/07-cliente-cierre.png).
+
+La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. Quedan pendientes las capturas de Mailtrap, el registro y revisión de talleres en navegador y la validación móvil completa.

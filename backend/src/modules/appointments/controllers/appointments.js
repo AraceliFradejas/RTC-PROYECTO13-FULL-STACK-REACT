@@ -33,11 +33,11 @@ export async function updateAppointment(req, res) {
     if (status !== 'Cancelada') throw new HttpError(403, 'Solo puedes cancelar tus propias citas.');
     filter.user = req.user._id;
   } else if (req.user.role === 'staff') filter.dealership = req.user.dealership || null;
-  filter.status = { $ne: status };
+  filter.status = status === 'Completada' ? 'Confirmada' : { $ne: status };
   let appointment;
   await mongoose.connection.transaction(async session => {
     appointment = await Appointment.findOneAndUpdate(filter, { status, active: status === 'Confirmada' }, { new: true, runValidators: true, session }).populate('vehicle dealership');
-    if (!appointment) throw new HttpError(409, 'La cita ya tiene ese estado o no puedes modificarla.');
+    if (!appointment) throw new HttpError(409, status === 'Completada' ? 'Solo puedes completar una cita activa y confirmada.' : 'La cita ya tiene ese estado o no puedes modificarla.');
     const user = await User.findById(appointment.user).session(session);
     await appointmentMessage(appointment, user, { Confirmada: 'confirmed', Cancelada: 'cancelled', Completada: 'completed' }[status], session);
   });

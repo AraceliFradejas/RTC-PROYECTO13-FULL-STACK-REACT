@@ -55,6 +55,12 @@ test('Atlas: registros, revisión de talleres, privacidad y comunicaciones de ci
     assert.equal(response.status, 201); const appointmentId = response.body.data._id;
     assert.equal((await client.get('/api/v1/messages')).body.data[0].type, 'appointment.pending');
     administrator.role = 'admin'; await administrator.save();
+    const pendingMessageCount = await Message.countDocuments();
+    assert.equal((await admin.patch(`/api/v1/appointments/${appointmentId}`).set('Origin', origin).send({ status: 'Completada' })).status, 409);
+    const unchangedAppointment = await Appointment.findById(appointmentId);
+    assert.equal(unchangedAppointment.status, 'Pendiente');
+    assert.equal(unchangedAppointment.active, true);
+    assert.equal(await Message.countDocuments(), pendingMessageCount);
     assert.equal((await partner.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 403);
     assert.equal((await admin.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 200);
     assert.equal((await admin.post(`/api/v1/appointments/${appointmentId}/workshop`).set('Origin', origin).send({ workshop: approvedWorkshopId })).status, 409);
@@ -67,6 +73,14 @@ test('Atlas: registros, revisión de talleres, privacidad y comunicaciones de ci
     messages = (await client.get('/api/v1/messages')).body.data;
     assert.deepEqual(messages.map(value => value.type).sort(), ['appointment.assigned', 'appointment.cancelled', 'appointment.confirmed', 'appointment.pending', 'client.welcome']);
     assert.equal((await partner.get('/api/v1/messages')).body.data.length, 5);
+    administrator.role = 'admin'; await administrator.save();
+    const completionAppointment = await Appointment.create({ vehicle: vehicle._id, dealership: dealer._id, user: administrator._id, date, service: 'Mantenimiento', status: 'Confirmada' });
+    assert.equal((await admin.patch(`/api/v1/appointments/${completionAppointment._id}`).set('Origin', origin).send({ status: 'Completada' })).status, 200);
+    assert.equal((await Appointment.findById(completionAppointment._id)).active, false);
+    assert.equal(await Message.countDocuments({ type: 'appointment.completed' }), 1);
+    assert.equal((await admin.patch(`/api/v1/appointments/${completionAppointment._id}`).set('Origin', origin).send({ status: 'Completada' })).status, 409);
+    assert.equal(await Message.countDocuments({ type: 'appointment.completed' }), 1);
+    administrator.role = 'client'; await administrator.save();
     assert.equal((await client.post('/api/v1/auth/logout').set('Origin', origin)).status, 200);
     assert.equal((await client.get('/api/v1/messages')).status, 401);
     assert.equal((await client.post('/api/v1/auth/login').set('Origin', origin).send({ email: base.email, password: 'incorrecta-demo' })).status, 401);

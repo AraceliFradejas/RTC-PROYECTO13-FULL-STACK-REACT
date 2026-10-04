@@ -64,3 +64,9 @@ Se han preparado dos cuentas ficticias identificadas como revisión visual en la
 Se ha iniciado sesión desde Safari con cada perfil. Cliente: hero, saludo, agenda vacía y apertura de la bienvenida en la bandeja. Taller: hero, solicitud aprobada, información profesional, agenda propia vacía y dos comunicaciones disponibles. Ambos se han inspeccionado en escritorio y ventana de 574 px; los perfiles más estrechos y dispositivos reales siguen pendientes. Las cuentas permanecen disponibles para continuar la revisión.
 
 Las diez muestras locales están en [evidencias/correos](evidencias/README.md). La de asignación se ha abierto e inspeccionado visualmente en Safari: nombre, vehículo, taller, sede y hora de Madrid visibles. Se ha añadido la fecha a las comunicaciones de asignación. Los enlaces relativos de archivos locales son orientativos y no se consideran probados.
+
+## Recorrido de mantenimiento en navegador · 4 de octubre
+
+En Safari de escritorio se ha completado: acceso del cliente, catálogo, ficha, solicitud de mantenimiento para Acura MDX en Málaga el 7 de octubre a las 10:00, asignación desde Team, confirmación, consulta de la agenda del taller y cierre desde Team. Cliente y taller muestran el estado Completada y sus mensajes de cierre. La agenda del taller muestra el nombre del cliente sin su correo. Se han guardado siete [capturas del recorrido](evidencias/README.md). La visita se ha cerrado anticipadamente como simulación; no representa un mantenimiento real.
+
+El backend ahora rechaza completar una cita pendiente, sin modificarla ni crear mensajes. La integración comprueba también el cierre válido de una confirmada y el rechazo de un segundo cierre sin duplicar comunicaciones. Las 14 pruebas del backend, incluida Atlas, pasan contra una base temporal eliminada al terminar. La creación y aprobación manual de talleres en navegador, el responsive completo y Mailtrap siguen pendientes.
