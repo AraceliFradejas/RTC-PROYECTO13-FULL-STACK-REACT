@@ -24,7 +24,7 @@ if (!process.argv.includes('--check')) {
       // El símbolo "$" no identifica una moneda. VIN y precios del ejemplo
       // no se convierten en características verificadas de una unidad real.
       await Vehicle.findOneAndUpdate({ seedKey: data.seedKey }, {
-        $setOnInsert: { ...data, acquiredAt: new Date(data.acquiredAt), demo: true, vin: null,
+        $setOnInsert: { ...data, acquiredAt: data.acquiredAt ? new Date(data.acquiredAt) : undefined, demo: true, vin: null,
           dealership: dealerMap.get(dealershipKey), image, photoKey },
       }, { upsert: true, runValidators: true });
     }

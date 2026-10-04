@@ -22,6 +22,7 @@ Los enlaces de estas muestras son relativos y no funcionan como una sesión de l
 Consultar [VALIDACION.md](../VALIDACION.md) para distinguir comprobaciones realizadas y pendientes. Cada captura de navegador debe identificar página, perfil, ancho de revisión y estado. No incluir contraseñas, cookies ni tokens.
 
 - [Salida de las pruebas locales del 4 de octubre](pruebas-locales-2026-10-04.txt).
+- [Comparación Excel–CSV y validación de relaciones del 4 de octubre](excel-csv-2026-10-04.txt).
 
 ## Recorrido de mantenimiento · 4 de octubre de 2026
 
@@ -36,3 +37,7 @@ Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capt
 7. [Cliente: comunicación de cierre](recorrido/07-cliente-cierre.png).
 
 La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. Quedan pendientes las capturas de Mailtrap, el registro y revisión de talleres en navegador y la validación móvil completa.
+
+## Catálogo ampliado · 4 de octubre
+
+[Ficha del 911 Carrera](ficha-lujo-2026-10-04.png), sin datos personales ni sesión visible. Safari en ventana de 574 px; captura Retina de 1148 × 1272 píxeles. Fotografía de referencia de Porsche, datos pendientes sin kilometraje cero y cuadrícula de dos columnas. No acredita la revisión de dispositivos móviles completos.

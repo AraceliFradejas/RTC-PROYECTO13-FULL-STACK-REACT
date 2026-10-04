@@ -1,5 +1,5 @@
-seedKey,name,city,address,area,latitude,longitude,hours,demo
-madrid,KelseTS Cars Madrid,Madrid,Pasaje KelseTS de la Elegancia 12,Salamanca · Milla de Oro,40.4308,-3.6835,Lunes a viernes de 10:00 a 18:00,true
-barcelona,KelseTS Cars Barcelona,Barcelona,Avinguda KelseTS del Disseny 8,Pedralbes,41.3931,2.1110,Lunes a viernes de 10:00 a 18:00,true
-san-sebastian,KelseTS Cars San Sebastián,San Sebastián,Paseo KelseTS del Horizonte 5,Miraconcha,43.3120,-1.9910,Lunes a viernes de 10:00 a 18:00,true
-malaga,KelseTS Cars Málaga,Málaga,Paseo KelseTS de la Luz 18,Monte Sancha · La Caleta,36.7225,-4.3970,Lunes a viernes de 10:00 a 18:00,true
+"seedKey","name","city","address","area","latitude","longitude","hours","demo"
+"madrid","KelseTS Cars Madrid","Madrid","Pasaje KelseTS de la Elegancia 12","Salamanca · Milla de Oro","40.4308","-3.6835","Lunes a viernes de 10:00 a 18:00","true"
+"barcelona","KelseTS Cars Barcelona","Barcelona","Avinguda KelseTS del Disseny 8","Pedralbes","41.3931","2.111","Lunes a viernes de 10:00 a 18:00","true"
+"san-sebastian","KelseTS Cars San Sebastián","San Sebastián","Paseo KelseTS del Horizonte 5","Miraconcha","43.312","-1.991","Lunes a viernes de 10:00 a 18:00","true"
+"malaga","KelseTS Cars Málaga","Málaga","Paseo KelseTS de la Luz 18","Monte Sancha · La Caleta","36.7225","-4.397","Lunes a viernes de 10:00 a 18:00","true"

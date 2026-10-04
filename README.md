@@ -28,7 +28,7 @@ He mantenido los colores y el estilo de KelseTS, con imágenes aspiracionales y 
 
 **El proyecto sigue en desarrollo y todavía no está listo para la entrega final.**
 
-La conexión con MongoDB Atlas está configurada. Ya se han cargado 100 vehículos y cuatro concesionarios desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
+La conexión con MongoDB Atlas está configurada. Ya se han cargado 148 vehículos, cuatro concesionarios y cuatro talleres desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
 
 La web incluye:
 
@@ -42,9 +42,9 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 20 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he revisado los tres accesos y el directorio de ocho centros. Quedan el recorrido completo de los formularios en la web, la revisión móvil, configurar Cloudinary y preparar el despliegue.
+La compilación y las 21 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil, configurar Cloudinary y preparar el despliegue.
 
-Los datos iniciales proceden de un CSV de ejemplo. Todavía falta preparar el Excel definitivo y ampliar la selección de vehículos de gama alta. También están pendientes la versión en inglés y la revisión final de la documentación y las pruebas de entrega.
+El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. Falta completar la versión en inglés y cerrar la documentación y las pruebas de entrega.
 
 ## Dos etapas
 
@@ -135,6 +135,8 @@ Los archivos `.env` y la carpeta `DocBase/` están excluidos de Git.
 npm run dev          # web y API
 npm run build        # compilación de la web
 npm test             # comprobaciones locales
+npm run data:check   # compara Excel y CSV sin escribir
+npm run data:export  # exporta y valida las tres hojas de datos
 npm run seed:check   # CSV y relaciones, sin conectar a Atlas
 npm run seed         # inserción en la base de datos configurada
 ```
@@ -143,9 +145,15 @@ La semilla carga los datos de los CSV en MongoDB. Cada registro tiene una clave 
 
 ## Datos y fotografías
 
+El proceso Excel → CSV → fs → MongoDB se explica en la [guía de datos](docs/DATOS-EXCEL.md). El libro permite revisar y editar las tres colecciones iniciales; la semilla transforma sus claves de relación en referencias de MongoDB.
+
 El CSV inicial contiene datos de ejemplo: VIN, precios, kilometrajes, colores y fechas. Son datos para trabajar en el proyecto, no vehículos reales puestos a la venta. Los precios se conservan tal como aparecen en el archivo, sin asumir una moneda ni presentarlos como precios comprobados. Los VIN del ejemplo no se muestran en la API.
 
-He añadido fotografías de Tesla Model S, Audi Q5 y Mercedes Clase S, además de Porsche Taycan y Ferrari Roma para la selección de la portada. Algunas fotos pueden mostrar otra generación o acabado del modelo. Cuando no hay una imagen específica, utilizo una fotografía de la misma marca y la identifico como imagen de referencia. Cada marca del CSV tiene dos imágenes disponibles, y cada vehículo muestra la misma foto en la tarjeta y en su ficha.
+He ampliado el catálogo para que los ejemplos también respondan a la propuesta de KelseTS Cars: una red ficticia de concesionarios centrada en vehículos de gama alta. Mantengo los 100 registros iniciales del curso y añado 48 registros de demostración, correspondientes a doce modelos de Porsche, Ferrari, Mercedes-Benz, Audi y Tesla. Cada modelo aparece en las cuatro sedes, por lo que el inventario suma 148 vehículos. Esto permite explorar la temática del proyecto desde el catálogo, los filtros, las fichas y la solicitud de visitas, además de la selección de la portada.
+
+Los modelos existen y su carrocería y motorización se han contrastado con fuentes oficiales, enlazadas desde sus fichas. Su presencia en las sedes y su disponibilidad son ejemplos ficticios. No he inventado precios, VIN, años, kilometrajes ni fechas de adquisición para las unidades añadidas: esos campos quedan pendientes. Las fotografías son referencias de la marca y pueden mostrar otro modelo. La ampliación se incorpora al mismo Excel y sigue el proceso de exportación a CSV y carga con `fs`, conservando las relaciones con los concesionarios.
+
+He añadido fotografías de Tesla Model S, Audi Q5 y Mercedes Clase S, además de Porsche Taycan y Ferrari Roma para la selección de la portada y el catálogo ampliado. Algunas fotos pueden mostrar otra generación o acabado del modelo. Cuando no hay una imagen específica, utilizo una fotografía de la misma marca y la identifico como imagen de referencia. Cada vehículo muestra la misma foto en la tarjeta y en su ficha.
 
 Las imágenes de los concesionarios, los profesionales y las historias de KelseTS son escenas ficticias creadas para el proyecto. El vídeo del hero es propio y su música está creada con Suno. Los recursos utilizados se recogen en la documentación.
 

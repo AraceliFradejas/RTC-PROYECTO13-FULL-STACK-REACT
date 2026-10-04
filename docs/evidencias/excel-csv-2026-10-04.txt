@@ -1,0 +1,17 @@
+
+> kelsets-cars@0.1.0 data:check
+> node scripts/exportDataset.mjs --check
+
+Excel y CSV coinciden en todos los datos y relaciones.
+vehicles.csv: 148 registros
+dealerships.csv: 4 registros
+workshops.csv: 4 registros
+
+> kelsets-cars@0.1.0 seed:check
+> npm run seed:check -w backend
+
+
+> @kelsets-cars/backend@0.1.0 seed:check
+> node src/seeds/seed.js --check
+
+CSV válidos: 148 vehículos, 4 sedes y 4 talleres relacionados.

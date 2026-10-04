@@ -1,5 +1,5 @@
-seedKey,name,city,address,area,latitude,longitude,dealershipKey,specialties,demo
-atelier-madrid,KelseTS Atelier Madrid,Madrid,Pasaje KelseTS del Cuidado 6,Salamanca · entorno de la Milla de Oro,40.4320,-3.6818,madrid,Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos,true
-atelier-barcelona,KelseTS Atelier Barcelona,Barcelona,Passatge KelseTS de la Precisió 4,Pedralbes,41.3943,2.1124,barcelona,Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos,true
-atelier-san-sebastian,KelseTS Atelier San Sebastián,San Sebastián,Pasaje KelseTS del Horizonte 9,Miraconcha,43.3110,-1.9897,san-sebastian,Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos,true
-atelier-malaga,KelseTS Atelier Málaga,Málaga,Pasaje KelseTS de la Calma 7,Monte Sancha · La Caleta,36.7237,-4.3954,malaga,Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos,true
+"seedKey","name","city","address","area","latitude","longitude","dealershipKey","specialties","demo"
+"atelier-madrid","KelseTS Atelier Madrid","Madrid","Pasaje KelseTS del Cuidado 6","Salamanca · entorno de la Milla de Oro","40.432","-3.6818","madrid","Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos","true"
+"atelier-barcelona","KelseTS Atelier Barcelona","Barcelona","Passatge KelseTS de la Precisió 4","Pedralbes","41.3943","2.1124","barcelona","Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos","true"
+"atelier-san-sebastian","KelseTS Atelier San Sebastián","San Sebastián","Pasaje KelseTS del Horizonte 9","Miraconcha","43.311","-1.9897","san-sebastian","Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos","true"
+"atelier-malaga","KelseTS Atelier Málaga","Málaga","Pasaje KelseTS de la Calma 7","Monte Sancha · La Caleta","36.7237","-4.3954","malaga","Revisiones y mantenimiento|Mecánica|Chapa y pintura|Lunas|Vehículos eléctricos","true"

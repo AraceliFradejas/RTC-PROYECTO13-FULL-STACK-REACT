@@ -133,6 +133,7 @@
   .cinematic-collection .editorial-card a { margin-top: var(--space-2); }
 }
 @media (max-width: 760px) {
+  .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .editorial-panel, .faq-section, .catalog-hero, .access-shell, .visit-section, .brand-film { grid-template-columns: 1fr; }
   .service-grid, .story-grid { grid-template-columns: 1fr; }
   .editorial-panel-reverse .editorial-panel-image { grid-column: auto; grid-row: auto; }

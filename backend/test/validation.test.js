@@ -23,7 +23,16 @@ test('las citas rechazan pasado, fecha inválida y más de 90 días', () => {
 test('el CSV cumple conteo y relaciones sin conectar a Atlas', async () => {
   const { dealers, vehicles, workshops } = await readDataset();
   assert.equal(workshops.length, 4); assert.ok(workshops.every(value => dealers.some(dealer => dealer.seedKey === value.dealershipKey)));
-  assert.equal(vehicles.length, 100); assert.equal(dealers.length, 4);
-  assert.equal(new Set(vehicles.map(value => value.seedKey)).size, 100);
+  assert.ok(vehicles.length >= 100); assert.equal(dealers.length, 4);
+  assert.equal(new Set(vehicles.map(value => value.seedKey)).size, vehicles.length);
   assert.ok(vehicles.every(value => dealers.some(dealer => dealer.seedKey === value.dealershipKey)));
+});
+test('las unidades añadidas conservan los datos no verificados como ausentes', async () => {
+  const { vehicles } = await readDataset();
+  const added = vehicles.filter(vehicle => vehicle.seedKey.startsWith('lux-'));
+  assert.equal(added.length, 48);
+  assert.equal(new Set(added.map(vehicle => `${vehicle.brand} ${vehicle.model}`)).size, 12);
+  assert.ok(added.every(vehicle => vehicle.year === undefined && vehicle.mileage === undefined && vehicle.acquiredAt === undefined));
+  assert.ok(added.every(vehicle => !vehicle.originalPrice && !vehicle.originalVin && vehicle.condition === 'Por completar'));
+  assert.ok(added.every(vehicle => new URL(vehicle.sourceUrl).hostname !== 'docs.google.com'));
 });

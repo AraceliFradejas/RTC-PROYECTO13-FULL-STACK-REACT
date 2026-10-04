@@ -2,10 +2,10 @@
 
 | Requisito | Estado actual | Pendiente para entrega |
 | --- | --- | --- |
-| Node.js y React | Estructura y código inicial | Comprobar recorridos integrados |
-| Excel con al menos 100 registros | CSV original con 100 registros | Crear el Excel definitivo y documentar exportación |
-| Dos colecciones relacionadas además de usuarios | 100 vehículos y 4 sedes cargados en Atlas sin referencias ausentes; Appointment modelado | Comprobar usuarios y citas persistidos |
-| Semilla con lectura de archivos `fs` | Carga ejecutada dos veces en Atlas sin duplicados | Repetir con el Excel definitivo y conservar evidencias |
+| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Completar registro y revisión de talleres en navegador |
+| Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Revisar en Excel de escritorio |
+| Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Comprobar también en producción |
+| Semilla con lectura de archivos `fs` | CSV exportados del Excel y carga repetida en Atlas | Conservar evidencias al ampliar inventario |
 | Usuarios y rutas protegidas | Roles y sesión implementados | Casos positivos y negativos completos |
 | Variables en `style.css` | Definidas | Ajustes del diseño definitivo |
 | Arquitectura y reutilización | Módulos, paquetes y componentes | Revisar al ampliar funcionalidades |
@@ -21,7 +21,7 @@ La app, el configurador completo y las integraciones específicas pertenecen a l
 
 ## Plan de entrega · 12 de octubre de 2026
 
-Revisión del 3 de octubre: hay una base de código y diseño, pero todavía no una aplicación integrada comprobada. La semilla y el catálogo ya están comprobados contra Atlas. Las 15 pruebas locales no sustituyen los recorridos de autenticación y citas ni la comprobación en producción. No se garantiza una calificación concreta.
+Revisión del 4 de octubre: el catálogo, la semilla del Excel y el recorrido de mantenimiento están comprobados. Hay 21 pruebas locales correctas y una integración de Atlas ejecutada por separado. Siguen pendientes el responsive completo, la versión en inglés, el registro y la revisión de talleres en navegador y el despliegue. No se garantiza una calificación concreta.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |
@@ -40,7 +40,8 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 
 - [x] Preparar una colección importable de Insomnia para validar el backend, con datos ficticios, casos correctos, errores y permisos.
 - [ ] Importar y ejecutar la colección en Insomnia; guardar resultados y capturas de la ronda final.
-- [ ] Completar el recorrido en navegador de cliente, cita, revisión de taller y asignación desde Team.
+- [x] Completar el recorrido en navegador de cliente, cita, asignación y confirmación desde Team, agenda del taller y cierre.
+- [ ] Completar registro de taller y su aprobación y rechazo desde Team en navegador.
 
 - [ ] Capturar y revisar diez muestras de comunicación en Mailtrap Sandbox, en HTML y texto.
 - [ ] Revisar cada perfil privado a 320, 390, 768 y 1440 px, incluyendo textos largos, formularios y errores; completar comprobación en dispositivo real.
