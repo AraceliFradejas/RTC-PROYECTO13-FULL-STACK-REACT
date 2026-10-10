@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la versión en inglés de la web, la revisión móvil completa y el recorrido completo en producción.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes las comunicaciones en inglés, la revisión bilingüe y móvil completa y el recorrido completo en producción.
 
 ## 4. Tecnologías
 
@@ -210,3 +210,16 @@ He comprobado las consultas de los 148 vehículos, cuatro sedes y cuatro tallere
 ![Área de cliente después de recargar Safari con sesión activa](docs/evidencias/despliegue/03-sesion-safari.png)
 
 El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcance. No acredita todavía el recorrido completo de citas y talleres en producción ni la subida a Cloudinary desde Vercel. La nueva prueba local de subida encontró un corte HTTPS con Cloudinary; se mantienen las evidencias correctas del 4 de octubre y queda la comprobación desde el servidor publicado.
+
+
+## Selector y traducciones · 10 de octubre
+
+He añadido un contexto de idioma con un hook compartido y un archivo para los textos ingleses. El selector ES/EN conserva la elección al recargar y cambia las etiquetas accesibles, el idioma del documento y el título. Si el navegador bloquea el almacenamiento, la web sigue funcionando y conserva la elección durante esa sesión.
+
+La traducción afecta a la presentación: los valores de motorización, servicios y estados enviados al backend no cambian. He comprobado en Safari que Electric sigue enviando `Eléctrico` y devuelve los diez vehículos Tesla esperados. También he accedido con la cuenta ficticia de despliegue y cambiado a castellano manteniendo la sesión. La interfaz privada incorpora traducciones, pero las comunicaciones guardadas mantienen todavía su asunto y cuerpo originales.
+
+![Portada inglesa y cabecera adaptada a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
+
+![Área de cliente en inglés, con la bienvenida original pendiente de traducir](docs/evidencias/idiomas/03-cliente-en-safari.png)
+
+El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Pasan once pruebas del frontend y la compilación. La segunda fase podrá reutilizar las traducciones y la lógica de idioma; el almacenamiento y el selector de una app nativa necesitarán su propia adaptación.

@@ -11,9 +11,9 @@
 | Arquitectura y reutilización | Módulos, paquetes y componentes | Revisar al ampliar funcionalidades |
 | Hooks avanzados necesarios | Carga con reducer, cancelación y reintento | Comprobar en los recorridos completos |
 | UX/UI | Primera dirección visual y pantallas | Validación móvil, teclado y formularios |
-| Castellano e inglés, requisito de marca KelseTS | Documentado; interfaz actual en castellano | Selector, traducciones completas y revisión de ambos idiomas |
+| Castellano e inglés, requisito de marca KelseTS | Selector ES/EN y traducciones de interfaz incorporados | Comunicaciones, contenidos dinámicos y revisión completa de ambos idiomas |
 | Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Revisar estados móviles y funcionamiento desplegado |
-| README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Añadir URLs y evidencias del despliegue |
+| README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Actualizar evidencias con los recorridos finales |
 | Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido completo de citas, talleres y fotografías en producción |
 | DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
 
@@ -21,7 +21,7 @@ La app, el configurador completo y las integraciones específicas pertenecen a l
 
 ## Plan de entrega · 17–18 de octubre de 2026
 
-Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Siguen pendientes el responsive completo, la versión en inglés de la web, el registro y la revisión de talleres en navegador y el despliegue.
+Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Web y API ya están publicadas y se ha incorporado el selector ES/EN. Siguen pendientes el responsive completo, las comunicaciones inglesas, la revisión bilingüe, el registro y la revisión de talleres en navegador y el recorrido completo en producción.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |

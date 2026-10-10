@@ -1,8 +1,10 @@
+import { useLanguage } from '../../shared/i18n/LanguageProvider.jsx';
 import { useEffect, useId, useRef, useState } from 'react';
 import { api } from '../../shared/services/api.js';
 import { VEHICLE_IMAGE_MAX_BYTES } from '@kelsets-cars/contracts';
 
 export function VehicleImageUpload({ vehicle, onUploaded }) {
+  const { t } = useLanguage();
   const inputId = useId();
   const input = useRef(null);
   const [file, setFile] = useState(null);
@@ -42,17 +44,17 @@ export function VehicleImageUpload({ vehicle, onUploaded }) {
     finally { setBusy(false); }
   }
   return <section className="vehicle-image-upload" aria-labelledby={`${inputId}-title`}>
-    <div><p className="eyebrow">KelseTS CARS TEAM · FOTOGRAFÍA</p>
-      <h2 id={`${inputId}-title`}>Cuida la primera impresión.</h2>
-      <p>Actualiza la fotografía de {vehicle.brand} {vehicle.model} en {vehicle.dealership?.city}. La nueva imagen sustituirá a la actual de esta unidad.</p>
-      <p className="small" id={`${inputId}-help`}>JPEG, PNG o WebP · máximo 4 MB. Utiliza una fotografía propia o con permiso de publicación. Si procede de nuestra biblioteca, conserva su atribución en los créditos.</p>
+    <div><p className="eyebrow">{t("KelseTS CARS TEAM · FOTOGRAFÍA")}</p>
+      <h2 id={`${inputId}-title`}>{t("Cuida la primera impresión.")}</h2>
+      <p>{t("Actualiza la fotografía de")} {vehicle.brand} {vehicle.model} {t("en")} {vehicle.dealership?.city}. {t('La nueva imagen sustituirá a la actual de esta unidad.')}</p>
+      <p className="small" id={`${inputId}-help`}>{t("JPEG, PNG o WebP · máximo 4 MB. Utiliza una fotografía propia o con permiso de publicación. Si procede de nuestra biblioteca, conserva su atribución en los créditos.")}</p>
     </div>
     <form onSubmit={submit} aria-busy={busy}>
-      <label htmlFor={inputId}>Seleccionar fotografía<input ref={input} id={inputId} type="file" accept="image/jpeg,image/png,image/webp" onChange={select} disabled={busy} aria-describedby={`${inputId}-help`} /></label>
-      {preview && <figure className="upload-preview"><img src={preview} alt={`Vista previa de la nueva fotografía de ${vehicle.brand} ${vehicle.model}`} onError={() => { clear(); setError('No se puede leer esta imagen. Elige otra fotografía.'); }} /><figcaption>{file?.name} · {(file?.size / 1024 / 1024).toFixed(2)} MB</figcaption></figure>}
-      {error && <p className="form-error" role="alert">{error}</p>}
-      <p role="status">{busy ? 'Guardando la fotografía…' : success}</p>
-      <div className="upload-actions"><button className="button" disabled={!file || busy} type="submit">{busy ? 'Guardando…' : 'Guardar fotografía'}</button>{file && <button className="button button-outline" disabled={busy} type="button" onClick={clear}>Descartar selección</button>}</div>
+      <label htmlFor={inputId}>{t("Seleccionar fotografía")}<input ref={input} id={inputId} type="file" accept="image/jpeg,image/png,image/webp" onChange={select} disabled={busy} aria-describedby={`${inputId}-help`} /></label>
+      {preview && <figure className="upload-preview"><img src={preview} alt={`${t('Vista previa de la nueva fotografía de')} ${vehicle.brand} ${vehicle.model}`} onError={() => { clear(); setError("No se puede leer esta imagen. Elige otra fotografía."); }} /><figcaption>{file?.name} · {(file?.size / 1024 / 1024).toFixed(2)} MB</figcaption></figure>}
+      {error && <p className="form-error" role="alert">{t(error)}</p>}
+      <p role="status">{busy ? t("Guardando la fotografía…") : t(success)}</p>
+      <div className="upload-actions"><button className="button" disabled={!file || busy} type="submit">{busy ? t("Guardando…") : t("Guardar fotografía")}</button>{file && <button className="button button-outline" disabled={busy} type="button" onClick={clear}>{t("Descartar selección")}</button>}</div>
     </form>
   </section>;
 }

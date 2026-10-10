@@ -1,3 +1,4 @@
+import { useLanguage } from '../../../shared/i18n/LanguageProvider.jsx';
 import { Reveal } from '../../../shared/components/Reveal.jsx';
 import { Link } from 'react-router-dom';
 const stories = [
@@ -6,5 +7,6 @@ const stories = [
   { image: 'lifestyle-clean', to: '/experiencia#detalles', title: 'Los pequeños detalles.', text: 'Una identidad que continúa más allá del volante.', alt: 'Gorra, taza y accesorios sin texto sobre una mesa, escena conceptual' },
 ];
 export function StoriesSection() {
-  return <Reveal as="section" id="historias" className="section stories-section"><div className="section-heading"><div><p className="eyebrow">EL UNIVERSO KelseTS</p><h2>Más que coches.<br /><em>Tu forma de vivir.</em></h2></div><p>Una mirada a lo que nos inspira.</p></div><div className="story-grid">{stories.map(item => <article key={item.image}><Link className="story-link" to={item.to}><img src={`/images/editorial/${item.image}.png`} alt={item.alt} loading="lazy" decoding="async" /><h3>{item.title}</h3><p>{item.text}</p><span className="text-link">Descubrir nuestra esencia <span aria-hidden="true">↗</span></span></Link></article>)}</div><p className="small photo-note">Imágenes conceptuales de marca.</p></Reveal>;
+  const { t } = useLanguage();
+  return <Reveal as="section" id="historias" className="section stories-section"><div className="section-heading"><div><p className="eyebrow">{t("EL UNIVERSO KelseTS")}</p><h2>{t("Más que coches.")}<br /><em>{t("Tu forma de vivir.")}</em></h2></div><p>{t("Una mirada a lo que nos inspira.")}</p></div><div className="story-grid">{stories.map(item => <article key={item.image}><Link className="story-link" to={item.to}><img src={`/images/editorial/${item.image}.png`} alt={t(item.alt)} loading="lazy" decoding="async" /><h3>{t(item.title)}</h3><p>{t(item.text)}</p><span className="text-link">{t("Descubrir nuestra esencia")} <span aria-hidden="true">↗</span></span></Link></article>)}</div><p className="small photo-note">{t("Imágenes conceptuales de marca.")}</p></Reveal>;
 }

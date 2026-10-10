@@ -49,7 +49,7 @@ El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de his
 
 La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil completa y el recorrido completo de citas y talleres en producción. La subida de fotografías a Cloudinary ya está conectada desde Team y comprobada en Safari.
 
-El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. Falta completar la versión en inglés y cerrar la documentación y las pruebas de entrega.
+El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. El selector ES/EN y las traducciones de la interfaz están incorporados. Falta completar las comunicaciones en inglés y cerrar la revisión y las pruebas de entrega.
 
 ## Capturas del proyecto
 
@@ -259,7 +259,7 @@ He comprobado el catálogo con 148 vehículos, las cuatro sedes, los cuatro tall
 
 ![Sesión de cliente conservada después de recargar Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. Falta el recorrido completo de citas y talleres en producción, la subida desde Vercel, el inglés de la web y los dispositivos reales. La nueva prueba local de Cloudinary del 10 de octubre encontró un corte de conexión; no sustituye a la integración correcta documentada del 4 de octubre.
+La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. Falta el recorrido completo de citas y talleres en producción, la subida desde Vercel, las comunicaciones en inglés, la revisión bilingüe completa y los dispositivos reales. La nueva prueba local de Cloudinary del 10 de octubre encontró un corte de conexión; no sustituye a la integración correcta documentada del 4 de octubre.
 
 ## Aviso académico y autora
 
@@ -286,6 +286,16 @@ React envía el archivo con `FormData` al backend. Node comprueba la sesión, el
 He probado la subida y la sustitución con datos temporales de Atlas, junto con los rechazos por permisos y archivos incorrectos. También he subido desde Safari la fotografía ya asignada al Porsche 911 Carrera de Barcelona, conservando sus créditos. El resto de la biblioteca sigue sirviéndose como hasta ahora. Las capturas y el informe están en [las evidencias de Cloudinary](docs/evidencias/cloudinary/README.md).
 
 ---
+
+
+
+### Revisión de idiomas
+
+He incorporado el selector ES/EN y las traducciones de la interfaz. La selección se mantiene al recargar; los filtros traducen sus etiquetas y conservan los valores que espera la API. He revisado el acceso de la cuenta ficticia y la cabecera de la portada a 320 y 390 px en marcos de Safari. Las comunicaciones guardadas todavía conservan sus textos originales.
+
+![Portada inglesa a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
+
+El [informe de idiomas](docs/evidencias/idiomas/README.md) incluye el catálogo, el área de cliente y el alcance pendiente.
 
 ## English version
 
@@ -336,7 +346,7 @@ The website includes:
 
 The build and 24 local tests pass. API integration has also been checked in a temporary Atlas database. The maintenance journey between customer, Team and workshop has been completed in Safari, including completion and its messages. Workshop registration and review in the browser, full mobile checks and the complete production appointment journey remain pending.
 
-**This README is available in Spanish and English. The website's English interface is still pending.**
+**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; stored messages and the complete bilingual review are still pending.**
 
 ### Project screenshots
 
@@ -528,7 +538,7 @@ Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, pub
 
 ![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The complete appointment and workshop journey in production, uploads from Vercel, the English interface and real devices remain to be checked. A new local Cloudinary test on 10 October encountered a network connection reset; the successful integration evidence from 4 October is retained.
+The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The complete appointment and workshop journey in production, uploads from Vercel, English communications, the complete bilingual review and real devices remain to be checked. A new local Cloudinary test on 10 October encountered a network connection reset; the successful integration evidence from 4 October is retained.
 
 ### Academic notice and author
 
@@ -539,3 +549,12 @@ KelseTS Cars is a fictional educational and portfolio brand. It is not affiliate
 [GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/)
 
 [Volver a la versión en castellano / Back to Spanish](#versión-en-castellano)
+
+
+### Language review
+
+The ES/EN selector remembers the choice after a reload. Filter labels are translated while API values stay unchanged. The fictional customer’s access and the home header at 320 and 390 px have been checked in Safari frames. Stored communications still retain their original texts.
+
+![English home at 320 and 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
+
+The [language report](docs/evidencias/idiomas/README.md) includes the catalogue, customer area and pending checks.

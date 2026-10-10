@@ -1,3 +1,4 @@
+import { useLanguage } from '../../../shared/i18n/LanguageProvider.jsx';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../../../shared/components/Reveal.jsx';
 const values = [
@@ -7,5 +8,6 @@ const values = [
   { image: 'profesional-clean', title: 'Cuidar cada detalle.', text: 'Una mirada atenta, precisión y respeto por lo que te mueve. Así imaginamos el cuidado KelseTS.', alt: 'Profesional ficticia inspeccionando la rueda de un coche en un taller', to: '/servicios', action: 'Descubrir el cuidado KelseTS' },
 ];
 export function ProfessionalsSection() {
-  return <Reveal as="section" className="section professionals-section"><div className="section-heading"><div><p className="eyebrow">LAS PERSONAS MARCAN LA DIFERENCIA</p><h2>La elegancia también<br />está en el cuidado.</h2></div><Link className="text-link" to="/servicios">Descubrir los servicios ↗</Link></div><div className="professional-grid">{values.map(item => <article key={item.image}><img src={`/images/editorial/${item.image}.png`} alt={item.alt} loading="lazy" decoding="async" /><h3>{item.title}</h3><p>{item.text}</p><Link className="text-link" to={item.to}>{item.action} <span aria-hidden="true">↗</span></Link></article>)}</div><p className="small photo-note">Escenas conceptuales de la atención y el cuidado KelseTS Cars.</p></Reveal>;
+  const { t } = useLanguage();
+  return <Reveal as="section" className="section professionals-section"><div className="section-heading"><div><p className="eyebrow">{t("LAS PERSONAS MARCAN LA DIFERENCIA")}</p><h2>{t("La elegancia también")}<br />{t("está en el cuidado.")}</h2></div><Link className="text-link" to="/servicios">{t("Descubrir los servicios ↗")}</Link></div><div className="professional-grid">{values.map(item => <article key={item.image}><img src={`/images/editorial/${item.image}.png`} alt={t(item.alt)} loading="lazy" decoding="async" /><h3>{t(item.title)}</h3><p>{t(item.text)}</p><Link className="text-link" to={item.to}>{t(item.action)} <span aria-hidden="true">↗</span></Link></article>)}</div><p className="small photo-note">{t("Escenas conceptuales de la atención y el cuidado KelseTS Cars.")}</p></Reveal>;
 }

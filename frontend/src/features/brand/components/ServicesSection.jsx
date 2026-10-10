@@ -1,3 +1,4 @@
+import { useLanguage } from '../../../shared/i18n/LanguageProvider.jsx';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../../../shared/components/Reveal.jsx';
 const services = [
@@ -11,19 +12,20 @@ const homeImages = [
   { image: 'mantenimiento-portada-v1.png', alt: 'Detalle conceptual del cuidado del faro de un coupé blanco' },
 ];
 export function ServicesSection({ showLink = true, imagery = 'services' }) {
+  const { t } = useLanguage();
   const items = services.map((item, index) => imagery === 'home' ? { ...item, ...homeImages[index] } : item);
   return <Reveal as="section" id="servicios" className="section services-section">
     <div className="section-heading">
-      <div><p className="eyebrow">A TU LADO</p><h2>Cada paso<br />merece su tiempo.</h2></div>
-      {showLink && <Link className="text-link" to="/servicios">Conocer los servicios ↗</Link>}
+      <div><p className="eyebrow">{t("A TU LADO")}</p><h2>{t("Cada paso")}<br />{t("merece su tiempo.")}</h2></div>
+      {showLink && <Link className="text-link" to="/servicios">{t("Conocer los servicios ↗")}</Link>}
     </div>
     <div className="service-grid">
       {items.map(item => <article key={item.number}>
-        <img className="service-image" src={`/images/editorial/${item.image}`} alt={item.alt} loading="lazy" decoding="async" width="1536" height="1024" />
+        <img className="service-image" src={`/images/editorial/${item.image}`} alt={t(item.alt)} loading="lazy" decoding="async" width="1536" height="1024" />
         <span className="service-number">{item.number}</span>
-        <h3>{item.title}</h3>
-        <p>{item.text}</p>
-        <Link to="/catalogo" aria-label={`Elegir vehículo para ${item.title.toLowerCase()}`}>Elegir vehículo <span aria-hidden="true">↗</span></Link>
+        <h3>{t(item.title)}</h3>
+        <p>{t(item.text)}</p>
+        <Link to="/catalogo" aria-label={`${t('Elegir vehículo')}: ${t(item.title)}`}>{t("Elegir vehículo")} <span aria-hidden="true">↗</span></Link>
       </article>)}
     </div>
   </Reveal>;

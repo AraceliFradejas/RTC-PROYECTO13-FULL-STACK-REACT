@@ -57,3 +57,18 @@ input:focus-visible, select:focus-visible { border-color: var(--color-focus); }
   .button, .cinematic-cta, .cinematic-cta span, .motion-control, .text-button,
   .account-link, .catalog-modes button { transition: none; transform: none !important; }
 }
+
+.language-switch { display: flex; flex-shrink: 0; gap: .15rem; padding: .15rem; border: 1px solid currentColor; border-radius: var(--radius-control); }
+.language-switch button { min-width: 44px; min-height: 44px; padding: .4rem; border: 0; border-radius: var(--radius-control); color: inherit; background: transparent; font-size: .75rem; transition: background-color var(--motion-control), color var(--motion-control); }
+.language-switch button[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); }
+.cinematic-header .language-switch button[aria-pressed="true"] { background: var(--color-paper); color: var(--color-ink); }
+@media (hover: hover) { .language-switch button:hover { box-shadow: inset 0 0 0 1px currentColor; } }
+@media (max-width: 680px) { .site-header .language-switch { margin-left: auto; } }
+@media (max-width: 680px) {
+  .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: .75rem; row-gap: .75rem; }
+  .site-header .wordmark { grid-column: 1; grid-row: 1; }
+  .site-header .brand-logo { width: 136px; height: 78px; }
+  .site-header .language-switch { grid-column: 2; grid-row: 1; margin-left: 0; }
+  .site-header nav { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: repeat(2, max-content); width: auto; gap: .4rem .75rem; justify-content: start; margin-top: 0; font-size: .75rem; }
+  .site-header .account-link { grid-column: 2; grid-row: 2; justify-self: end; }
+}

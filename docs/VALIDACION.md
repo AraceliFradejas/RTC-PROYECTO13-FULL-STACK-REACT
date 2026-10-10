@@ -119,3 +119,8 @@ En Safari se ha comprobado Team → catálogo → ficha → selección → vista
 Las 24 pruebas locales y la compilación pasan. La web y la API están publicadas en proyectos separados de Vercel. El [informe del despliegue](evidencias/despliegue/README.md) incluye tres capturas de Safari y las 19 comprobaciones HTTP: catálogo con 148 vehículos, cuatro sedes, cuatro talleres, recursos, sesión y rechazos de acceso. Se ha creado una cuenta ficticia con autorización de la autora y comprobado en Safari el acceso, la sesión tras recargar y el cierre de sesión.
 
 La integración opcional de Cloudinary se ha intentado dos veces: supera los casos de permisos y validación, pero falla en la subida. La conexión HTTPS directa al servicio también se corta con un reinicio de conexión. No se considera validada la subida en esta ronda ni desde Vercel; las evidencias del 4 de octubre corresponden a su revisión anterior. Quedan pendientes el recorrido completo de citas y talleres en producción, los dispositivos reales y la versión inglesa de la web.
+
+
+## Idiomas · 10 de octubre de 2026
+
+Pasan once pruebas del frontend y la compilación. El [informe de idiomas](evidencias/idiomas/README.md) incluye capturas locales de Safari: portada en marcos de 320/390 px, catálogo inglés con filtro Tesla/Electric y cuenta ficticia. El envío conserva `fuel=Eléctrico`; la recarga conserva el idioma. El cambio a castellano conserva la sesión de cliente. Servicios y Nuestra esencia muestran sus encabezados en inglés. Quedan pendientes los mensajes guardados en inglés, la revisión completa de vistas privadas y errores, y dispositivos reales.

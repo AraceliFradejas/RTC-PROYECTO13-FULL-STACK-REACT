@@ -96,3 +96,7 @@ La [revisión de las tarjetas de sedes](sedes/README.md) recoge las ocho fotogra
 ## Primera revisión del despliegue · 10 de octubre
 
 [Web y API publicadas: capturas de Safari e informe HTTP](despliegue/README.md). Incluye la cuenta ficticia autorizada y distingue los recorridos que todavía necesitan revisión en producción.
+
+## Idiomas · 10 de octubre
+
+La [revisión de ES/EN](idiomas/README.md) recoge las capturas locales, el filtro traducido con su valor de API original y la cuenta ficticia.

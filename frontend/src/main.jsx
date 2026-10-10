@@ -1,3 +1,4 @@
+import { LanguageProvider } from './shared/i18n/LanguageProvider.jsx';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -9,5 +10,5 @@ import './styles/cinematic.css';
 import './styles/editorial.css';
 import './styles/interactions.css';
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode><BrowserRouter><AuthProvider><App /></AuthProvider></BrowserRouter></React.StrictMode>,
+  <React.StrictMode><BrowserRouter><LanguageProvider><AuthProvider><App /></AuthProvider></LanguageProvider></BrowserRouter></React.StrictMode>,
 );
