@@ -1,0 +1,213 @@
+{
+  "checkedAt": "2026-10-10T14:39:43.398Z",
+  "scope": "Safari desktop, published routes opened in ES and EN. Heading checks are not full visual or device validation.",
+  "checks": [
+    {
+      "path": "/",
+      "language": "es",
+      "case": "hero-pause",
+      "passed": true
+    },
+    {
+      "path": "/",
+      "language": "es",
+      "case": "faq-opens",
+      "passed": true
+    },
+    {
+      "path": "/servicios",
+      "language": "es",
+      "headings": [
+        "19 encabezamiento Value: 1, Tu próximo paso.",
+        "26 encabezamiento Value: 2, Cada paso",
+        "31 encabezamiento Prueba de conducción, Value: 3"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/experiencia",
+      "language": "es",
+      "headings": [
+        "19 encabezamiento Value: 1, Tu camino.",
+        "26 encabezamiento Una historia que se mueve contigo., Value: 2",
+        "36 encabezamiento Personalidad., Value: 2"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/sedes",
+      "language": "es",
+      "headings": [
+        "19 encabezamiento Value: 1, Cuatro ciudades.",
+        "26 encabezamiento Tu próximo encuentro., Value: 2"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/creditos",
+      "language": "es",
+      "headings": [
+        "19 encabezamiento Value: 1, Imágenes y película.",
+        "23 encabezamiento Identidad y escenas de marca, Value: 2",
+        "26 encabezamiento Los barrios de nuestra red, Value: 2"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/modelos/porsche-taycan",
+      "language": "es",
+      "headings": [
+        "20 encabezamiento Taycan, Value: 1"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/modelos/ferrari-roma",
+      "language": "es",
+      "headings": [
+        "20 encabezamiento Roma, Value: 1"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/modelos/mercedes-s-class",
+      "language": "es",
+      "headings": [
+        "20 encabezamiento Clase S, Value: 1"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/modelos/tesla-model-s",
+      "language": "es",
+      "headings": [
+        "20 encabezamiento Model S, Value: 1"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/catalogo",
+      "language": "es",
+      "headings": [
+        "20 encabezamiento Value: 1, Encuentra tu",
+        "28 encabezamiento ¿Cómo quieres encontrar tu próximo coche?, Value: 2",
+        "47 encabezamiento MDX, Value: 2"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/acceso",
+      "language": "es",
+      "headings": [
+        "19 encabezamiento Value: 1, Cada detalle.",
+        "25 encabezamiento Bienvenida de nuevo, Value: 2"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/ruta-inexistente",
+      "language": "es",
+      "headings": [
+        "18 encabezamiento Ese camino no existe., Value: 1"
+      ],
+      "alert": false
+    },
+    {
+      "path": "/",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Value: 1, The road",
+        "28 encabezamiento Value: 2, One character.",
+        "34 encabezamiento Taycan, Value: 3"
+      ]
+    },
+    {
+      "path": "/servicios",
+      "language": "en",
+      "headings": [
+        "19 encabezamiento Value: 1, Your next step.",
+        "26 encabezamiento Value: 2, Every step",
+        "31 encabezamiento Test drive, Value: 3"
+      ]
+    },
+    {
+      "path": "/experiencia",
+      "language": "en",
+      "headings": [
+        "19 encabezamiento Value: 1, Your road.",
+        "26 encabezamiento A story that moves with you., Value: 2",
+        "36 encabezamiento Personality., Value: 2"
+      ]
+    },
+    {
+      "path": "/sedes",
+      "language": "en",
+      "headings": [
+        "19 encabezamiento Value: 1, Four cities.",
+        "26 encabezamiento Your next meeting., Value: 2",
+        "40 encabezamiento KelseTS Cars Barcelona, Value: 3"
+      ]
+    },
+    {
+      "path": "/creditos",
+      "language": "en",
+      "headings": [
+        "19 encabezamiento Value: 1, Images and film.",
+        "23 encabezamiento Identity and brand scenes, Value: 2",
+        "26 encabezamiento Our network’s neighbourhoods, Value: 2"
+      ]
+    },
+    {
+      "path": "/modelos/porsche-taycan",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Taycan, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/ferrari-roma",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Roma, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/mercedes-s-class",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Clase S, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/tesla-model-s",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Model S, Value: 1"
+      ]
+    },
+    {
+      "path": "/catalogo",
+      "language": "en",
+      "headings": [
+        "20 encabezamiento Value: 1, Find your",
+        "28 encabezamiento How would you like to find your next car?, Value: 2",
+        "47 encabezamiento MDX, Value: 2"
+      ]
+    },
+    {
+      "path": "/acceso",
+      "language": "en",
+      "headings": [
+        "19 encabezamiento Value: 1, Every detail.",
+        "25 encabezamiento Welcome back, Value: 2"
+      ]
+    },
+    {
+      "path": "/ruta-inexistente",
+      "language": "en",
+      "headings": [
+        "18 encabezamiento This road does not exist., Value: 1"
+      ]
+    }
+  ]
+}

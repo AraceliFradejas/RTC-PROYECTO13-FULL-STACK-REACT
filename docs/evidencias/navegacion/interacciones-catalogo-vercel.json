@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-10T15:18:58.798Z",
+  "environment": "Safari escritorio · https://kelsets-cars.vercel.app",
+  "checks": [
+    {
+      "case": "Sugerencia Audi con flecha abajo y Enter",
+      "result": "10 vehículos; query q=Audi"
+    },
+    {
+      "case": "Cambio exclusivo a filtros",
+      "result": "Búsqueda libre desactivada; filtros activos; query anterior eliminada"
+    },
+    {
+      "case": "Filtro Porsche",
+      "result": "16 vehículos; brand=Porsche"
+    },
+    {
+      "case": "Página siguiente",
+      "result": "Página 2 de 2; cuatro Taycan; marca conservada; siguiente desactivado"
+    }
+  ]
+}

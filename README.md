@@ -574,3 +574,17 @@ Estas capturas son vistas previas locales de Safari, sin envío nuevo a Mailtrap
 La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
 
 ![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)
+
+### Navegación y fotografías publicadas / Navigation and published photographs
+
+He revisado las rutas públicas en ES/EN y el buscador predictivo, los filtros y la paginación en Vercel. El registro y revisión de talleres y el recorrido completo de mantenimiento se han repetido en Safari con una base temporal separada, eliminada al terminar. Los [resultados de navegación](docs/evidencias/navegacion/README.md) distinguen ambos entornos.
+
+Public routes, predictive search, filters and pagination were reviewed on Vercel. Workshop registration and review, plus the maintenance lifecycle, were repeated in Safari against an isolated temporary database, removed afterwards. The [navigation report](docs/evidencias/navegacion/README.md) distinguishes both environments.
+
+![Visita completada en la prueba temporal / Completed visit in the temporary test](docs/evidencias/navegacion/08-visita-completada-temporal-safari.png)
+
+La subida de fotografías también funciona desde la web publicada. La imagen queda en Cloudinary y Atlas y se muestra mediante nuestra API. El [informe de fotografías](docs/evidencias/cloudinary/README.md) explica la comprobación y los casos móviles pendientes.
+
+Photograph uploads also work from the published website. Images are saved in Cloudinary and Atlas and displayed through our API. The [photograph report](docs/evidencias/cloudinary/README.md) explains the checks and remaining mobile cases.
+
+![Fotografía de Cloudinary publicada / Published Cloudinary photograph](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)

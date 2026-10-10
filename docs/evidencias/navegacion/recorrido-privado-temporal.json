@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-10T15:17:38.999Z",
+  "environment": "Base Atlas temporal aislada; Safari y aplicación local en 5174/3002",
+  "checks": [
+    "Registro de taller pendiente",
+    "Rechazo sin motivo bloqueado",
+    "Aprobación por Team",
+    "Perfil y comunicación de taller aprobado",
+    "Rechazo con motivo y comunicación",
+    "Acceso de taller redirigido al área propia al intentar solicitar cita",
+    "Registro de cliente y bienvenida",
+    "Selección de vehículo desde catálogo",
+    "Solicitud de mantenimiento pendiente",
+    "Asignación de taller por Team",
+    "Confirmación de cita",
+    "Agenda y mensajes del taller",
+    "Visita completada por Team",
+    "Estado y mensajes finales del cliente"
+  ],
+  "limitations": [
+    "No representa altas adicionales en producción",
+    "No prueba dispositivos físicos ni envío de correo personal"
+  ]
+}

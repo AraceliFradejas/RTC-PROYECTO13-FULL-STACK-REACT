@@ -241,3 +241,17 @@ Pasan las pruebas automáticas y la integración de registros, talleres y citas 
 La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
 
 ![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)
+
+## Navegación y Cloudinary en Vercel · 10 de octubre
+
+He revisado las páginas públicas en castellano e inglés y el catálogo publicado: sugerencias con teclado, cambio entre búsqueda y filtros y paginación conservando la marca elegida. El contador utiliza ahora el singular cuando solo hay un vehículo.
+
+Para el registro de clientes y talleres he preparado una base temporal separada. Desde Safari he aprobado un taller, rechazado otro con motivo y comprobado que no se permite rechazar sin explicarlo. Después he completado una cita de mantenimiento entre cliente, Team y taller, con sus estados y comunicaciones. La base temporal se eliminó al terminar. El [informe de navegación](docs/evidencias/navegacion/README.md) identifica qué pruebas pertenecen a producción y cuáles a este entorno.
+
+![Visita terminada y comunicaciones del cliente](docs/evidencias/navegacion/08-visita-completada-temporal-safari.png)
+
+También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web de Vercel. La API la guarda en Cloudinary y Atlas. Como la conexión directa al dominio de imágenes fallaba desde este equipo, la ficha y las tarjetas recuperan ahora la imagen mediante nuestra API, con destino fijo, control de tamaño y formato y caché breve. La URL original se conserva. La [verificación](docs/evidencias/cloudinary/verificacion-vercel.json) registra la respuesta JPEG y la comprobación visual en Safari.
+
+![Fotografía publicada desde Cloudinary](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
+
+Quedan la revisión completa de formularios y errores en móvil, dispositivos físicos, la ronda final de Insomnia y repetir el ciclo de citas en producción. Estas capturas de escritorio no sustituyen esas pruebas.

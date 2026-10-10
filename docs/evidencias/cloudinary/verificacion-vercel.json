@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-10T14:42:21.465Z",
+  "scope": "Upload performed in Safari through React, Vercel proxy and production API; read-back from Atlas and public endpoint.",
+  "vehicle": "lux-porsche-911-carrera-madrid",
+  "reference": "collection-porsche-911-carrera-2",
+  "image": "https://res.cloudinary.com/hjhszqql/image/upload/v1791643300/kelsets-cars/jgsceqj9nyqop1vkocoe.jpg",
+  "checks": {
+    "publicResponse": 200,
+    "cloudinaryURL": true,
+    "publicId": true,
+    "samePublicURL": true,
+    "localImageRequest": "ECONNRESET",
+    "imageDelivery": {
+      "status": 200,
+      "type": "image/jpeg",
+      "bytes": 223852,
+      "visibleInSafari": true,
+      "route": "/api/v1/vehicles/:id/image"
+    }
+  }
+}

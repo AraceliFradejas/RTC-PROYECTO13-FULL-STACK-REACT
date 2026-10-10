@@ -2,7 +2,7 @@
 
 | Requisito | Estado actual | Pendiente para entrega |
 | --- | --- | --- |
-| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Completar registro y revisión de talleres en navegador |
+| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Registro y revisión comprobados en base temporal; repetir ciclo privado en producción |
 | Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Revisar en Excel de escritorio |
 | Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Comprobar también en producción |
 | Semilla con lectura de archivos `fs` | CSV exportados del Excel y carga repetida en Atlas | Conservar evidencias al ampliar inventario |
@@ -11,8 +11,8 @@
 | Arquitectura y reutilización | Módulos, paquetes y componentes | Revisar al ampliar funcionalidades |
 | Hooks avanzados necesarios | Carga con reducer, cancelación y reintento | Comprobar en los recorridos completos |
 | UX/UI | Primera dirección visual y pantallas | Validación móvil, teclado y formularios |
-| Castellano e inglés, requisito de marca KelseTS | Selector ES/EN y traducciones de interfaz incorporados | Comunicaciones, contenidos dinámicos y revisión completa de ambos idiomas |
-| Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Revisar estados móviles y funcionamiento desplegado |
+| Castellano e inglés, requisito de marca KelseTS | Selector ES/EN y traducciones de interfaz incorporados | Comunicaciones bilingües comprobadas; completar revisión responsive y contenidos dinámicos |
+| Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Subida y lectura comprobadas en Vercel; revisar estados móviles |
 | README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Actualizar evidencias con los recorridos finales |
 | Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido completo de citas, talleres y fotografías en producción |
 | DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
@@ -43,7 +43,7 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 - [x] Preparar una colección importable de Insomnia para validar el backend, con datos ficticios, casos correctos, errores y permisos.
 - [ ] Importar y ejecutar la colección en Insomnia; guardar resultados y capturas de la ronda final.
 - [x] Completar el recorrido en navegador de cliente, cita, asignación y confirmación desde Team, agenda del taller y cierre.
-- [ ] Completar registro de taller y su aprobación y rechazo desde Team en navegador.
+- [x] Completar registro de taller y su aprobación y rechazo desde Team en navegador, con base temporal aislada.
 
 - [x] Capturar y verificar las diez muestras en Mailtrap Sandbox, en HTML y texto, con sus cuerpos recibidos y registro de verificación.
 - [x] Revisar logo, imágenes, botones y footer de los diez correos en el preset Phone de Mailtrap desde Safari.
@@ -54,3 +54,7 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 - [x] Incorporar selección, vista previa y guardado de fotografías desde React con acceso de administrador; comprobarlo en Safari.
 - [x] Revisar la distribución del formulario vacío de fotografías a 320, 390, 768 y 1440 px en Safari.
 - [ ] Revisar vista previa y errores del formulario a esos anchos y completar la prueba en dispositivo real.
+
+## Revisión del 10 de octubre
+
+Rutas públicas ES/EN, sugerencias por teclado, filtros y paginación comprobados en Vercel. Registro y revisión de talleres y ciclo completo de mantenimiento repetidos en Safari con base temporal eliminada. Subida de fotografías comprobada en la web publicada y entrega JPEG desde la API verificada visualmente. Los informes de [navegación](evidencias/navegacion/README.md) y [Cloudinary](evidencias/cloudinary/README.md) separan entornos y límites. Siguen pendientes dispositivos físicos, estados responsive completos y ronda final de Insomnia.
