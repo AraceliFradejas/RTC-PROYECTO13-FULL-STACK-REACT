@@ -50,6 +50,93 @@
     "06-vercel-36-comprobaciones.png",
     "07-vercel-sin-fallos.png",
     "08-vercel-inventario-148.png",
-    "09-vercel-sin-sesion.png"
+    "09-vercel-sin-sesion.png",
+    "10-registro-cliente.png",
+    "11-sesion-cliente.png",
+    "12-solicitud-mantenimiento.png",
+    "13-franja-ocupada.png",
+    "14-taller-pendiente.png",
+    "15-taller-aprobado.png",
+    "16-taller-rechazado.png",
+    "17-mantenimiento-asignado.png",
+    "18-cita-confirmada.png",
+    "19-comunicaciones-taller.png",
+    "20-cita-cancelada.png",
+    "21-comunicaciones-cliente.png",
+    "22-bandeja-otro-cliente.png",
+    "23-cita-ajena-protegida.png"
+  ],
+  "additionalCaptureMethod": "Respuestas guardadas de la ronda correcta, abiertas sin reenviar peticiones después de eliminar la base temporal",
+  "additionalCases": [
+    {
+      "case": 15,
+      "screenshot": "10-registro-cliente.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 17,
+      "screenshot": "11-sesion-cliente.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 22,
+      "screenshot": "12-solicitud-mantenimiento.png",
+      "jsonPathView": "$.data.status"
+    },
+    {
+      "case": 23,
+      "screenshot": "13-franja-ocupada.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 30,
+      "screenshot": "14-taller-pendiente.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 42,
+      "screenshot": "15-taller-aprobado.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 45,
+      "screenshot": "16-taller-rechazado.png",
+      "jsonPathView": null
+    },
+    {
+      "case": 47,
+      "screenshot": "17-mantenimiento-asignado.png",
+      "jsonPathView": "$.data.workshop"
+    },
+    {
+      "case": 49,
+      "screenshot": "18-cita-confirmada.png",
+      "jsonPathView": "$.data.status"
+    },
+    {
+      "case": 56,
+      "screenshot": "19-comunicaciones-taller.png",
+      "jsonPathView": "$.data[*].subject"
+    },
+    {
+      "case": 69,
+      "screenshot": "20-cita-cancelada.png",
+      "jsonPathView": "$.data.status"
+    },
+    {
+      "case": 70,
+      "screenshot": "21-comunicaciones-cliente.png",
+      "jsonPathView": "$.data[*].subject"
+    },
+    {
+      "case": 65,
+      "screenshot": "22-bandeja-otro-cliente.png",
+      "jsonPathView": "$.data[*].subject"
+    },
+    {
+      "case": 64,
+      "screenshot": "23-cita-ajena-protegida.png",
+      "jsonPathView": null
+    }
   ]
 }

@@ -511,7 +511,7 @@ I adapted the communication approach from [KelseTS Talks](https://github.com/Ara
 
 The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. Real email clients and devices remain to be tested. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
 
-The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 24 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the full deployment journey remains pending.
+The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 24 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Physical device checks remain pending.
 
 ### Documentation and deployment
 
@@ -612,3 +612,13 @@ La colección se ha importado y ejecutado en Insomnia 13.2.0: **76 peticiones y 
 ![Resultado de la colección completa en Insomnia](docs/evidencias/insomnia/01-ronda-completa-171.png)
 
 The actual Insomnia app passed **171 assertions across 76 requests** against an isolated temporary database, removed afterwards. The public Vercel collection also passed **36 assertions across 15 requests**. The [screenshot report](docs/evidencias/insomnia/README.md) explains the scope and session scripting fixes.
+
+### Recorrido del backend con evidencias · Backend workflow evidence
+
+He ampliado la memoria con **23 capturas de Insomnia**. Los pasos de registro, revisión de talleres, asignación, confirmación y cancelación tienen su objetivo, petición, resultado e interpretación. También se muestra el rechazo de una franja ocupada, la protección de una cita ajena y la separación de comunicaciones entre perfiles. El [anexo de validación](docs/insomnia/VALIDACION-DETALLADA.md) relaciona los 76 casos ejecutados con sus resultados y las evidencias disponibles.
+
+![Taller aprobado desde Team](docs/evidencias/insomnia/15-taller-aprobado.png)
+
+![Comunicaciones dirigidas al cliente](docs/evidencias/insomnia/21-comunicaciones-cliente.png)
+
+The academic report now includes **23 Insomnia screenshots**. Selected steps explain their objective, request, result and meaning: client registration, workshop review, assignment, confirmation, cancellation, duplicate rejection and protection of another client's appointment. The [detailed validation report](docs/insomnia/VALIDACION-DETALLADA.md) maps all 76 executed cases to their results and available evidence. Additional screenshots use the successful run's stored responses; they are not another run or new production records. Message delivery was simulated in this round.

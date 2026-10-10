@@ -282,6 +282,224 @@ La ejecución encontró dos ajustes necesarios en la colección: usar el código
 
 ![El cliente no puede revisar solicitudes de talleres](docs/evidencias/insomnia/05-cliente-permiso-denegado.png)
 
-También he ejecutado 15 peticiones públicas contra Vercel, con 36 comprobaciones correctas y sin crear más cuentas o citas. Esta colección se puede repetir sin credenciales. Las dos peticiones de subida manual de imágenes no se incluyen en el runner; su prueba desde Safari está documentada en Cloudinary. El [informe de Insomnia](docs/evidencias/insomnia/README.md) conserva nueve capturas y distingue esta ejecución de las pruebas HTTP anteriores.
+También he ejecutado 15 peticiones públicas contra Vercel, con 36 comprobaciones correctas y sin crear más cuentas o citas. Esta colección se puede repetir sin credenciales. Las dos peticiones de subida manual de imágenes no se incluyen en el runner; su prueba desde Safari está documentada en Cloudinary. El [informe de Insomnia](docs/evidencias/insomnia/README.md) conserva 23 capturas y distingue esta ejecución de las pruebas HTTP anteriores.
 
 ![Resultado de Insomnia contra Vercel](docs/evidencias/insomnia/06-vercel-36-comprobaciones.png)
+
+## Recorrido documentado paso a paso
+
+Para que se pueda seguir la prueba sin ejecutar la colección, he ampliado las evidencias con los pasos de cliente, taller y Team. Mantengo el esquema de objetivo, petición, resultado e interpretación que utilicé en [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/docs/insomnia/VALIDACION-DETALLADA.md).
+
+Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas de la ronda correcta en Insomnia. No son una segunda ejecución: la base temporal ya estaba eliminada y no se pulsó Send. Se conserva el código HTTP, el contador de comprobaciones y el resultado original. En las respuestas largas he aplicado el filtro JSONPath indicado para que se lea el dato relevante, sin modificar la respuesta. Los identificadores permiten relacionar las etapas; no son credenciales.
+
+### Caso 15 · Registro de cliente
+
+**Objetivo:** Comprobar el alta de una cuenta de cliente.
+
+**Petición:** `POST /auth/register`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 201; 3/3 comprobaciones. La respuesta contiene el perfil client y no devuelve la contraseña.
+
+**Interpretación:** El servidor asigna un perfil de cliente y devuelve los datos necesarios para el área privada. No se muestran la cookie ni las credenciales.
+
+![Caso 15: Registro de cliente](docs/evidencias/insomnia/10-registro-cliente.png)
+
+### Caso 17 · Sesión del cliente
+
+**Objetivo:** Comprobar que la sesión creada permite consultar el perfil.
+
+**Petición:** `GET /auth/me`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. Se recupera el mismo identificador del registro.
+
+**Interpretación:** El registro y la consulta de sesión corresponden a la misma cuenta. La cookie se conserva en Insomnia; su valor no se incluye en la evidencia.
+
+![Caso 17: Sesión del cliente](docs/evidencias/insomnia/11-sesion-cliente.png)
+
+### Caso 22 · Solicitud de mantenimiento
+
+**Objetivo:** Solicitar un mantenimiento como cliente autenticado.
+
+**Petición:** `POST /appointments`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 201; 3/3 comprobaciones. La cita comienza en Pendiente.
+
+**Interpretación:** Solicitar una visita no implica que esté confirmada. La respuesta crea la relación entre cliente, vehículo y sede. La captura destaca el estado inicial.
+
+**Vista de la captura:** filtro JSONPath `$.data.status`.
+
+![Caso 22: Solicitud de mantenimiento](docs/evidencias/insomnia/12-solicitud-mantenimiento.png)
+
+### Caso 23 · Franja ya ocupada
+
+**Objetivo:** Intentar crear otra cita en la sede y hora ya ocupadas.
+
+**Petición:** `POST /appointments`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 409; 2/2 comprobaciones. La API rechaza la misma franja.
+
+**Interpretación:** El conflicto es el resultado esperado. Evita reservar dos citas activas en la misma sede y franja.
+
+![Caso 23: Franja ya ocupada](docs/evidencias/insomnia/13-franja-ocupada.png)
+
+### Caso 30 · Taller pendiente
+
+**Objetivo:** Consultar la solicitud después del registro del taller.
+
+**Petición:** `GET /workshops/me`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 3/3 comprobaciones. El perfil muestra status: pending y public: false.
+
+**Interpretación:** La solicitud queda pendiente de revisión. El registro no aprueba al taller automáticamente ni lo publica en el directorio. El nombre y los datos de contacto son ficticios.
+
+![Caso 30: Taller pendiente](docs/evidencias/insomnia/14-taller-pendiente.png)
+
+### Caso 42 · Aprobación del taller
+
+**Objetivo:** Aprobar la colaboración desde una sesión de Team.
+
+**Petición:** `PATCH /workshops/:id/review`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. El mismo taller pasa a approved.
+
+**Interpretación:** El identificador coincide con la solicitud pendiente. Se guardan la fecha y la cuenta que revisó el alta. El taller continúa oculto porque esta prueba no cambia public.
+
+![Caso 42: Aprobación del taller](docs/evidencias/insomnia/15-taller-aprobado.png)
+
+### Caso 45 · Rechazo con motivo
+
+**Objetivo:** Rechazar otra solicitud explicando la decisión.
+
+**Petición:** `PATCH /workshops/:id/review`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. La segunda solicitud pasa a rejected con un motivo.
+
+**Interpretación:** La respuesta conserva el motivo «Faltan datos para revisar la colaboración.». Es una solicitud distinta de la aprobada. El caso 44 comprueba además que no se admite el rechazo sin motivo.
+
+![Caso 45: Rechazo con motivo](docs/evidencias/insomnia/16-taller-rechazado.png)
+
+### Caso 47 · Asignación del mantenimiento
+
+**Objetivo:** Asignar desde Team el mantenimiento al taller revisado.
+
+**Petición:** `POST /appointments/:id/workshop`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. La cita recibe la referencia del taller aprobado.
+
+**Interpretación:** La referencia 6aca65727c495b96f11780ac coincide con el taller de las capturas de solicitud y aprobación. Esta relación enlaza la cita con el profesional que la atenderá; asignar no equivale a confirmar.
+
+**Vista de la captura:** filtro JSONPath `$.data.workshop`.
+
+![Caso 47: Asignación del mantenimiento](docs/evidencias/insomnia/17-mantenimiento-asignado.png)
+
+### Caso 49 · Confirmación de la cita
+
+**Objetivo:** Confirmar desde Team la cita previamente asignada.
+
+**Petición:** `PATCH /appointments/:id`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. El estado pasa a Confirmada.
+
+**Interpretación:** La ruta conserva el identificador de la solicitud inicial. El cambio de estado se hace con permisos administrativos, después de la asignación.
+
+**Vista de la captura:** filtro JSONPath `$.data.status`.
+
+![Caso 49: Confirmación de la cita](docs/evidencias/insomnia/18-cita-confirmada.png)
+
+### Caso 56 · Comunicaciones del taller
+
+**Objetivo:** Consultar los avisos desde el perfil del taller aprobado.
+
+**Petición:** `GET /messages`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 3/3 comprobaciones. Aparecen cuatro asuntos de recepción, aprobación, asignación y confirmación.
+
+**Interpretación:** El contenido acompaña las etapas de colaboración y atención. En esta ronda delivery es simulated: acredita mensajes guardados en el área privada, no entrega de correos a Mailtrap ni a buzones personales.
+
+**Vista de la captura:** filtro JSONPath `$.data[*].subject`.
+
+![Caso 56: Comunicaciones del taller](docs/evidencias/insomnia/19-comunicaciones-taller.png)
+
+### Caso 69 · Cancelación de la cita propia
+
+**Objetivo:** Cancelar la primera cita desde el cliente que la solicitó.
+
+**Petición:** `PATCH /appointments/:id`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 2/2 comprobaciones. La cita pasa a Cancelada.
+
+**Interpretación:** La respuesta completa marca active: false. La captura destaca Cancelada. Se cancela la primera cita; la visita completada de la captura 03 corresponde a la segunda cuenta y a otra cita.
+
+**Vista de la captura:** filtro JSONPath `$.data.status`.
+
+![Caso 69: Cancelación de la cita propia](docs/evidencias/insomnia/20-cita-cancelada.png)
+
+### Caso 70 · Comunicaciones del cliente
+
+**Objetivo:** Consultar los avisos del cliente después de cancelar.
+
+**Petición:** `GET /messages`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 3/3 comprobaciones. Se observan cinco asuntos: bienvenida, solicitud, asignación, confirmación y cancelación.
+
+**Interpretación:** La bandeja conserva el recorrido de su cita y utiliza textos dirigidos al cliente. Se diferencia del aviso de nueva asignación que recibe el taller. Los mensajes son simulados.
+
+**Vista de la captura:** filtro JSONPath `$.data[*].subject`.
+
+![Caso 70: Comunicaciones del cliente](docs/evidencias/insomnia/21-comunicaciones-cliente.png)
+
+### Caso 65 · Bandeja de otro cliente
+
+**Objetivo:** Consultar los mensajes después de registrar a un segundo cliente.
+
+**Petición:** `GET /messages`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 200; 3/3 comprobaciones. La segunda cuenta recibe solo su bienvenida en ese momento.
+
+**Interpretación:** Esta petición se ejecutó antes de que la segunda cuenta solicitara su visita. No aparecen los avisos de la primera cita. La comparación con las bandejas anteriores documenta el aislamiento de esta prueba; no pretende demostrar todos los escenarios posibles de privacidad.
+
+**Vista de la captura:** filtro JSONPath `$.data[*].subject`.
+
+![Caso 65: Bandeja de otro cliente](docs/evidencias/insomnia/22-bandeja-otro-cliente.png)
+
+### Caso 64 · Cita ajena protegida
+
+**Objetivo:** Intentar cancelar la primera cita desde la segunda cuenta.
+
+**Petición:** `PATCH /appointments/:id`, sobre `/api/v1`, con la sesión del perfil que realiza el paso.
+
+**Resultado obtenido:** 409; 2/2 comprobaciones. La API rechaza el cambio de una cita de otro cliente.
+
+**Interpretación:** El servidor responde «La cita ya tiene ese estado o no puedes modificarla.». El 409 es el código utilizado en esta operación; no debe confundirse con el 403 de las rutas reservadas a Team.
+
+![Caso 64: Cita ajena protegida](docs/evidencias/insomnia/23-cita-ajena-protegida.png)
+
+### Qué permiten comprobar estas evidencias
+
+El recorrido muestra las relaciones cliente–cita–vehículo–sede–taller, las decisiones de Team y la separación de los perfiles. Incluye respuestas de éxito y errores esperados: un 409 de duplicado o de modificación ajena es una prueba correcta si ese era el resultado previsto.
+
+El resumen de las 171 comprobaciones acredita la ronda principal; las imágenes individuales permiten leer sus pasos más importantes. Las otras 36 comprobaciones pertenecen a la colección pública de Vercel. No sumo estas rondas como si fueran casos distintos: algunas peticiones se repiten en ambos entornos.
+
+La [validación detallada](docs/insomnia/VALIDACION-DETALLADA.md) relaciona los 76 casos ejecutados con sus códigos esperados y obtenidos y con las capturas disponibles. La colección importable y los scripts permiten repetirlos con una base de pruebas y credenciales privadas. Las imágenes manuales de Cloudinary, los mensajes revisados en Mailtrap y la revisión responsive tienen informes independientes.
+
+### Otras capturas de la misma ejecución
+
+El runner no muestra comprobaciones fallidas en la ronda temporal:
+
+![Filtro de fallos vacío: ronda principal](docs/evidencias/insomnia/02-sin-fallos.png)
+
+La segunda visita se confirma y se completa desde Team. Es otra cita: no se completa la que el primer cliente canceló.
+
+![Segunda visita completada](docs/evidencias/insomnia/03-visita-completada.png)
+
+La agenda del taller contiene el trabajo asignado y el nombre del cliente, sin su correo. Esta vista corresponde a la cita aún confirmada, antes de la cancelación posterior.
+
+![Agenda del taller con datos limitados del cliente](docs/evidencias/insomnia/04-agenda-taller-privacidad.png)
+
+En la ronda pública de Vercel, el filtro de fallos también queda vacío, el catálogo devuelve 148 unidades y el perfil anónimo se rechaza con 401.
+
+![Filtro de fallos vacío en Vercel](docs/evidencias/insomnia/07-vercel-sin-fallos.png)
+
+![148 vehículos publicados](docs/evidencias/insomnia/08-vercel-inventario-148.png)
+
+![Perfil privado protegido en Vercel](docs/evidencias/insomnia/09-vercel-sin-sesion.png)
