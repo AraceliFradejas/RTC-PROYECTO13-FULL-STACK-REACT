@@ -1,3 +1,4 @@
+import { VEHICLE_IMAGE_MAX_BYTES } from '@kelsets-cars/contracts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
@@ -29,7 +30,7 @@ test('Cloudinary: permisos, validación, subida y sustitución en Atlas temporal
     }
     assert.equal((await post('admin')).status, 400); checks.push({ case: 'missing-file', status: 400 });
     assert.equal((await post('admin').attach('image', Buffer.from('fake image'), { filename: 'fake.jpg', contentType: 'image/jpeg' })).status, 400); checks.push({ case: 'fake-image', status: 400 });
-    assert.equal((await post('admin').attach('image', Buffer.alloc(5 * 1024 * 1024 + 1), { filename: 'large.jpg', contentType: 'image/jpeg' })).status, 413); checks.push({ case: 'over-5MB', status: 413 });
+    assert.equal((await post('admin').attach('image', Buffer.alloc(VEHICLE_IMAGE_MAX_BYTES + 1), { filename: 'large.jpg', contentType: 'image/jpeg' })).status, 413); checks.push({ case: 'over-4MB', status: 413 });
     assert.equal((await post('admin').attach('wrong', Buffer.from('x'), { filename: 'photo.jpg', contentType: 'image/jpeg' })).status, 400); checks.push({ case: 'wrong-field', status: 400 });
     const photo = await readFile(new URL('../../frontend/public/images/vehicles/collection-porsche-911-carrera-1.jpg', import.meta.url));
     let previous;

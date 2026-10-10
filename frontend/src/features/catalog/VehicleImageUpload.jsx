@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { api } from '../../shared/services/api.js';
+import { VEHICLE_IMAGE_MAX_BYTES } from '@kelsets-cars/contracts';
 
 export function VehicleImageUpload({ vehicle, onUploaded }) {
   const inputId = useId();
@@ -23,8 +24,8 @@ export function VehicleImageUpload({ vehicle, onUploaded }) {
     if (!['image/jpeg', 'image/png', 'image/webp'].includes(selected.type)) {
       setError('Elige una fotografía JPEG, PNG o WebP.'); event.target.value = ''; return;
     }
-    if (!selected.size || selected.size > 5 * 1024 * 1024) {
-      setError('La fotografía debe tener contenido y ocupar como máximo 5 MB.'); event.target.value = ''; return;
+    if (!selected.size || selected.size > VEHICLE_IMAGE_MAX_BYTES) {
+      setError('La fotografía debe tener contenido y ocupar como máximo 4 MB.'); event.target.value = ''; return;
     }
     setFile(selected);
   }
@@ -44,7 +45,7 @@ export function VehicleImageUpload({ vehicle, onUploaded }) {
     <div><p className="eyebrow">KelseTS CARS TEAM · FOTOGRAFÍA</p>
       <h2 id={`${inputId}-title`}>Cuida la primera impresión.</h2>
       <p>Actualiza la fotografía de {vehicle.brand} {vehicle.model} en {vehicle.dealership?.city}. La nueva imagen sustituirá a la actual de esta unidad.</p>
-      <p className="small" id={`${inputId}-help`}>JPEG, PNG o WebP · máximo 5 MB. Utiliza una fotografía propia o con permiso de publicación. Si procede de nuestra biblioteca, conserva su atribución en los créditos.</p>
+      <p className="small" id={`${inputId}-help`}>JPEG, PNG o WebP · máximo 4 MB. Utiliza una fotografía propia o con permiso de publicación. Si procede de nuestra biblioteca, conserva su atribución en los créditos.</p>
     </div>
     <form onSubmit={submit} aria-busy={busy}>
       <label htmlFor={inputId}>Seleccionar fotografía<input ref={input} id={inputId} type="file" accept="image/jpeg,image/png,image/webp" onChange={select} disabled={busy} aria-describedby={`${inputId}-help`} /></label>

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 export const API_VERSION = 'v1';
+export const VEHICLE_IMAGE_MAX_BYTES = 4 * 1024 * 1024;
 export const ROLES = ['client', 'workshop', 'staff', 'admin'];
 export const WORKSHOP_SPECIALTIES = ['Revisiones y mantenimiento', 'Mecánica', 'Chapa y pintura', 'Lunas', 'Vehículos eléctricos'];
 export const SERVICES = ['Prueba de conducción', 'Asesoramiento', 'Mantenimiento'];

@@ -8,6 +8,8 @@ import { checkOrigin } from './middlewares/auth.js';
 import { errorHandler, HttpError, send } from './utils/errors.js';
 import router from './routes/index.js';
 const app = express();
+// Vercel sobrescribe X-Forwarded-For; fuera de esa plataforma no confiamos en proxies.
+if (process.env.VERCEL === '1') app.set('trust proxy', 1);
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(cors({ credentials: true, origin(origin, callback) { callback(null, !origin || env.origins.includes(origin)); } }));

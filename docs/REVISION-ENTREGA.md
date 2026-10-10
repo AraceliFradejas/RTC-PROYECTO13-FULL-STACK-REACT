@@ -12,23 +12,25 @@
 | Hooks avanzados necesarios | Carga con reducer, cancelación y reintento | Comprobar en los recorridos completos |
 | UX/UI | Primera dirección visual y pantallas | Validación móvil, teclado y formularios |
 | Castellano e inglés, requisito de marca KelseTS | Documentado; interfaz actual en castellano | Selector, traducciones completas y revisión de ambos idiomas |
-| Cloudinary opcional | Endpoint inicial | Credenciales, formulario y subida comprobada |
-| README y memoria | Documentación inicial | Actualizar con evidencias reales |
+| Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Revisar estados móviles y funcionamiento desplegado |
+| README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Añadir URLs y evidencias del despliegue |
 | Despliegue frontend y backend | Configuración base | Publicar y comprobar ambas URLs |
 | DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
 
 La app, el configurador completo y las integraciones específicas pertenecen a la segunda etapa. No se cuentan como requisitos cumplidos de esta entrega.
 
-## Plan de entrega · 12 de octubre de 2026
+## Plan de entrega · 17–18 de octubre de 2026
 
-Revisión del 4 de octubre: el catálogo, la semilla del Excel y el recorrido de mantenimiento están comprobados. Hay 24 pruebas locales correctas y una integración de Atlas ejecutada por separado. Siguen pendientes el responsive completo, la versión en inglés, el registro y la revisión de talleres en navegador y el despliegue. No se garantiza una calificación concreta.
+Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Siguen pendientes el responsive completo, la versión en inglés de la web, el registro y la revisión de talleres en navegador y el despliegue.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |
-| Fin de semana 3–4 de octubre | Excel definitivo, revisión de inventario, Atlas, semillas, recorridos principales y primer despliegue | Datos y relaciones comprobados; catálogo público y revisión de sesión y citas |
-| Sábado 10 de octubre | Corregir integración, completar castellano e inglés, responsive y Cloudinary si el núcleo funciona | Recorridos completos, interfaz bilingüe y revisión móvil |
-| Domingo 11 de octubre | README, memoria, evidencias y ensayo de entrega | Pruebas, instalación y enlaces comprobados; versión final guardada |
-| Lunes 12 de octubre | Envío de la entrega preparada | Comprobar enlaces y enviar el repositorio |
+| Sábado 10 de octubre | Desplegar web y API y revisar conexión, cookies, rutas e imágenes | Catálogo accesible y sesión y citas comprobadas en las URLs publicadas |
+| Domingo 11 de octubre | Completar inglés y revisar registros, permisos y vistas privadas | Recorridos comprobados y textos de ambos idiomas disponibles |
+| Sábado 17 de octubre | Corregir fallos, revisión responsive, Insomnia y documentación final | Capturas e informes coherentes con la versión publicada |
+| Domingo 18 de octubre | Revisión final y entrega | Enlaces comprobados y versión de Rock The Code identificada en Git |
+
+Después de esta entrega continuará la etapa de BigSchool, con el objetivo de cerrar el proyecto y la presentación el 8 de noviembre. La app será una ampliación acotada para clientes; el enunciado de BigSchool permite también una aplicación web y no exige publicar en tiendas.
 
 La autora trabaja en el proyecto los fines de semana. Cloudinary es una mejora puntuable; los requisitos obligatorios, la versión bilingüe solicitada y los despliegues tienen prioridad.
 

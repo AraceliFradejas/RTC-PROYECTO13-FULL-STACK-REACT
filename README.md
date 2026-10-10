@@ -266,7 +266,7 @@ Las muestras de correo y el registro de pruebas se pueden consultar en [las evid
 
 ## Fotografías desde KelseTS Cars Team
 
-Una cuenta administradora puede entrar en **Gestionar fotografías**, buscar un vehículo y abrir su ficha. Allí selecciona una imagen, comprueba la vista previa y la guarda. Se admiten JPEG, PNG y WebP de hasta 5 MB. La ficha se actualiza al terminar y muestra la confirmación sin recargar la página.
+Una cuenta administradora puede entrar en **Gestionar fotografías**, buscar un vehículo y abrir su ficha. Allí selecciona una imagen, comprueba la vista previa y la guarda. Se admiten JPEG, PNG y WebP de hasta 4 MB. La ficha se actualiza al terminar y muestra la confirmación sin recargar la página.
 
 React envía el archivo con `FormData` al backend. Node comprueba la sesión, el rol, el tamaño y la firma del archivo antes de subirlo a Cloudinary. Las credenciales permanecen en el backend; Atlas guarda la URL HTTPS y el identificador de la imagen. Al sustituir una foto se elimina la anterior si pertenece a nuestra carpeta de Cloudinary.
 
@@ -462,7 +462,7 @@ The eight location cards use different neighbourhood photos from Wikimedia Commo
 
 Brand scenes represent fictional people and places. The homepage video was provided by the author and uses music created with Suno. Sources are listed in [Resources](docs/RECURSOS.md), the [vehicle gallery](docs/GALERIA-VEHICULOS.md) and `/creditos`.
 
-From **Manage photographs** in Team, an administrator can find a vehicle, preview a JPEG, PNG or WebP file of up to 5 MB, discard it or save it. React sends `FormData`; Node checks the session, role, size and file signature before uploading to Cloudinary. Secrets stay in the backend. Atlas stores the HTTPS URL and image identifier. A replacement removes the previous image when it belongs to our Cloudinary folder.
+From **Manage photographs** in Team, an administrator can find a vehicle, preview a JPEG, PNG or WebP file of up to 4 MB, discard it or save it. React sends `FormData`; Node checks the session, role, size and file signature before uploading to Cloudinary. Secrets stay in the backend. Atlas stores the HTTPS URL and image identifier. A replacement removes the previous image when it belongs to our Cloudinary folder.
 
 Upload and replacement were tested through the API with temporary data and in Safari using the existing reference photo for the Barcelona Porsche 911 Carrera, retaining its credits. The rest of the image library has not been migrated. The [Cloudinary evidence](docs/evidencias/cloudinary/README.md) records the tests and responsive layout checks; mobile file selection and error states still need review.
 

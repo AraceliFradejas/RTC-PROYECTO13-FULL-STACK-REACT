@@ -190,3 +190,9 @@ El enlace a Street View utiliza las coordenadas aproximadas del centro, sin envi
 En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La compilación y las 24 pruebas locales pasan; queda ampliar la revisión a teléfonos reales. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
 
 ![Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
+
+## Preparación del despliegue · 10 de octubre
+
+He ajustado el límite de las fotografías a 4 MB, compartido entre React y Multer. Las pruebas anteriores utilizaron el límite inicial de 5 MB; Vercel limita el cuerpo completo de las peticiones a 4,5 MB, por lo que he dejado margen para el formulario multipart. El formulario y sus mensajes muestran el nuevo límite.
+
+La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conectará a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.

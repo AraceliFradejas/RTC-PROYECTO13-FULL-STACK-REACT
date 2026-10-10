@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { rateLimit } from 'express-rate-limit';
 import multer from 'multer';
+import { VEHICLE_IMAGE_MAX_BYTES } from '@kelsets-cars/contracts';
 import { authenticate, allowRoles } from '../middlewares/auth.js';
 import * as auth from '../modules/auth/controllers/auth.js';
 import * as catalog from '../modules/catalog/controllers/catalog.js';
@@ -10,7 +11,7 @@ import * as workshops from '../modules/workshops/controllers.js';
 import { listMessages } from '../modules/communications/controllers.js';
 const router = Router();
 const accessLimit = rateLimit({ windowMs: 15 * 60000, limit: 20, standardHeaders: 'draft-8', legacyHeaders: false, message: { success: false, error: 'Demasiados intentos. Espera unos minutos.' } });
-const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 }, fileFilter(req, file, cb) { cb(null, ['image/jpeg', 'image/png', 'image/webp'].includes(file.mimetype)); } });
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: VEHICLE_IMAGE_MAX_BYTES, files: 1 }, fileFilter(req, file, cb) { cb(null, ['image/jpeg', 'image/png', 'image/webp'].includes(file.mimetype)); } });
 router.post('/auth/register', accessLimit, auth.register);
 router.post('/auth/login', accessLimit, auth.login);
 router.post('/auth/logout', auth.logout);

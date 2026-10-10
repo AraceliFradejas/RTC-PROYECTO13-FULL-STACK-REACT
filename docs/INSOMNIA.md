@@ -34,9 +34,9 @@ El aislamiento de la agenda profesional también se comprueba con la integració
 
 ## Cloudinary · carpeta 07
 
-Esta carpeta se ejecuta aparte. Iniciar sesión Team y seleccionar en el campo multipart `image` una imagen JPEG, PNG o WebP menor de 5 MB. No fijar manualmente `Content-Type`: Insomnia debe generar el límite multipart.
+Esta carpeta se ejecuta aparte. Iniciar sesión Team y seleccionar en el campo multipart `image` una imagen JPEG, PNG o WebP menor de 4 MB. No fijar manualmente `Content-Type`: Insomnia debe generar el límite multipart.
 
-Con Cloudinary configurado se espera 200; sin credenciales, 503. El script de subida espera 200 porque el caso positivo se considera completado solo cuando la subida funciona. La petición cambia la imagen del vehículo elegido: usar una unidad de la base de pruebas. Probar aparte archivo mayor de 5 MB (413) y archivo con contenido inválido (400), conservando evidencia de cada caso. El recorrido general ya comprueba el rechazo de un cliente y de una subida sin archivo, sin llamar a Cloudinary.
+Con Cloudinary configurado se espera 200; sin credenciales, 503. El script de subida espera 200 porque el caso positivo se considera completado solo cuando la subida funciona. La petición cambia la imagen del vehículo elegido: usar una unidad de la base de pruebas. Probar aparte archivo mayor de 4 MB (413) y archivo con contenido inválido (400), conservando evidencia de cada caso. El recorrido general ya comprueba el rechazo de un cliente y de una subida sin archivo, sin llamar a Cloudinary.
 
 ## Evidencias para entregar
 
