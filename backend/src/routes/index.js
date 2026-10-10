@@ -7,6 +7,7 @@ import * as auth from '../modules/auth/controllers/auth.js';
 import * as catalog from '../modules/catalog/controllers/catalog.js';
 import * as appointments from '../modules/appointments/controllers/appointments.js';
 import { uploadVehicleImage } from '../modules/catalog/controllers/images.js';
+import { getVehicleImage } from '../modules/catalog/controllers/imageDelivery.js';
 import * as workshops from '../modules/workshops/controllers.js';
 import { listMessages } from '../modules/communications/controllers.js';
 const router = Router();
@@ -26,6 +27,7 @@ router.patch('/workshops/:id/review', authenticate, allowRoles('admin'), worksho
 router.get('/vehicles', catalog.listVehicles);
 router.get('/vehicles/search-options', catalog.searchOptions);
 router.get('/vehicles/:id', catalog.getVehicle);
+router.get('/vehicles/:id/image', getVehicleImage);
 router.post('/vehicles/:id/image', authenticate, allowRoles('admin'), upload.single('image'), uploadVehicleImage);
 router.get('/dealerships', catalog.listDealerships);
 const appointmentAccess = (req, res, next) => {

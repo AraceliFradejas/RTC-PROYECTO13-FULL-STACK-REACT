@@ -3,8 +3,12 @@ import photos from '../../../../data/media/vehicles.json';
 import assignments from '../../../../data/media/vehicle-photo-assignments.json';
 import { useState } from 'react';
 import { BrandLogo } from './BrandLogo.jsx';
-export function VehiclePhoto({ src, alt, brand, model, vehicleKey, eager = false, className = '', sizes = '100vw' }) {
+export function VehiclePhoto({ src, vehicleId, imagePublicId, alt, brand, model, vehicleKey, eager = false, className = '', sizes = '100vw' }) {
   const { t } = useLanguage();
+  if (vehicleId && imagePublicId && src?.startsWith('https://res.cloudinary.com/')) {
+    const base = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+    src = `${base}/vehicles/${encodeURIComponent(vehicleId)}/image?v=${encodeURIComponent(imagePublicId)}`;
+  }
   const [failed, setFailed] = useState([]);
   const references = photos.filter(photo => photo.brand === brand);
   const preferred = references.find(photo => photo.key === assignments[vehicleKey]) || references[0];

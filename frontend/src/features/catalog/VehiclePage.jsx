@@ -16,7 +16,7 @@ export function VehiclePage() {
     <Link to="/catalogo">{t("← Volver a la colección")}</Link>
     <ResourceState resource={resource}>{vehicle => <>
       <p className="eyebrow">{vehicle.brand}</p><h1>{vehicle.model}</h1>
-      <VehiclePhoto className="detail-photo" src={vehicle.image} brand={vehicle.brand} model={vehicle.model} vehicleKey={vehicle.seedKey} alt={`${vehicle.brand} ${vehicle.model}, ${t('fotografía ilustrativa')}`} eager />
+      <VehiclePhoto className="detail-photo" src={vehicle.image} vehicleId={vehicle._id} imagePublicId={vehicle.imagePublicId} brand={vehicle.brand} model={vehicle.model} vehicleKey={vehicle.seedKey} alt={`${vehicle.brand} ${vehicle.model}, ${t('fotografía ilustrativa')}`} eager />
       <dl className="specs">
         <div><dt>{t("Carrocería")}</dt><dd>{t(vehicle.bodyType)}</dd></div>
         <div><dt>{t("Motorización")}</dt><dd>{t(vehicle.fuel)}</dd></div>
