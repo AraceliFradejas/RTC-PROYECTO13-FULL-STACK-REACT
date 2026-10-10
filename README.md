@@ -598,3 +598,9 @@ The header now uses a three-line menu on mobile and tablet to avoid stacked navi
 ![Menú móvil / Mobile menu](docs/evidencias/movil/02-menu-es-390.png)
 
 Son marcos de Safari de escritorio, no capturas del iPhone físico. / These are desktop Safari frames, not captures from a physical iPhone.
+
+### Revisión de producción · Production checks
+
+El 10 de octubre han pasado 101 comprobaciones HTTP en Vercel: catálogo, sesiones, permisos, privacidad, comunicaciones en castellano e inglés, entrega de imágenes y recorrido completo de mantenimiento y cancelación. Los dos talleres ficticios utilizados están ocultos del directorio público. El [informe de producción](docs/evidencias/produccion/README.md) recoge los resultados y sus límites.
+
+All 101 live HTTP checks passed on 10 October: catalogue, sessions, permissions, privacy, Spanish and English communications, image delivery, and the maintenance and cancellation workflows. The two fictional test workshops are hidden from the public directory. See the [production report](docs/evidencias/produccion/README.md) for results and scope.

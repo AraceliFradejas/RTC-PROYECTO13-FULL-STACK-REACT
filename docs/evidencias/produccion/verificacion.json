@@ -1,0 +1,263 @@
+{
+  "date": "2026-10-10T15:45:27.869Z",
+  "url": "https://kelsets-cars.vercel.app",
+  "scope": "HTTP real en producción. Lecturas, inicio/cierre de sesión y permisos; sin crear cuentas ni citas.",
+  "results": [
+    {
+      "label": "Página /",
+      "pass": true
+    },
+    {
+      "label": "Página /catalogo",
+      "pass": true
+    },
+    {
+      "label": "Página /servicios",
+      "pass": true
+    },
+    {
+      "label": "Página /esencia",
+      "pass": true
+    },
+    {
+      "label": "Página /sedes",
+      "pass": true
+    },
+    {
+      "label": "Página /acceso",
+      "pass": true
+    },
+    {
+      "label": "Página /creditos",
+      "pass": true
+    },
+    {
+      "label": "Sin sesión: perfil",
+      "status": 401,
+      "expected": 401,
+      "pass": true
+    },
+    {
+      "label": "Sin sesión: agenda",
+      "status": 401,
+      "expected": 401,
+      "pass": true
+    },
+    {
+      "label": "Sin sesión: mensajes",
+      "status": 401,
+      "expected": 401,
+      "pass": true
+    },
+    {
+      "label": "Concesionarios",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cuatro sedes",
+      "pass": true
+    },
+    {
+      "label": "Talleres públicos",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Privacidad directorio",
+      "pass": true
+    },
+    {
+      "label": "Catálogo",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Inventario mínimo y paginación",
+      "pass": true
+    },
+    {
+      "label": "Predictiva",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Buscar Audi",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Resultados coinciden con Audi",
+      "pass": true
+    },
+    {
+      "label": "Orden precio ascendente",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Precios ordenados",
+      "pass": true
+    },
+    {
+      "label": "Página cero",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "label": "ID inválido",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "label": "ID inexistente",
+      "status": 404,
+      "expected": 404,
+      "pass": true
+    },
+    {
+      "label": "Origen no autorizado",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Login cliente",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Login Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cliente en portal Team bloqueado",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Cliente no lista solicitudes",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Cliente no lista talleres asignables",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Cliente no accede agenda profesional",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Solicitudes Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Asignables Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Agenda Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Agenda cliente",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cliente recibe solo sus citas",
+      "pass": true
+    },
+    {
+      "label": "Mensajes client es",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Sin metadatos internos client es",
+      "pass": true
+    },
+    {
+      "label": "Mensajes client en",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Sin metadatos internos client en",
+      "pass": true
+    },
+    {
+      "label": "Mensajes team es",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Sin metadatos internos team es",
+      "pass": true
+    },
+    {
+      "label": "Mensajes team en",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Sin metadatos internos team en",
+      "pass": true
+    },
+    {
+      "label": "Foto Cloudinary disponible",
+      "pass": true
+    },
+    {
+      "label": "Foto contiene datos",
+      "pass": true
+    },
+    {
+      "label": "Logout cliente",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Sesión cerrada",
+      "status": 401,
+      "expected": 401,
+      "pass": true
+    },
+    {
+      "label": "Logout Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "date": "2026-10-10T15:45:31.441Z",
+  "url": "https://kelsets-cars.vercel.app",
+  "scope": "HTTP real en producción. Recorrido autorizado con dos talleres ficticios ocultos y dos citas de demostración, conservados como evidencia.",
+  "results": [
+    {
+      "label": "Login cliente",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Login Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Registro workshop",
+      "status": 201,
+      "expected": 201,
+      "pass": true
+    },
+    {
+      "label": "Solicitud propia workshop",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Pendiente sin agenda workshop",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Profesional sin agenda clientes workshop",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Registro rejected",
+      "status": 201,
+      "expected": 201,
+      "pass": true
+    },
+    {
+      "label": "Solicitud propia rejected",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Pendiente sin agenda rejected",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Profesional sin agenda clientes rejected",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Rechazo sin motivo",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "label": "Rechazo justificado",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Aprobación",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Doble aprobación",
+      "status": 409,
+      "expected": 409,
+      "pass": true
+    },
+    {
+      "label": "Rol actualizado sin login",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Directorio público",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Demos ocultas",
+      "pass": true
+    },
+    {
+      "label": "Catálogo",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Agenda Team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Fecha pasada",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "label": "Solicitar mantenimiento",
+      "status": 201,
+      "expected": 201,
+      "pass": true
+    },
+    {
+      "label": "Duplicada",
+      "status": 409,
+      "expected": 409,
+      "pass": true
+    },
+    {
+      "label": "Cliente no confirma",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "Cliente no asigna",
+      "status": 403,
+      "expected": 403,
+      "pass": true
+    },
+    {
+      "label": "No completar pendiente",
+      "status": 409,
+      "expected": 409,
+      "pass": true
+    },
+    {
+      "label": "Asignar taller",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "No reasignar",
+      "status": 409,
+      "expected": 409,
+      "pass": true
+    },
+    {
+      "label": "Confirmar",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Agenda profesional",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cita visible sin correo cliente",
+      "pass": true
+    },
+    {
+      "label": "Completar",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Completada e inactiva",
+      "pass": true
+    },
+    {
+      "label": "No completar dos veces",
+      "status": 409,
+      "expected": 409,
+      "pass": true
+    },
+    {
+      "label": "Nueva cita de cancelación",
+      "status": 201,
+      "expected": 201,
+      "pass": true
+    },
+    {
+      "label": "Cliente cancela",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cancelada e inactiva",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones client es",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados client es",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones client en",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados client en",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones workshop es",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados workshop es",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones workshop en",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados workshop en",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones rejected es",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados rejected es",
+      "pass": true
+    },
+    {
+      "label": "Comunicaciones rejected en",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Mensajes privados rejected en",
+      "pass": true
+    },
+    {
+      "label": "Cerrar sesión client",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cerrar sesión team",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cerrar sesión workshop",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "label": "Cerrar sesión rejected",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    }
+  ]
+}

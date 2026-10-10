@@ -209,7 +209,7 @@ He comprobado las consultas de los 148 vehículos, cuatro sedes y cuatro tallere
 
 ![Área de cliente después de recargar Safari con sesión activa](docs/evidencias/despliegue/03-sesion-safari.png)
 
-El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcance. No acredita todavía el recorrido completo de citas y talleres en producción ni la subida a Cloudinary desde Vercel. La nueva prueba local de subida encontró un corte HTTPS con Cloudinary; se mantienen las evidencias correctas del 4 de octubre y queda la comprobación desde el servidor publicado.
+El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcance de la revisión inicial. Después se ha comprobado la subida desde Vercel, documentada en Cloudinary, y el recorrido de citas en producción, documentado al final de esta memoria.
 
 
 ## Selector y traducciones · 10 de octubre
@@ -265,3 +265,9 @@ He preparado capturas de todas las rutas públicas en castellano e inglés a 390
 ![Menú al ancho de revisión del iPhone 13](docs/evidencias/movil/02-menu-es-390.png)
 
 El [informe responsive](docs/evidencias/movil/README.md) incluye las capturas y sus límites. Se han tomado en marcos de Safari de escritorio con el frontend local; los perfiles utilizaron una base temporal eliminada al terminar. No sustituyen la comprobación del teclado, barras del navegador, orientación y subida desde Fotos en el iPhone físico.
+
+## Recorrido comprobado en producción
+
+El 10 de octubre se han ejecutado 101 comprobaciones HTTP contra la web y la API de Vercel, todas correctas. La revisión incluye catálogo, sesiones, permisos, privacidad, comunicaciones en ambos idiomas y entrega de imágenes de Cloudinary. Con dos talleres ficticios autorizados y ocultos del directorio público se han probado la aprobación y el rechazo con motivo. Cliente Demo Despliegue ha solicitado una cita de mantenimiento que Team ha asignado, confirmado y completado; una segunda cita se ha cancelado desde el perfil de cliente. También se han comprobado los bloqueos de duplicados y cambios de estado incorrectos.
+
+Los registros ficticios se conservan como demostración. El [informe de producción](docs/evidencias/produccion/README.md) incluye los resultados esperados y obtenidos y explica el alcance: son peticiones HTTP reales, no una ejecución de la interfaz de Insomnia ni pruebas físicas del teléfono. No se han añadido credenciales a la documentación.
