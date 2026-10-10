@@ -29,7 +29,7 @@ Las diez muestras definitivas se han recibido con destinatario ficticio. El [reg
 
 La captura `client.welcome-text.png` corresponde a una versión anterior, antes de completar el footer de texto. El texto definitivo recibido está en [client.welcome.txt](mailtrap/recibidos/client.welcome.txt). Las capturas locales anteriores de [identidad](correo-identidad-2026-10-04.png) y [footer](correo-footer-2026-10-04.png) también se conservan como revisión previa.
 
-Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Se han revisado en Safari el logo, las imágenes, los botones y el footer de los diez tipos con el preset Phone. Quedan pendientes las pruebas en dispositivos y clientes de correo reales; el preset de Mailtrap no sustituye estas últimas.
+Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Se han revisado en Safari el logo, las imágenes, los botones y el footer de los diez tipos con el preset Phone. El preset de Mailtrap muestra el mensaje en su entorno de pruebas y no acredita compatibilidad con todos los clientes de correo.
 
 ## Revisión Phone en Safari · 4 de octubre
 
@@ -52,7 +52,7 @@ También se conserva el [contenido largo de asignación al taller](mailtrap/work
 
 ## Registro de pruebas
 
-Consultar [VALIDACION.md](../VALIDACION.md) para distinguir comprobaciones realizadas y pendientes. Cada captura de navegador debe identificar página, perfil, ancho de revisión y estado. No incluir contraseñas, cookies ni tokens.
+Consultar [VALIDACION.md](../VALIDACION.md) para conocer los resultados y el entorno de cada comprobación. Cada captura de navegador debe identificar página, perfil, ancho de revisión y estado. No incluir contraseñas, cookies ni tokens.
 
 - [Salida de las pruebas locales del 4 de octubre](pruebas-locales-2026-10-04.txt).
 - [Comparación Excel–CSV y validación de relaciones del 4 de octubre](excel-csv-2026-10-04.txt).
@@ -69,7 +69,7 @@ Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capt
 6. [Taller: comunicación de cierre](recorrido/06-taller-cierre.png).
 7. [Cliente: comunicación de cierre](recorrido/07-cliente-cierre.png).
 
-La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. El registro y revisión de talleres en navegador y la validación móvil completa siguen pendientes. La recepción de las muestras de Mailtrap se documenta por separado.
+La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. El registro y la revisión de talleres se documentan en el informe de navegación; la distribución responsive tiene su propio informe. La recepción de las muestras de Mailtrap se documenta por separado.
 
 ## Catálogo ampliado · 4 de octubre
 

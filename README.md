@@ -31,7 +31,7 @@ He mantenido los colores y el estilo de KelseTS, con imágenes aspiracionales y 
 
 ## Estado actual
 
-**La versión de Rock The Code está en revisión final de entrega.**
+**Aplicación full stack de Rock The Code, publicada en Vercel.**
 
 La conexión con MongoDB Atlas está configurada. Ya se han cargado 148 vehículos, cuatro concesionarios y cuatro talleres desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
 
@@ -47,9 +47,9 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 37 pruebas locales pasan en la revisión del 10 de octubre: 21 del backend, 11 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales no se ejecutan en esta ronda local; tienen evidencias independientes. Registro y revisión de talleres y el recorrido de mantenimiento entre cliente, Team y taller están comprobados en Safari con base temporal. El recorrido privado por HTTP en producción pasa 101 comprobaciones. Insomnia pasa 171 comprobaciones del recorrido principal y 36 de la colección pública de Vercel. La subida desde la web publicada y la entrega de la fotografía de Cloudinary también están verificadas. Quedan la comprobación completa en dispositivos físicos y el cierre de entrega. Las [evidencias](docs/evidencias/README.md) distinguen cada entorno y herramienta.
+La compilación y las 44 pruebas locales pasan en la revisión del 10 de octubre: 25 del backend, 14 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales no se ejecutan en esta ronda local; tienen evidencias independientes. Registro y revisión de talleres y el recorrido de mantenimiento entre cliente, Team y taller están comprobados en Safari con base temporal. El recorrido privado por HTTP en producción pasa 101 comprobaciones. Insomnia pasa 171 comprobaciones del recorrido principal y 36 de la colección pública de Vercel. La subida desde la web publicada y la entrega de la fotografía de Cloudinary también están verificadas. La revisión responsive se ha realizado en Safari de escritorio con anchuras controladas. Las [evidencias](docs/evidencias/README.md) distinguen cada entorno y herramienta.
 
-El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. El selector ES/EN y las traducciones de la interfaz están incorporados. Las diez comunicaciones tienen versiones en castellano e inglés. Falta cerrar la revisión y las pruebas de entrega.
+El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. El selector ES/EN y las traducciones de la interfaz están incorporados. Las diez comunicaciones tienen versiones en castellano e inglés. Las comprobaciones están documentadas en los informes de datos, navegación, producción e Insomnia.
 
 ## Capturas del proyecto
 
@@ -109,7 +109,7 @@ Primero voy a completar la entrega de **Rock The Code**: backend con Node.js, fr
 
 Después continuaré el proyecto para el TFM de **BigSchool**, con una app y nuevas funcionalidades. La estructura ya separa el código de la web de las validaciones y las peticiones a la API que podrán aprovecharse más adelante. La carpeta `apps/mobile/` está reservada para esa segunda etapa; la app aún no está desarrollada.
 
-Los requisitos y las tareas pendientes están en la [revisión de entrega](docs/REVISION-ENTREGA.md).
+Los requisitos y sus evidencias están en la [revisión de entrega](docs/REVISION-ENTREGA.md).
 
 ## Estructura
 
@@ -259,7 +259,7 @@ He comprobado el catálogo con 148 vehículos, las cuatro sedes, los cuatro tall
 
 ![Sesión de cliente conservada después de recargar Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. El recorrido de citas en producción, la subida desde Vercel y las comunicaciones bilingües tienen sus evidencias posteriores. Queda la revisión de los dispositivos físicos. El corte local de conexión con Cloudinary se resolvió para la entrega de imágenes mediante la API publicada.
+La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) identifican el entorno y el alcance de cada prueba. El recorrido de citas en producción, la subida desde Vercel y las comunicaciones bilingües tienen sus evidencias posteriores. Las capturas responsive proceden de Safari de escritorio. El corte local de conexión con Cloudinary se resolvió para la entrega de imágenes mediante la API publicada.
 
 ## Aviso académico y autora
 
@@ -273,7 +273,7 @@ La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega 
 
 Para revisar el backend sin usar la web, he incluido una [colección de pruebas de Insomnia y su guía](docs/INSOMNIA.md). Las credenciales se configuran en un entorno privado; el archivo del repositorio contiene solo datos ficticios.
 
-Las [diez comunicaciones](docs/MAILTRAP.md) ya se han recibido en Mailtrap Sandbox con datos ficticios, HTML y texto. Cada una tiene una imagen exclusiva según su contenido, el mismo logo de la web y un footer común editable. He guardado los mensajes recibidos y su verificación en [evidencias](docs/evidencias/README.md). Los eventos de la aplicación siguen dejando mensajes en la bandeja privada de demostración. Los diez tipos tienen capturas del preset móvil de Mailtrap revisadas en Safari. Quedan pendientes las pruebas en clientes de correo reales.
+Las [diez comunicaciones](docs/MAILTRAP.md) ya se han recibido en Mailtrap Sandbox con datos ficticios, HTML y texto. Cada una tiene una imagen exclusiva según su contenido, el mismo logo de la web y un footer común editable. He guardado los mensajes recibidos y su verificación en [evidencias](docs/evidencias/README.md). Los eventos de la aplicación siguen dejando mensajes en la bandeja privada de demostración. Los diez tipos tienen capturas del preset móvil de Mailtrap revisadas en Safari. La revisión corresponde al Sandbox y su preset móvil; no es una prueba en Gmail u Outlook.
 
 Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).
 
@@ -295,7 +295,7 @@ He incorporado el selector ES/EN y las traducciones de la interfaz. La selecció
 
 ![Portada inglesa a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
 
-El [informe de idiomas](docs/evidencias/idiomas/README.md) incluye el catálogo, el área de cliente y el alcance pendiente.
+El [informe de idiomas](docs/evidencias/idiomas/README.md) describe las comprobaciones del catálogo y del área de cliente.
 
 ## English version
 
@@ -344,9 +344,9 @@ The website includes:
 - A private demonstration inbox for registrations, applications and appointment updates.
 - Administrator photo uploads to Cloudinary from vehicle details.
 
-The build and 37 local tests pass: 21 backend, 11 frontend and five API client tests. Two optional integrations are skipped in this local run and have separate evidence. Workshop registration and review and the maintenance workflow were checked in Safari using an isolated database. The production HTTP workflow passed 101 checks. Insomnia passed 171 assertions for the main workflow and 36 for the public Vercel collection. Production image uploads were also verified. Physical device checks and final submission remain pending.
+The build and 44 local tests pass: 25 backend, 14 frontend and five API client tests. Two optional integrations are skipped in this local run and have separate evidence. Workshop registration and review and the maintenance workflow were checked in Safari using an isolated database. The production HTTP workflow passed 101 checks. Insomnia passed 171 assertions for the main workflow and 36 for the public Vercel collection. Production image uploads were also verified. Responsive evidence uses desktop Safari at controlled widths.
 
-**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; the ten communications also have Spanish and English versions. Public routes and private profile layouts have been reviewed in both languages; exhaustive dynamic error and physical device checks remain pending.**
+**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; the ten communications also have Spanish and English versions. Public routes and private profile layouts have evidence in both languages, using desktop Safari.**
 
 ### Project screenshots
 
@@ -390,7 +390,7 @@ The [evidence index](docs/evidencias/README.md) explains the scope of each check
 
 The first stage covers the **Rock The Code** requirements: Node.js backend, React frontend, related collections, users, protected routes, Excel data exported to CSV and read with `fs`, and deployment of both applications.
 
-After that submission, I will continue the project for **BigSchool**, including a mobile app and additional modules. `apps/mobile/` reserves space for that stage; the app has not been developed. The [delivery review](docs/REVISION-ENTREGA.md) tracks the requirements and remaining tasks.
+After that submission, I will continue the project for **BigSchool**, including a mobile app and additional modules. `apps/mobile/` reserves space for that stage; the app has not been developed. The [delivery review](docs/REVISION-ENTREGA.md) maps the requirements to their evidence.
 
 ### Architecture and technologies
 
@@ -509,9 +509,9 @@ Success responses use `{ success, data }`; errors use `{ success: false, error }
 
 I adapted the communication approach from [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), another project in my portfolio. Cars stores event messages in each recipient's private demonstration inbox. Ten fictional HTML and plain text samples have also been received in Mailtrap Sandbox. Each uses the same logo as the website, its own image and an editable common footer. This does not establish automatic email delivery from application events or delivery to personal inboxes.
 
-The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. Real email clients and devices remain to be tested. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
+The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. The review covers Mailtrap’s Phone preset, rather than Gmail, Outlook or physical devices. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
 
-The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 37 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Physical device checks remain pending.
+The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 44 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Responsive screenshots use desktop Safari rather than a physical phone.
 
 ### Documentation and deployment
 
@@ -538,7 +538,7 @@ Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, pub
 
 ![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Physical device checks remain pending. The local Cloudinary connection issue was resolved for image delivery through the published API.
+The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Responsive screenshots use desktop Safari rather than a physical phone. The local Cloudinary connection issue was resolved for image delivery through the published API.
 
 ### Academic notice and author
 
@@ -557,7 +557,7 @@ The ES/EN selector remembers the choice after a reload. Filter labels are transl
 
 ![English home at 320 and 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
 
-The [language report](docs/evidencias/idiomas/README.md) includes the catalogue, customer area and pending checks.
+The [language report](docs/evidencias/idiomas/README.md) documents the catalogue and customer-area checks.
 
 ### Comunicaciones bilingües / Bilingual communications
 
@@ -583,7 +583,7 @@ Public routes, predictive search, filters and pagination were reviewed on Vercel
 
 ![Visita completada en la prueba temporal / Completed visit in the temporary test](docs/evidencias/navegacion/08-visita-completada-temporal-safari.png)
 
-La subida de fotografías también funciona desde la web publicada. La imagen queda en Cloudinary y Atlas y se muestra mediante nuestra API. El [informe de fotografías](docs/evidencias/cloudinary/README.md) explica la comprobación y los casos móviles pendientes.
+La subida de fotografías también funciona desde la web publicada. La imagen queda en Cloudinary y Atlas y se muestra mediante nuestra API. El [informe de fotografías](docs/evidencias/cloudinary/README.md) explica el recorrido y el alcance de las capturas de Safari.
 
 Photograph uploads also work from the published website. Images are saved in Cloudinary and Atlas and displayed through our API. The [photograph report](docs/evidencias/cloudinary/README.md) explains the checks and remaining mobile cases.
 
@@ -652,3 +652,21 @@ These screenshots show the workbook opened in Numbers: Guide, Vehicles, Dealersh
 **Talleres · Workshops**
 
 ![Hoja Talleres: cuatro talleres relacionados con las sedes](docs/evidencias/datos/05-talleres-numbers.png)
+
+
+### Organización y revisión técnica / Code structure and technical review
+
+El catálogo separa el hero, los filtros, la barra de búsqueda, las tarjetas y la paginación. Las citas utilizan una fila compartida para sus datos y acciones; el registro separa la elección de perfil y los campos de taller. La ubicación del mapa tiene su propio hook. Los estilos de acceso y cuentas están en `private.css`, y los del barrio en `neighborhood.css`. La [revisión técnica](docs/REVISION-TECNICA.md) documenta también los recursos retirados, los metadatos y las pruebas de sustitución de imágenes.
+
+The catalogue separates its hero, filters, search toolbar, cards and pagination. Appointments share a row component for their details and actions; registration separates account selection and workshop fields. Map location has its own hook. Account styles live in `private.css`, and neighbourhood styles in `neighborhood.css`. The [technical review](docs/REVISION-TECNICA.md) also documents asset cleanup, metadata and image replacement tests.
+
+
+### Lo aprendido en entregas anteriores / Lessons from earlier projects
+
+Las correcciones de proyectos anteriores me han servido como referencia para revisar esta entrega. He prestado especial atención a separar componentes y estilos, retirar archivos sin uso y mantener una sola implementación de los helpers. También he comprobado que el footer muestre únicamente el idioma elegido y que las acciones de una cita correspondan a su estado.
+
+En el backend he revisado los datos relacionados que devuelve cada operación. La subida de una fotografía incluye ahora la sede del vehículo, y la sustitución de imágenes tiene un servicio propio para que el controlador resulte más fácil de seguir. En los datos he comprobado que no existan filas idénticas con claves distintas. El documento HTML ya tenía descripción y otros metadatos básicos; he añadido los de Open Graph y la tarjeta de Twitter. Estas mejoras y sus pruebas están recogidas en la [revisión técnica](docs/REVISION-TECNICA.md).
+
+Feedback on earlier projects guided this review. I focused on separating components and styles, removing unused files and keeping shared helpers in one place. I also checked that the footer uses only the selected language and that appointment actions match their current state.
+
+On the backend, I reviewed the related data returned by each operation. Image uploads now include the vehicle’s dealership, and image replacement has its own service to keep the controller readable. I checked the dataset for identical rows with different keys. The HTML document already had a description and basic metadata; I added Open Graph and Twitter card metadata. The changes and their tests are documented in the [technical review](docs/REVISION-TECNICA.md).

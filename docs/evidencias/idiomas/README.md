@@ -19,14 +19,14 @@ La interfaz incorpora traducciones en navegación, portada, Servicios, Nuestra e
 
 ![Cuenta ficticia de cliente en inglés](03-cliente-en-safari.png)
 
-## Pendiente
+## Entornos de las capturas
 
-Revisar el conjunto de errores y contenidos dinámicos, recorrer Team y talleres en ambos idiomas y completar formularios y dispositivos reales. Las tres primeras capturas corresponden a la revisión local contra Atlas. La captura siguiente corresponde a la web publicada.
+Las tres primeras capturas corresponden a la revisión local contra Atlas. La captura siguiente muestra la web publicada. Las vistas de Team y talleres en ambos idiomas están en el [informe responsive](../movil/README.md).
 
 
 ## Comprobación en producción
 
-Vercel ha publicado el commit `6d2f9b3` con estado Ready. En Safari he abierto [kelsets-cars.vercel.app](https://kelsets-cars.vercel.app), pulsado EN y comprobado la navegación inglesa y el hero The road is yours. El resto del recorrido publicado todavía necesita su revisión completa.
+Vercel ha publicado el commit `6d2f9b3` con estado Ready. En Safari he abierto [kelsets-cars.vercel.app](https://kelsets-cars.vercel.app), pulsado EN y comprobado la navegación inglesa y el hero The road is yours. El recorrido de producción se documenta en su informe específico.
 
 ![Portada inglesa publicada en Vercel](04-home-en-vercel-safari.png)
 

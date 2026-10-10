@@ -35,9 +35,9 @@ La API tiene versión `/api/v1`. Una futura incompatibilidad debe producir una n
 
 ## Idiomas del universo KelseTS
 
-KelseTS Cars debe ofrecer versiones completas en castellano e inglés desde la entrega web de Rock The Code, como el resto de webs de la marca. Esta funcionalidad está pendiente de implementación.
+KelseTS Cars ofrece versiones en castellano e inglés mediante un selector compartido, como el resto de webs de la marca.
 
-Se utilizará un selector de idioma accesible y se conservará la elección del visitante. Las traducciones se organizarán por funcionalidad con claves estables, separadas de los componentes, para poder reutilizar el vocabulario en la futura app. El idioma del documento, los formatos de fechas y números, los formularios, los estados de carga, los errores y los textos accesibles deberán corresponder al idioma elegido. Cambiar de idioma conservará la pantalla y los filtros actuales.
+El selector conserva la elección del visitante. Las traducciones se organizan por funcionalidad con claves estables, separadas de los componentes, para poder reutilizar el vocabulario en la futura app. El idioma del documento, los formatos de fechas y números, los formularios, los estados de carga, los errores y los textos accesibles deberán corresponder al idioma elegido. Cambiar de idioma conservará la pantalla y los filtros actuales.
 
 Los identificadores y valores de negocio de la API permanecerán estables; sus etiquetas se traducirán en la interfaz. La revisión de entrega comprobará los recorridos completos en ambos idiomas, sin textos mezclados ni claves de traducción visibles.
 
@@ -50,7 +50,7 @@ Los identificadores y valores de negocio de la API permanecerán estables; sus e
 5. Crear la funcionalidad web en `frontend/src/features` y, en la etapa correspondiente, sus pantallas nativas.
 6. Comprobar reglas, permisos e integración antes de documentarlo como completado.
 
-## App: decisiones pendientes
+## Separación de la interfaz móvil
 
 React Native con Expo es una opción por la continuidad con React, pero no se ha elegido ni instalado todavía. La reutilización actual comprende contratos y peticiones; HTML, CSS, React Router y componentes web no se trasladan directamente a una app nativa.
 

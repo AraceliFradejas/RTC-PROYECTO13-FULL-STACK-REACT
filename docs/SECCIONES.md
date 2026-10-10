@@ -2,7 +2,7 @@
 
 ## Primera etapa · Rock The Code
 
-La portada incorpora selección de modelos, esencia de marca, servicios, conducción, movilidad eléctrica, universo KelseTS, área personal, preguntas frecuentes y red de sedes. La página Servicios explica el recorrido de cita; Nuestra esencia desarrolla la identidad. Los CTA llevan a rutas existentes. El acceso a inventario y citas requiere conectar y validar la API con Atlas.
+La portada incorpora selección de modelos, esencia de marca, servicios, conducción, movilidad eléctrica, universo KelseTS, área personal, preguntas frecuentes y red de sedes. La página Servicios explica el recorrido de cita; Nuestra esencia desarrolla la identidad. Los CTA llevan a rutas existentes. El inventario y las citas utilizan la API conectada a Atlas.
 
 Las secciones reutilizan EditorialPanel, ServicesSection, StoriesSection y FaqSection. Las preguntas usan details/summary nativos. El filtro de motorización se conserva en la URL y permite llegar al catálogo eléctrico desde la portada.
 
@@ -11,14 +11,14 @@ Los originales de referencia permanecen en DocBase, excluida de Git. Los cartele
 | Referencia | Aplicación |
 | --- | --- |
 | 01 Logo | Logo vectorial compartido |
-| 02 Hero lifestyle | Dirección visual de marca; hero pendiente de vídeo definitivo |
+| 02 Hero lifestyle | Dirección visual de marca; vídeo de portada con sonido y pausa controlados por el visitante |
 | 03 Showroom | Sección Nuestra esencia, nueva escena sin rótulos |
 | 04 Performance | Referencia para detalle editorial de vehículos |
 | 05 Gama | Selección de modelos y catálogo |
 | 06 Conducción | Sección de conducción |
 | 07 Categorías | Catálogo y filtros; nuevas categorías según datos verificados |
 | 08 Llaves | Recorrido de visita en Servicios |
-| 09 Financiación | Segunda etapa, módulo pendiente |
+| 09 Financiación | Fuera del alcance de la entrega web |
 | 10 Taller | Servicio de cita de mantenimiento; gestión de taller en segunda etapa |
 | 11 Pet friendly | Historia de marca, sin prometer políticas de admisión |
 | 12 Roadtrip pareja | Referencia de estilo de vida reservada |

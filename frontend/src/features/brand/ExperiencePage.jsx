@@ -3,21 +3,179 @@ import { Link } from 'react-router-dom';
 import { EditorialPanel } from './components/EditorialPanel.jsx';
 export function ExperiencePage() {
   const { t } = useLanguage();
-  return <>
-    <section className="catalog-hero experience-hero">
-      <div className="catalog-hero-copy"><p className="eyebrow">{t("NUESTRA ESENCIA")}</p><h1>{t("Tu camino.")}<br /><em>{t("Tu carácter.")}</em></h1><p>{t("KelseTS Cars traslada la identidad de KelseTS al mundo del automóvil: diseño, tecnología y decisiones con sentido.")}</p><a className="button" href="#universo">{t("Descubrir nuestro universo ↓")}</a></div>
-      <figure><img src="/images/editorial/esencia-hero-v1.png" alt={t("Pareja ficticia junto a un gran turismo blanco frente a un concesionario con la marca KelseTS Cars")} fetchPriority="high" /><figcaption>{t("Escena conceptual KelseTS Cars")}</figcaption></figure>
-    </section>
-    <EditorialPanel id="universo" eyebrow="CARS · MUSIC · FREEDOM" title={t("Una historia que se mueve contigo.")} image="/images/editorial/libertad-clean.png" alt={t("Pareja ficticia junto a un descapotable en un mirador costero")} to="/catalogo" action={t("Descubrir la colección")} reverse><p>{t("Nos inspiran los viajes, la música y los pequeños detalles que hacen propio un camino. Esa mirada conecta nuestra selección de vehículos con el universo KelseTS.")}</p><p>{t("Una propuesta para quienes buscan un coche con personalidad y quieren explorar las opciones con tiempo, información clara y una visita organizada.")}</p></EditorialPanel>
-    <section className="section service-grid">
-      <article><span className="service-number">{t("01 / DISEÑO")}</span><h2>{t("Personalidad.")}</h2><p>{t("Una selección editorial que permite descubrir modelos antes de consultar las unidades del catálogo.")}</p><Link to="/catalogo">{t("Explorar vehículos ↗")}</Link></article>
-      <article><span className="service-number">{t("02 / PERSONAS")}</span><h2>{t("Cercanía.")}</h2><p>{t("Prueba de conducción, asesoramiento y mantenimiento como motivos para organizar una cita.")}</p><Link to="/servicios">{t("Conocer los servicios ↗")}</Link></article>
-      <article><span className="service-number">{t("03 / TECNOLOGÍA")}</span><h2>{t("Claridad.")}</h2><p>{t("Una cuenta para consultar las solicitudes y gestionar las citas activas desde el mismo lugar.")}</p><Link to="/mi-cuenta">{t("Entrar en mi cuenta ↗")}</Link></article>
-    </section>
-    <EditorialPanel eyebrow={t("CONFIANZA, SIN PRISAS")} title={t("El comienzo de algo tuyo.")} image="/images/editorial/esencia-entrega-v1.png" alt={t("Asesora ficticia acompañando a una clienta sentada en un gran turismo rojo")} to="/servicios" action={t("Conocer los servicios")} dark><p>{t("Una entrega simboliza mucho más que unas llaves. Nuestra identidad une cercanía, atención y la ilusión de empezar un nuevo camino.")}</p></EditorialPanel>
-    <EditorialPanel id="rutas" eyebrow={t("EL PLACER DEL CAMINO")} title={t("El destino puede esperar.")} image="/images/editorial/esencia-ruta-v1.png" alt={t("Gran turismo rojo estacionado en un mirador sobre el Mediterráneo, escena conceptual")} to="/catalogo" action={t("Encontrar mi próximo camino")} reverse><p>{t("Hay viajes que empiezan mucho antes de llegar. Una carretera junto al mar, una pausa sin prisa y la libertad de elegir tu propia dirección.")}</p><p>{t("El coche forma parte de esa experiencia. Explora modelos y descubre qué carácter encaja con tu manera de viajar.")}</p></EditorialPanel>
-    <EditorialPanel id="companeros" eyebrow={t("HISTORIAS COMPARTIDAS")} title={t("Contigo. Con los tuyos.")} image="/images/editorial/esencia-companeros-v1.png" alt={t("Pareja ficticia y su perro junto a un SUV blanco en un paseo junto al lago")} to="/catalogo" action={t("Explorar la selección")}><p>{t("Los mejores planes también tienen espacio para quienes te acompañan. Escapadas, paseos y momentos que convierten un trayecto en una historia compartida.")}</p><p>{t("Tu estilo de vida cuenta al elegir coche: consulta cada ficha y organiza una visita para conocerlo con calma.")}</p></EditorialPanel>
-    <EditorialPanel id="detalles" eyebrow={t("MÚSICA · ESTILO · DETALLES")} title={t("Lo que hace tuyo un viaje.")} image="/images/editorial/esencia-detalles-v1.png" alt={t("Bolsa de viaje roja, auriculares y pañuelo sobre cuero marfil en un coche estacionado")} to="/servicios" action={t("Descubrir la atención KelseTS")} dark reverse><p>{t("Una canción, una textura, aquello que siempre llevas contigo. Nuestra inspiración une la emoción de la música con el diseño y los pequeños rituales del viaje.")}</p><p>{t("La sofisticación está en prestar atención: al coche, a las personas y a lo que hace especial cada elección.")}</p></EditorialPanel>
-    <section className="section reading-page"><h2>{t("Una marca propia.")}</h2><p>{t("KelseTS Cars es una marca ficticia y educativa. Las marcas y modelos citados pertenecen a sus titulares. Las escenas de marca son conceptuales y las fotografías ilustran modelos. No somos concesionario oficial ni ofrecemos una compraventa real.")}</p></section>
-  </>;
+  return (
+    <>
+      <section className="catalog-hero experience-hero">
+        <div className="catalog-hero-copy">
+          <p className="eyebrow">{t('NUESTRA ESENCIA')}</p>
+          <h1>
+            {t('Tu camino.')}
+            <br />
+            <em>{t('Tu carácter.')}</em>
+          </h1>
+          <p>
+            {t(
+              'KelseTS Cars traslada la identidad de KelseTS al mundo del automóvil: diseño, tecnología y decisiones con sentido.',
+            )}
+          </p>
+          <a className="button" href="#universo">
+            {t('Descubrir nuestro universo ↓')}
+          </a>
+        </div>
+        <figure>
+          <img
+            src="/images/editorial/esencia-hero-v1.png"
+            alt={t(
+              'Pareja ficticia junto a un gran turismo blanco frente a un concesionario con la marca KelseTS Cars',
+            )}
+            fetchPriority="high"
+          />
+          <figcaption>{t('Escena conceptual KelseTS Cars')}</figcaption>
+        </figure>
+      </section>
+      <EditorialPanel
+        id="universo"
+        eyebrow="CARS · MUSIC · FREEDOM"
+        title={t('Una historia que se mueve contigo.')}
+        image="/images/editorial/libertad-clean.png"
+        alt={t('Pareja ficticia junto a un descapotable en un mirador costero')}
+        to="/catalogo"
+        action={t('Descubrir la colección')}
+        reverse
+      >
+        <p>
+          {t(
+            'Nos inspiran los viajes, la música y los pequeños detalles que hacen propio un camino. Esa mirada conecta nuestra selección de vehículos con el universo KelseTS.',
+          )}
+        </p>
+        <p>
+          {t(
+            'Una propuesta para quienes buscan un coche con personalidad y quieren explorar las opciones con tiempo, información clara y una visita organizada.',
+          )}
+        </p>
+      </EditorialPanel>
+      <section className="section service-grid">
+        <article>
+          <span className="service-number">{t('01 / DISEÑO')}</span>
+          <h2>{t('Personalidad.')}</h2>
+          <p>
+            {t(
+              'Una selección editorial que permite descubrir modelos antes de consultar las unidades del catálogo.',
+            )}
+          </p>
+          <Link to="/catalogo">{t('Explorar vehículos ↗')}</Link>
+        </article>
+        <article>
+          <span className="service-number">{t('02 / PERSONAS')}</span>
+          <h2>{t('Cercanía.')}</h2>
+          <p>
+            {t(
+              'Prueba de conducción, asesoramiento y mantenimiento como motivos para organizar una cita.',
+            )}
+          </p>
+          <Link to="/servicios">{t('Conocer los servicios ↗')}</Link>
+        </article>
+        <article>
+          <span className="service-number">{t('03 / TECNOLOGÍA')}</span>
+          <h2>{t('Claridad.')}</h2>
+          <p>
+            {t(
+              'Una cuenta para consultar las solicitudes y gestionar las citas activas desde el mismo lugar.',
+            )}
+          </p>
+          <Link to="/mi-cuenta">{t('Entrar en mi cuenta ↗')}</Link>
+        </article>
+      </section>
+      <EditorialPanel
+        eyebrow={t('CONFIANZA, SIN PRISAS')}
+        title={t('El comienzo de algo tuyo.')}
+        image="/images/editorial/esencia-entrega-v1.png"
+        alt={t('Asesora ficticia acompañando a una clienta sentada en un gran turismo rojo')}
+        to="/servicios"
+        action={t('Conocer los servicios')}
+        dark
+      >
+        <p>
+          {t(
+            'Una entrega simboliza mucho más que unas llaves. Nuestra identidad une cercanía, atención y la ilusión de empezar un nuevo camino.',
+          )}
+        </p>
+      </EditorialPanel>
+      <EditorialPanel
+        id="rutas"
+        eyebrow={t('EL PLACER DEL CAMINO')}
+        title={t('El destino puede esperar.')}
+        image="/images/editorial/esencia-ruta-v1.png"
+        alt={t(
+          'Gran turismo rojo estacionado en un mirador sobre el Mediterráneo, escena conceptual',
+        )}
+        to="/catalogo"
+        action={t('Encontrar mi próximo camino')}
+        reverse
+      >
+        <p>
+          {t(
+            'Hay viajes que empiezan mucho antes de llegar. Una carretera junto al mar, una pausa sin prisa y la libertad de elegir tu propia dirección.',
+          )}
+        </p>
+        <p>
+          {t(
+            'El coche forma parte de esa experiencia. Explora modelos y descubre qué carácter encaja con tu manera de viajar.',
+          )}
+        </p>
+      </EditorialPanel>
+      <EditorialPanel
+        id="companeros"
+        eyebrow={t('HISTORIAS COMPARTIDAS')}
+        title={t('Contigo. Con los tuyos.')}
+        image="/images/editorial/esencia-companeros-v1.png"
+        alt={t('Pareja ficticia y su perro junto a un SUV blanco en un paseo junto al lago')}
+        to="/catalogo"
+        action={t('Explorar la selección')}
+      >
+        <p>
+          {t(
+            'Los mejores planes también tienen espacio para quienes te acompañan. Escapadas, paseos y momentos que convierten un trayecto en una historia compartida.',
+          )}
+        </p>
+        <p>
+          {t(
+            'Tu estilo de vida cuenta al elegir coche: consulta cada ficha y organiza una visita para conocerlo con calma.',
+          )}
+        </p>
+      </EditorialPanel>
+      <EditorialPanel
+        id="detalles"
+        eyebrow={t('MÚSICA · ESTILO · DETALLES')}
+        title={t('Lo que hace tuyo un viaje.')}
+        image="/images/editorial/esencia-detalles-v1.png"
+        alt={t(
+          'Bolsa de viaje roja, auriculares y pañuelo sobre cuero marfil en un coche estacionado',
+        )}
+        to="/servicios"
+        action={t('Descubrir la atención KelseTS')}
+        dark
+        reverse
+      >
+        <p>
+          {t(
+            'Una canción, una textura, aquello que siempre llevas contigo. Nuestra inspiración une la emoción de la música con el diseño y los pequeños rituales del viaje.',
+          )}
+        </p>
+        <p>
+          {t(
+            'La sofisticación está en prestar atención: al coche, a las personas y a lo que hace especial cada elección.',
+          )}
+        </p>
+      </EditorialPanel>
+      <section className="section reading-page">
+        <h2>{t('Una marca propia.')}</h2>
+        <p>
+          {t(
+            'KelseTS Cars es una marca ficticia y educativa. Las marcas y modelos citados pertenecen a sus titulares. Las escenas de marca son conceptuales y las fotografías ilustran modelos. No somos concesionario oficial ni ofrecemos una compraventa real.',
+          )}
+        </p>
+      </section>
+    </>
+  );
 }

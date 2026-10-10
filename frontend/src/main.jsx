@@ -8,7 +8,17 @@ import './styles/style.css';
 import './styles/components.css';
 import './styles/cinematic.css';
 import './styles/editorial.css';
+import './styles/private.css';
+import './styles/neighborhood.css';
 import './styles/interactions.css';
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode><BrowserRouter><LanguageProvider><AuthProvider><App /></AuthProvider></LanguageProvider></BrowserRouter></React.StrictMode>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <LanguageProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </LanguageProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
 );

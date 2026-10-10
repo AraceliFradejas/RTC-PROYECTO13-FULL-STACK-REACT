@@ -6,4 +6,4 @@ El logo se construye como SVG en `frontend/src/shared/components/BrandLogo.jsx`,
 
 La corona adopta el color del texto sobre fondos claros y oscuros. Se han ajustado las proporciones a la referencia aportada y se ha retirado el adorno dorado lateral.
 
-La propuesta anterior con automóvil lateral se conserva como referencia en `frontend/public/images/brand/`. La nueva propuesta todavía admite ajustes antes de cerrar la identidad definitiva.
+El SVG compartido es la identidad utilizada en la web y sustituye las propuestas PNG anteriores con automóvil lateral.

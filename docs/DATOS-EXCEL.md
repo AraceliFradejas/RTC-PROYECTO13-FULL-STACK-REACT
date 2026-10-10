@@ -31,7 +31,7 @@ La semilla lee los CSV mediante `node:fs/promises`, valida los datos y utiliza `
 
 ## Comprobación del 4 de octubre de 2026
 
-Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. Las 21 pruebas locales pasan; esta ronda omite la integración opcional de Atlas. En esa fecha quedaba pendiente abrir el libro en una aplicación de escritorio. La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
+Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. Las 21 pruebas locales pasan; esta ronda omite la integración opcional de Atlas. La apertura en Numbers se documenta en la revisión del 10 de octubre. La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
 
 ## Apertura en Numbers · 10 de octubre de 2026
 

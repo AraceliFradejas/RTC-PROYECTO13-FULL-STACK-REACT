@@ -2,12 +2,12 @@ import { englishFooter, englishScenes } from './emailBrand.en.js';
 import { readFile } from 'node:fs/promises';
 
 // Compartido por las vistas locales y las muestras Sandbox. Editar aquí el footer.
-export const emailFooter = {
+const emailFooter = {
   motto: 'El carácter se lleva dentro. El camino lo eliges tú.',
   locations: 'Madrid · Barcelona · San Sebastián · Málaga',
 };
 // Cada tipo tiene una escena exclusiva, sin reutilizar fotos de las secciones de la web.
-export const emailScenes = {
+const emailScenes = {
   'client.welcome': { heading: 'No es solo llegar. Es cómo lo vives.', image: 'email-clientes-v1.png', alt: 'Llegada a un espacio KelseTS junto a un gran turismo.' },
   'workshop.received': { heading: 'Cada colaboración empieza con atención.', image: 'email-taller-solicitud-v1.png', alt: 'Recepción profesional revisando una solicitud de colaboración.' },
   'workshop.approved': { heading: 'El cuidado también lleva nuestra firma.', image: 'email-talleres-v1.png', alt: 'Equipo profesional de la red revisando un vehículo.' },

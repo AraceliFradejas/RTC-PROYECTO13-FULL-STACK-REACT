@@ -71,11 +71,11 @@ RUN_ATLAS_TESTS=true node --test backend/test/registration.integration.test.js
 
 Comprueba altas, duplicados, login y logout, aprobación y rechazo, revisión repetida, aislamiento de mensajes, asignación de mantenimiento, acceso solo a citas propias sin correo del cliente, bloqueo de la agenda general para talleres y comunicaciones de solicitud, confirmación y cancelación de cita. No envía correos. Las pruebas ordinarias omiten esta integración salvo que se active expresamente.
 
-## Lo que queda para después
+## Alcance de la posventa
 
 La solicitud de reparación de un coche del cliente, el presupuesto y su aceptación, el progreso de una reparación y la gestión de documentación de siniestros requieren su propio módulo. No se consideran implementados con este registro. Los mensajes futuros seguirán el mismo criterio: explicar qué ha ocurrido y cuál es el siguiente paso, con permisos y contenido adecuados para cliente y taller.
 
-La versión inglesa de la interfaz y de estas comunicaciones sigue pendiente junto con el resto de la traducción del proyecto.
+La interfaz y las diez comunicaciones tienen versiones en castellano e inglés. La bandeja utiliza el idioma seleccionado y conserva los nombres y motivos introducidos por las personas.
 
 
 ## KelseTS Cars Team y la red inicial

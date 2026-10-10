@@ -22,10 +22,8 @@ Inicio → catálogo → ficha → acceso si hace falta → solicitud de cita �
 
 La portada editorial ofrece contexto antes de pedir datos. El catálogo consulta inventario real de la base académica. Los créditos son accesibles desde el pie. Las fotos no se presentan como fotografías de unidades concretas.
 
-## Revisión pendiente
+## Vídeo y movimiento
 
-La portada incorpora un hero a pantalla completa con navegación superpuesta, escenas seleccionables, encuadre animado y pausa. Las secciones entran con transiciones suaves al aparecer y las tarjetas usan fotografías a sangre. Se respeta `prefers-reduced-motion`.
+La portada utiliza el vídeo definido en `frontend/src/features/brand/heroMedia.js`, con una imagen de respaldo. Se reproduce inicialmente sin sonido y ofrece controles para activar el audio y pausar. La música está creada con Suno. El hero no tiene paginación de diapositivas.
 
-`frontend/src/features/brand/heroMedia.js` centraliza el vídeo y la imagen de portada. `videoSrc` permanece vacío hasta disponer del archivo definitivo. El componente reproduce el vídeo sin sonido, admite pausa, detiene la reproducción al ocultar la pestaña y conserva una imagen si el vídeo falla. El vídeo todavía no se ha incorporado ni se ha verificado con un archivo real.
-
-Comprobar contraste, teclado, pantallas pequeñas y estados de formulario. Las imágenes de Commons están elegidas por correspondencia de modelo y licencia; el tratamiento visual definitivo podrá mejorar cuando exista una selección fotográfica más amplia.
+Las secciones utilizan transiciones suaves y respetan `prefers-reduced-motion`. La cabecera se convierte en un menú desplegable en pantallas estrechas. El [informe responsive](evidencias/movil/README.md) recoge la revisión en Safari de escritorio; las capturas no equivalen a una prueba física de iOS.

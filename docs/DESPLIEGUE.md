@@ -1,6 +1,6 @@
 # Despliegue de KelseTS Cars
 
-Web y API publicadas el 10 de octubre de 2026. La primera revisión comprueba catálogo, recursos y sesión; el recorrido completo de citas y talleres y la subida desde Vercel siguen pendientes.
+Web y API publicadas el 10 de octubre de 2026. Se han comprobado catálogo, recursos, sesiones y recorrido HTTP de citas y talleres; la subida desde la web publicada tiene su informe de Cloudinary.
 
 Se utiliza el mismo repositorio para dos proyectos de Vercel. Los paquetes compartidos y el archivo de dependencias están en la raíz del repositorio: ambos proyectos necesitan incluir los archivos externos a su carpeta raíz.
 
@@ -31,7 +31,7 @@ La sesión usa una cookie `HttpOnly` y `Secure` en producción. Las escrituras c
 
 El límite compartido del archivo es 4 MB. Vercel limita el cuerpo completo de las peticiones a 4,5 MB, por lo que se deja margen para multipart. Los archivos llegan a Multer en memoria y se guardan en Cloudinary; no necesitan escritura en el disco del servidor.
 
-## Comprobaciones antes de darlo por publicado
+## Comprobaciones del despliegue
 
 - Salud de la API y consulta pública del catálogo, las sedes y los talleres.
 - Acceso, conservación de sesión al recargar y cierre de sesión desde la web.
@@ -39,7 +39,7 @@ El límite compartido del archivo es 4 MB. Vercel limita el cuerpo completo de l
 - Registro y cita con datos ficticios; consulta desde los perfiles correspondientes.
 - Imágenes, vídeo y enlaces directos a fichas, acceso y sedes.
 - Formulario de fotografías, confirmación y errores desde Team.
-- Revisión en Safari y en el iPhone, guardando evidencias sin secretos.
+- Revisión en Safari de escritorio y marcos responsive, con evidencias sin secretos.
 
 No repetir la semilla en producción solo para probar el despliegue: Atlas ya contiene el inventario. La salud de la API no acredita por sí sola una conexión correcta a Atlas, porque funciona sin base de datos.
 

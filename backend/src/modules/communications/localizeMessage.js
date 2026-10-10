@@ -16,7 +16,7 @@ function dateLabels(value) {
 }
 // Reconoce únicamente nuestras plantillas antiguas y comprueba su reproducción exacta.
 // No consulta perfiles o citas actuales ni modifica los documentos históricos.
-export function legacyEnglishContent(message) {
+function legacyEnglishContent(message) {
   const greeting = message.text?.match(/^Hola, ([^\n]+)\.\n\n/);
   if (!greeting) return null;
   const data = { name: greeting[1] };

@@ -12,7 +12,7 @@
 | Despliegue | Web y API publicadas en Vercel · 10 de octubre de 2026 |
 | Evolución posterior | TFM BigSchool con app y módulos específicos |
 
-Esta memoria sigue la organización de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/MEMORIA.md). Recoge el estado real del trabajo: las pantallas creadas no equivalen a una integración comprobada, y las funcionalidades futuras se identifican como pendientes.
+Esta memoria sigue la organización de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/MEMORIA.md). Explica la idea, la estructura del código, los datos y las pruebas realizadas.
 
 ## 1. Contexto y motivación
 
@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; la revisión bilingüe, móvil y de producción tiene sus informes posteriores; queda la comprobación física de dispositivos.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) relaciona los requisitos con sus evidencias. El catálogo, las cuentas y las citas están conectados a Atlas. Los informes documentan las pruebas de integración, la versión bilingüe y los recorridos en producción. La revisión responsive se realizó en Safari de escritorio con anchuras controladas.
 
 ## 4. Tecnologías
 
@@ -84,7 +84,7 @@ He añadido dos tipos de registro porque la relación con el cliente continúa d
 
 Para comunicar cada resultado he adaptado la idea que utilicé en [KelseTS Talks, otro proyecto de mi portfolio](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/docs/CORREO.md). Allí probé correos en Mailtrap Sandbox. En Cars los mensajes se guardan en una bandeja privada de demostración y se pueden generar muestras HTML locales, sin envío real. Hay bienvenida de cliente, recepción y resultado de solicitudes de talleres, y comunicaciones de solicitud, confirmación, cancelación y finalización de citas.
 
-Las referencias de Renault y Línea Directa me han servido para organizar la posventa y las especialidades, manteniendo la identidad propia de KelseTS. La [justificación, los permisos y las pruebas](docs/COMUNICACIONES-Y-TALLERES.md) explican qué está implementado y qué queda para después. `Workshop` referencia a su usuario y `Message` a su destinatario. Las altas y los cambios se guardan con sus comunicaciones en una transacción para evitar que aparezca un mensaje de éxito sin haberse completado la operación.
+Las referencias de Renault y Línea Directa me han servido para organizar la posventa y las especialidades, manteniendo la identidad propia de KelseTS. La [justificación, los permisos y las pruebas](docs/COMUNICACIONES-Y-TALLERES.md) explican el funcionamiento y el alcance de esta entrega. `Workshop` referencia a su usuario y `Message` a su destinatario. Las altas y los cambios se guardan con sus comunicaciones en una transacción para evitar que aparezca un mensaje de éxito sin haberse completado la operación.
 
 `useResource` combina `useReducer`, cancelación mediante `AbortController` y reintento. Evita que una respuesta anterior actualice una pantalla después de cambiar filtros o ruta. `AuthProvider` comparte el estado de sesión sin copiarlo en cada página.
 
@@ -100,7 +100,7 @@ La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de or
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. Los informes posteriores documentan el registro y la revisión de talleres en Safari, la revisión responsive y el recorrido HTTP en producción. Quedan las comprobaciones físicas del móvil. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. Los informes posteriores documentan el registro y la revisión de talleres en Safari, la revisión responsive y el recorrido HTTP en producción. Las capturas responsive utilizan Safari de escritorio. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
 
 Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. La primera revisión del despliegue se recoge al final de esta memoria; el recorrido HTTP completo en producción está documentado al final. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
 
@@ -132,9 +132,9 @@ Las capturas muestran la solicitud del cliente, la confirmación desde Team, la 
 
 Después de entregar Rock The Code se abordarán la app, el configurador y otros módulos de BigSchool. El control remoto de un vehículo requeriría integraciones y permisos reales del fabricante; no se simulará como una función operativa.
 
-## 14. Aprendizaje y próximos pasos
+## 14. Aprendizaje
 
-La decisión inicial es separar la lógica compartida de la plataforma. Atlas y el Excel relacionado ya permiten cargar el inventario inicial. Los siguientes pasos son completar la revisión móvil de Cloudinary, la versión bilingüe y las pruebas de entrega y completar los recorridos de las aplicaciones publicadas.
+Separar la lógica compartida de la interfaz me ha permitido organizar los permisos, los datos y las comunicaciones sin depender de una pantalla concreta. El Excel y los CSV mantienen el origen del inventario; las pruebas comprueban sus relaciones y los recorridos de la aplicación publicada.
 
 ## Desarrollo de las secciones editoriales
 
@@ -155,7 +155,7 @@ He mantenido el mismo logotipo de la web en los correos, exportándolo desde el 
 
 El 4 de octubre he enviado las diez muestras al Sandbox y he comprobado su recepción consultando la API. He guardado el HTML y el texto recibidos, la fecha y el identificador de cada mensaje. El texto coincide con la plantilla actual y los cinco enlaces de cada HTML apuntan a la web configurada. La versión de texto incluye también el footer, para conservar la información cuando no se muestran imágenes.
 
-Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los mensajes descargados del Sandbox. He revisado en Safari el encabezado, la fotografía, el botón y el footer de los diez tipos en el preset Phone de Mailtrap, con capturas de cada uno. El mensaje largo de asignación al taller tiene también una captura del contenido. Falta probar clientes de correo y dispositivos reales. El análisis de Mailtrap señala estilos que algunos clientes pueden interpretar de otra forma; no lo considero una prueba de compatibilidad universal. Estas muestras no envían correo a buzones personales ni demuestran un envío automático desde un evento de la aplicación.
+Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los mensajes descargados del Sandbox. He revisado en Safari el encabezado, la fotografía, el botón y el footer de los diez tipos en el preset Phone de Mailtrap, con capturas de cada uno. El mensaje largo de asignación al taller tiene también una captura del contenido. La revisión se hizo con el preset móvil de Mailtrap. El análisis de Mailtrap señala estilos que algunos clientes pueden interpretar de otra forma; no lo considero una prueba de compatibilidad universal. Estas muestras no envían correo a buzones personales ni demuestran un envío automático desde un evento de la aplicación.
 
 ![Identidad visual de la muestra de correo](docs/evidencias/correo-identidad-2026-10-04.png)
 
@@ -169,7 +169,7 @@ La operación usa `FormData`, Multer y el SDK de Cloudinary en Node. Solo una cu
 
 La prueba de integración utiliza una base temporal y dos imágenes de prueba que se eliminan al terminar. Comprueba sesión, permisos de cliente, taller y personal, archivo ausente, imagen falsa, exceso de tamaño, campo incorrecto, persistencia de la URL y sustitución. Después he completado el recorrido desde Safari con una unidad del catálogo: Porsche 911 Carrera de Barcelona. Se ha conservado su fotografía de referencia y su atribución. La gestión no migra toda la biblioteca ni cambia la semilla del Excel.
 
-Las [evidencias](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Esta revisión de distribución no sustituye a probar la selección de archivos, los errores y la subida en un teléfono real, que siguen pendientes.
+Las [evidencias](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Estas capturas muestran la distribución en Safari de escritorio; no acreditan una subida desde Fotos en un teléfono.
 
 ![Vista previa de la fotografía desde Team en Safari](docs/evidencias/cloudinary/01-vista-previa-safari.png)
 
@@ -187,7 +187,7 @@ Las ocho fotografías proceden de Wikimedia Commons. He guardado sus autores, fu
 
 El enlace a Street View utiliza las coordenadas aproximadas del centro, sin enviar la ubicación del visitante. He elegido los [enlaces de Google Maps](https://developers.google.com/maps/documentation/urls/get-started), que no necesitan clave API. La panorámica disponible depende de Google y no representa nuestras instalaciones. Las fotografías tampoco se presentan como imágenes actuales de la calle.
 
-En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La compilación y las 24 pruebas locales pasan; queda ampliar la revisión a teléfonos reales. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
+En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La compilación y las 24 pruebas locales pasan. La captura corresponde a Safari de escritorio. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
 
 ![Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
 
@@ -195,7 +195,7 @@ En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el 
 
 He ajustado el límite de las fotografías a 4 MB, compartido entre React y Multer. Las pruebas anteriores utilizaron el límite inicial de 5 MB; Vercel limita el cuerpo completo de las peticiones a 4,5 MB, por lo que he dejado margen para el formulario multipart. El formulario y sus mensajes muestran el nuevo límite.
 
-La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conectará a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.
+La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conecta a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.
 
 ## Primera revisión del despliegue · 10 de octubre
 
@@ -254,7 +254,7 @@ También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web
 
 ![Fotografía publicada desde Cloudinary](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
 
-Quedan las comprobaciones en dispositivos físicos. La ronda final de Insomnia y el ciclo HTTP de citas en producción se han completado después y tienen sus informes correspondientes. Estas capturas de escritorio no sustituyen esas pruebas.
+La ronda final de Insomnia y el ciclo HTTP de citas en producción se han completado después y tienen sus informes correspondientes. Estas capturas de escritorio no sustituyen esas pruebas.
 
 ## Cabecera y revisión responsive · 10 de octubre
 
@@ -525,3 +525,21 @@ He abierto el Excel de entrega en Numbers y revisado Guía, Vehículos, Sedes y 
 ![Talleres con referencias a las sedes](docs/evidencias/datos/05-talleres-numbers.png)
 
 Después de la apertura, `data:check` confirma que todos los datos y relaciones del libro coinciden con los CSV; `seed:check` también pasa. No he cambiado celdas, guardado una conversión ni exportado desde Numbers. El archivo original mantiene su SHA-256. El [informe con las cinco capturas](docs/evidencias/datos/README.md) documenta esta revisión en Numbers; no la presenta como una prueba en Microsoft Excel.
+
+
+## Revisión de la estructura y mantenimiento
+
+He separado los filtros, las tarjetas y la paginación del catálogo, las filas de citas, los campos del registro de talleres y las tarjetas de la red. Las páginas coordinan los datos y la navegación, mientras que cada componente presenta una parte concreta de la interfaz. El hook de ubicación reúne la solicitud de permiso, la selección manual y el tratamiento de errores. También he separado los estilos de las vistas privadas y del barrio, conservando el orden de aplicación de las reglas.
+
+La sustitución de fotografías tiene un servicio propio: guarda la nueva referencia antes de retirar la anterior y conserva la imagen previa si falla el guardado. La respuesta de subida incluye los datos de la sede, igual que la ficha del catálogo. He añadido cuatro pruebas de este servicio y tres del renderizado del footer y las acciones de las citas. La suite local pasa 44 comprobaciones: 25 del backend, 14 del frontend y cinco del cliente HTTP; las dos integraciones opcionales se ejecutan por separado. La [revisión técnica](docs/REVISION-TECNICA.md) recoge el alcance y los resultados.
+
+
+### Aplicar las correcciones de otros proyectos
+
+En entregas anteriores me habían señalado archivos de estilos vacíos o sin utilizar, recursos pesados que no aparecían en la página y archivos que reunían demasiadas responsabilidades. He utilizado esas observaciones para revisar KelseTS Cars. No he tomado el número de líneas como único criterio: he separado las partes que tienen una función clara y he distribuido el JSX para que se pueda leer sin tener que seguir una línea enorme. También he retirado cuatro recursos sustituidos o sin uso, unos 6,7 MB del directorio público.
+
+Otras correcciones trataban sobre helpers duplicados, controladores difíciles de seguir y respuestas que no incluían los datos relacionados. Aquí el escape de expresiones regulares tiene una única implementación, los tiempos de espera tienen constantes con nombre y la sustitución de imágenes se resuelve en un servicio. La respuesta de subida incluye la sede del vehículo. El CSV no contiene filas idénticas salvo su clave: las unidades de un modelo se relacionan con sus respectivas sedes.
+
+También he aplicado la observación sobre mostrar español e inglés a la vez y sobre conservar controles que ya no correspondían al estado de una actividad. El footer muestra solo el idioma seleccionado; una cita completada no conserva botones de modificación. He añadido pruebas de renderizado para comprobarlo. La revisión de metadatos confirma la descripción existente y añade la información para compartir la web.
+
+Las correcciones sobre autores, fechas, visitas y likes pertenecían a una entrega con Unsplash. En este proyecto he aplicado el criterio de mostrar información fiel a la fuente: las fotografías de vehículos conservan sus créditos, licencias y enlaces de origen, y se identifican como referencias. No he trasladado contadores ni campos de otra aplicación que aquí no tienen una función.

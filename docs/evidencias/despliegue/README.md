@@ -16,8 +16,6 @@ El registro se realizó mediante HTTP con una cuenta ficticia autorizada. El acc
 
 El informe comprueba consultas públicas, archivos, rutas directas, acceso, sesión, agenda vacía, bienvenida, cierre y rechazos de origen y de permisos. Una respuesta HTML correcta en una ruta no prueba todas las interacciones de esa página.
 
-## Pendiente
+## Recorridos relacionados
 
-- Recorrido completo de citas y talleres desde la web publicada.
-- Subida de fotografías desde Vercel. Dos intentos locales del 10 de octubre fallaron por un corte de conexión HTTPS con Cloudinary; los casos de permisos y archivos anteriores a la subida sí se ejecutaron. La integración correcta del 4 de octubre conserva sus evidencias.
-- Revisión completa en dispositivos reales y versión inglesa de la interfaz.
+El [recorrido HTTP en producción](../produccion/README.md) incluye talleres y citas. La [subida publicada](../cloudinary/README.md) documenta React, Vercel, Cloudinary y Atlas. Las [capturas de idiomas](../idiomas/README.md) y [responsive](../movil/README.md) identifican sus páginas y anchuras. Cada informe conserva el alcance de su revisión.

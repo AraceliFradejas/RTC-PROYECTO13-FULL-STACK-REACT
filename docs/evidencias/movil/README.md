@@ -6,7 +6,7 @@ Las páginas públicas tienen capturas en castellano e inglés a 390 × 844 CSS 
 
 Las capturas se hicieron en Safari de escritorio dentro de marcos de anchura controlada, con el frontend local. El inventario público se consultó mediante un proxy a la API publicada. Las áreas privadas utilizaron una base temporal de Atlas, eliminada al terminar. La vista previa de imagen no se guardó en Cloudinary.
 
-No son capturas tomadas en un iPhone ni una simulación completa de iOS. Muestran la ventana visible, no la página entera. Quedan por revisar el teclado táctil, barras de Safari, orientación, permisos de ubicación, selección de archivos desde Fotos y todos los errores en el dispositivo físico. La autora indica que la web se ve bien en su iPhone 13, salvo la cabecera anterior; el menú corrige esa distribución.
+No son capturas tomadas en un iPhone ni una simulación completa de iOS. Muestran la ventana visible, no la página entera. Su alcance no incluye teclado táctil, barras de Safari móvil ni selección de archivos desde Fotos. La autora indica que la web se ve bien en su iPhone 13, salvo la cabecera anterior; el menú corrige esa distribución.
 
 El [registro](revision.json) distingue las rutas, anchos, encabezamientos y acciones comprobadas. Las capturas de portada anteriores a este cambio permanecen como historial en otros informes.
 

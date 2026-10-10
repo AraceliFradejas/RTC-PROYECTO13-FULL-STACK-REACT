@@ -1,7 +1,5 @@
 import { z } from 'zod';
-export const API_VERSION = 'v1';
 export const VEHICLE_IMAGE_MAX_BYTES = 4 * 1024 * 1024;
-export const ROLES = ['client', 'workshop', 'staff', 'admin'];
 export const WORKSHOP_SPECIALTIES = ['Revisiones y mantenimiento', 'Mecánica', 'Chapa y pintura', 'Lunas', 'Vehículos eléctricos'];
 export const SERVICES = ['Prueba de conducción', 'Asesoramiento', 'Mantenimiento'];
 export const objectId = z.string().regex(/^[a-f\d]{24}$/i, 'Identificador no válido.');
@@ -12,7 +10,7 @@ export const credentials = z.object({
 export const loginInput = credentials.extend({ portal: z.enum(['client', 'workshop', 'team']).optional() }).strict();
 const person = credentials.extend({ name: z.string().trim().min(2, 'Introduce tu nombre.').max(80) });
 export const registration = person.extend({ accountType: z.literal('client').default('client') }).strict();
-export const workshopRegistration = person.extend({
+const workshopRegistration = person.extend({
   accountType: z.literal('workshop'),
   workshopName: z.string().trim().min(2, 'Introduce el nombre del taller.').max(120),
   city: z.string().trim().min(2, 'Introduce la ciudad.').max(80),
