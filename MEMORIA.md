@@ -543,3 +543,24 @@ Otras correcciones trataban sobre helpers duplicados, controladores difíciles d
 También he aplicado la observación sobre mostrar español e inglés a la vez y sobre conservar controles que ya no correspondían al estado de una actividad. El footer muestra solo el idioma seleccionado; una cita completada no conserva botones de modificación. He añadido pruebas de renderizado para comprobarlo. La revisión de metadatos confirma la descripción existente y añade la información para compartir la web.
 
 Las correcciones sobre autores, fechas, visitas y likes pertenecían a una entrega con Unsplash. En este proyecto he aplicado el criterio de mostrar información fiel a la fuente: las fotografías de vehículos conservan sus créditos, licencias y enlaces de origen, y se identifican como referencias. No he trasladado contadores ni campos de otra aplicación que aquí no tienen una función.
+
+
+## Grabación en mi iPhone 13
+
+He grabado la navegación por la web publicada en mi iPhone 13 el 10 de octubre. A partir del vídeo se han extraído siete fotogramas, manteniendo la resolución original y las barras del dispositivo. Permiten ver la home, el contenido editorial, el buscador con el contador de 148 vehículos, las tarjetas, la ficha, el menú en inglés y el acceso. En las pantallas revisadas no se aprecian desbordamientos horizontales.
+
+Esta evidencia complementa las capturas de Safari en el Mac. El vídeo muestra esas pantallas de la versión publicada; no lo utilizo como prueba de envío de formularios, inicio de sesión o subida de fotografías. El [informe del iPhone](docs/evidencias/iphone-real/README.md) conserva los instantes de extracción y las siete capturas.
+
+![Home grabada en iPhone 13](docs/evidencias/iphone-real/01-home.png)
+
+![Contenido editorial grabado en iPhone 13](docs/evidencias/iphone-real/02-editorial.png)
+
+![Buscador y contador grabados en iPhone 13](docs/evidencias/iphone-real/03-buscador.png)
+
+![Tarjetas del catálogo grabadas en iPhone 13](docs/evidencias/iphone-real/04-catalogo.png)
+
+![Ficha y footer grabados en iPhone 13](docs/evidencias/iphone-real/05-ficha.png)
+
+![Menú en inglés grabado en iPhone 13](docs/evidencias/iphone-real/06-menu-ingles.png)
+
+![Formulario de acceso en inglés grabado en iPhone 13](docs/evidencias/iphone-real/07-acceso-ingles.png)

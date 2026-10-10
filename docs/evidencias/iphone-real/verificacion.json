@@ -1,0 +1,56 @@
+{
+  "reviewDate": "2026-10-10",
+  "device": "iPhone 13, identificado por la propietaria",
+  "environment": "Web publicada en Vercel, navegador móvil mostrado en la grabación",
+  "site": "https://kelsets-cars.vercel.app",
+  "sourceDurationSeconds": 91.069207,
+  "sourceWidth": 1170,
+  "sourceHeight": 2532,
+  "sourceSha256": "c1db332d7202ad848cf0277686cd006fa8c9e79371a2eb40381cfdcc5482471b",
+  "frameMethod": "Fotogramas PNG extraídos a los instantes indicados, sin recortar, reconstruir ni reescalar",
+  "frames": [
+    {
+      "file": "01-home.png",
+      "timestampSeconds": 5,
+      "description": "Home y controles del vídeo",
+      "sha256": "73aab1d6493f1ed618a110021dfcdf249957bdf122f30708e2f14cee3b668f79"
+    },
+    {
+      "file": "02-editorial.png",
+      "timestampSeconds": 25,
+      "description": "Contenido editorial de la home",
+      "sha256": "c3c92cdf20893e261293bf3512e07914b86b09b2c4f7441a02914617165e2adf"
+    },
+    {
+      "file": "03-buscador.png",
+      "timestampSeconds": 55,
+      "description": "Búsqueda libre, alternativa de filtros y contador de 148 vehículos",
+      "sha256": "77b165b16ea9639451cca158bd004e05934ab45de8cb11968becaf0d01d03dc5"
+    },
+    {
+      "file": "04-catalogo.png",
+      "timestampSeconds": 65,
+      "description": "Tarjetas del catálogo en una columna",
+      "sha256": "8fe1267297bf96b367092b54ad61848c96309683931107a0d10696d4fac06a56"
+    },
+    {
+      "file": "05-ficha.png",
+      "timestampSeconds": 75,
+      "description": "Datos de la ficha, enlace de visita y footer",
+      "sha256": "0742b473f99445e51ad7d1fffb7e268c363fc3d609810551cbe74902295caf8e"
+    },
+    {
+      "file": "06-menu-ingles.png",
+      "timestampSeconds": 85,
+      "description": "Menú desplegado en inglés y selector ES/EN",
+      "sha256": "7f60d40765fbe88b25bc8f2cec3b24efa150fd551728e255e5c3eb54f9b811fe"
+    },
+    {
+      "file": "07-acceso-ingles.png",
+      "timestampSeconds": 89,
+      "description": "Formulario de acceso en inglés",
+      "sha256": "640e2d72f6e4f4f1943acae2aac65ec00220bb1ec492f87fffa2af2ace46644d"
+    }
+  ],
+  "scope": "Revisión visual de los fotogramas de home, catálogo, ficha, menú e interfaz de acceso. No acredita envío de formularios, sesión iniciada, geolocalización, subida de imágenes o orientación horizontal."
+}

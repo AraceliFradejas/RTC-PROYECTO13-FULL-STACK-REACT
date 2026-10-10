@@ -100,3 +100,8 @@ La [revisión de las tarjetas de sedes](sedes/README.md) recoge las ocho fotogra
 ## Idiomas · 10 de octubre
 
 La [revisión de ES/EN](idiomas/README.md) recoge las capturas locales, el filtro traducido con su valor de API original y la cuenta ficticia.
+
+
+## Grabación en dispositivo físico
+
+La [grabación del iPhone 13](iphone-real/README.md) incorpora siete fotogramas reales de la web publicada. Su revisión visual está documentada por separado de las capturas de Safari de escritorio.

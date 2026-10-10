@@ -511,7 +511,7 @@ I adapted the communication approach from [KelseTS Talks](https://github.com/Ara
 
 The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. The review covers Mailtrap’s Phone preset, rather than Gmail, Outlook or physical devices. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
 
-The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 44 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Responsive screenshots use desktop Safari rather than a physical phone.
+The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 44 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Earlier responsive screenshots use desktop Safari. The [physical iPhone recording](docs/evidencias/iphone-real/README.md) provides separate visual evidence.
 
 ### Documentation and deployment
 
@@ -538,7 +538,7 @@ Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, pub
 
 ![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Responsive screenshots use desktop Safari rather than a physical phone. The local Cloudinary connection issue was resolved for image delivery through the published API.
+The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Earlier responsive screenshots use desktop Safari. The [physical iPhone recording](docs/evidencias/iphone-real/README.md) provides separate visual evidence. The local Cloudinary connection issue was resolved for image delivery through the published API.
 
 ### Academic notice and author
 
@@ -670,3 +670,16 @@ En el backend he revisado los datos relacionados que devuelve cada operación. L
 Feedback on earlier projects guided this review. I focused on separating components and styles, removing unused files and keeping shared helpers in one place. I also checked that the footer uses only the selected language and that appointment actions match their current state.
 
 On the backend, I reviewed the related data returned by each operation. Image uploads now include the vehicle’s dealership, and image replacement has its own service to keep the controller readable. I checked the dataset for identical rows with different keys. The HTML document already had a description and basic metadata; I added Open Graph and Twitter card metadata. The changes and their tests are documented in the [technical review](docs/REVISION-TECNICA.md).
+
+
+### Capturas de mi iPhone / Screenshots from my iPhone
+
+He grabado la web publicada en mi iPhone 13. Estos fotogramas muestran la home, el buscador con su contador y el menú en inglés. El [informe con las siete capturas](docs/evidencias/iphone-real/README.md) incluye también las tarjetas, la ficha y el formulario de acceso. Son imágenes del dispositivo real, separadas de las pruebas anteriores en Safari de escritorio.
+
+I recorded the deployed website on my physical iPhone 13. These frames show the home page, search and result count, and English menu. The [seven-frame report](docs/evidencias/iphone-real/README.md) also includes catalogue cards, vehicle details and the sign-in form. This visual evidence is separate from the earlier desktop Safari review.
+
+![Home en iPhone 13 real](docs/evidencias/iphone-real/01-home.png)
+
+![Buscador y contador en iPhone 13 real](docs/evidencias/iphone-real/03-buscador.png)
+
+![Menú en inglés en iPhone 13 real](docs/evidencias/iphone-real/06-menu-ingles.png)

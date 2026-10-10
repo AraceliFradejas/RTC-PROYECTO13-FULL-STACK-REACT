@@ -39,3 +39,8 @@ La fotografía subida desde la web publicada queda en Cloudinary y Atlas y se en
 ## Interpretación de las evidencias
 
 Una captura muestra el estado visible, una respuesta HTTP permite comprobar los datos y una aserción verifica una condición concreta. Los informes los identifican por separado. No se equiparan las capturas de escritorio con pruebas de teléfono, ni Mailtrap Sandbox con entrega a buzones externos. El repositorio no incluye contraseñas, cookies ni tokens en las evidencias. DocBase está excluida de Git.
+
+
+## Grabación en dispositivo físico
+
+La [grabación del iPhone 13](evidencias/iphone-real/README.md) incorpora siete fotogramas reales de la web publicada. Su revisión visual está documentada por separado de las capturas de Safari de escritorio.

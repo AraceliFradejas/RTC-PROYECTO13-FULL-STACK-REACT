@@ -80,3 +80,8 @@ These are desktop Safari captures in controlled-width frames, using the local fr
 Después de publicar `ffe45a1`, he abierto directamente la home de Vercel en un marco de 390 px de Safari. El [menú publicado](46-menu-vercel-es-390.png) abre sus secciones, idiomas y acceso. Elegir Servicios lleva a esa página y cierra el menú. Esta captura también utiliza Safari de escritorio, no el iPhone físico.
 
 After deploying `ffe45a1`, the Vercel homepage was checked directly in a 390 px Safari frame. The menu opens and selecting Services navigates and closes it. This is still a desktop Safari capture, not a physical iPhone screenshot.
+
+
+## Grabación en dispositivo físico
+
+La [grabación del iPhone 13](../iphone-real/README.md) incorpora siete fotogramas reales de la web publicada. Su revisión visual está documentada por separado de las capturas de Safari de escritorio.
