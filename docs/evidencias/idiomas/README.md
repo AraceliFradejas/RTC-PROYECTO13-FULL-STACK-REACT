@@ -39,3 +39,13 @@ Las siguientes capturas muestran la bienvenida inglesa generada localmente, sin 
 ![Bienvenida inglesa en Safari](05-bienvenida-email-en-safari.png)
 
 ![Footer inglés en Safari](06-footer-email-en-safari.png)
+
+## Bandeja inglesa publicada
+
+Vercel ha publicado la API del commit `0f31073` con estado Ready. En Safari, la cuenta ficticia Cliente Demo Despliegue muestra el asunto, el cuerpo y el enlace de bienvenida en inglés. Al seleccionar ES se recupera el castellano y se mantiene la sesión. Se ha cerrado la sesión al terminar. La [verificación HTTP](verificacion-comunicaciones.json) confirma ambos idiomas, identidad del mensaje y exclusión de metadatos privados.
+
+![Bienvenida inglesa en la bandeja publicada](08-bandeja-en-vercel-safari.png)
+
+También se ha revisado el formulario de solicitud de talleres en inglés, sin enviarlo ni crear otra cuenta. Esta captura no acredita todavía el registro completo en navegador.
+
+![Formulario de talleres en inglés](07-registro-taller-en-vercel-safari.png)

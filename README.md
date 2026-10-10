@@ -291,7 +291,7 @@ He probado la subida y la sustitución con datos temporales de Atlas, junto con 
 
 ### Revisión de idiomas
 
-He incorporado el selector ES/EN y las traducciones de la interfaz. La selección se mantiene al recargar; los filtros traducen sus etiquetas y conservan los valores que espera la API. He revisado el acceso de la cuenta ficticia y la cabecera de la portada a 320 y 390 px en marcos de Safari. Las comunicaciones guardadas todavía conservan sus textos originales.
+He incorporado el selector ES/EN y las traducciones de la interfaz. La selección se mantiene al recargar; los filtros traducen sus etiquetas y conservan los valores que espera la API. He revisado el acceso de la cuenta ficticia y la cabecera de la portada a 320 y 390 px en marcos de Safari. La revisión posterior incorpora también las diez comunicaciones en inglés; el historial no reconocido conserva el original.
 
 ![Portada inglesa a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
 
@@ -570,3 +570,7 @@ New messages store both languages using the event’s original data. The inbox f
 ![Footer inglés de la comunicación](docs/evidencias/idiomas/06-footer-email-en-safari.png)
 
 Estas capturas son vistas previas locales de Safari, sin envío nuevo a Mailtrap. / These screenshots show local Safari previews; no new Mailtrap email was sent.
+
+La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
+
+![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)

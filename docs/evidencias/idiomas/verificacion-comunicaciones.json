@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-10T14:36:34.847Z",
+  "base": "https://kelsets-cars.vercel.app",
+  "commit": "0f31073",
+  "scope": "Existing fictional customer: login, read-only messages in both languages, logout. No new appointments or users.",
+  "checks": {
+    "englishWelcome": true,
+    "spanishWelcome": true,
+    "sameMessage": true,
+    "englishHTML": true,
+    "privateMetadataExcluded": true
+  }
+}

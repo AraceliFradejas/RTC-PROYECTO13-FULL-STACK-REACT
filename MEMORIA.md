@@ -216,11 +216,11 @@ El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcan
 
 He añadido un contexto de idioma con un hook compartido y un archivo para los textos ingleses. El selector ES/EN conserva la elección al recargar y cambia las etiquetas accesibles, el idioma del documento y el título. Si el navegador bloquea el almacenamiento, la web sigue funcionando y conserva la elección durante esa sesión.
 
-La traducción afecta a la presentación: los valores de motorización, servicios y estados enviados al backend no cambian. He comprobado en Safari que Electric sigue enviando `Eléctrico` y devuelve los diez vehículos Tesla esperados. También he accedido con la cuenta ficticia de despliegue y cambiado a castellano manteniendo la sesión. La interfaz privada incorpora traducciones, pero las comunicaciones guardadas mantienen todavía su asunto y cuerpo originales.
+La traducción afecta a la presentación: los valores de motorización, servicios y estados enviados al backend no cambian. He comprobado en Safari que Electric sigue enviando `Eléctrico` y devuelve los diez vehículos Tesla esperados. También he accedido con la cuenta ficticia de despliegue y cambiado a castellano manteniendo la sesión. En esta primera captura la interfaz privada ya incorpora traducciones, pero la bienvenida aún aparece en castellano. La revisión siguiente añade las comunicaciones inglesas.
 
 ![Portada inglesa y cabecera adaptada a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
 
-![Área de cliente en inglés, con la bienvenida original pendiente de traducir](docs/evidencias/idiomas/03-cliente-en-safari.png)
+![Área de cliente en inglés, antes de añadir las comunicaciones inglesas](docs/evidencias/idiomas/03-cliente-en-safari.png)
 
 El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Pasan once pruebas del frontend y la compilación. La segunda fase podrá reutilizar las traducciones y la lógica de idioma; el almacenamiento y el selector de una app nativa necesitarán su propia adaptación.
 
@@ -237,3 +237,7 @@ Pasan las pruebas automáticas y la integración de registros, talleres y citas 
 ![Bienvenida inglesa con el logo aprobado](docs/evidencias/idiomas/05-bienvenida-email-en-safari.png)
 
 ![Footer inglés y enlaces](docs/evidencias/idiomas/06-footer-email-en-safari.png)
+
+La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
+
+![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)
