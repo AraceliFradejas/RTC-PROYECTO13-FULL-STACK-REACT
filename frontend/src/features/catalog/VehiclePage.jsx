@@ -82,7 +82,7 @@ export function VehiclePage() {
             >
               {t('Organizar una visita ↗')}
             </Link>
-            {user?.role === 'admin' && (
+            {user?.role === 'admin' && !user.readOnly && (
               <VehicleImageUpload
                 key={vehicle._id}
                 vehicle={vehicle}

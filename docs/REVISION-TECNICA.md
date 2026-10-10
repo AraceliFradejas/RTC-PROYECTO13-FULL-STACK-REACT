@@ -19,7 +19,7 @@ La revisión aplica los criterios de mantenimiento, reutilización, claridad y c
 
 ## Validación
 
-- `npm test`: 44 pruebas correctas, con dos integraciones opcionales omitidas en esta ronda local.
+- `npm test`: 51 pruebas correctas, con dos integraciones opcionales omitidas en esta ronda local.
 - Cuatro pruebas nuevas cubren el orden de guardado y limpieza, el fallo de guardado, los recursos ajenos y el fallo de limpieza de la imagen anterior.
 - Tres pruebas nuevas comprueban el renderizado por idioma y los controles de citas. Utilizan renderizado estático de React; no simulan clics ni sustituyen las evidencias de navegación en Safari.
 - `npm run build`: compilación correcta. Se mantiene el aviso de tamaño del paquete principal y los avisos de anotaciones de Zod.
@@ -27,3 +27,7 @@ La revisión aplica los criterios de mantenimiento, reutilización, claridad y c
 - `npm run data:check`: coincidencia completa entre Excel y CSV.
 
 Esta revisión se realiza sobre el código local. Las capturas y las pruebas de Vercel documentan sus versiones y entornos por separado en el [índice de evidencias](evidencias/README.md).
+
+## Accesos DEMO de validación
+
+Los cuatro perfiles DEMO son de solo lectura y están separados de las cuentas originales. `authenticate` consulta el indicador guardado en MongoDB y rechaza las escrituras antes de alcanzar los controladores. Team DEMO limita su agenda y las solicitudes a usuarios DEMO. La interfaz identifica el acceso y retira las acciones de modificación. Cinco pruebas del backend cubren sesiones, escrituras y ámbito de datos; dos pruebas de renderizado revisan los controles y el aviso ES/EN.

@@ -2,6 +2,7 @@ import { useLanguage } from '../../shared/i18n/LanguageProvider.jsx';
 import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../../shared/services/api.js';
+import { DemoNotice } from '../auth/DemoNotice.jsx';
 import { PrivateHero } from '../auth/PrivateHero.jsx';
 import { useAuth } from '../auth/AuthProvider.jsx';
 import { useResource } from '../../shared/hooks/useResource.js';
@@ -91,6 +92,7 @@ export function AccountPage() {
             {t('Cerrar sesión')}
           </button>
         </div>
+        <DemoNotice readOnly={user.readOnly} />
         {error && (
           <p className="form-error" role="alert">
             {t(error)}
@@ -111,6 +113,7 @@ export function AccountPage() {
                       key={item._id}
                       appointment={item}
                       role={user.role}
+                      readOnly={user.readOnly}
                       busy={busy}
                       workshops={workshops}
                       onUpdate={update}
@@ -135,7 +138,7 @@ export function AccountPage() {
         )}
         {user.role === 'admin' && (
           <>
-            <section className="notice">
+            {!user.readOnly && <section className="notice">
               <p className="eyebrow">{t('GESTIÓN DE LA COLECCIÓN')}</p>
               <h2>{t('La imagen de cada vehículo.')}</h2>
               <p>
@@ -146,8 +149,8 @@ export function AccountPage() {
               <Link className="button" to="/catalogo">
                 {t('Gestionar fotografías ↗')}
               </Link>
-            </section>
-            <WorkshopApplications />
+            </section>}
+            <WorkshopApplications readOnly={user.readOnly} />
           </>
         )}
         <MessagesSection revision={revision} />

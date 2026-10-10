@@ -1,3 +1,4 @@
+import { demoAccountFilter } from '../../utils/demoScope.js';
 import mongoose from 'mongoose';
 import { objectId, workshopDecision } from '@kelsets-cars/contracts';
 import { Workshop } from './Workshop.js';
@@ -12,7 +13,9 @@ export async function listPublicWorkshops(req, res) {
   send(res, await Workshop.find({ status: 'approved', public: true }).select('name city address area specialties dealership latitude longitude demo seedKey').populate('dealership', 'name city').sort({ city: 1 }).limit(100));
 }
 export async function assignableWorkshops(req, res) {
-  send(res, await Workshop.find({ status: 'approved' }).select('name city dealership').sort({ city: 1 }).limit(250));
+  const scope = await demoAccountFilter(req.user);
+  const filter = req.user.readOnly ? { status: 'approved', $or: [{ public: true, user: { $exists: false } }, scope] } : { status: 'approved' };
+  send(res, await Workshop.find(filter).select('name city dealership').sort({ city: 1 }).limit(250));
 }
 export async function myJobs(req, res) {
   const workshop = await Workshop.findOne({ user: req.user._id, status: 'approved' });
@@ -20,7 +23,9 @@ export async function myJobs(req, res) {
   send(res, await Appointment.find({ workshop: workshop._id }).select('date service status vehicle dealership user').populate('vehicle', 'brand model').populate('dealership', 'name city').populate('user', 'name').sort({ date: 1 }).limit(100));
 }
 export async function listApplications(req, res) {
-  send(res, await Workshop.find({ user: { $exists: true, $ne: null } }).sort({ createdAt: -1 }).limit(250).populate('user', 'name email'));
+  const scope = await demoAccountFilter(req.user);
+  const filter = req.user.readOnly ? scope : { user: { $exists: true, $ne: null } };
+  send(res, await Workshop.find(filter).sort({ createdAt: -1 }).limit(250).populate('user', 'name email'));
 }
 export async function reviewApplication(req, res) {
   const id = objectId.parse(req.params.id);

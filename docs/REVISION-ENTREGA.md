@@ -21,8 +21,8 @@ La entrega es una aplicación web con React y Node.js, datos preparados en Excel
 
 ## Pruebas documentadas
 
-- 44 pruebas locales: 25 backend, 14 frontend y cinco del cliente HTTP. Dos integraciones opcionales se omiten en esta ejecución y tienen informes independientes.
-- Compilación del frontend completada. El paquete principal mide 556,02 kB (161,75 kB gzip); el build muestra un aviso de tamaño.
+- 51 pruebas locales: 30 backend, 16 frontend y cinco del cliente HTTP. Dos integraciones opcionales se omiten en esta ejecución y tienen informes independientes.
+- Compilación del frontend completada. El paquete principal mide 557,05 kB (162,11 kB gzip); el build muestra un aviso de tamaño.
 - Insomnia: 76 peticiones y 171 comprobaciones sobre una base temporal; 15 peticiones y 36 comprobaciones públicas contra Vercel. El informe contiene 23 capturas.
 - Producción: 101 comprobaciones HTTP del catálogo, permisos y recorrido privado de talleres y citas.
 - Datos: cuatro hojas abiertas en Numbers, cinco capturas, comparación completa XLSX–CSV y validación de la semilla.

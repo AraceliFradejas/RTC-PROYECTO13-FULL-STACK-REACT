@@ -59,7 +59,7 @@ El enlace a Street View utiliza las coordenadas aproximadas del centro, sin envi
 
 En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La captura corresponde a Safari de escritorio. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
 
-<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari" width="720"></a>
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari" width="320"></a>
 
 
 ### Hooks y búsqueda
@@ -179,8 +179,25 @@ Las referencias de Renault y Línea Directa me han servido para organizar la pos
 
 ### Coordinación desde KelseTS Cars Team
 
-He añadido KelseTS Cars Team como acceso interno. Las cuentas no se registran públicamente y los permisos se comprueban en el backend. La red parte de cuatro talleres ficticios próximos a las cuatro sedes, cargados desde un nuevo CSV y visibles en el mapa con un color distinto. Cada taller inicial referencia su concesionario, y la cita puede relacionar a cliente, vehículo, sede y taller mediante `Appointment.workshop`. Los talleres registrados solo consultan sus asignaciones, sin acceso a la agenda general. Los talleres de demostración no tienen credenciales ni cuenta de usuario.
+He añadido KelseTS Cars Team como acceso interno. Las cuentas no se registran públicamente y los permisos se comprueban en el backend. La red parte de cuatro talleres ficticios próximos a las cuatro sedes, cargados desde un nuevo CSV y visibles en el mapa con un color distinto. Cada taller inicial referencia su concesionario, y la cita puede relacionar a cliente, vehículo, sede y taller mediante `Appointment.workshop`. Los talleres registrados solo consultan sus asignaciones, sin acceso a la agenda general. Los cuatro talleres iniciales del CSV no tienen credenciales ni cuenta de usuario; los accesos DEMO de validación tienen sus propios perfiles ocultos.
 
+
+### Accesos DEMO para la corrección
+
+Para que se pueda revisar el proyecto sin preparar cuentas desde cero, he creado cuatro accesos DEMO de solo lectura en la [web publicada](https://kelsets-cars.vercel.app/acceso). La contraseña común es **`KelseTS-Demo-2026!`** y pertenece únicamente a estos ejemplos públicos. En el formulario, selecciona el acceso de la primera columna e inicia sesión con su correo.
+
+| Acceso | Correo | Qué puedes revisar |
+| --- | --- | --- |
+| Soy cliente · Cliente DEMO | `cliente.demo@kelsets.example` | Dos citas de ejemplo: una completada y otra cancelada, y sus comunicaciones. |
+| Soy un taller · Taller DEMO aprobado | `taller.demo@kelsets.example` | Perfil aprobado, una cita de mantenimiento asignada y su bandeja de mensajes. |
+| Soy un taller · Taller DEMO no aprobado | `taller.rechazado.demo@kelsets.example` | Solicitud no aprobada, motivo y comunicaciones; no tiene acceso a trabajos. |
+| KelseTS Cars Team · Team DEMO | `team.demo@kelsets.example` | Agenda y solicitudes de los perfiles DEMO, con sus relaciones entre cliente, taller y sede. |
+
+Estos ejemplos reproducen el recorrido de mantenimiento y las solicitudes de talleres que he utilizado en las pruebas. Son cuentas y operaciones ficticias, separadas de las cuentas originales. Los talleres DEMO no aparecen en el directorio público.
+
+Puedes cambiar entre castellano e inglés, consultar cada área privada y cerrar sesión antes de entrar con otro perfil. Las cuentas muestran un aviso DEMO y no permiten solicitar, cancelar o modificar citas, revisar solicitudes ni subir fotografías. El backend también bloquea las escrituras; Team DEMO solo consulta datos de otros perfiles DEMO. Las cuentas normales conservan sus permisos.
+
+Para comprobar un registro nuevo puedes utilizar un correo ficticio y una contraseña propia. Las pruebas de modificación y los casos negativos están documentados en [Insomnia](docs/INSOMNIA.md); sus 76 peticiones se ejecutan en una base temporal independiente.
 
 ## 7. Comunicaciones y Mailtrap
 
@@ -273,7 +290,7 @@ La API utiliza la detección nativa de Express en Vercel, exportando la aplicaci
 
 He comprobado la lógica local, los permisos de la API y los recorridos de la web. Cada herramienta aporta una evidencia distinta: las pruebas automáticas verifican condiciones, Insomnia permite leer las respuestas y las capturas muestran el estado visible de la interfaz. Los [resultados de validación](docs/VALIDACION.md) reúnen los informes por entorno.
 
-La compilación y las 44 pruebas locales pasan. Las integraciones con Atlas, Cloudinary y Mailtrap se documentan por separado. Las pruebas utilizan cuentas ficticias y bases temporales; las capturas no incluyen contraseñas, cookies ni tokens.
+La compilación y las 51 pruebas locales pasan. Las integraciones con Atlas, Cloudinary y Mailtrap se documentan por separado. Las pruebas utilizan cuentas ficticias y bases temporales; las capturas no incluyen contraseñas, cookies ni tokens.
 
 
 ### Búsqueda del catálogo
@@ -576,7 +593,7 @@ Esta evidencia complementa las capturas de Safari en el Mac. El vídeo muestra e
 
 He separado los filtros, las tarjetas y la paginación del catálogo, las filas de citas, los campos del registro de talleres y las tarjetas de la red. Las páginas coordinan los datos y la navegación, mientras que cada componente presenta una parte concreta de la interfaz. El hook de ubicación reúne la solicitud de permiso, la selección manual y el tratamiento de errores. También he separado los estilos de las vistas privadas y del barrio, conservando el orden de aplicación de las reglas.
 
-La sustitución de fotografías tiene un servicio propio: guarda la nueva referencia antes de retirar la anterior y conserva la imagen previa si falla el guardado. La respuesta de subida incluye los datos de la sede, igual que la ficha del catálogo. He añadido cuatro pruebas de este servicio y tres del renderizado del footer y las acciones de las citas. La suite local pasa 44 comprobaciones: 25 del backend, 14 del frontend y cinco del cliente HTTP; las dos integraciones opcionales se ejecutan por separado. La [revisión técnica](docs/REVISION-TECNICA.md) recoge el alcance y los resultados.
+La sustitución de fotografías tiene un servicio propio: guarda la nueva referencia antes de retirar la anterior y conserva la imagen previa si falla el guardado. La respuesta de subida incluye los datos de la sede, igual que la ficha del catálogo. He añadido cuatro pruebas de este servicio y tres del renderizado del footer y las acciones de las citas. La suite local pasa 51 comprobaciones: 30 del backend, 16 del frontend y cinco del cliente HTTP; las dos integraciones opcionales se ejecutan por separado. La [revisión técnica](docs/REVISION-TECNICA.md) recoge el alcance y los resultados.
 
 
 ### Aplicar las correcciones de otros proyectos

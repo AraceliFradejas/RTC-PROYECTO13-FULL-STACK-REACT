@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { api } from '../../shared/services/api.js';
 import { useResource } from '../../shared/hooks/useResource.js';
 import { ResourceState } from '../../shared/components/ResourceState.jsx';
-export function WorkshopApplications() {
+export function WorkshopApplications({ readOnly = false }) {
   const { t } = useLanguage();
   const resource = useResource(useCallback((signal) => api.workshops.applications({ signal }), []));
   const [busy, setBusy] = useState(false);
@@ -58,7 +58,7 @@ export function WorkshopApplications() {
                     }[item.status]
                   }
                 </p>
-                {item.status === 'pending' && (
+                {item.status === 'pending' && !readOnly && (
                   <form
                     onSubmit={(event) =>
                       review(event, item._id, event.nativeEvent.submitter?.value)

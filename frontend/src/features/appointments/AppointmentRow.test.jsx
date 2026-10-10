@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { LanguageProvider } from '../../shared/i18n/LanguageProvider.jsx';
 import { SiteFooter } from '../../shared/components/SiteFooter.jsx';
+import { DemoNotice } from '../auth/DemoNotice.jsx';
 import { AppointmentRow } from './AppointmentRow.jsx';
 
 const appointment = {
@@ -74,4 +75,18 @@ it('los controles de Team corresponden al estado y desaparecen al completar la c
   expect(pending).not.toContain('Marcar visita completada');
   expect(confirmed).toContain('Marcar visita completada');
   expect(completed).not.toContain('<button');
+});
+
+it('la cuenta DEMO consulta una cita activa sin controles de escritura ni asignación', () => {
+  const html = render(<AppointmentRow appointment={{ ...appointment, service: 'Mantenimiento' }} role="admin" readOnly busy={null} />);
+  expect(html).toContain('Porsche');
+  expect(html).toContain('Cliente Demo');
+  expect(html).not.toContain('<button');
+  expect(html).not.toContain('<form');
+});
+
+it('el aviso DEMO se adapta al idioma y solo aparece en cuentas de lectura', () => {
+  expect(render(<DemoNotice readOnly />)).toContain('Cuenta DEMO · Solo lectura');
+  expect(render(<DemoNotice readOnly />, 'en')).toContain('DEMO account · Read only');
+  expect(render(<DemoNotice readOnly={false} />)).toBe('');
 });

@@ -2,11 +2,11 @@ import { useLanguage } from '../../shared/i18n/LanguageProvider.jsx';
 import { ResourceState } from '../../shared/components/ResourceState.jsx';
 import { AssignWorkshop } from '../workshops/AssignWorkshop.jsx';
 
-export function AppointmentRow({ appointment, role, busy, workshops, onUpdate, onAssigned }) {
+export function AppointmentRow({ appointment, role, readOnly = false, busy, workshops, onUpdate, onAssigned }) {
   const { t, locale } = useLanguage();
   const item = appointment;
   const canAssign =
-    role === 'admin' && item.active && item.service === 'Mantenimiento' && !item.workshop;
+    !readOnly && role === 'admin' && item.active && item.service === 'Mantenimiento' && !item.workshop;
   const date = new Intl.DateTimeFormat(locale, {
     dateStyle: 'long',
     timeStyle: 'short',
@@ -42,7 +42,7 @@ export function AppointmentRow({ appointment, role, busy, workshops, onUpdate, o
           )}
         </ResourceState>
       )}
-      {item.active && (
+      {item.active && !readOnly && (
         <div>
           {role !== 'client' && item.status === 'Pendiente' && (
             <button

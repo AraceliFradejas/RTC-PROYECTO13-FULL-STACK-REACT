@@ -8,9 +8,9 @@ El XLSX contiene 148 vehículos, cuatro sedes y cuatro talleres. `data:check` co
 
 ## Pruebas locales
 
-`npm test` pasa 44 pruebas: 25 backend, 14 frontend y cinco del cliente HTTP. Las dos integraciones opcionales se omiten en esta ejecución; no se cuentan como aprobadas. Sus comprobaciones con servicios se describen en los informes correspondientes.
+`npm test` pasa 51 pruebas: 30 backend, 16 frontend y cinco del cliente HTTP. Las dos integraciones opcionales se omiten en esta ejecución; no se cuentan como aprobadas. Sus comprobaciones con servicios se describen en los informes correspondientes.
 
-`npm run build` genera los archivos de producción. Rollup muestra avisos sobre anotaciones de Zod y el tamaño del paquete principal: 556,02 kB, 161,75 kB gzip. La compilación se completa con estos avisos.
+`npm run build` genera los archivos de producción. Rollup muestra avisos sobre anotaciones de Zod y el tamaño del paquete principal: 557,05 kB, 162,11 kB gzip. La compilación se completa con estos avisos.
 
 ## API e Insomnia
 

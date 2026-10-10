@@ -20,6 +20,7 @@ KelseTS Cars es una red ficticia de concesionarios de vehículos de lujo. En la 
 - [Instalación local](#instalación-local)
 - [Datos y fotografías](#datos-y-fotografías)
 - [API y permisos](#api-y-permisos)
+- [Usuarios DEMO](#usuarios-demo-para-validar-la-entrega)
 - [Comunicaciones](#comunicaciones)
 - [Pruebas y aprendizajes](#pruebas-y-aprendizajes)
 - [Capturas del proyecto](#capturas-del-proyecto)
@@ -164,7 +165,24 @@ La API devuelve `{ success, data }` cuando la petición funciona y `{ success: f
 
 #El footer reúne los cuatro proyectos de Universo KelseTS y mis redes sociales. El aviso académico explica la finalidad de la web y se muestra en el idioma elegido.
 
-## Comunicaciones
+### Usuarios DEMO para validar la entrega
+
+He preparado cuatro accesos DEMO de solo lectura en la [web publicada](https://kelsets-cars.vercel.app/acceso). La contraseña común es **`KelseTS-Demo-2026!`** y pertenece únicamente a estos ejemplos públicos. En el formulario, selecciona el acceso de la primera columna e inicia sesión con su correo.
+
+| Acceso | Correo | Qué puedes revisar |
+| --- | --- | --- |
+| Soy cliente · Cliente DEMO | `cliente.demo@kelsets.example` | Dos citas de ejemplo: una completada y otra cancelada, y sus comunicaciones. |
+| Soy un taller · Taller DEMO aprobado | `taller.demo@kelsets.example` | Perfil aprobado, una cita de mantenimiento asignada y su bandeja de mensajes. |
+| Soy un taller · Taller DEMO no aprobado | `taller.rechazado.demo@kelsets.example` | Solicitud no aprobada, motivo y comunicaciones; no tiene acceso a trabajos. |
+| KelseTS Cars Team · Team DEMO | `team.demo@kelsets.example` | Agenda y solicitudes de los perfiles DEMO, con sus relaciones entre cliente, taller y sede. |
+
+Estos ejemplos reproducen el recorrido de mantenimiento y las solicitudes de talleres que he utilizado en las pruebas. Son cuentas y operaciones ficticias, separadas de las cuentas originales. Los talleres DEMO no aparecen en el directorio público.
+
+Puedes cambiar entre castellano e inglés, consultar cada área privada y cerrar sesión antes de entrar con otro perfil. Las cuentas muestran un aviso DEMO y no permiten solicitar, cancelar o modificar citas, revisar solicitudes ni subir fotografías. El backend también bloquea las escrituras; Team DEMO solo consulta datos de otros perfiles DEMO. Las cuentas normales conservan sus permisos.
+
+Para comprobar un registro nuevo puedes utilizar un correo ficticio y una contraseña propia. Las pruebas de modificación y los casos negativos están documentados en [Insomnia](docs/INSOMNIA.md); sus 76 peticiones se ejecutan en una base temporal independiente.
+
+### Comunicaciones
 
 He adaptado el planteamiento de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), otro proyecto de mi portfolio. Cada alta o cambio de cita genera un mensaje dirigido a la cuenta que corresponde. La bandeja privada muestra el contenido en el idioma elegido y conserva el historial.
 
@@ -174,7 +192,7 @@ Una administradora gestiona las fotografías desde la ficha del vehículo: selec
 
 ### Pruebas y aprendizajes
 
-La compilación y las **44 pruebas locales** pasan: 25 del backend, 14 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales tienen sus informes independientes y no se cuentan como aprobadas en esa ejecución local.
+La compilación y las **51 pruebas locales** pasan: 30 del backend, 16 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales tienen sus informes independientes y no se cuentan como aprobadas en esa ejecución local.
 
 Insomnia pasa **171 comprobaciones en 76 peticiones** sobre una base temporal de Atlas y **36 en 15 peticiones** públicas contra Vercel. El recorrido privado en producción pasa **101 comprobaciones HTTP**, incluyendo permisos, talleres, citas y comunicaciones. Las pruebas de subida y sustitución de imágenes, los mensajes de Mailtrap y la comparación Excel–CSV tienen sus evidencias propias.
 
@@ -240,7 +258,7 @@ La administradora selecciona una imagen desde la ficha, revisa la vista previa y
 
 Cada concesionario y taller tiene una fotografía distinta del barrio, sus créditos y un enlace a Street View. Los centros son ficticios. La captura corresponde a una ventana estrecha de Safari en el Mac.
 
-<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga y fotografías del entorno" width="720"></a>
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga y fotografías del entorno" width="320"></a>
 
 ### El libro de datos
 
@@ -340,6 +358,7 @@ KelseTS Cars is a fictional luxury dealership network. Visitors can browse the c
 - [Scripts and data](#scripts-and-data)
 - [Photographs and uploads](#photographs-and-uploads)
 - [API and permissions](#api-and-permissions)
+- [DEMO users](#demo-users-for-submission-validation)
 - [Communications](#communications)
 - [Tests and lessons learned](#tests-and-lessons-learned)
 - [Project screenshots](#project-screenshots)
@@ -482,7 +501,24 @@ Success responses use `{ success, data }`; errors use `{ success: false, error }
 
 #The footer brings together the four KelseTS universe projects and my social profiles. Its academic notice explains the purpose of the website and follows the selected language.
 
-## Communications
+### DEMO users for submission validation
+
+I prepared four read-only DEMO accounts on the [live website](https://kelsets-cars.vercel.app/acceso). Their shared password is **`KelseTS-Demo-2026!`**, used exclusively for these public examples. Select the access type in the first column, then sign in with its email.
+
+| Access | Email | What you can check |
+| --- | --- | --- |
+| Customer · Cliente DEMO | `cliente.demo@kelsets.example` | Two sample appointments, one completed and one cancelled, and their communications. |
+| Workshop · Taller DEMO aprobado | `taller.demo@kelsets.example` | Approved profile, one assigned maintenance appointment and its inbox. |
+| Workshop · Taller DEMO no aprobado | `taller.rechazado.demo@kelsets.example` | Rejected application, reason and communications; no access to jobs. |
+| KelseTS Cars Team · Team DEMO | `team.demo@kelsets.example` | DEMO appointments and applications, including the links between customer, workshop and dealership. |
+
+These examples reproduce the maintenance journey and workshop applications used in testing. The fictional accounts and operations are separate from the original accounts. DEMO workshops are hidden from the public directory.
+
+You can switch between Spanish and English, browse each private area and sign out before trying another profile. A DEMO notice identifies these accounts. They cannot create, cancel or change appointments, review applications or upload photographs. The backend also blocks writes, and Team DEMO only accesses data belonging to other DEMO profiles. Regular accounts retain their permissions.
+
+To check registration, use a fictional email and your own password. Write operations and negative cases are documented in [Insomnia](docs/INSOMNIA.md); its 76 requests run against an independent temporary database.
+
+### Communications
 
 I adapted the approach from [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), another project in my portfolio. Each registration or appointment update generates a message for the relevant account. The private inbox follows the selected language and keeps its history.
 
@@ -490,7 +526,7 @@ I also prepared ten HTML and plain text samples received in Mailtrap Sandbox. Th
 
 ### Tests and lessons learned
 
-The build and **44 local tests** pass: 25 backend, 14 frontend and five API client tests. Two optional integrations have separate reports and are not counted as passed in that local run.
+The build and **51 local tests** pass: 30 backend, 16 frontend and five API client tests. Two optional integrations have separate reports and are not counted as passed in that local run.
 
 Insomnia passes **171 assertions across 76 requests** against an isolated Atlas database and **36 across 15 public requests** against Vercel. The private production workflow passes **101 HTTP checks**, covering permissions, workshops, appointments and messages. Image uploads and replacement, Mailtrap samples and the Excel–CSV comparison have their own evidence.
 
@@ -556,7 +592,7 @@ An administrator selects an image on the vehicle page, checks the preview and sa
 
 Each dealership and workshop has a different neighbourhood photograph, credits and a Street View link. The centres are fictional. This screenshot shows a narrow Safari window on the Mac.
 
-<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Málaga cards and neighbourhood photographs" width="720"></a>
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Málaga cards and neighbourhood photographs" width="320"></a>
 
 ### The data workbook
 

@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { env, requireAuthConfig } from '../config/env.js';
 import { User } from '../modules/auth/models/User.js';
+import { checkReadOnlyAccess } from './readOnly.js';
 import { HttpError } from '../utils/errors.js';
 
 export const cookieOptions = () => ({ httpOnly: true, secure: env.production, sameSite: env.production ? 'none' : 'lax', path: '/api/v1', maxAge: 7 * 86400000 });
@@ -15,6 +16,7 @@ export async function authenticate(req, res, next) {
   catch { throw new HttpError(401, 'Inicia sesión para continuar.'); }
   const user = await User.findById(payload.sub);
   if (!user) throw new HttpError(401, 'La sesión ya no está disponible.');
+  checkReadOnlyAccess(user, req.method);
   req.user = user;
   next();
 }

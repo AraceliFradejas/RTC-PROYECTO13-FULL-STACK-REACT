@@ -5,10 +5,13 @@ import { SERVICES, objectId } from '@kelsets-cars/contracts';
 import { api } from '../../shared/services/api.js';
 import { useResource } from '../../shared/hooks/useResource.js';
 import { ResourceState } from '../../shared/components/ResourceState.jsx';
+import { useAuth } from '../auth/AuthProvider.jsx';
+import { DemoNotice } from '../auth/DemoNotice.jsx';
 import { PrivateHero } from '../auth/PrivateHero.jsx';
 import { madridDateTime } from './madridTime.js';
 export function NewAppointmentPage() {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -71,6 +74,7 @@ export function NewAppointmentPage() {
         description={t('Elige el motivo y el momento. Nosotros cuidamos del encuentro.')}
       />
       <section className="page-shell reading-page appointment-page">
+        <DemoNotice readOnly={user?.readOnly} />
         <p>
           {t(
             'Citas de lunes a viernes, de 10:00 a 17:00, dentro de los próximos 90 días. Horario de Madrid.',
@@ -96,6 +100,7 @@ export function NewAppointmentPage() {
                 </div>
               ) : (
                 <form className="form-panel" onSubmit={submit} aria-busy={busy}>
+                  <fieldset className="demo-fieldset" disabled={busy || user?.readOnly}>
                   <div className="appointment-selection">
                     <p className="eyebrow">{t('TU ELECCIÓN')}</p>
                     <h2>
@@ -148,6 +153,7 @@ export function NewAppointmentPage() {
                   <button className="button" disabled={busy}>
                     {busy ? t('Enviando solicitud…') : t('Solicitar cita')}
                   </button>
+                  </fieldset>
                 </form>
               )
             }

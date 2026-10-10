@@ -1,3 +1,4 @@
+import { demoAccountFilter } from '../../../utils/demoScope.js';
 import { z } from 'zod';
 import mongoose from 'mongoose';
 import { User } from '../../auth/models/User.js';
@@ -23,7 +24,7 @@ export async function createAppointment(req, res) {
   send(res, appointment, 201);
 }
 export async function listAppointments(req, res) {
-  const filter = req.user.role === 'client' ? { user: req.user._id } : req.user.role === 'staff' ? { dealership: req.user.dealership || null } : {};
+  const filter = req.user.role === 'client' ? { user: req.user._id } : req.user.role === 'staff' ? { dealership: req.user.dealership || null } : await demoAccountFilter(req.user);
   send(res, await Appointment.find(filter).sort({ date: 1 }).limit(250).populate('vehicle dealership').populate('workshop', 'name city').populate('user', 'name email'));
 }
 export async function updateAppointment(req, res) {
