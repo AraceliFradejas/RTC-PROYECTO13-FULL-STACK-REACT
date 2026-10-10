@@ -1,4 +1,4 @@
-# Revisión responsive · 10 de octubre de 2026
+# Revisión responsive
 
 He incorporado un menú desplegable hasta 1000 px. La cabecera muestra el logo aprobado y un botón con icono de tres líneas; las secciones, el idioma y el acceso aparecen al abrirlo. Escape cierra el menú y devuelve el foco al botón. Elegir una página también lo cierra. El menú puede desplazarse si la pantalla tiene poca altura.
 

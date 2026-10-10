@@ -1,4 +1,4 @@
-# Insomnia · Ejecución del 10 de octubre de 2026
+# Pruebas de Insomnia
 
 Las colecciones se han importado y ejecutado en **Insomnia 13.2.0 para macOS**, en el proyecto local `RTC-PROYECTO13 · KelseTS Cars`. Estas capturas corresponden a la aplicación, no al adaptador de pruebas utilizado anteriormente.
 
@@ -11,37 +11,37 @@ Las colecciones se han importado y ejecutado en **Insomnia 13.2.0 para macOS**, 
 
 La base temporal se cargó desde los CSV: 148 vehículos, cuatro sedes y cuatro talleres. Se crearon cuentas ficticias para comprobar el registro, duplicados, sesiones, permisos, aprobación y rechazo de talleres, asignación de mantenimiento, agenda profesional, aislamiento entre dos clientes, comunicaciones, cancelación y finalización. La base se eliminó al terminar; no se añadieron registros a producción en esta ronda.
 
-![Resultado de las 171 comprobaciones en Insomnia](01-ronda-completa-171.png)
+<a href="01-ronda-completa-171.png"><img src="01-ronda-completa-171.png" alt="Resultado de las 171 comprobaciones en Insomnia" width="720"></a>
 
 El filtro de resultados fallidos queda vacío:
 
-![Sin comprobaciones fallidas](02-sin-fallos.png)
+<a href="02-sin-fallos.png"><img src="02-sin-fallos.png" alt="Sin comprobaciones fallidas" width="720"></a>
 
 La petición 74 devuelve `200` y el estado `Completada`. En esta captura se ha aplicado el filtro JSONPath `$.data.status` para que el resultado se lea claramente:
 
-![Visita completada](03-visita-completada.png)
+<a href="03-visita-completada.png"><img src="03-visita-completada.png" alt="Visita completada" width="720"></a>
 
 El taller recibe únicamente su trabajo asignado y el nombre del cliente, sin su correo:
 
-![Agenda del taller y privacidad](04-agenda-taller-privacidad.png)
+<a href="04-agenda-taller-privacidad.png"><img src="04-agenda-taller-privacidad.png" alt="Agenda del taller y privacidad" width="720"></a>
 
 El cliente no puede revisar solicitudes de talleres. El `403` es el resultado correcto del caso negativo:
 
-![Permiso administrativo denegado al cliente](05-cliente-permiso-denegado.png)
+<a href="05-cliente-permiso-denegado.png"><img src="05-cliente-permiso-denegado.png" alt="Permiso administrativo denegado al cliente" width="720"></a>
 
 ## Producción
 
 La [colección pública](../../insomnia/KelseTS-Cars.public.insomnia.json) permite repetir los casos 01–14 y 76 en Vercel, sin credenciales. Incluye salud, cierre de una sesión previa, perfil anónimo, sedes, talleres públicos, catálogo, ficha, búsqueda, filtros, página incorrecta, identificadores, origen ajeno y rechazo del registro con rol administrativo. La última petición comprueba que no hay acceso anónimo a los mensajes. No crea cuentas ni citas.
 
-![Las 36 comprobaciones de producción pasan](06-vercel-36-comprobaciones.png)
+<a href="06-vercel-36-comprobaciones.png"><img src="06-vercel-36-comprobaciones.png" alt="Las 36 comprobaciones de producción pasan" width="720"></a>
 
-![Filtro de fallos vacío en producción](07-vercel-sin-fallos.png)
+<a href="07-vercel-sin-fallos.png"><img src="07-vercel-sin-fallos.png" alt="Filtro de fallos vacío en producción" width="720"></a>
 
 El catálogo publicado devuelve 148 unidades. La captura utiliza `$.data.total`:
 
-![Inventario publicado](08-vercel-inventario-148.png)
+<a href="08-vercel-inventario-148.png"><img src="08-vercel-inventario-148.png" alt="Inventario publicado" width="720"></a>
 
-![Perfil sin sesión rechazado en producción](09-vercel-sin-sesion.png)
+<a href="09-vercel-sin-sesion.png"><img src="09-vercel-sin-sesion.png" alt="Perfil sin sesión rechazado en producción" width="720"></a>
 
 ## Capturas adicionales del recorrido
 

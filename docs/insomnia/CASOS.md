@@ -1,6 +1,6 @@
 # Casos de validación
 
-Códigos esperados. Los casos 01–76 se han ejecutado en Insomnia 13.2.0 el 10 de octubre: 171 comprobaciones correctas, con backend local y una base temporal de Atlas eliminada al terminar. Los casos 01–14 y 76 también pasan en Vercel. Los casos 77–78 son manuales y no forman parte de esa ronda. Ver [capturas y resultados](../evidencias/insomnia/README.md).
+Códigos esperados. Los casos 01–76 se han ejecutado en Insomnia 13.2.0 : 171 comprobaciones correctas, con backend local y una base temporal de Atlas eliminada al terminar. Los casos 01–14 y 76 también pasan en Vercel. Los casos 77–78 son manuales y no forman parte de esa ronda. Ver [capturas y resultados](../evidencias/insomnia/README.md).
 
 | Nº | Caso | Petición | HTTP esperado |
 | --- | --- | --- | --- |

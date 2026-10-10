@@ -1,4 +1,4 @@
-# Revisión de producción · 10 de octubre de 2026
+# Revisión de producción
 
 Se han ejecutado 101 comprobaciones HTTP contra https://kelsets-cars.vercel.app y su API publicada. Todas han pasado. Los informes registran la fecha, el resultado esperado y el obtenido:
 

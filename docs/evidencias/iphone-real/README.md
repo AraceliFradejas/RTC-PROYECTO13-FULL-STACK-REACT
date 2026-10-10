@@ -1,4 +1,4 @@
-# Grabación en iPhone real · 10 de octubre de 2026
+# Grabación en iPhone real
 
 La grabación se realizó en el iPhone 13 de la autora sobre [la web publicada](https://kelsets-cars.vercel.app). Se descargó desde iCloud Fotos para extraer los fotogramas. El vídeo dura 91,069 segundos y tiene una resolución de 1170 × 2532 píxeles. No se deduce una versión de iOS a partir de la imagen.
 
@@ -26,31 +26,31 @@ El vídeo documenta la versión publicada en el momento de la grabación. No acr
 
 ### Home y controles del vídeo · 5 s
 
-![Home y controles del vídeo en iPhone real](01-home.png)
+<a href="01-home.png"><img src="01-home.png" alt="Home y controles del vídeo en iPhone real" width="280"></a>
 
 ### Contenido editorial de la home · 25 s
 
-![Contenido editorial de la home en iPhone real](02-editorial.png)
+<a href="02-editorial.png"><img src="02-editorial.png" alt="Contenido editorial de la home en iPhone real" width="280"></a>
 
 ### Búsqueda libre, alternativa de filtros y contador de 148 vehículos · 55 s
 
-![Búsqueda libre, alternativa de filtros y contador de 148 vehículos en iPhone real](03-buscador.png)
+<a href="03-buscador.png"><img src="03-buscador.png" alt="Búsqueda libre, alternativa de filtros y contador de 148 vehículos en iPhone real" width="280"></a>
 
 ### Tarjetas del catálogo en una columna · 65 s
 
-![Tarjetas del catálogo en una columna en iPhone real](04-catalogo.png)
+<a href="04-catalogo.png"><img src="04-catalogo.png" alt="Tarjetas del catálogo en una columna en iPhone real" width="280"></a>
 
 ### Datos de la ficha, enlace de visita y footer · 75 s
 
-![Datos de la ficha, enlace de visita y footer en iPhone real](05-ficha.png)
+<a href="05-ficha.png"><img src="05-ficha.png" alt="Datos de la ficha, enlace de visita y footer en iPhone real" width="280"></a>
 
 ### Menú desplegado en inglés y selector ES/EN · 85 s
 
-![Menú desplegado en inglés y selector ES/EN en iPhone real](06-menu-ingles.png)
+<a href="06-menu-ingles.png"><img src="06-menu-ingles.png" alt="Menú desplegado en inglés y selector ES/EN en iPhone real" width="280"></a>
 
 ### Formulario de acceso en inglés · 89 s
 
-![Formulario de acceso en inglés en iPhone real](07-acceso-ingles.png)
+<a href="07-acceso-ingles.png"><img src="07-acceso-ingles.png" alt="Formulario de acceso en inglés en iPhone real" width="280"></a>
 
 ## English summary
 

@@ -4,13 +4,13 @@
 
 El XLSX contiene 148 vehículos, cuatro sedes y cuatro talleres. `data:check` compara todas las filas y referencias con los CSV; `seed:check` valida los archivos con fs sin escribir en Atlas. Ambas comprobaciones pasan. La carga repetida conserva las claves y las fotografías existentes. El libro se ha abierto en Numbers y mantiene su archivo original.
 
-[Informe de datos y cinco capturas](evidencias/datos/README.md).
+[Informe de datos y cinco capturas](evidencias/datos/README.md) · [Colecciones y relaciones en Atlas](evidencias/mongodb/README.md).
 
-## Pruebas locales · 10 de octubre de 2026
+## Pruebas locales
 
 `npm test` pasa 44 pruebas: 25 backend, 14 frontend y cinco del cliente HTTP. Las dos integraciones opcionales se omiten en esta ejecución; no se cuentan como aprobadas. Sus comprobaciones con servicios se describen en los informes correspondientes.
 
-`npm run build` genera los archivos de producción. Rollup muestra avisos sobre anotaciones de Zod y el tamaño del paquete principal: 553,76 kB, 160,94 kB gzip. Estos avisos no impiden la compilación.
+`npm run build` genera los archivos de producción. Rollup muestra avisos sobre anotaciones de Zod y el tamaño del paquete principal: 556,02 kB, 161,75 kB gzip. La compilación se completa con estos avisos.
 
 ## API e Insomnia
 

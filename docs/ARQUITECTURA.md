@@ -1,75 +1,55 @@
-# Arquitectura y evolución
+# Arquitectura de KelseTS Cars
 
-## Principio de trabajo
+## Organización
 
-La primera entrega es una aplicación web full stack. La segunda añade interfaces y módulos sobre una base que ya tiene contratos y API separados de React. No se crean microservicios ni se instala una aplicación móvil antes de necesitarlos.
+La web y la API están en el mismo repositorio y se despliegan como dos proyectos de Vercel. El backend reúne modelos, controladores y servicios por funcionalidad. React consulta la API a través de un cliente HTTP compartido; las validaciones comunes están separadas de los componentes.
 
 ```mermaid
 flowchart LR
-  Web[Web React] --> Client[Cliente API compartido]
-  Mobile[App futura] -.-> Client
-  Contracts[Contratos compartidos] --> Web
-  Contracts -.-> Mobile
+  Web[Web React] --> Client[Cliente HTTP]
+  Contracts[Validaciones compartidas] --> Web
   Contracts --> API[API Node.js v1]
   Client --> API
   API --> Auth[Usuarios y acceso]
   API --> Catalog[Vehículos y sedes]
   API --> Appointments[Citas]
+  API --> Workshops[Talleres]
+  API --> Messages[Comunicaciones]
   Catalog --> DB[(MongoDB Atlas)]
   Auth --> DB
   Appointments --> DB
+  Workshops --> DB
+  Messages --> DB
+  Catalog --> Images[Cloudinary]
 ```
 
-## Límites
+## Responsabilidades
 
-| Lugar | Responsabilidad | Qué no debe incorporar |
-| --- | --- | --- |
-| `backend/src/modules` | Persistencia, autorización y reglas de cada dominio | Código de interfaz |
-| `packages/contracts` | Validación de entradas y vocabulario compartido | Mongoose, React, secretos o almacenamiento |
-| `packages/api-client` | Peticiones, errores y transporte inyectable | Hooks, DOM o acceso directo a almacenamiento |
-| `frontend/src/features` | Pantallas y recorridos de la web | Reglas de autorización confiadas únicamente al cliente |
-| `frontend/src/shared` | Componentes y hooks usados por varias funcionalidades | Pantallas específicas de un módulo |
-| `apps/mobile` | Futura interfaz y capacidades nativas | Un segundo backend o copia de las reglas de negocio |
+| Lugar | Responsabilidad |
+| --- | --- |
+| `backend/src/modules` | Persistencia, permisos y reglas de usuarios, catálogo, citas, talleres y comunicaciones |
+| `packages/contracts` | Esquemas de validación y valores compartidos, sin dependencias de React o Mongoose |
+| `packages/api-client` | Peticiones HTTP, errores y cancelación, sin hooks ni acceso al DOM |
+| `frontend/src/features` | Páginas y componentes de cada funcionalidad |
+| `frontend/src/shared` | Componentes, hooks, sesión e idioma utilizados por varias páginas |
+| `frontend/src/styles` | Variables, estilos comunes y hojas por funcionalidad |
 
-La API tiene versión `/api/v1`. Una futura incompatibilidad debe producir una nueva versión o una migración explícita, sin romper la web entregada.
+La API utiliza `/api/v1`. Los permisos se comprueban en el servidor, aunque la web oculte los controles que no corresponden a cada perfil. Las variables privadas permanecen en el backend.
 
-## Idiomas del universo KelseTS
+## Componentes y hooks
 
-KelseTS Cars ofrece versiones en castellano e inglés mediante un selector compartido, como el resto de webs de la marca.
+El catálogo separa el hero, la barra de búsqueda, los filtros, las tarjetas y la paginación. Las citas utilizan `AppointmentRow` para mostrar datos y acciones según el estado. El registro separa la elección de perfil y los campos del taller. Las tarjetas de sedes comparten la presentación del barrio y sus enlaces.
 
-El selector conserva la elección del visitante. Las traducciones se organizan por funcionalidad con claves estables, separadas de los componentes, para poder reutilizar el vocabulario en la futura app. El idioma del documento, los formatos de fechas y números, los formularios, los estados de carga, los errores y los textos accesibles deberán corresponder al idioma elegido. Cambiar de idioma conservará la pantalla y los filtros actuales.
+`useResource` utiliza `useReducer` para carga, error y resultado. Cancela peticiones cuando cambia la consulta o se desmonta la pantalla. `useDealershipLocation` reúne geolocalización, selección manual y errores. Los contextos mantienen sesión e idioma sin duplicar ese estado en cada página.
 
-Los identificadores y valores de negocio de la API permanecerán estables; sus etiquetas se traducirán en la interfaz. La revisión de entrega comprobará los recorridos completos en ambos idiomas, sin textos mezclados ni claves de traducción visibles.
+## Castellano e inglés
 
-## Incorporar un módulo
+El selector conserva el idioma al recargar. Los textos accesibles, formularios, estados y formatos se adaptan a la elección del visitante. Cambiar de idioma mantiene la pantalla, los filtros y la sesión.
 
-1. Definir el caso de uso y los permisos.
-2. Añadir su carpeta a `backend/src/modules` y extraer servicios cuando la lógica requiera reutilización o transacciones.
-3. Definir sus entradas compartidas en `packages/contracts`.
-4. Componer sus rutas en el router principal y añadir sus operaciones al cliente de API.
-5. Crear la funcionalidad web en `frontend/src/features` y, en la etapa correspondiente, sus pantallas nativas.
-6. Comprobar reglas, permisos e integración antes de documentarlo como completado.
+Los valores de negocio que espera la API permanecen estables; la interfaz traduce sus etiquetas. Las comunicaciones guardan sus dos versiones al crearse. Los nombres y motivos escritos por usuarios conservan su contenido original.
 
-## Separación de la interfaz móvil
+## Incorporación de funcionalidades
 
-React Native con Expo es una opción por la continuidad con React, pero no se ha elegido ni instalado todavía. La reutilización actual comprende contratos y peticiones; HTML, CSS, React Router y componentes web no se trasladan directamente a una app nativa.
+Para añadir una funcionalidad, se definen primero su recorrido y sus permisos. El backend incorpora el módulo, sus modelos y sus servicios; las entradas compartidas se validan en `packages/contracts`. Después se añaden las operaciones al cliente HTTP y las pantallas a `frontend/src/features`.
 
-La sesión de la web usa cookies. Antes de publicar una app se decidirá un flujo de autenticación adecuado a móviles y su almacenamiento seguro. El parámetro `getHeaders` permite ampliar el cliente HTTP, pero no implica que el servidor acepte ya tokens de app.
-
-Las fotografías incluidas hoy utilizan rutas del frontend. La app necesitará URLs absolutas de medios o la configuración de un origen público. No debe resolver esas rutas contra un directorio local del teléfono.
-
-Los tokens visuales actuales viven en `style.css`, conforme al enunciado. Al diseñar la app se podrá extraer una fuente común y generar valores web y nativos, conservando este archivo en la entrega web.
-
-## Módulos posteriores
-
-| Módulo | Etapa | Dependencia principal |
-| --- | --- | --- |
-| Catálogo, acceso, sedes y citas | Rock The Code | Atlas y comprobaciones full stack |
-| Subidas de fotografías | Mejora Rock The Code | Cloudinary y formulario de gestión |
-| Configurador y preferencias | BigSchool | Opciones reales por modelo y reglas de compatibilidad |
-| Mantenimiento y garaje personal | BigSchool | Relación usuario–vehículo y permisos |
-| Notificaciones | BigSchool | Proveedor, consentimiento y registro de entregas |
-| App | BigSchool | Plataforma y autenticación nativa |
-| Integración remota del vehículo | Investigación BigSchool | API del fabricante y autorización del propietario |
-
-No se necesita implementar las ampliaciones para justificar la primera entrega.
+Esta separación permite que la web crezca sin copiar las reglas de negocio. Las pruebas verifican el comportamiento y los permisos antes de documentar la funcionalidad.

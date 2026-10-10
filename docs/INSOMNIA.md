@@ -40,11 +40,11 @@ Con Cloudinary configurado se espera 200; sin credenciales, 503. El script de su
 
 ## Evidencias para entregar
 
-Anotar fecha, versión de Insomnia, URL utilizada y resultado de cada carpeta. Guardar capturas con los resultados de pruebas, ocultando cookies y credenciales. Los códigos de `CASOS.md` describen lo esperado. La ejecución del 10 de octubre y sus capturas están en el [informe de Insomnia](evidencias/insomnia/README.md).
+Anotar fecha, versión de Insomnia, URL utilizada y resultado de cada carpeta. Guardar capturas con los resultados de pruebas, ocultando cookies y credenciales. Los códigos de `CASOS.md` describen lo esperado. La ejecución y sus capturas están en el [informe de Insomnia](evidencias/insomnia/README.md).
 
 ### Comprobación previa del archivo
 
-El 4 de octubre se comprobaron el JSON, las referencias y la sintaxis. También se ejecutaron las 76 peticiones principales y sus scripts con un adaptador local sobre Supertest en una base temporal de Atlas: 171 comprobaciones correctas, con eliminación de la base al finalizar. Cloudinary quedó excluido. El 10 de octubre se ha confirmado la importación y ejecución en Insomnia 13.2.0: 76 peticiones y 171 comprobaciones correctas sobre una base temporal eliminada al finalizar. Se corrigieron la comparación del código HTTP y el manejo del jar de cookies en los scripts. Además, la [colección pública de Vercel](insomnia/KelseTS-Cars.public.insomnia.json) ha pasado 36 comprobaciones en 15 peticiones. Las [capturas y el alcance](evidencias/insomnia/README.md) quedan separados de la validación anterior con Supertest.
+Se comprobaron el JSON, las referencias y la sintaxis. También se ejecutaron las 76 peticiones principales y sus scripts con un adaptador local sobre Supertest en una base temporal de Atlas: 171 comprobaciones correctas, con eliminación de la base al finalizar. Cloudinary quedó excluido. También se ha confirmado la importación y ejecución en Insomnia 13.2.0: 76 peticiones y 171 comprobaciones correctas sobre una base temporal eliminada al finalizar. Se corrigieron la comparación del código HTTP y el manejo del jar de cookies en los scripts. Además, la [colección pública de Vercel](insomnia/KelseTS-Cars.public.insomnia.json) ha pasado 36 comprobaciones en 15 peticiones. Las [capturas y el alcance](evidencias/insomnia/README.md) quedan separados de la validación anterior con Supertest.
 
 ## Evidencias paso a paso
 

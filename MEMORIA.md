@@ -1,6 +1,4 @@
-# Memoria técnica · KelseTS Cars
-
-## Datos del proyecto
+# Memoria del proyecto KelseTS Cars
 
 | Dato | Información |
 | --- | --- |
@@ -8,53 +6,107 @@
 | Formación | TFM Rock The Code · The Power Tech School |
 | Autora | Araceli Fradejas Muñoz |
 | Tecnologías | JavaScript, Node.js, Express, React y MongoDB |
-| Etapa | Desarrollo y validación · 4 de octubre de 2026 |
-| Despliegue | Web y API publicadas en Vercel · 10 de octubre de 2026 |
-| Evolución posterior | TFM BigSchool con app y módulos específicos |
-
-Esta memoria sigue la organización de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/MEMORIA.md). Explica la idea, la estructura del código, los datos y las pruebas realizadas.
+| Despliegue | Web y API publicadas en Vercel |
 
 ## 1. Contexto y motivación
 
-He situado este TFM dentro de KelseTS, la marca ficticia con la que he dado identidad a varios proyectos del máster. KelseTS Cars aplica esa continuidad al automóvil, con una propuesta que combina catálogo, sedes y citas.
+KelseTS Cars nace dentro de KelseTS, la marca ficticia que he utilizado en varios proyectos del máster. Me apetecía cerrar Rock The Code con una propuesta que mantuviera esa identidad y me permitiera trabajar todo el recorrido de una aplicación full stack. He elegido el automóvil porque combina una parte visual que me interesa especialmente con necesidades concretas: encontrar un modelo, comparar opciones y organizar una visita.
 
-La idea inicial incluía una web comercial, áreas de clientes y colaboradores, personalización de vehículos y una futura aplicación. He dividido el trabajo en dos etapas para que la primera entrega responda estrictamente al enunciado de Rock The Code y la segunda desarrolle el alcance de BigSchool.
+Me he puesto en el lugar de quien busca su próximo coche. Una portada atractiva puede despertar interés, pero después hacen falta datos, una búsqueda cómoda y un siguiente paso claro. Por eso el catálogo lleva a la ficha de cada vehículo y desde allí a una cita en su concesionario. La relación también continúa en el mantenimiento, con talleres colaboradores y un equipo que coordina las solicitudes.
 
-## 2. Objetivos
+La música, el deporte y el universo swiftie inspiran la marca. Las personas, instalaciones y operaciones pertenecen a una propuesta ficticia con fines académicos. He cuidado que esa inspiración tenga una identidad propia y que las imágenes de referencia del catálogo conserven sus créditos.
 
-La primera etapa debe permitir consultar vehículos, acceder a una cuenta y gestionar citas con permisos. Su recorrido de datos será Excel → CSV → lectura con `fs` → validación → semilla → MongoDB → API → React.
+## 2. Objetivos y requisitos
 
-Como objetivo de arquitectura, la app debe poder consultar la misma API y reutilizar los contratos y el cliente HTTP. Sus pantallas y las capacidades del dispositivo se desarrollarán en la segunda etapa.
+El objetivo es que una persona pueda consultar vehículos, encontrar su sede, acceder a una cuenta y gestionar sus citas. Para el equipo, la web ofrece revisión de talleres, coordinación de visitas y gestión de fotografías. Cada perfil consulta la información que necesita y el backend controla sus permisos.
 
-## 3. Requisitos y cumplimiento
+El recorrido de datos conecta todas las partes del proyecto: Excel → CSV → lectura con `fs` → validación → semilla → MongoDB → API → React. La [revisión del enunciado](docs/REVISION-ENTREGA.md) relaciona los requisitos con el código y las pruebas que los acreditan.
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) relaciona los requisitos con sus evidencias. El catálogo, las cuentas y las citas están conectados a Atlas. Los informes documentan las pruebas de integración, la versión bilingüe y los recorridos en producción. La revisión responsive se realizó en Safari de escritorio con anchuras controladas.
+## 3. Tecnologías y organización del código
 
-## 4. Tecnologías
+Node.js y Express reciben las peticiones. Mongoose define los modelos y sus relaciones en Atlas. React compone la web con rutas y componentes; Zod comparte las validaciones entre frontend y backend. Leaflet presenta el mapa y Cloudinary almacena las fotografías que sube la administradora.
 
-Node.js y Express reciben las peticiones. Mongoose define usuarios, vehículos, sedes y citas. React compone la web con rutas y componentes. Zod expresa validaciones comunes sin depender de la interfaz.
+He organizado el backend por módulos: usuarios, catálogo, citas, talleres y comunicaciones. En la web, `features` reúne cada funcionalidad y `shared` contiene los componentes, hooks e idiomas que utilizan varias páginas. `packages/contracts` guarda las validaciones comunes y `packages/api-client` centraliza las peticiones, sus errores y su cancelación. Así puedo modificar una pantalla sin copiar las reglas del servidor.
 
-El cliente HTTP se ha extraído a un paquete que recibe su URL base y su función `fetch`. Esta decisión permite probar las peticiones y reutilizarlas desde otra interfaz. Los hooks y contextos de React permanecen dentro de la web.
+Las páginas coordinan la carga de datos y la navegación. Los filtros, las tarjetas, la paginación, los campos del registro y las filas de citas tienen componentes propios. Las [decisiones de arquitectura](docs/ARQUITECTURA.md) explican esta separación.
 
-## 5. Arquitectura
+## 4. Navegación, diseño y experiencia de usuario
 
-El backend es un monolito modular: comparte despliegue y base de datos, pero agrupa modelos y controladores por dominio. La web utiliza `features` para separar marca, catálogo, acceso y citas. Las [decisiones de arquitectura](docs/ARQUITECTURA.md) explican cómo incorporar nuevos módulos.
+La portada presenta la marca y una selección de modelos. El catálogo consulta Atlas mediante la API y permite pasar de la búsqueda a la ficha. Desde ella se solicita la visita; si no hay sesión, la web lleva al acceso y conserva el destino. En el área personal aparecen las citas y sus comunicaciones.
 
-`packages/contracts` contiene esquemas y valores comunes. `packages/api-client` centraliza peticiones, errores y cancelación. `apps/mobile` reserva la ubicación de la app y documenta lo que aún debe resolverse.
 
-## 6. Flujo de la aplicación
+### Identidad visual
 
-La portada editorial permite conocer la marca y los modelos seleccionados. El catálogo consulta el inventario mediante la API. Una ficha enlaza con la solicitud de cita; si falta sesión, la navegación pasa por acceso y conserva el destino. El área personal consulta citas y permite solicitar su cancelación.
+La dirección visual utiliza verde profundo, marfil, acentos cálidos, fotografías grandes y una combinación de tipografía de interfaz y editorial. Las referencias de fabricantes sirven para estudiar jerarquía, navegación y presentación de modelos. KelseTS Cars conserva su propio nombre, composición y textos.
 
-El recorrido de mantenimiento se ha comprobado con Atlas desde Safari, entre cliente, Team y taller. El registro y la revisión de talleres también se han comprobado después en Safari con una base temporal.
+La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de origen. La última ampliación añade 38 imágenes de los doce modelos de gama alta, revisadas visualmente y documentadas en la [galería de vehículos](docs/GALERIA-VEHICULOS.md). La asignación prioriza el modelo y mantiene la misma fotografía en tarjeta y ficha. Son imágenes ilustrativas; no acreditan el acabado, año ni color de las unidades de ejemplo.
 
-## 7. Modelos y relaciones
+
+### Secciones de la web
+
+La portada incorpora servicios, conducción, movilidad eléctrica, historias de marca, acceso al área personal y preguntas frecuentes. Servicios explica los pasos para solicitar una visita y Nuestra esencia desarrolla la identidad. Se reutilizan los componentes de panel editorial, servicios, historias y preguntas. La sección eléctrica enlaza al filtro de motorización del catálogo.
+
+Las imágenes aportadas sirven como referencias de dirección visual. Las secciones utilizan nuevas escenas conceptuales creadas sin textos incorporados. La [guía de secciones](docs/SECCIONES.md) recoge cómo se han aplicado las referencias a cada página. Los textos y botones pertenecen a la interfaz, de modo que pueden adaptarse sin quedar incorporados a las imágenes.
+
+
+### Fotografías del entorno
+
+He añadido una fotografía diferente a cada uno de los cuatro concesionarios y los cuatro talleres. Quería que se entendiera mejor el entorno elegido para la red: Salamanca, Pedralbes, Miraconcha y La Caleta. Las imágenes muestran calles, arquitectura y patrimonio de esos barrios; las instalaciones y las direcciones de KelseTS Cars siguen siendo ficticias, y las tarjetas lo indican.
+
+Las ocho fotografías proceden de Wikimedia Commons. He guardado sus autores, fuentes y licencias en `data/media/neighborhoods.json` y he añadido las atribuciones a la página de créditos, accesibles desde cada tarjeta. Se conservan copias locales de 1280 px, con carga diferida y encuadre adaptable. No se repiten entre las ocho tarjetas.
+
+El enlace a Street View utiliza las coordenadas aproximadas del centro, sin enviar la ubicación del visitante. He elegido los [enlaces de Google Maps](https://developers.google.com/maps/documentation/urls/get-started), que no necesitan clave API. La panorámica disponible depende de Google y no representa nuestras instalaciones. Las fotografías tampoco se presentan como imágenes actuales de la calle.
+
+En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La captura corresponde a Safari de escritorio. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
+
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari" width="720"></a>
+
+
+### Hooks y búsqueda
+
+`useResource` combina `useReducer`, cancelación mediante `AbortController` y reintento. Evita que una respuesta anterior actualice una pantalla después de cambiar filtros o ruta. `AuthProvider` comparte el estado de sesión sin copiarlo en cada página.
+
+La búsqueda libre sugiere marcas y modelos del inventario mientras se escribe. Permite seleccionar con las flechas y Enter, cerrar con Escape o mantener el texto libre. El componente reutiliza la carga cancelable y memoriza las coincidencias; no hace una petición por cada tecla. Sigue las pautas del [patrón combobox de W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/), sin considerarlo una auditoría completa de accesibilidad. Las sugerencias ocupan espacio en la página para que no tapen el contador ni las tarjetas.
+
+La interfaz diferencia carga, error y ausencia de resultados. Las variables en `style.css` definen colores y espaciados. Se incluyen enlaces para saltar al contenido, etiquetas de formulario, foco visible y reducción de movimiento. Esto constituye una base de accesibilidad, no una auditoría completa.
+
+
+### Castellano e inglés
+
+He añadido un contexto de idioma con un hook compartido y un archivo para los textos ingleses. El selector ES/EN conserva la elección al recargar y cambia las etiquetas accesibles, el idioma del documento y el título. Si el navegador bloquea el almacenamiento, la web sigue funcionando y conserva la elección durante esa sesión.
+
+La traducción afecta a la presentación: los valores de motorización, servicios y estados enviados al backend no cambian. He comprobado en Safari que Electric sigue enviando `Eléctrico` y devuelve los diez vehículos Tesla esperados. También he accedido con la cuenta ficticia de despliegue y cambiado a castellano manteniendo la sesión. La captura del área privada corresponde a una revisión intermedia: la interfaz está en inglés y la bienvenida todavía en castellano. La bandeja bilingüe se muestra en el apartado de comunicaciones.
+
+<a href="docs/evidencias/idiomas/01-home-en-320-390-safari.png"><img src="docs/evidencias/idiomas/01-home-en-320-390-safari.png" alt="Portada inglesa y cabecera adaptada a 320 y 390 px" width="720"></a>
+
+<a href="docs/evidencias/idiomas/03-cliente-en-safari.png"><img src="docs/evidencias/idiomas/03-cliente-en-safari.png" alt="Área de cliente en inglés, antes de añadir las comunicaciones inglesas" width="720"></a>
+
+El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Los textos están separados de los componentes para mantener las dos versiones desde un mismo lugar.
+
+La portada inglesa también se ha comprobado en el dominio de Vercel después de publicar el commit `6d2f9b3`. La [captura de producción](docs/evidencias/idiomas/04-home-en-vercel-safari.png) se conserva separada de las pruebas locales.
+
+
+### Móvil, tableta y escritorio
+
+Al revisar la web en mi iPhone 13, la cabecera anterior apilaba navegación, idioma y acceso. He sustituido esa distribución por un menú desplegable en móvil y tablet, conservando el logo aprobado. Los enlaces tienen espacio para pulsarlos; el idioma y el acceso siguen dentro del menú. Escape recupera el foco y navegar lo cierra.
+
+He preparado capturas de todas las rutas públicas en castellano e inglés a 390 px, de los perfiles de cliente, taller y Team a 320, 390, 768 y 1440 px y de formularios y vista previa de fotografías. Safari mostraba los selectores de las citas con una altura reducida; ahora tienen un mínimo de 48 px. El error de fecha también se ha revisado.
+
+<a href="docs/evidencias/movil/02-menu-es-390.png"><img src="docs/evidencias/movil/02-menu-es-390.png" alt="Menú al ancho de revisión del iPhone 13" width="720"></a>
+
+El [informe responsive](docs/evidencias/movil/README.md) incluye las capturas y sus límites. Se han tomado en marcos de Safari de escritorio con el frontend local; los perfiles utilizaron una base temporal eliminada al terminar. La grabación del iPhone real aporta una revisión visual independiente, presentada en el apartado de pruebas.
+
+
+El footer mantiene la identidad de la marca y permite conocer los otros proyectos de Universo KelseTS: Lifestyle, Store, Business School y Talks. He añadido los cinco enlaces sociales y el aviso académico, con enlace a The Power Tech School. Todo el texto cambia con el idioma seleccionado; en móvil, los enlaces se organizan en dos columnas para facilitar la lectura.
+
+## 5. Datos, modelos y relaciones
 
 `Vehicle.dealership` referencia `Dealership`. `Appointment` referencia a usuario, vehículo y sede. `User.dealership` limita el ámbito de colaboradores. La relación entre vehículos y sedes cumple el planteamiento de dos colecciones de negocio independientes de los usuarios.
 
-Un índice único parcial en las citas impide ocupar una misma sede y hora con dos citas activas. La cancelación mantiene el historial y libera la franja. El diseño inicial presupone un único puesto de atención por sede; la capacidad por empleado o taller se abordará como ampliación.
+Un índice único parcial en las citas impide ocupar una misma sede y hora con dos citas activas. La cancelación mantiene el historial y libera la franja. El diseño presupone un único puesto de atención por sede.
 
-## 8. Datos y semilla
+
+### Del Excel a la semilla
 
 El CSV original contiene 100 registros de ejemplo. La normalización conserva precios y VIN originales como procedencia, sin convertirlos en datos reales verificados. El reparto entre cuatro sedes es una decisión de demostración. Los modelos sin fotografía específica utilizan una referencia local de su marca, identificada como tal.
 
@@ -70,82 +122,72 @@ La ampliación incluye doce modelos, con un registro de demostración por modelo
 
 He separado los datos del modelo de los datos de una unidad concreta. El nombre, la carrocería y la motorización se han contrastado con fuentes oficiales; el reparto entre sedes y la disponibilidad pertenecen a la demostración. Año, kilometraje, precio, VIN y fecha de adquisición quedan vacíos cuando no están verificados. La interfaz los identifica como pendientes y no interpreta un kilometraje vacío como cero. Las fotografías locales se presentan como referencias de la marca, sin afirmar que correspondan a esas unidades.
 
-## 9. Seguridad y permisos
+
+### Revisión del libro en Numbers
+
+He abierto el Excel de entrega en Numbers y revisado Guía, Vehículos, Sedes y Talleres. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres como resultados de sus fórmulas. El inventario conserva los 100 ejemplos del curso y las 48 unidades añadidas. Las claves de sede relacionan vehículos y talleres con los concesionarios.
+
+<a href="docs/evidencias/datos/01-guia-numbers.png"><img src="docs/evidencias/datos/01-guia-numbers.png" alt="Libro de entrega abierto en Numbers con los recuentos" width="720"></a>
+
+### Vehículos
+
+<a href="docs/evidencias/datos/02-vehiculos-numbers.png"><img src="docs/evidencias/datos/02-vehiculos-numbers.png" alt="Inicio de la hoja Vehículos" width="720"></a>
+
+<a href="docs/evidencias/datos/03-ampliacion-lujo-numbers.png"><img src="docs/evidencias/datos/03-ampliacion-lujo-numbers.png" alt="Ampliación de modelos de lujo en el libro" width="720"></a>
+
+### Sedes
+
+<a href="docs/evidencias/datos/04-sedes-numbers.png"><img src="docs/evidencias/datos/04-sedes-numbers.png" alt="Hoja Sedes con los cuatro concesionarios" width="720"></a>
+
+### Talleres
+
+<a href="docs/evidencias/datos/05-talleres-numbers.png"><img src="docs/evidencias/datos/05-talleres-numbers.png" alt="Talleres con referencias a las sedes" width="720"></a>
+
+Después de la apertura, `data:check` confirma que todos los datos y relaciones del libro coinciden con los CSV; `seed:check` también pasa. No he cambiado celdas, guardado una conversión ni exportado desde Numbers. El archivo original mantiene su SHA-256. El [informe con las cinco capturas](docs/evidencias/datos/README.md) documenta esta revisión en Numbers; no la presenta como una prueba en Microsoft Excel.
+
+
+### Comprobación de las relaciones en Atlas
+
+Atlas muestra las seis colecciones de la aplicación. El inventario contiene 148 vehículos y cuatro concesionarios. El filtro de talleres públicos devuelve cuatro; la colección conserva también registros ocultos de demostración. Las referencias de vehículo y taller coinciden con el identificador de su sede. Las citas relacionan cliente, vehículo, concesionario y taller. El [informe de Atlas](docs/evidencias/mongodb/README.md) explica cada captura.
+
+<a href="docs/evidencias/mongodb/01-colecciones-atlas.png"><img src="docs/evidencias/mongodb/01-colecciones-atlas.png" alt="Las seis colecciones en Atlas" width="720"></a>
+
+<a href="docs/evidencias/mongodb/02-vehiculos-atlas.png"><img src="docs/evidencias/mongodb/02-vehiculos-atlas.png" alt="148 vehículos y referencia de sede" width="720"></a>
+
+<a href="docs/evidencias/mongodb/03-sedes-atlas.png"><img src="docs/evidencias/mongodb/03-sedes-atlas.png" alt="Concesionarios y sus identificadores" width="720"></a>
+
+<a href="docs/evidencias/mongodb/04-talleres-atlas.png"><img src="docs/evidencias/mongodb/04-talleres-atlas.png" alt="Talleres públicos y su relación con las sedes" width="720"></a>
+
+<a href="docs/evidencias/mongodb/05-citas-atlas.png"><img src="docs/evidencias/mongodb/05-citas-atlas.png" alt="Referencias de las citas" width="720"></a>
+
+
+## 6. Acceso y permisos
 
 El registro fuerza el rol `client`; el servidor no acepta un rol arbitrario enviado por la interfaz. Las contraseñas se resumen con bcrypt. La cookie de sesión es `HttpOnly` y las escrituras comprueban el origen permitido.
 
 El cliente solo puede cancelar citas propias. El personal consulta y gestiona su sede; la administradora dispone de acceso global. Los archivos de imagen tienen límite de tamaño y comprobación de cabecera. Los permisos y los casos negativos se han comprobado mediante la API en una base temporal de Atlas. Las pruebas de Cloudinary incluyen archivos incorrectos y accesos sin permiso.
 
-## 10. Hooks y experiencia de usuario
 
-### Clientes, talleres colaboradores y comunicaciones
+### Clientes y talleres colaboradores
 
-He añadido dos tipos de registro porque la relación con el cliente continúa después de elegir el coche. Un taller puede indicar su ubicación y sus especialidades de revisión, mecánica, chapa y pintura, lunas o eléctricos. La solicitud queda pendiente hasta que una administradora la revise; registrarse no concede acceso a datos de clientes. La aprobación activa el perfil profesional, pero Team puede asignar citas de mantenimiento a talleres aprobados, y el taller consulta únicamente las citas que le corresponden. El seguimiento de reparaciones y siniestros todavía requiere un módulo posterior.
+He añadido dos tipos de registro porque la relación con el cliente continúa después de elegir el coche. Un taller puede indicar su ubicación y sus especialidades de revisión, mecánica, chapa y pintura, lunas o eléctricos. La solicitud queda pendiente hasta que una administradora la revise; registrarse no concede acceso a datos de clientes. La aprobación activa el perfil profesional, pero Team puede asignar citas de mantenimiento a talleres aprobados, y el taller consulta únicamente las citas que le corresponden.
 
 Para comunicar cada resultado he adaptado la idea que utilicé en [KelseTS Talks, otro proyecto de mi portfolio](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/docs/CORREO.md). Allí probé correos en Mailtrap Sandbox. En Cars los mensajes se guardan en una bandeja privada de demostración y se pueden generar muestras HTML locales, sin envío real. Hay bienvenida de cliente, recepción y resultado de solicitudes de talleres, y comunicaciones de solicitud, confirmación, cancelación y finalización de citas.
 
 Las referencias de Renault y Línea Directa me han servido para organizar la posventa y las especialidades, manteniendo la identidad propia de KelseTS. La [justificación, los permisos y las pruebas](docs/COMUNICACIONES-Y-TALLERES.md) explican el funcionamiento y el alcance de esta entrega. `Workshop` referencia a su usuario y `Message` a su destinatario. Las altas y los cambios se guardan con sus comunicaciones en una transacción para evitar que aparezca un mensaje de éxito sin haberse completado la operación.
 
-`useResource` combina `useReducer`, cancelación mediante `AbortController` y reintento. Evita que una respuesta anterior actualice una pantalla después de cambiar filtros o ruta. `AuthProvider` comparte el estado de sesión sin copiarlo en cada página.
 
-La búsqueda libre sugiere marcas y modelos del inventario mientras se escribe. Permite seleccionar con las flechas y Enter, cerrar con Escape o mantener el texto libre. El componente reutiliza la carga cancelable y memoriza las coincidencias; no hace una petición por cada tecla. Sigue las pautas del [patrón combobox de W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/), sin considerarlo una auditoría completa de accesibilidad. Las sugerencias ocupan espacio en la página para que no tapen el contador ni las tarjetas.
+### Coordinación desde KelseTS Cars Team
 
-La interfaz diferencia carga, error y ausencia de resultados. Las variables en `style.css` definen colores y espaciados. Se incluyen enlaces para saltar al contenido, etiquetas de formulario, foco visible y reducción de movimiento. Esto constituye una base de accesibilidad, no una auditoría completa.
-
-## 11. Diseño y recursos
-
-La dirección visual utiliza verde profundo, marfil, acentos cálidos, fotografías grandes y una combinación de tipografía de interfaz y editorial. Las referencias de fabricantes sirven para estudiar jerarquía, navegación y presentación de modelos. KelseTS Cars conserva su propio nombre, composición y textos.
-
-La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de origen. La última ampliación añade 38 imágenes de los doce modelos de gama alta, revisadas visualmente y documentadas en la [galería de vehículos](docs/GALERIA-VEHICULOS.md). La asignación prioriza el modelo y mantiene la misma fotografía en tarjeta y ficha. Son imágenes ilustrativas; no acreditan el acabado, año ni color de las unidades de ejemplo.
-
-## 12. Pruebas y evidencias
-
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. Los informes posteriores documentan el registro y la revisión de talleres en Safari, la revisión responsive y el recorrido HTTP en producción. Las capturas responsive utilizan Safari de escritorio. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
-
-Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. La primera revisión del despliegue se recoge al final de esta memoria; el recorrido HTTP completo en producción está documentado al final. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
-
-### Catálogo y búsqueda
-
-La búsqueda predictiva sugiere marcas y modelos sin cubrir el contador ni las tarjetas. Los filtros son una alternativa para quien prefiera acotar por características.
-
-![Sugerencias de marcas y modelos en el catálogo](docs/evidencias/buscador-predictivo-2026-10-04.png)
-
-![Alternativas de búsqueda libre y filtros](docs/evidencias/modos-busqueda-2026-10-04.png)
-
-La ficha del catálogo ampliado muestra la propuesta de gama alta y mantiene los datos no comprobados como pendientes.
-
-![Ficha de vehículo del catálogo ampliado](docs/evidencias/ficha-lujo-2026-10-04.png)
-
-### Recorrido de mantenimiento
-
-Las capturas muestran la solicitud del cliente, la confirmación desde Team, la asignación al taller y el cierre comunicado al cliente. La cita de demostración se cerró anticipadamente para revisar el flujo; no acredita un mantenimiento real.
-
-![Cliente: solicitud de mantenimiento](docs/evidencias/recorrido/01-cliente-solicitud.png)
-
-![Team: confirmación de la cita](docs/evidencias/recorrido/02-team-confirmacion.png)
-
-![Taller: cita de mantenimiento asignada](docs/evidencias/recorrido/04-taller-asignacion.png)
-
-![Cliente: cierre de la cita y comunicación](docs/evidencias/recorrido/07-cliente-cierre.png)
-
-## 13. Evolución posterior
-
-Después de entregar Rock The Code se abordarán la app, el configurador y otros módulos de BigSchool. El control remoto de un vehículo requeriría integraciones y permisos reales del fabricante; no se simulará como una función operativa.
-
-## 14. Aprendizaje
-
-Separar la lógica compartida de la interfaz me ha permitido organizar los permisos, los datos y las comunicaciones sin depender de una pantalla concreta. El Excel y los CSV mantienen el origen del inventario; las pruebas comprueban sus relaciones y los recorridos de la aplicación publicada.
-
-## Desarrollo de las secciones editoriales
-
-La portada incorpora servicios, conducción, movilidad eléctrica, historias de marca, acceso al área personal y preguntas frecuentes. Servicios explica los pasos para solicitar una visita y Nuestra esencia desarrolla la identidad. Se reutilizan los componentes de panel editorial, servicios, historias y preguntas. La sección eléctrica enlaza al filtro de motorización del catálogo.
-
-Las imágenes aportadas sirven como referencias de dirección visual. Las secciones utilizan nuevas escenas conceptuales creadas sin textos incorporados. La [organización de referencias](docs/SECCIONES.md) recoge el destino de cada imagen y los módulos reservados para BigSchool. No se presentan app, financiación, configurador o reseñas reales como funcionalidades terminadas.
+He añadido KelseTS Cars Team como acceso interno. Las cuentas no se registran públicamente y los permisos se comprueban en el backend. La red parte de cuatro talleres ficticios próximos a las cuatro sedes, cargados desde un nuevo CSV y visibles en el mapa con un color distinto. Cada taller inicial referencia su concesionario, y la cita puede relacionar a cliente, vehículo, sede y taller mediante `Appointment.workshop`. Los talleres registrados solo consultan sus asignaciones, sin acceso a la agenda general. Los talleres de demostración no tienen credenciales ni cuenta de usuario.
 
 
-## Red de talleres y acceso Team · 4 de octubre de 2026
+## 7. Comunicaciones y Mailtrap
 
-He añadido KelseTS Cars Team como acceso interno. Las cuentas no se registran públicamente y los permisos se comprueban en el backend. La red parte de cuatro talleres ficticios próximos a las cuatro sedes, cargados desde un nuevo CSV y visibles en el mapa con un color distinto. Cada taller inicial referencia su concesionario, y la cita puede relacionar a cliente, vehículo, sede y taller mediante `Appointment.workshop`. Los talleres registrados solo consultan sus asignaciones, sin acceso a la agenda general. Los talleres de demostración no tienen credenciales ni cuenta de usuario. La documentación distingue coordinación de citas de la futura gestión de reparaciones.
+Las comunicaciones acompañan el recorrido del usuario: confirman el alta, explican el resultado de una solicitud y permiten seguir los cambios de una cita. He tomado como referencia el planteamiento de KelseTS Talks, adaptándolo a los perfiles de cliente, taller y Team de este proyecto.
+
+La aplicación guarda los mensajes en la bandeja privada. Las diez muestras recibidas en Mailtrap son una revisión independiente de las plantillas HTML y texto, con datos ficticios y sin entrega a buzones personales.
+
 
 ### Identidad visual de las muestras de correo
 
@@ -153,80 +195,16 @@ He mantenido el mismo logotipo de la web en los correos, exportándolo desde el 
 
 ### Comprobación de las comunicaciones en Mailtrap
 
-El 4 de octubre he enviado las diez muestras al Sandbox y he comprobado su recepción consultando la API. He guardado el HTML y el texto recibidos, la fecha y el identificador de cada mensaje. El texto coincide con la plantilla actual y los cinco enlaces de cada HTML apuntan a la web configurada. La versión de texto incluye también el footer, para conservar la información cuando no se muestran imágenes.
+He enviado las diez muestras al Sandbox y he comprobado su recepción consultando la API. He guardado el HTML y el texto recibidos, la fecha y el identificador de cada mensaje. El texto coincide con la plantilla actual y los cinco enlaces de cada HTML apuntan a la web configurada. La versión de texto incluye también el footer, para conservar la información cuando no se muestran imágenes.
 
 Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los mensajes descargados del Sandbox. He revisado en Safari el encabezado, la fotografía, el botón y el footer de los diez tipos en el preset Phone de Mailtrap, con capturas de cada uno. El mensaje largo de asignación al taller tiene también una captura del contenido. La revisión se hizo con el preset móvil de Mailtrap. El análisis de Mailtrap señala estilos que algunos clientes pueden interpretar de otra forma; no lo considero una prueba de compatibilidad universal. Estas muestras no envían correo a buzones personales ni demuestran un envío automático desde un evento de la aplicación.
 
-![Identidad visual de la muestra de correo](docs/evidencias/correo-identidad-2026-10-04.png)
+<a href="docs/evidencias/correo-identidad-2026-10-04.png"><img src="docs/evidencias/correo-identidad-2026-10-04.png" alt="Identidad visual de la muestra de correo" width="720"></a>
 
-![Footer de la muestra de correo](docs/evidencias/correo-footer-2026-10-04.png)
-
-## Gestión de fotografías · 4 de octubre
-
-He incorporado la subida de imágenes desde el frontend porque permite que el equipo mantenga el catálogo sin editar archivos del proyecto. La gestión parte de la ficha de cada unidad, donde ya se identifican el modelo y la sede. Antes de guardar aparece una vista previa y se puede descartar la selección. He mantenido los colores, los botones redondeados y un título contenido, con una columna en pantallas pequeñas.
-
-La operación usa `FormData`, Multer y el SDK de Cloudinary en Node. Solo una cuenta administradora puede realizarla; ocultar el formulario al resto de perfiles no sustituye al control del backend. También se comprueba el contenido del archivo y se limita su tamaño a 5 MB. La clave privada no llega a React. Esta implementación sigue la [documentación del SDK de Node](https://cloudinary.com/documentation/node_image_and_video_upload).
-
-La prueba de integración utiliza una base temporal y dos imágenes de prueba que se eliminan al terminar. Comprueba sesión, permisos de cliente, taller y personal, archivo ausente, imagen falsa, exceso de tamaño, campo incorrecto, persistencia de la URL y sustitución. Después he completado el recorrido desde Safari con una unidad del catálogo: Porsche 911 Carrera de Barcelona. Se ha conservado su fotografía de referencia y su atribución. La gestión no migra toda la biblioteca ni cambia la semilla del Excel.
-
-Las [evidencias](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Estas capturas muestran la distribución en Safari de escritorio; no acreditan una subida desde Fotos en un teléfono.
-
-![Vista previa de la fotografía desde Team en Safari](docs/evidencias/cloudinary/01-vista-previa-safari.png)
-
-![Confirmación de la subida a Cloudinary en Safari](docs/evidencias/cloudinary/02-guardado-safari.png)
-
-El formulario vacío también se revisó a 390 px dentro de un marco de Safari. Esta captura muestra la distribución, no una subida desde un teléfono.
-
-![Formulario de fotografía a 390 px en Safari](docs/evidencias/cloudinary/04-formulario-390-safari.png)
-
-## Fotografías del entorno de las sedes · 4 de octubre
-
-He añadido una fotografía diferente a cada uno de los cuatro concesionarios y los cuatro talleres. Quería que se entendiera mejor el entorno elegido para la red: Salamanca, Pedralbes, Miraconcha y La Caleta. Las imágenes muestran calles, arquitectura y patrimonio de esos barrios; las instalaciones y las direcciones de KelseTS Cars siguen siendo ficticias, y las tarjetas lo indican.
-
-Las ocho fotografías proceden de Wikimedia Commons. He guardado sus autores, fuentes y licencias en `data/media/neighborhoods.json` y he añadido las atribuciones a la página de créditos, accesibles desde cada tarjeta. Se conservan copias locales de 1280 px, con carga diferida y encuadre adaptable. No se repiten entre las ocho tarjetas.
-
-El enlace a Street View utiliza las coordenadas aproximadas del centro, sin enviar la ubicación del visitante. He elegido los [enlaces de Google Maps](https://developers.google.com/maps/documentation/urls/get-started), que no necesitan clave API. La panorámica disponible depende de Google y no representa nuestras instalaciones. Las fotografías tampoco se presentan como imágenes actuales de la calle.
-
-En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La compilación y las 24 pruebas locales pasan. La captura corresponde a Safari de escritorio. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
-
-![Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
-
-## Preparación del despliegue · 10 de octubre
-
-He ajustado el límite de las fotografías a 4 MB, compartido entre React y Multer. Las pruebas anteriores utilizaron el límite inicial de 5 MB; Vercel limita el cuerpo completo de las peticiones a 4,5 MB, por lo que he dejado margen para el formulario multipart. El formulario y sus mensajes muestran el nuevo límite.
-
-La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conecta a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.
-
-## Primera revisión del despliegue · 10 de octubre
-
-He publicado la [web](https://kelsets-cars.vercel.app) y la [API](https://kelsets-cars-api.vercel.app/api/v1/health) como dos proyectos de Vercel conectados al mismo repositorio. La API utiliza Atlas y la web conserva las peticiones bajo `/api/v1` en su propio dominio. Las variables privadas se guardan como sensibles en el backend.
-
-He comprobado las consultas de los 148 vehículos, cuatro sedes y cuatro talleres, los recursos públicos y la apertura directa de páginas interiores. Con una cuenta ficticia autorizada para esta revisión he probado registro, acceso, sesión y cierre. Safari conserva la sesión al recargar y muestra la comunicación de bienvenida. Las peticiones sin sesión y desde un origen ajeno se rechazan.
-
-![Portada publicada en Vercel, revisada desde Safari](docs/evidencias/despliegue/01-home-safari.png)
-
-![Catálogo publicado con el inventario de Atlas](docs/evidencias/despliegue/02-catalogo-safari.png)
-
-![Área de cliente después de recargar Safari con sesión activa](docs/evidencias/despliegue/03-sesion-safari.png)
-
-El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcance de la revisión inicial. Después se ha comprobado la subida desde Vercel, documentada en Cloudinary, y el recorrido de citas en producción, documentado al final de esta memoria.
+<a href="docs/evidencias/correo-footer-2026-10-04.png"><img src="docs/evidencias/correo-footer-2026-10-04.png" alt="Footer de la muestra de correo" width="720"></a>
 
 
-## Selector y traducciones · 10 de octubre
-
-He añadido un contexto de idioma con un hook compartido y un archivo para los textos ingleses. El selector ES/EN conserva la elección al recargar y cambia las etiquetas accesibles, el idioma del documento y el título. Si el navegador bloquea el almacenamiento, la web sigue funcionando y conserva la elección durante esa sesión.
-
-La traducción afecta a la presentación: los valores de motorización, servicios y estados enviados al backend no cambian. He comprobado en Safari que Electric sigue enviando `Eléctrico` y devuelve los diez vehículos Tesla esperados. También he accedido con la cuenta ficticia de despliegue y cambiado a castellano manteniendo la sesión. En esta primera captura la interfaz privada ya incorpora traducciones, pero la bienvenida aún aparece en castellano. La revisión siguiente añade las comunicaciones inglesas.
-
-![Portada inglesa y cabecera adaptada a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
-
-![Área de cliente en inglés, antes de añadir las comunicaciones inglesas](docs/evidencias/idiomas/03-cliente-en-safari.png)
-
-El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Pasan once pruebas del frontend y la compilación. La segunda fase podrá reutilizar las traducciones y la lógica de idioma; el almacenamiento y el selector de una app nativa necesitarán su propia adaptación.
-
-La portada inglesa también se ha comprobado en el dominio de Vercel después de publicar el commit `6d2f9b3`. La [captura de producción](docs/evidencias/idiomas/04-home-en-vercel-safari.png) se conserva separada de las pruebas locales.
-
-## Comunicaciones en ambos idiomas · 10 de octubre
+### Contenido en ambos idiomas
 
 Las diez comunicaciones tienen ahora versión inglesa, incluido el footer. He conservado el logo aprobado y una imagen distinta para cada tipo de mensaje. Al crear una comunicación se guardan los dos idiomas dentro de la misma operación de base de datos: una cita posterior o un cambio de nombre no alteran ese contenido histórico.
 
@@ -234,65 +212,133 @@ La bandeja solicita el idioma seleccionado y sigue mostrando solo los mensajes d
 
 Pasan las pruebas automáticas y la integración de registros, talleres y citas en una base temporal de Atlas, eliminada al terminar. He revisado la bienvenida inglesa y su footer en Safari. Son vistas previas locales, no nuevos envíos a Mailtrap ni una comprobación de todos los clientes de correo.
 
-![Bienvenida inglesa con el logo aprobado](docs/evidencias/idiomas/05-bienvenida-email-en-safari.png)
+<a href="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png"><img src="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png" alt="Bienvenida inglesa con el logo aprobado" width="720"></a>
 
-![Footer inglés y enlaces](docs/evidencias/idiomas/06-footer-email-en-safari.png)
+<a href="docs/evidencias/idiomas/06-footer-email-en-safari.png"><img src="docs/evidencias/idiomas/06-footer-email-en-safari.png" alt="Footer inglés y enlaces" width="720"></a>
 
-La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
+La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano.
 
-![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)
+<a href="docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png"><img src="docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png" alt="Bandeja inglesa publicada" width="720"></a>
 
-## Navegación y Cloudinary en Vercel · 10 de octubre
+
+## 8. Gestión de fotografías con Cloudinary
+
+He incorporado la subida de imágenes desde el frontend porque permite que el equipo mantenga el catálogo sin editar archivos del proyecto. La gestión parte de la ficha de cada unidad, donde ya se identifican el modelo y la sede. Antes de guardar aparece una vista previa y se puede descartar la selección. He mantenido los colores, los botones redondeados y un título contenido, con una columna en pantallas pequeñas.
+
+La operación usa `FormData`, Multer y el SDK de Cloudinary en Node. Solo una cuenta administradora puede realizarla; ocultar el formulario al resto de perfiles no sustituye al control del backend. También se comprueba el contenido del archivo y se limita su tamaño a 4 MB. La clave privada no llega a React. Esta implementación sigue la [documentación del SDK de Node](https://cloudinary.com/documentation/node_image_and_video_upload).
+
+La prueba de integración utiliza una base temporal y dos imágenes de prueba que se eliminan al terminar. Comprueba sesión, permisos de cliente, taller y personal, archivo ausente, imagen falsa, exceso de tamaño, campo incorrecto, persistencia de la URL y sustitución. Después he completado el recorrido desde Safari con una unidad del catálogo: Porsche 911 Carrera de Barcelona. Se ha conservado su fotografía de referencia y su atribución. La gestión no migra toda la biblioteca ni cambia la semilla del Excel.
+
+Las [evidencias de Cloudinary](docs/evidencias/cloudinary/README.md) distinguen la prueba automática de la revisión en navegador. He revisado el formulario vacío a 320, 390, 768 y 1440 px en un marco de Safari que carga la ficha real. A 320 y 390 px se muestra una columna; a 768 y 1440 px, dos. Las capturas están guardadas. Estas capturas muestran la distribución en Safari de escritorio; no acreditan una subida desde Fotos en un teléfono.
+
+<a href="docs/evidencias/cloudinary/01-vista-previa-safari.png"><img src="docs/evidencias/cloudinary/01-vista-previa-safari.png" alt="Vista previa de la fotografía desde Team en Safari" width="720"></a>
+
+<a href="docs/evidencias/cloudinary/02-guardado-safari.png"><img src="docs/evidencias/cloudinary/02-guardado-safari.png" alt="Confirmación de la subida a Cloudinary en Safari" width="720"></a>
+
+El formulario vacío también se revisó a 390 px dentro de un marco de Safari. Esta captura muestra la distribución, no una subida desde un teléfono.
+
+<a href="docs/evidencias/cloudinary/04-formulario-390-safari.png"><img src="docs/evidencias/cloudinary/04-formulario-390-safari.png" alt="Formulario de fotografía a 390 px en Safari" width="720"></a>
+
+
+### Fotografías en la web publicada
+
+También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web de Vercel. La API la guarda en Cloudinary y Atlas. Como la conexión directa al dominio de imágenes fallaba desde este equipo, la ficha y las tarjetas recuperan ahora la imagen mediante nuestra API, con destino fijo, control de tamaño y formato y caché breve. La URL original se conserva. La [verificación](docs/evidencias/cloudinary/verificacion-vercel.json) registra la respuesta JPEG y la comprobación visual en Safari.
+
+<a href="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png"><img src="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png" alt="Fotografía publicada desde Cloudinary" width="720"></a>
+
+
+## 9. Despliegue en Vercel
+
+He publicado la [web](https://kelsets-cars.vercel.app) y la [API](https://kelsets-cars-api.vercel.app/api/v1/health) como dos proyectos de Vercel conectados al mismo repositorio. La API utiliza Atlas y la web conserva las peticiones bajo `/api/v1` en su propio dominio. Las variables privadas se guardan como sensibles en el backend.
+
+He comprobado las consultas de los 148 vehículos, cuatro sedes y cuatro talleres, los recursos públicos y la apertura directa de páginas interiores. Con una cuenta ficticia autorizada para esta revisión he probado registro, acceso, sesión y cierre. Safari conserva la sesión al recargar y muestra la comunicación de bienvenida. Las peticiones sin sesión y desde un origen ajeno se rechazan.
+
+<a href="docs/evidencias/despliegue/01-home-safari.png"><img src="docs/evidencias/despliegue/01-home-safari.png" alt="Portada publicada en Vercel, revisada desde Safari" width="720"></a>
+
+<a href="docs/evidencias/despliegue/02-catalogo-safari.png"><img src="docs/evidencias/despliegue/02-catalogo-safari.png" alt="Catálogo publicado con el inventario de Atlas" width="720"></a>
+
+<a href="docs/evidencias/despliegue/03-sesion-safari.png"><img src="docs/evidencias/despliegue/03-sesion-safari.png" alt="Área de cliente después de recargar Safari con sesión activa" width="720"></a>
+
+El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge la revisión de las páginas y la sesión. Las pruebas de fotografías y del recorrido de citas tienen sus informes propios.
+
+
+### Configuración del frontend y backend
+
+El límite de las fotografías es 4 MB, compartido entre React y Multer. He dejado margen para el formulario multipart y el límite de petición de Vercel. El formulario y sus mensajes muestran el mismo valor. Las pruebas de integración iniciales utilizan el límite anterior de 5 MB, identificado en su informe.
+
+La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conecta a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.
+
+
+## 10. Pruebas y evidencias
+
+He comprobado la lógica local, los permisos de la API y los recorridos de la web. Cada herramienta aporta una evidencia distinta: las pruebas automáticas verifican condiciones, Insomnia permite leer las respuestas y las capturas muestran el estado visible de la interfaz. Los [resultados de validación](docs/VALIDACION.md) reúnen los informes por entorno.
+
+La compilación y las 44 pruebas locales pasan. Las integraciones con Atlas, Cloudinary y Mailtrap se documentan por separado. Las pruebas utilizan cuentas ficticias y bases temporales; las capturas no incluyen contraseñas, cookies ni tokens.
+
+
+### Búsqueda del catálogo
+
+La búsqueda predictiva sugiere marcas y modelos sin cubrir el contador ni las tarjetas. Los filtros son una alternativa para quien prefiera acotar por características.
+
+<a href="docs/evidencias/buscador-predictivo-2026-10-04.png"><img src="docs/evidencias/buscador-predictivo-2026-10-04.png" alt="Sugerencias de marcas y modelos en el catálogo" width="720"></a>
+
+<a href="docs/evidencias/modos-busqueda-2026-10-04.png"><img src="docs/evidencias/modos-busqueda-2026-10-04.png" alt="Alternativas de búsqueda libre y filtros" width="720"></a>
+
+La ficha del catálogo ampliado muestra la propuesta de gama alta y mantiene los datos no comprobados como pendientes.
+
+<a href="docs/evidencias/ficha-lujo-2026-10-04.png"><img src="docs/evidencias/ficha-lujo-2026-10-04.png" alt="Ficha de vehículo del catálogo ampliado" width="720"></a>
+
+### Recorrido de mantenimiento
+
+Las capturas muestran la solicitud del cliente, la confirmación desde Team, la asignación al taller y el cierre comunicado al cliente. La cita de demostración se cerró anticipadamente para revisar el flujo; no acredita un mantenimiento real.
+
+<a href="docs/evidencias/recorrido/01-cliente-solicitud.png"><img src="docs/evidencias/recorrido/01-cliente-solicitud.png" alt="Cliente: solicitud de mantenimiento" width="720"></a>
+
+<a href="docs/evidencias/recorrido/02-team-confirmacion.png"><img src="docs/evidencias/recorrido/02-team-confirmacion.png" alt="Team: confirmación de la cita" width="720"></a>
+
+<a href="docs/evidencias/recorrido/04-taller-asignacion.png"><img src="docs/evidencias/recorrido/04-taller-asignacion.png" alt="Taller: cita de mantenimiento asignada" width="720"></a>
+
+<a href="docs/evidencias/recorrido/07-cliente-cierre.png"><img src="docs/evidencias/recorrido/07-cliente-cierre.png" alt="Cliente: cierre de la cita y comunicación" width="720"></a>
+
+
+### Registro y revisión de talleres desde Safari
 
 He revisado las páginas públicas en castellano e inglés y el catálogo publicado: sugerencias con teclado, cambio entre búsqueda y filtros y paginación conservando la marca elegida. El contador utiliza ahora el singular cuando solo hay un vehículo.
 
 Para el registro de clientes y talleres he preparado una base temporal separada. Desde Safari he aprobado un taller, rechazado otro con motivo y comprobado que no se permite rechazar sin explicarlo. Después he completado una cita de mantenimiento entre cliente, Team y taller, con sus estados y comunicaciones. La base temporal se eliminó al terminar. El [informe de navegación](docs/evidencias/navegacion/README.md) identifica qué pruebas pertenecen a producción y cuáles a este entorno.
 
-![Visita terminada y comunicaciones del cliente](docs/evidencias/navegacion/08-visita-completada-temporal-safari.png)
+<a href="docs/evidencias/navegacion/08-visita-completada-temporal-safari.png"><img src="docs/evidencias/navegacion/08-visita-completada-temporal-safari.png" alt="Visita terminada y comunicaciones del cliente" width="720"></a>
 
-También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web de Vercel. La API la guarda en Cloudinary y Atlas. Como la conexión directa al dominio de imágenes fallaba desde este equipo, la ficha y las tarjetas recuperan ahora la imagen mediante nuestra API, con destino fijo, control de tamaño y formato y caché breve. La URL original se conserva. La [verificación](docs/evidencias/cloudinary/verificacion-vercel.json) registra la respuesta JPEG y la comprobación visual en Safari.
 
-![Fotografía publicada desde Cloudinary](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
+### Recorrido privado en producción
 
-La ronda final de Insomnia y el ciclo HTTP de citas en producción se han completado después y tienen sus informes correspondientes. Estas capturas de escritorio no sustituyen esas pruebas.
-
-## Cabecera y revisión responsive · 10 de octubre
-
-Al revisar la web en su iPhone 13, la cabecera anterior apilaba navegación, idioma y acceso. He sustituido esa distribución por un menú desplegable en móvil y tablet, conservando el logo aprobado. Los enlaces tienen espacio para pulsarlos; el idioma y el acceso siguen dentro del menú. Escape recupera el foco y navegar lo cierra.
-
-He preparado capturas de todas las rutas públicas en castellano e inglés a 390 px, de los perfiles de cliente, taller y Team a 320, 390, 768 y 1440 px y de formularios y vista previa de fotografías. Safari mostraba los selectores de las citas con una altura reducida; ahora tienen un mínimo de 48 px. El error de fecha también se ha revisado.
-
-![Menú al ancho de revisión del iPhone 13](docs/evidencias/movil/02-menu-es-390.png)
-
-El [informe responsive](docs/evidencias/movil/README.md) incluye las capturas y sus límites. Se han tomado en marcos de Safari de escritorio con el frontend local; los perfiles utilizaron una base temporal eliminada al terminar. No sustituyen la comprobación del teclado, barras del navegador, orientación y subida desde Fotos en el iPhone físico.
-
-## Recorrido comprobado en producción
-
-El 10 de octubre se han ejecutado 101 comprobaciones HTTP contra la web y la API de Vercel, todas correctas. La revisión incluye catálogo, sesiones, permisos, privacidad, comunicaciones en ambos idiomas y entrega de imágenes de Cloudinary. Con dos talleres ficticios autorizados y ocultos del directorio público se han probado la aprobación y el rechazo con motivo. Cliente Demo Despliegue ha solicitado una cita de mantenimiento que Team ha asignado, confirmado y completado; una segunda cita se ha cancelado desde el perfil de cliente. También se han comprobado los bloqueos de duplicados y cambios de estado incorrectos.
+He ejecutado 101 comprobaciones HTTP contra la web y la API de Vercel, todas correctas. La revisión incluye catálogo, sesiones, permisos, privacidad, comunicaciones en ambos idiomas y entrega de imágenes de Cloudinary. Con dos talleres ficticios autorizados y ocultos del directorio público se han probado la aprobación y el rechazo con motivo. Cliente Demo Despliegue ha solicitado una cita de mantenimiento que Team ha asignado, confirmado y completado; una segunda cita se ha cancelado desde el perfil de cliente. También se han comprobado los bloqueos de duplicados y cambios de estado incorrectos.
 
 Los registros ficticios se conservan como demostración. El [informe de producción](docs/evidencias/produccion/README.md) incluye los resultados esperados y obtenidos y explica el alcance: son peticiones HTTP reales, no una ejecución de la interfaz de Insomnia ni pruebas físicas del teléfono. No se han añadido credenciales a la documentación.
 
-## Ejecución y capturas de Insomnia
+
+### Resultados de Insomnia
 
 He importado la colección en Insomnia 13.2.0 y ejecutado las 76 peticiones principales sobre una base temporal de Atlas con el backend local. Pasan sus 171 comprobaciones. La ronda permite seguir el registro y la separación de perfiles, aprobar y rechazar talleres, asignar un mantenimiento, cancelar una cita propia y completar otra visita. El taller recibe el nombre del cliente sin su correo. La base temporal se eliminó al terminar.
 
-![Ronda completa de Insomnia: 171 comprobaciones correctas](docs/evidencias/insomnia/01-ronda-completa-171.png)
+<a href="docs/evidencias/insomnia/01-ronda-completa-171.png"><img src="docs/evidencias/insomnia/01-ronda-completa-171.png" alt="Ronda completa de Insomnia: 171 comprobaciones correctas" width="720"></a>
 
 La ejecución encontró dos ajustes necesarios en la colección: usar el código HTTP numérico y conservar en el jar la cookie que devuelve el registro o login. Tras corregirlos, se repitió la ronda completa. No fue necesario modificar los permisos ni la autenticación de la API.
 
-![El cliente no puede revisar solicitudes de talleres](docs/evidencias/insomnia/05-cliente-permiso-denegado.png)
+<a href="docs/evidencias/insomnia/05-cliente-permiso-denegado.png"><img src="docs/evidencias/insomnia/05-cliente-permiso-denegado.png" alt="El cliente no puede revisar solicitudes de talleres" width="720"></a>
 
 También he ejecutado 15 peticiones públicas contra Vercel, con 36 comprobaciones correctas y sin crear más cuentas o citas. Esta colección se puede repetir sin credenciales. Las dos peticiones de subida manual de imágenes no se incluyen en el runner; su prueba desde Safari está documentada en Cloudinary. El [informe de Insomnia](docs/evidencias/insomnia/README.md) conserva 23 capturas y distingue esta ejecución de las pruebas HTTP anteriores.
 
-![Resultado de Insomnia contra Vercel](docs/evidencias/insomnia/06-vercel-36-comprobaciones.png)
+<a href="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png"><img src="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png" alt="Resultado de Insomnia contra Vercel" width="720"></a>
 
-## Recorrido documentado paso a paso
 
-Para que se pueda seguir la prueba sin ejecutar la colección, he ampliado las evidencias con los pasos de cliente, taller y Team. Mantengo el esquema de objetivo, petición, resultado e interpretación que utilicé en [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/docs/insomnia/VALIDACION-DETALLADA.md).
+### El backend paso a paso
+
+Para seguir la prueba sin ejecutar la colección, las capturas muestran los pasos de cliente, taller y Team. En cada uno explico qué quiero comprobar, qué petición realizo y cómo interpreto la respuesta.
 
 Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas de la ronda correcta en Insomnia. No son una segunda ejecución: la base temporal ya estaba eliminada y no se pulsó Send. Se conserva el código HTTP, el contador de comprobaciones y el resultado original. En las respuestas largas he aplicado el filtro JSONPath indicado para que se lea el dato relevante, sin modificar la respuesta. Los identificadores permiten relacionar las etapas; no son credenciales.
 
-### Caso 15 · Registro de cliente
+#### Caso 15 · Registro de cliente
 
 **Objetivo:** Comprobar el alta de una cuenta de cliente.
 
@@ -302,9 +348,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El servidor asigna un perfil de cliente y devuelve los datos necesarios para el área privada. No se muestran la cookie ni las credenciales.
 
-![Caso 15: Registro de cliente](docs/evidencias/insomnia/10-registro-cliente.png)
+<a href="docs/evidencias/insomnia/10-registro-cliente.png"><img src="docs/evidencias/insomnia/10-registro-cliente.png" alt="Caso 15: Registro de cliente" width="720"></a>
 
-### Caso 17 · Sesión del cliente
+#### Caso 17 · Sesión del cliente
 
 **Objetivo:** Comprobar que la sesión creada permite consultar el perfil.
 
@@ -314,9 +360,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El registro y la consulta de sesión corresponden a la misma cuenta. La cookie se conserva en Insomnia; su valor no se incluye en la evidencia.
 
-![Caso 17: Sesión del cliente](docs/evidencias/insomnia/11-sesion-cliente.png)
+<a href="docs/evidencias/insomnia/11-sesion-cliente.png"><img src="docs/evidencias/insomnia/11-sesion-cliente.png" alt="Caso 17: Sesión del cliente" width="720"></a>
 
-### Caso 22 · Solicitud de mantenimiento
+#### Caso 22 · Solicitud de mantenimiento
 
 **Objetivo:** Solicitar un mantenimiento como cliente autenticado.
 
@@ -328,9 +374,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 22: Solicitud de mantenimiento](docs/evidencias/insomnia/12-solicitud-mantenimiento.png)
+<a href="docs/evidencias/insomnia/12-solicitud-mantenimiento.png"><img src="docs/evidencias/insomnia/12-solicitud-mantenimiento.png" alt="Caso 22: Solicitud de mantenimiento" width="720"></a>
 
-### Caso 23 · Franja ya ocupada
+#### Caso 23 · Franja ya ocupada
 
 **Objetivo:** Intentar crear otra cita en la sede y hora ya ocupadas.
 
@@ -340,9 +386,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El conflicto es el resultado esperado. Evita reservar dos citas activas en la misma sede y franja.
 
-![Caso 23: Franja ya ocupada](docs/evidencias/insomnia/13-franja-ocupada.png)
+<a href="docs/evidencias/insomnia/13-franja-ocupada.png"><img src="docs/evidencias/insomnia/13-franja-ocupada.png" alt="Caso 23: Franja ya ocupada" width="720"></a>
 
-### Caso 30 · Taller pendiente
+#### Caso 30 · Taller pendiente
 
 **Objetivo:** Consultar la solicitud después del registro del taller.
 
@@ -352,9 +398,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** La solicitud queda pendiente de revisión. El registro no aprueba al taller automáticamente ni lo publica en el directorio. El nombre y los datos de contacto son ficticios.
 
-![Caso 30: Taller pendiente](docs/evidencias/insomnia/14-taller-pendiente.png)
+<a href="docs/evidencias/insomnia/14-taller-pendiente.png"><img src="docs/evidencias/insomnia/14-taller-pendiente.png" alt="Caso 30: Taller pendiente" width="720"></a>
 
-### Caso 42 · Aprobación del taller
+#### Caso 42 · Aprobación del taller
 
 **Objetivo:** Aprobar la colaboración desde una sesión de Team.
 
@@ -364,9 +410,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El identificador coincide con la solicitud pendiente. Se guardan la fecha y la cuenta que revisó el alta. El taller continúa oculto porque esta prueba no cambia public.
 
-![Caso 42: Aprobación del taller](docs/evidencias/insomnia/15-taller-aprobado.png)
+<a href="docs/evidencias/insomnia/15-taller-aprobado.png"><img src="docs/evidencias/insomnia/15-taller-aprobado.png" alt="Caso 42: Aprobación del taller" width="720"></a>
 
-### Caso 45 · Rechazo con motivo
+#### Caso 45 · Rechazo con motivo
 
 **Objetivo:** Rechazar otra solicitud explicando la decisión.
 
@@ -376,9 +422,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** La respuesta conserva el motivo «Faltan datos para revisar la colaboración.». Es una solicitud distinta de la aprobada. El caso 44 comprueba además que no se admite el rechazo sin motivo.
 
-![Caso 45: Rechazo con motivo](docs/evidencias/insomnia/16-taller-rechazado.png)
+<a href="docs/evidencias/insomnia/16-taller-rechazado.png"><img src="docs/evidencias/insomnia/16-taller-rechazado.png" alt="Caso 45: Rechazo con motivo" width="720"></a>
 
-### Caso 47 · Asignación del mantenimiento
+#### Caso 47 · Asignación del mantenimiento
 
 **Objetivo:** Asignar desde Team el mantenimiento al taller revisado.
 
@@ -390,9 +436,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.workshop`.
 
-![Caso 47: Asignación del mantenimiento](docs/evidencias/insomnia/17-mantenimiento-asignado.png)
+<a href="docs/evidencias/insomnia/17-mantenimiento-asignado.png"><img src="docs/evidencias/insomnia/17-mantenimiento-asignado.png" alt="Caso 47: Asignación del mantenimiento" width="720"></a>
 
-### Caso 49 · Confirmación de la cita
+#### Caso 49 · Confirmación de la cita
 
 **Objetivo:** Confirmar desde Team la cita previamente asignada.
 
@@ -404,9 +450,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 49: Confirmación de la cita](docs/evidencias/insomnia/18-cita-confirmada.png)
+<a href="docs/evidencias/insomnia/18-cita-confirmada.png"><img src="docs/evidencias/insomnia/18-cita-confirmada.png" alt="Caso 49: Confirmación de la cita" width="720"></a>
 
-### Caso 56 · Comunicaciones del taller
+#### Caso 56 · Comunicaciones del taller
 
 **Objetivo:** Consultar los avisos desde el perfil del taller aprobado.
 
@@ -418,9 +464,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 56: Comunicaciones del taller](docs/evidencias/insomnia/19-comunicaciones-taller.png)
+<a href="docs/evidencias/insomnia/19-comunicaciones-taller.png"><img src="docs/evidencias/insomnia/19-comunicaciones-taller.png" alt="Caso 56: Comunicaciones del taller" width="720"></a>
 
-### Caso 69 · Cancelación de la cita propia
+#### Caso 69 · Cancelación de la cita propia
 
 **Objetivo:** Cancelar la primera cita desde el cliente que la solicitó.
 
@@ -432,9 +478,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 69: Cancelación de la cita propia](docs/evidencias/insomnia/20-cita-cancelada.png)
+<a href="docs/evidencias/insomnia/20-cita-cancelada.png"><img src="docs/evidencias/insomnia/20-cita-cancelada.png" alt="Caso 69: Cancelación de la cita propia" width="720"></a>
 
-### Caso 70 · Comunicaciones del cliente
+#### Caso 70 · Comunicaciones del cliente
 
 **Objetivo:** Consultar los avisos del cliente después de cancelar.
 
@@ -446,9 +492,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 70: Comunicaciones del cliente](docs/evidencias/insomnia/21-comunicaciones-cliente.png)
+<a href="docs/evidencias/insomnia/21-comunicaciones-cliente.png"><img src="docs/evidencias/insomnia/21-comunicaciones-cliente.png" alt="Caso 70: Comunicaciones del cliente" width="720"></a>
 
-### Caso 65 · Bandeja de otro cliente
+#### Caso 65 · Bandeja de otro cliente
 
 **Objetivo:** Consultar los mensajes después de registrar a un segundo cliente.
 
@@ -460,9 +506,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 65: Bandeja de otro cliente](docs/evidencias/insomnia/22-bandeja-otro-cliente.png)
+<a href="docs/evidencias/insomnia/22-bandeja-otro-cliente.png"><img src="docs/evidencias/insomnia/22-bandeja-otro-cliente.png" alt="Caso 65: Bandeja de otro cliente" width="720"></a>
 
-### Caso 64 · Cita ajena protegida
+#### Caso 64 · Cita ajena protegida
 
 **Objetivo:** Intentar cancelar la primera cita desde la segunda cuenta.
 
@@ -472,9 +518,9 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El servidor responde «La cita ya tiene ese estado o no puedes modificarla.». El 409 es el código utilizado en esta operación; no debe confundirse con el 403 de las rutas reservadas a Team.
 
-![Caso 64: Cita ajena protegida](docs/evidencias/insomnia/23-cita-ajena-protegida.png)
+<a href="docs/evidencias/insomnia/23-cita-ajena-protegida.png"><img src="docs/evidencias/insomnia/23-cita-ajena-protegida.png" alt="Caso 64: Cita ajena protegida" width="720"></a>
 
-### Qué permiten comprobar estas evidencias
+#### Qué permiten comprobar estas evidencias
 
 El recorrido muestra las relaciones cliente–cita–vehículo–sede–taller, las decisiones de Team y la separación de los perfiles. Incluye respuestas de éxito y errores esperados: un 409 de duplicado o de modificación ajena es una prueba correcta si ese era el resultado previsto.
 
@@ -482,52 +528,51 @@ El resumen de las 171 comprobaciones acredita la ronda principal; las imágenes 
 
 La [validación detallada](docs/insomnia/VALIDACION-DETALLADA.md) relaciona los 76 casos ejecutados con sus códigos esperados y obtenidos y con las capturas disponibles. La colección importable y los scripts permiten repetirlos con una base de pruebas y credenciales privadas. Las imágenes manuales de Cloudinary, los mensajes revisados en Mailtrap y la revisión responsive tienen informes independientes.
 
-### Otras capturas de la misma ejecución
+#### Otras capturas de la misma ejecución
 
 El runner no muestra comprobaciones fallidas en la ronda temporal:
 
-![Filtro de fallos vacío: ronda principal](docs/evidencias/insomnia/02-sin-fallos.png)
+<a href="docs/evidencias/insomnia/02-sin-fallos.png"><img src="docs/evidencias/insomnia/02-sin-fallos.png" alt="Filtro de fallos vacío: ronda principal" width="720"></a>
 
 La segunda visita se confirma y se completa desde Team. Es otra cita: no se completa la que el primer cliente canceló.
 
-![Segunda visita completada](docs/evidencias/insomnia/03-visita-completada.png)
+<a href="docs/evidencias/insomnia/03-visita-completada.png"><img src="docs/evidencias/insomnia/03-visita-completada.png" alt="Segunda visita completada" width="720"></a>
 
 La agenda del taller contiene el trabajo asignado y el nombre del cliente, sin su correo. Esta vista corresponde a la cita aún confirmada, antes de la cancelación posterior.
 
-![Agenda del taller con datos limitados del cliente](docs/evidencias/insomnia/04-agenda-taller-privacidad.png)
+<a href="docs/evidencias/insomnia/04-agenda-taller-privacidad.png"><img src="docs/evidencias/insomnia/04-agenda-taller-privacidad.png" alt="Agenda del taller con datos limitados del cliente" width="720"></a>
 
 En la ronda pública de Vercel, el filtro de fallos también queda vacío, el catálogo devuelve 148 unidades y el perfil anónimo se rechaza con 401.
 
-![Filtro de fallos vacío en Vercel](docs/evidencias/insomnia/07-vercel-sin-fallos.png)
+<a href="docs/evidencias/insomnia/07-vercel-sin-fallos.png"><img src="docs/evidencias/insomnia/07-vercel-sin-fallos.png" alt="Filtro de fallos vacío en Vercel" width="720"></a>
 
-![148 vehículos publicados](docs/evidencias/insomnia/08-vercel-inventario-148.png)
+<a href="docs/evidencias/insomnia/08-vercel-inventario-148.png"><img src="docs/evidencias/insomnia/08-vercel-inventario-148.png" alt="148 vehículos publicados" width="720"></a>
 
-![Perfil privado protegido en Vercel](docs/evidencias/insomnia/09-vercel-sin-sesion.png)
-
-## Apertura del libro de datos en Numbers
-
-He abierto el Excel de entrega en Numbers y revisado Guía, Vehículos, Sedes y Talleres. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres como resultados de sus fórmulas. El inventario conserva los 100 ejemplos del curso y las 48 unidades añadidas. Las claves de sede relacionan vehículos y talleres con los concesionarios.
-
-![Libro de entrega abierto en Numbers con los recuentos](docs/evidencias/datos/01-guia-numbers.png)
-
-### Vehículos
-
-![Inicio de la hoja Vehículos](docs/evidencias/datos/02-vehiculos-numbers.png)
-
-![Ampliación de modelos de lujo en el libro](docs/evidencias/datos/03-ampliacion-lujo-numbers.png)
-
-### Sedes
-
-![Hoja Sedes con los cuatro concesionarios](docs/evidencias/datos/04-sedes-numbers.png)
-
-### Talleres
-
-![Talleres con referencias a las sedes](docs/evidencias/datos/05-talleres-numbers.png)
-
-Después de la apertura, `data:check` confirma que todos los datos y relaciones del libro coinciden con los CSV; `seed:check` también pasa. No he cambiado celdas, guardado una conversión ni exportado desde Numbers. El archivo original mantiene su SHA-256. El [informe con las cinco capturas](docs/evidencias/datos/README.md) documenta esta revisión en Numbers; no la presenta como una prueba en Microsoft Excel.
+<a href="docs/evidencias/insomnia/09-vercel-sin-sesion.png"><img src="docs/evidencias/insomnia/09-vercel-sin-sesion.png" alt="Perfil privado protegido en Vercel" width="720"></a>
 
 
-## Revisión de la estructura y mantenimiento
+### Grabación en mi iPhone 13
+
+He grabado la navegación por la web publicada en mi iPhone 13. A partir del vídeo se han extraído siete fotogramas, manteniendo la resolución original y las barras del dispositivo. Permiten ver la home, el contenido editorial, el buscador con el contador de 148 vehículos, las tarjetas, la ficha, el menú en inglés y el acceso. En las pantallas revisadas no se aprecian desbordamientos horizontales.
+
+Esta evidencia complementa las capturas de Safari en el Mac. El vídeo muestra esas pantallas de la versión publicada; no lo utilizo como prueba de envío de formularios, inicio de sesión o subida de fotografías. El [informe del iPhone](docs/evidencias/iphone-real/README.md) conserva los instantes de extracción y las siete capturas.
+
+<a href="docs/evidencias/iphone-real/01-home.png"><img src="docs/evidencias/iphone-real/01-home.png" alt="Home grabada en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/02-editorial.png"><img src="docs/evidencias/iphone-real/02-editorial.png" alt="Contenido editorial grabado en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/03-buscador.png"><img src="docs/evidencias/iphone-real/03-buscador.png" alt="Buscador y contador grabados en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/04-catalogo.png"><img src="docs/evidencias/iphone-real/04-catalogo.png" alt="Tarjetas del catálogo grabadas en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/05-ficha.png"><img src="docs/evidencias/iphone-real/05-ficha.png" alt="Ficha y footer grabados en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/06-menu-ingles.png"><img src="docs/evidencias/iphone-real/06-menu-ingles.png" alt="Menú en inglés grabado en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/07-acceso-ingles.png"><img src="docs/evidencias/iphone-real/07-acceso-ingles.png" alt="Formulario de acceso en inglés grabado en iPhone 13" width="280"></a>
+
+
+## 11. Aprendizajes y correcciones aplicadas
 
 He separado los filtros, las tarjetas y la paginación del catálogo, las filas de citas, los campos del registro de talleres y las tarjetas de la red. Las páginas coordinan los datos y la navegación, mientras que cada componente presenta una parte concreta de la interfaz. El hook de ubicación reúne la solicitud de permiso, la selección manual y el tratamiento de errores. También he separado los estilos de las vistas privadas y del barrio, conservando el orden de aplicación de las reglas.
 
@@ -545,22 +590,22 @@ También he aplicado la observación sobre mostrar español e inglés a la vez y
 Las correcciones sobre autores, fechas, visitas y likes pertenecían a una entrega con Unsplash. En este proyecto he aplicado el criterio de mostrar información fiel a la fuente: las fotografías de vehículos conservan sus créditos, licencias y enlaces de origen, y se identifican como referencias. No he trasladado contadores ni campos de otra aplicación que aquí no tienen una función.
 
 
-## Grabación en mi iPhone 13
+### Qué me llevo de este proyecto
 
-He grabado la navegación por la web publicada en mi iPhone 13 el 10 de octubre. A partir del vídeo se han extraído siete fotogramas, manteniendo la resolución original y las barras del dispositivo. Permiten ver la home, el contenido editorial, el buscador con el contador de 148 vehículos, las tarjetas, la ficha, el menú en inglés y el acceso. En las pantallas revisadas no se aprecian desbordamientos horizontales.
+Este trabajo me ha permitido conectar decisiones de diseño con el comportamiento de la aplicación. Una búsqueda cómoda necesita datos bien preparados; una cita tiene que mantener sus relaciones y permisos; y un mensaje de confirmación debe corresponder a una operación que realmente se haya guardado.
 
-Esta evidencia complementa las capturas de Safari en el Mac. El vídeo muestra esas pantallas de la versión publicada; no lo utilizo como prueba de envío de formularios, inicio de sesión o subida de fotografías. El [informe del iPhone](docs/evidencias/iphone-real/README.md) conserva los instantes de extracción y las siete capturas.
+Las observaciones de mis profesores en entregas anteriores me han ayudado a revisar estas decisiones. He dado más atención a la separación de componentes, a las respuestas del backend y a la lectura del código. También he acompañado las pruebas con evidencias que permitan entender qué se ha comprobado y en qué entorno.
 
-![Home grabada en iPhone 13](docs/evidencias/iphone-real/01-home.png)
 
-![Contenido editorial grabado en iPhone 13](docs/evidencias/iphone-real/02-editorial.png)
+## Aviso legal
 
-![Buscador y contador grabados en iPhone 13](docs/evidencias/iphone-real/03-buscador.png)
+KelseTS es una marca ficticia creada por Araceli Fradejas Muñoz con fines educativos, académicos y de portfolio. KelseTS Cars no está afiliado, patrocinado, autorizado ni respaldado por Taylor Swift, Travis Kelce, los Kansas City Chiefs, la National Football League, sus representantes ni los fabricantes de automóviles mostrados. Las personas, concesionarios, talleres, inventario y servicios de la propuesta son ficticios.
 
-![Tarjetas del catálogo grabadas en iPhone 13](docs/evidencias/iphone-real/04-catalogo.png)
+Las escenas de marca se han creado para este proyecto. Las fotografías reales de vehículos y barrios conservan sus autores, fuentes y licencias en [Recursos](docs/RECURSOS.md), la [galería](docs/GALERIA-VEHICULOS.md) y la página de créditos.
 
-![Ficha y footer grabados en iPhone 13](docs/evidencias/iphone-real/05-ficha.png)
 
-![Menú en inglés grabado en iPhone 13](docs/evidencias/iphone-real/06-menu-ingles.png)
+## Autora
 
-![Formulario de acceso en inglés grabado en iPhone 13](docs/evidencias/iphone-real/07-acceso-ingles.png)
+**Araceli Fradejas Muñoz**
+
+Proyecto académico del máster Rock The Code de The Power Tech School.

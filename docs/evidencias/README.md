@@ -1,6 +1,6 @@
 # Evidencias de KelseTS Cars
 
-## Comunicaciones locales · 4 de octubre de 2026
+## Comunicaciones locales
 
 Estos diez HTML se generan con las plantillas del backend y datos ficticios. Son muestras locales; no acreditan entrega ni recepción en Mailtrap.
 
@@ -17,7 +17,7 @@ Estos diez HTML se generan con las plantillas del backend y datos ficticios. Son
 
 Cada HTML tiene su versión `.txt` en la misma carpeta. Se regeneran con `node scripts/export-email-evidence.mjs`; las imágenes se cargan desde los recursos del proyecto.
 
-## Recepción en Mailtrap · 4 de octubre de 2026
+## Recepción en Mailtrap
 
 Las diez muestras definitivas se han recibido con destinatario ficticio. El [registro de verificación](mailtrap/verificacion.json) incluye los identificadores y las fechas, coincidencia del texto con la plantilla actual, referencias CID, destinos de los cinco enlaces y hashes de HTML y texto. Los cuerpos realmente descargados están en [mailtrap/recibidos](mailtrap/recibidos). Sus imágenes CID se visualizan dentro de Mailtrap; para una vista local usar los HTML del apartado anterior.
 
@@ -31,7 +31,7 @@ La captura `client.welcome-text.png` corresponde a una versión anterior, antes 
 
 Las fotografías son diez escenas conceptuales distintas y exclusivas de los correos. La recepción y la verificación de sus cuerpos no acreditan un envío automático desde la aplicación. Se han revisado en Safari el logo, las imágenes, los botones y el footer de los diez tipos con el preset Phone. El preset de Mailtrap muestra el mensaje en su entorno de pruebas y no acredita compatibilidad con todos los clientes de correo.
 
-## Revisión Phone en Safari · 4 de octubre
+## Revisión Phone en Safari
 
 Capturas nativas de 2648 × 1988 píxeles Retina. El tamaño de la captura corresponde a la ventana de Safari, no al ancho CSS del correo. En las zonas revisadas no se observan desbordamientos horizontales; las imágenes y el logo cargan y los botones caben en el mensaje.
 
@@ -54,10 +54,10 @@ También se conserva el [contenido largo de asignación al taller](mailtrap/work
 
 Consultar [VALIDACION.md](../VALIDACION.md) para conocer los resultados y el entorno de cada comprobación. Cada captura de navegador debe identificar página, perfil, ancho de revisión y estado. No incluir contraseñas, cookies ni tokens.
 
-- [Salida de las pruebas locales del 4 de octubre](pruebas-locales-2026-10-04.txt).
-- [Comparación Excel–CSV y validación de relaciones del 4 de octubre](excel-csv-2026-10-04.txt).
+- [Salida de las pruebas locales](pruebas-locales-2026-10-04.txt).
+- [Comparación Excel–CSV y validación de relaciones](excel-csv-2026-10-04.txt).
 
-## Recorrido de mantenimiento · 4 de octubre de 2026
+## Recorrido de mantenimiento
 
 Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capturas de 3456 × 1988 píxeles (pantalla Retina; no equivalen a ese ancho CSS).
 
@@ -69,17 +69,17 @@ Prueba manual en Safari de escritorio, con cuentas ficticias de desarrollo. Capt
 6. [Taller: comunicación de cierre](recorrido/06-taller-cierre.png).
 7. [Cliente: comunicación de cierre](recorrido/07-cliente-cierre.png).
 
-La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. El registro y la revisión de talleres se documentan en el informe de navegación; la distribución responsive tiene su propio informe. La recepción de las muestras de Mailtrap se documenta por separado.
+La visita de demostración se cierra anticipadamente para comprobar el flujo de demostración; no representa un servicio realizado. El taller de pruebas estaba aprobado previamente y no acredita la aprobación manual desde Team. Los mensajes se guardan en la cuenta, sin envío real. El registro y la revisión de talleres se documentan en el informe de navegación; la distribución responsive tiene su propio informe. La recepción de las muestras de Mailtrap se documenta por separado.
 
-## Catálogo ampliado · 4 de octubre
+## Catálogo ampliado
 
 [Ficha del 911 Carrera](ficha-lujo-2026-10-04.png), sin datos personales ni sesión visible. Safari en ventana de 574 px; captura Retina de 1148 × 1272 píxeles. Fotografía de referencia de Porsche, datos pendientes sin kilometraje cero y cuadrícula de dos columnas. No acredita la revisión de dispositivos móviles completos.
 
-## Fotos de modelo · 4 de octubre
+## Fotos de modelo
 
 [Ficha con fotografía del 911 Carrera](ficha-fotografia-modelo-2026-10-04.png). Safari en ventana de 574 px, captura Retina de 1148 × 1272 píxeles. Sustituye la referencia de otro modelo por una foto del 911 Carrera, con versión y año orientativos. La [galería de fuentes](../GALERIA-VEHICULOS.md) recoge las 38 nuevas fotografías y sus licencias.
 
-## Búsqueda predictiva · 4 de octubre
+## Búsqueda predictiva
 
 [Buscador con sugerencias de Audi](buscador-predictivo-2026-10-04.png). Safari de escritorio, captura Retina de 2648 × 1988 píxeles. Lista abierta para au y contador de diez resultados de la búsqueda aplicada Audi, visible debajo. Las sugerencias no tapan el contador ni las tarjetas.
 
@@ -93,11 +93,11 @@ La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de 
 
 La [revisión de las tarjetas de sedes](sedes/README.md) recoge las ocho fotografías diferentes, las atribuciones y una captura de Safari en ventana estrecha.
 
-## Primera revisión del despliegue · 10 de octubre
+## Primera revisión del despliegue
 
-[Web y API publicadas: capturas de Safari e informe HTTP](despliegue/README.md). Incluye la cuenta ficticia autorizada y distingue los recorridos que todavía necesitan revisión en producción.
+[Web y API publicadas: capturas de Safari e informe HTTP](despliegue/README.md). Incluye la cuenta ficticia de demostración y enlaza los informes de citas y fotografías publicados.
 
-## Idiomas · 10 de octubre
+## Idiomas
 
 La [revisión de ES/EN](idiomas/README.md) recoge las capturas locales, el filtro traducido con su valor de API original y la cuenta ficticia.
 
@@ -105,3 +105,7 @@ La [revisión de ES/EN](idiomas/README.md) recoge las capturas locales, el filtr
 ## Grabación en dispositivo físico
 
 La [grabación del iPhone 13](iphone-real/README.md) incorpora siete fotogramas reales de la web publicada. Su revisión visual está documentada por separado de las capturas de Safari de escritorio.
+
+## Colecciones y relaciones en Atlas
+
+El [informe de MongoDB](mongodb/README.md) incorpora cinco capturas de las colecciones, el inventario, las sedes, los talleres públicos y las referencias de citas. La revisión es de lectura sobre la base de la aplicación publicada.

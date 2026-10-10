@@ -1,0 +1,38 @@
+{
+  "source": "MongoDB Atlas Data Explorer, Safari",
+  "cluster": "kelsetscars",
+  "database": "test",
+  "scope": "Read-only inspection of application collections and references",
+  "files": [
+    {
+      "file": "01-colecciones-atlas.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "29dd76e88b990bd1a220b82a36db09e75a5767b0d9887213e3796fc13e2f363f"
+    },
+    {
+      "file": "02-vehiculos-atlas.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "fc20feeedb13e839e682ec76a521882ec19d5de04e908a29319c5b1e19591f64"
+    },
+    {
+      "file": "03-sedes-atlas.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "2f2bfb93b67aeed0dfd0879c9b3a752f99a50da517a336544ae5f6567b863bd7"
+    },
+    {
+      "file": "04-talleres-atlas.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "b4231736b8d096faa64fe4aaee0d04727be3deb4e8c50b0168d35a3d92eeb2fa"
+    },
+    {
+      "file": "05-citas-atlas.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "954947b58d134e64927290ea18cb78ecfba7f26dfe5edfc20f68e6afc6c64490"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Fotografías añadidas al catálogo
 
-Consulta y revisión visual: 4 de octubre de 2026. Se añaden 38 fotografías a las 42 existentes: 80 imágenes diferentes, sin contar sus copias de menor resolución. Cubren los doce modelos de la ampliación con vistas, colores y generaciones distintos.
+Se añaden 38 fotografías a las 42 existentes: 80 imágenes diferentes, sin contar sus copias de menor resolución. Cubren los doce modelos de la ampliación con vistas, colores y generaciones distintos.
 
 Cada archivo conserva autor, enlace original y licencia en el manifiesto y la página de créditos. Las imágenes CC BY-SA y sus copias mantienen esa licencia; no se aplica a todo el código del proyecto. Las fotografías ilustran modelos y pueden mostrar otra versión o año. No acreditan unidades reales en las sedes.
 

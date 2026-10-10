@@ -1,4 +1,4 @@
-# Validación detallada de Insomnia · 10 de octubre de 2026
+# Validación detallada de Insomnia
 
 ## Entorno y alcance
 
@@ -105,7 +105,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El servidor asigna un perfil de cliente y devuelve los datos necesarios para el área privada. No se muestran la cookie ni las credenciales.
 
-![Caso 15: Registro de cliente](../evidencias/insomnia/10-registro-cliente.png)
+<a href="../evidencias/insomnia/10-registro-cliente.png"><img src="../evidencias/insomnia/10-registro-cliente.png" alt="Caso 15: Registro de cliente" width="720"></a>
 
 ### Caso 17 · Sesión del cliente
 
@@ -117,7 +117,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El registro y la consulta de sesión corresponden a la misma cuenta. La cookie se conserva en Insomnia; su valor no se incluye en la evidencia.
 
-![Caso 17: Sesión del cliente](../evidencias/insomnia/11-sesion-cliente.png)
+<a href="../evidencias/insomnia/11-sesion-cliente.png"><img src="../evidencias/insomnia/11-sesion-cliente.png" alt="Caso 17: Sesión del cliente" width="720"></a>
 
 ### Caso 22 · Solicitud de mantenimiento
 
@@ -131,7 +131,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 22: Solicitud de mantenimiento](../evidencias/insomnia/12-solicitud-mantenimiento.png)
+<a href="../evidencias/insomnia/12-solicitud-mantenimiento.png"><img src="../evidencias/insomnia/12-solicitud-mantenimiento.png" alt="Caso 22: Solicitud de mantenimiento" width="720"></a>
 
 ### Caso 23 · Franja ya ocupada
 
@@ -143,7 +143,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El conflicto es el resultado esperado. Evita reservar dos citas activas en la misma sede y franja.
 
-![Caso 23: Franja ya ocupada](../evidencias/insomnia/13-franja-ocupada.png)
+<a href="../evidencias/insomnia/13-franja-ocupada.png"><img src="../evidencias/insomnia/13-franja-ocupada.png" alt="Caso 23: Franja ya ocupada" width="720"></a>
 
 ### Caso 30 · Taller pendiente
 
@@ -155,7 +155,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** La solicitud queda pendiente de revisión. El registro no aprueba al taller automáticamente ni lo publica en el directorio. El nombre y los datos de contacto son ficticios.
 
-![Caso 30: Taller pendiente](../evidencias/insomnia/14-taller-pendiente.png)
+<a href="../evidencias/insomnia/14-taller-pendiente.png"><img src="../evidencias/insomnia/14-taller-pendiente.png" alt="Caso 30: Taller pendiente" width="720"></a>
 
 ### Caso 42 · Aprobación del taller
 
@@ -167,7 +167,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El identificador coincide con la solicitud pendiente. Se guardan la fecha y la cuenta que revisó el alta. El taller continúa oculto porque esta prueba no cambia public.
 
-![Caso 42: Aprobación del taller](../evidencias/insomnia/15-taller-aprobado.png)
+<a href="../evidencias/insomnia/15-taller-aprobado.png"><img src="../evidencias/insomnia/15-taller-aprobado.png" alt="Caso 42: Aprobación del taller" width="720"></a>
 
 ### Caso 45 · Rechazo con motivo
 
@@ -179,7 +179,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** La respuesta conserva el motivo «Faltan datos para revisar la colaboración.». Es una solicitud distinta de la aprobada. El caso 44 comprueba además que no se admite el rechazo sin motivo.
 
-![Caso 45: Rechazo con motivo](../evidencias/insomnia/16-taller-rechazado.png)
+<a href="../evidencias/insomnia/16-taller-rechazado.png"><img src="../evidencias/insomnia/16-taller-rechazado.png" alt="Caso 45: Rechazo con motivo" width="720"></a>
 
 ### Caso 47 · Asignación del mantenimiento
 
@@ -193,7 +193,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.workshop`.
 
-![Caso 47: Asignación del mantenimiento](../evidencias/insomnia/17-mantenimiento-asignado.png)
+<a href="../evidencias/insomnia/17-mantenimiento-asignado.png"><img src="../evidencias/insomnia/17-mantenimiento-asignado.png" alt="Caso 47: Asignación del mantenimiento" width="720"></a>
 
 ### Caso 49 · Confirmación de la cita
 
@@ -207,7 +207,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 49: Confirmación de la cita](../evidencias/insomnia/18-cita-confirmada.png)
+<a href="../evidencias/insomnia/18-cita-confirmada.png"><img src="../evidencias/insomnia/18-cita-confirmada.png" alt="Caso 49: Confirmación de la cita" width="720"></a>
 
 ### Caso 56 · Comunicaciones del taller
 
@@ -221,7 +221,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 56: Comunicaciones del taller](../evidencias/insomnia/19-comunicaciones-taller.png)
+<a href="../evidencias/insomnia/19-comunicaciones-taller.png"><img src="../evidencias/insomnia/19-comunicaciones-taller.png" alt="Caso 56: Comunicaciones del taller" width="720"></a>
 
 ### Caso 69 · Cancelación de la cita propia
 
@@ -235,7 +235,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data.status`.
 
-![Caso 69: Cancelación de la cita propia](../evidencias/insomnia/20-cita-cancelada.png)
+<a href="../evidencias/insomnia/20-cita-cancelada.png"><img src="../evidencias/insomnia/20-cita-cancelada.png" alt="Caso 69: Cancelación de la cita propia" width="720"></a>
 
 ### Caso 70 · Comunicaciones del cliente
 
@@ -249,7 +249,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 70: Comunicaciones del cliente](../evidencias/insomnia/21-comunicaciones-cliente.png)
+<a href="../evidencias/insomnia/21-comunicaciones-cliente.png"><img src="../evidencias/insomnia/21-comunicaciones-cliente.png" alt="Caso 70: Comunicaciones del cliente" width="720"></a>
 
 ### Caso 65 · Bandeja de otro cliente
 
@@ -263,7 +263,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
-![Caso 65: Bandeja de otro cliente](../evidencias/insomnia/22-bandeja-otro-cliente.png)
+<a href="../evidencias/insomnia/22-bandeja-otro-cliente.png"><img src="../evidencias/insomnia/22-bandeja-otro-cliente.png" alt="Caso 65: Bandeja de otro cliente" width="720"></a>
 
 ### Caso 64 · Cita ajena protegida
 
@@ -275,7 +275,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Interpretación:** El servidor responde «La cita ya tiene ese estado o no puedes modificarla.». El 409 es el código utilizado en esta operación; no debe confundirse con el 403 de las rutas reservadas a Team.
 
-![Caso 64: Cita ajena protegida](../evidencias/insomnia/23-cita-ajena-protegida.png)
+<a href="../evidencias/insomnia/23-cita-ajena-protegida.png"><img src="../evidencias/insomnia/23-cita-ajena-protegida.png" alt="Caso 64: Cita ajena protegida" width="720"></a>
 
 ## Cómo interpretar los resultados
 

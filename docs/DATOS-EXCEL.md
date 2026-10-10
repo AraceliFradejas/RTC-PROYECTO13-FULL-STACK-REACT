@@ -29,10 +29,14 @@ También se puede guardar cada hoja de datos como CSV UTF-8 desde Excel. Hay que
 
 La semilla lee los CSV mediante `node:fs/promises`, valida los datos y utiliza `seedKey` para evitar duplicados. Conserva los vehículos existentes y sus imágenes; actualizar una fila del Excel no modifica automáticamente un vehículo ya cargado. Las sedes sí se actualizan al repetir la carga. Los talleres iniciales se insertan solo si faltan. No se eliminan cuentas ni se restablecen contraseñas.
 
-## Comprobación del 4 de octubre de 2026
+## Validación de los datos
 
-Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. Las 21 pruebas locales pasan; esta ronda omite la integración opcional de Atlas. La apertura en Numbers se documenta en la revisión del 10 de octubre. La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
+Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. La apertura en Numbers tiene su propio informe. La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
 
-## Apertura en Numbers · 10 de octubre de 2026
+## Apertura en Numbers
 
 Se han abierto las cuatro hojas del XLSX original en Numbers para macOS. La guía muestra las fórmulas con resultados 148, 4 y 4. La comparación completa `data:check` y la validación `seed:check` pasan. El archivo mantiene su SHA-256: no se editaron celdas ni se guardó una conversión. Las [cinco capturas y el informe](evidencias/datos/README.md) documentan la comprobación. No se ha ejecutado Microsoft Excel ni exportado CSV desde Numbers; la entrega conserva el XLSX y el exportador del proyecto.
+
+## Relaciones guardadas en Atlas
+
+Las [capturas de MongoDB](evidencias/mongodb/README.md) muestran el inventario cargado y la relación por ObjectId entre vehículos, concesionarios, talleres y citas. La carga parte de las claves del Excel; los documentos de MongoDB conservan las referencias de sus modelos.

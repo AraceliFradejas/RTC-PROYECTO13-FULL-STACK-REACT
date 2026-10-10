@@ -1,4 +1,4 @@
-# Revisión técnica · 10 de octubre de 2026
+# Revisión técnica
 
 La revisión aplica los criterios de mantenimiento, reutilización, claridad y coherencia entre la interfaz y los datos.
 

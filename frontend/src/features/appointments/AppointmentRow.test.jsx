@@ -32,6 +32,18 @@ it('el footer muestra solo el contenido del idioma elegido', () => {
   expect(english).not.toContain('El carácter se lleva dentro.');
   expect(english).toContain('Photography and credits');
   expect(spanish).not.toContain('Photography and credits');
+  expect(spanish).toContain('Universo KelseTS');
+  expect(english).toContain('The KelseTS universe');
+  expect(english).not.toContain('Universo KelseTS');
+  expect(spanish).toContain('Conecta');
+  expect(english).toContain('Connect');
+  expect(english).not.toContain('Esta web demuestra');
+  for (const html of [spanish, english]) {
+    expect(html).toContain('https://kelse-ts-talks.vercel.app/');
+    expect(html).toContain('https://thepower.education/thepowermba/tech');
+    expect(html).toContain('https://medium.com/@araceli.fradejas');
+    expect(html).toContain('rel="noopener noreferrer"');
+  }
 });
 
 it('el cliente puede cancelar una cita activa y no recibe controles internos', () => {

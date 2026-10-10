@@ -55,7 +55,7 @@ Este comando no se conecta a Atlas, no crea citas y no cambia la entrega de los 
 
 Guardar una captura HTML y otra del texto de cada tipo, o una selección representativa con la lista de diez capturas recibidas. Comprobar ancho móvil, lectura, botón redondeado y enlace: debe abrir la web y puede pedir iniciar sesión. Abrir el enlace nunca confirma ni cancela una cita. Anotar fecha, tipo, resultado y cualquier incidencia de compatibilidad que muestre Mailtrap. No afirmar compatibilidad con todos los clientes de correo sin probarlos.
 
-## Resultado · 4 de octubre de 2026
+## Resultado
 
 Las diez muestras definitivas se han recibido en el Sandbox. La [verificación](evidencias/mailtrap/verificacion.json) conserva tipo, identificador, fecha de recepción, fotografía elegida, enlaces y hashes de los cuerpos descargados. Se ha comprobado que cada mensaje incluye HTML y texto, que el texto coincide con la plantilla actual y que sus cinco enlaces pertenecen al origen web configurado. El HTML contiene las referencias CID del logo y de la fotografía; esta comprobación no compara el contenido binario de los adjuntos.
 

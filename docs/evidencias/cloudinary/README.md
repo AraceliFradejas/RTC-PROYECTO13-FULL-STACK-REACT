@@ -1,4 +1,4 @@
-# Subida de fotografías · 4 de octubre de 2026
+# Subida de fotografías
 
 La cuenta administradora accede a Gestionar fotografías desde Team, busca una unidad y abre su ficha. React muestra la vista previa antes de enviar el archivo al backend como `multipart/form-data`.
 
@@ -18,7 +18,7 @@ RUN_CLOUDINARY_TESTS=true node --test backend/test/images.integration.test.js
 
 La prueba genera datos temporales y los elimina al terminar. Añadir `SAVE_CLOUDINARY_EVIDENCE=true` actualiza el informe. No usa la cuenta administradora personal ni modifica el inventario existente.
 
-## Subida publicada en Vercel · 10 de octubre
+## Subida publicada en Vercel
 
 He subido desde Safari la fotografía ya asignada al Porsche 911 Carrera de Madrid. React envía el archivo por el proxy de Vercel a la API, que lo guarda en Cloudinary y registra su URL e identificador en Atlas. Se conservan su licencia y atribución en los créditos.
 

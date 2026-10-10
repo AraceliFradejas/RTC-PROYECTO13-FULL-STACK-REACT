@@ -1,6 +1,6 @@
 # Despliegue de KelseTS Cars
 
-Web y API publicadas el 10 de octubre de 2026. Se han comprobado catálogo, recursos, sesiones y recorrido HTTP de citas y talleres; la subida desde la web publicada tiene su informe de Cloudinary.
+Web y API publicadas. Se han comprobado catálogo, recursos, sesiones y recorrido HTTP de citas y talleres; la subida desde la web publicada tiene su informe de Cloudinary.
 
 Se utiliza el mismo repositorio para dos proyectos de Vercel. Los paquetes compartidos y el archivo de dependencias están en la raíz del repositorio: ambos proyectos necesitan incluir los archivos externos a su carpeta raíz.
 

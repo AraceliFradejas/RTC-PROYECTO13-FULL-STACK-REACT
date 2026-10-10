@@ -1,4 +1,4 @@
-# Navegación · 10 de octubre de 2026
+# Navegación
 
 He recorrido en Safari de escritorio las páginas públicas en castellano e inglés: portada, catálogo, servicios, esencia, sedes, créditos, cuatro páginas de modelo, acceso y página inexistente. El [registro público](recorrido-publico.json) conserva las rutas y encabezamientos observados. También he utilizado pausa del vídeo y una pregunta frecuente de la portada.
 

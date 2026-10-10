@@ -1,4 +1,4 @@
-# Revisión del Excel en Numbers · 10 de octubre de 2026
+# Revisión del Excel en Numbers
 
 He abierto el XLSX de entrega en Apple Numbers para macOS y recorrido sus cuatro hojas. La guía muestra los resultados de las fórmulas: 148 vehículos, cuatro sedes y cuatro talleres. No se editaron celdas ni se guardó o convirtió el libro. El SHA-256 del original se conserva en [verificacion.json](verificacion.json).
 
@@ -6,23 +6,23 @@ Después de abrirlo, `npm run data:check` confirma que todas las filas y relacio
 
 ## Guía y recuentos
 
-![Guía abierta en Numbers y resultados de sus fórmulas](01-guia-numbers.png)
+<a href="01-guia-numbers.png"><img src="01-guia-numbers.png" alt="Guía abierta en Numbers y resultados de sus fórmulas" width="720"></a>
 
 ## Vehículos y ampliación
 
 Estas vistas muestran una parte de las columnas y filas. La comparación automática cubre todos los datos, incluidas las claves de sede y las fuentes. Los campos vacíos de las unidades añadidas conservan el alcance de demostración explicado en la guía.
 
-![Inicio del inventario del curso](02-vehiculos-numbers.png)
+<a href="02-vehiculos-numbers.png"><img src="02-vehiculos-numbers.png" alt="Inicio del inventario del curso" width="720"></a>
 
-![Transición a los modelos de lujo añadidos](03-ampliacion-lujo-numbers.png)
+<a href="03-ampliacion-lujo-numbers.png"><img src="03-ampliacion-lujo-numbers.png" alt="Transición a los modelos de lujo añadidos" width="720"></a>
 
 ## Sedes y talleres
 
 Los talleres incluyen `dealershipKey`, relacionado con `seedKey` de Sedes. Las ubicaciones son ficticias y las especialidades se separan con `|` para su exportación.
 
-![Cuatro sedes en Numbers](04-sedes-numbers.png)
+<a href="04-sedes-numbers.png"><img src="04-sedes-numbers.png" alt="Cuatro sedes en Numbers" width="720"></a>
 
-![Cuatro talleres y sus claves de sede](05-talleres-numbers.png)
+<a href="05-talleres-numbers.png"><img src="05-talleres-numbers.png" alt="Cuatro talleres y sus claves de sede" width="720"></a>
 
 ## Alcance
 

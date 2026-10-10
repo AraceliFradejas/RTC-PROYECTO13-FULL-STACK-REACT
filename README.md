@@ -10,147 +10,75 @@ Proyecto full stack del máster **Rock The Code · The Power Tech School**.
 
 KelseTS Cars es una red ficticia de concesionarios de vehículos de lujo. En la web puedes consultar el catálogo, conocer nuestras cuatro sedes y solicitar una cita para una prueba de conducción, asesoramiento o mantenimiento.
 
-## Contenido
+**Web:** [Abrir KelseTS Cars](https://kelsets-cars.vercel.app). **Backend:** [Comprobar la API](https://kelsets-cars-api.vercel.app/api/v1/health).
+
+### Contenido
 
 - [Una historia personal](#una-historia-personal)
-- [Estado actual](#estado-actual)
-- [Capturas del proyecto](#capturas-del-proyecto)
-- [Dos etapas](#dos-etapas)
-- [Estructura](#estructura)
+- [Qué puedes hacer en la web](#qué-puedes-hacer-en-la-web)
+- [Estructura y tecnologías](#estructura-y-tecnologías)
 - [Instalación local](#instalación-local)
 - [Datos y fotografías](#datos-y-fotografías)
-- [Documentación](#documentación)
+- [API y permisos](#api-y-permisos)
+- [Comunicaciones](#comunicaciones)
+- [Pruebas y aprendizajes](#pruebas-y-aprendizajes)
+- [Capturas del proyecto](#capturas-del-proyecto)
+- [Documentación y despliegue](#documentación-y-despliegue)
+- [Redes sociales](#redes-sociales)
+- [Aviso legal](#aviso-legal)
 
-## Una historia personal
+### Una historia personal
 
-KelseTS Cars es un nuevo proyecto dentro de la marca KelseTS, después de KelseTS Lifestyle, KelseTS Store, KelseTS Business School y KelseTS Talks. La música, el deporte y el universo swiftie siguen siendo parte de la inspiración, esta vez en una web dedicada a los coches de lujo.
+KelseTS Cars continúa la marca ficticia con la que he dado identidad a KelseTS Lifestyle, KelseTS Store, KelseTS Business School y KelseTS Talks. La música, el deporte y el universo swiftie siguen siendo parte de la inspiración, esta vez llevados a una web dedicada a los coches de lujo.
 
-Para este último trabajo de Rock The Code he querido crear una web que tenga una identidad propia y una utilidad clara. Está pensada para personas que quieren conocer distintos modelos, comparar opciones y organizar una visita al concesionario con tiempo.
+Para mi último trabajo de Rock The Code quería una propuesta que me ilusionara y que tuviera una utilidad clara. Me he imaginado a una persona que busca su próximo coche: necesita comparar modelos, saber dónde puede verlos y organizar una visita sin perderse entre páginas. A partir de ese recorrido he construido el catálogo, las sedes y las citas.
 
-He mantenido los colores y el estilo de KelseTS, con imágenes aspiracionales y una atención especial al diseño. Además de cuidar la parte visual, el proyecto me permite poner en práctica lo aprendido sobre React, Node.js y bases de datos.
+La experiencia continúa cuando el vehículo necesita cuidado. Por eso he incorporado talleres colaboradores y un equipo que coordina sus citas con los clientes. El diseño mantiene la identidad de KelseTS y cada perfil tiene su propia área, pero todos forman parte de la misma web.
 
-## Estado actual
+### Qué puedes hacer en la web
 
-**Aplicación full stack de Rock The Code, publicada en Vercel.**
+- Conocer la marca desde una portada con vídeo, controles de sonido y pausa.
+- Consultar 148 vehículos, buscar por marca o modelo con sugerencias y utilizar filtros.
+- Abrir la ficha de una unidad y solicitar una cita en su sede.
+- Consultar cuatro concesionarios y cuatro talleres en el mapa, calcular distancias y conocer sus barrios con fotografías y enlaces a Street View.
+- Registrarte como cliente o solicitar el alta de un taller colaborador.
+- Consultar las citas y comunicaciones de tu cuenta. Team revisa solicitudes, coordina visitas y asigna mantenimientos; cada taller consulta sus trabajos.
+- Subir y sustituir fotografías del catálogo desde una cuenta administradora.
+- Cambiar entre castellano e inglés sin perder la pantalla ni la sesión.
 
-La conexión con MongoDB Atlas está configurada. Ya se han cargado 148 vehículos, cuatro concesionarios y cuatro talleres desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
+El inventario, las sedes y los talleres se cargan desde los CSV en MongoDB Atlas. Repetir la semilla conserva los registros existentes y no duplica el catálogo. Las personas, direcciones y operaciones del proyecto son ejemplos de demostración.
 
-La web incluye:
+### Estructura y tecnologías
 
-- Portada con vídeo, controles de sonido y pausa.
-- Catálogo con búsqueda libre, sugerencias de marcas y modelos mientras escribes, filtros y fichas de vehículos.
-- Página de sedes con cuatro concesionarios, cuatro talleres colaboradores, mapa y cálculo de distancias desde una ubicación automática o elegida manualmente. Cada tarjeta tiene una fotografía distinta del barrio, sus créditos y un enlace a Street View.
-- Páginas de Servicios y Nuestra esencia con imágenes propias.
-- Formularios de acceso y páginas para solicitar y consultar citas.
-- Accesos para clientes, talleres y KelseTS Cars Team, con revisión de solicitudes y asignación de citas de mantenimiento por una administradora.
-- Bandeja privada de comunicaciones de demostración para altas, solicitudes y cambios de cita, sin envío de correos reales.
-
-El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
-
-La compilación y las 44 pruebas locales pasan en la revisión del 10 de octubre: 25 del backend, 14 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales no se ejecutan en esta ronda local; tienen evidencias independientes. Registro y revisión de talleres y el recorrido de mantenimiento entre cliente, Team y taller están comprobados en Safari con base temporal. El recorrido privado por HTTP en producción pasa 101 comprobaciones. Insomnia pasa 171 comprobaciones del recorrido principal y 36 de la colección pública de Vercel. La subida desde la web publicada y la entrega de la fotografía de Cloudinary también están verificadas. La revisión responsive se ha realizado en Safari de escritorio con anchuras controladas. Las [evidencias](docs/evidencias/README.md) distinguen cada entorno y herramienta.
-
-El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. El selector ES/EN y las traducciones de la interfaz están incorporados. Las diez comunicaciones tienen versiones en castellano e inglés. Las comprobaciones están documentadas en los informes de datos, navegación, producción e Insomnia.
-
-## Capturas del proyecto
-
-Capturas de la aplicación y sus comunicaciones tomadas durante las pruebas locales del 4 de octubre de 2026. Las capturas del despliegue del 10 de octubre aparecen en su propio apartado.
-
-### Catálogo y búsqueda
-
-La búsqueda permite escribir una marca o un modelo y consultar las sugerencias. Los filtros ofrecen otra forma de acotar la selección.
-
-![Búsqueda predictiva del catálogo con sugerencias de marcas y modelos](docs/evidencias/buscador-predictivo-2026-10-04.png)
-
-![Búsqueda libre y filtros como alternativas del catálogo](docs/evidencias/modos-busqueda-2026-10-04.png)
-
-### Ficha de un vehículo
-
-Las unidades añadidas amplían la propuesta de gama alta. Las fotografías son de referencia y los datos no comprobados quedan pendientes.
-
-![Ficha de un vehículo del catálogo ampliado](docs/evidencias/ficha-lujo-2026-10-04.png)
-
-### Clientes, Team y talleres
-
-He recorrido una cita de mantenimiento desde su solicitud hasta el cierre. Cada perfil consulta la información que le corresponde.
-
-![Solicitud de mantenimiento en el área del cliente](docs/evidencias/recorrido/01-cliente-solicitud.png)
-
-![Confirmación de la cita desde KelseTS Cars Team](docs/evidencias/recorrido/02-team-confirmacion.png)
-
-![Cita asignada al taller colaborador](docs/evidencias/recorrido/04-taller-asignacion.png)
-
-### Comunicaciones en Mailtrap
-
-Las diez muestras utilizan el logo de la web, una imagen exclusiva para cada contenido y un footer común. Se reciben en el Sandbox; los eventos de la aplicación guardan sus mensajes en la bandeja privada de demostración.
-
-![Muestra de correo con la identidad de KelseTS Cars](docs/evidencias/correo-identidad-2026-10-04.png)
-
-![Footer de la muestra de correo de KelseTS Cars](docs/evidencias/correo-footer-2026-10-04.png)
-
-### Fotografías desde Team
-
-La administradora revisa la imagen antes de guardarla en Cloudinary. La confirmación aparece en la ficha sin recargar la página.
-
-![Vista previa de una fotografía antes de subirla a Cloudinary](docs/evidencias/cloudinary/01-vista-previa-safari.png)
-
-![Confirmación de la fotografía guardada desde Safari](docs/evidencias/cloudinary/02-guardado-safari.png)
-
-### El entorno de nuestras sedes
-
-Cada concesionario y taller tiene una fotografía distinta del barrio, un enlace a Street View y sus créditos. La captura corresponde a una ventana estrecha de Safari, no a un teléfono real.
-
-![Tarjetas de las sedes de Málaga con fotografía del entorno y enlaces](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
-
-El [índice de evidencias](docs/evidencias/README.md) reúne las capturas, los informes y el alcance de cada comprobación.
-
-## Dos etapas
-
-Primero voy a completar la entrega de **Rock The Code**: backend con Node.js, frontend con React, datos preparados en Excel y cargados desde CSV con `fs`, usuarios, colecciones relacionadas, rutas protegidas y despliegue de la web y la API.
-
-Después continuaré el proyecto para el TFM de **BigSchool**, con una app y nuevas funcionalidades. La estructura ya separa el código de la web de las validaciones y las peticiones a la API que podrán aprovecharse más adelante. La carpeta `apps/mobile/` está reservada para esa segunda etapa; la app aún no está desarrollada.
-
-Los requisitos y sus evidencias están en la [revisión de entrega](docs/REVISION-ENTREGA.md).
-
-## Estructura
+He organizado el código por funcionalidades para que resulte fácil localizar cada parte. Las páginas coordinan la carga de datos y la navegación; los filtros, tarjetas, formularios y filas de citas tienen componentes propios. Las validaciones y las peticiones HTTP se comparten entre la web y el backend.
 
 ```text
 backend/src/
-  modules/
-    auth/          # Usuarios y acceso
-    catalog/       # Vehículos, sedes y fotografías
-    appointments/  # Citas y permisos sobre la agenda
-  config/          # Entorno y conexión a MongoDB
-  middlewares/     # Sesión y comprobación de origen
-  routes/          # Rutas de la API
-  seeds/           # Lectura, validación y carga de CSV
-  utils/           # Errores y reglas comunes
+  modules/          # Usuarios, catálogo, citas, talleres y comunicaciones
+  config/           # Entorno y conexión a MongoDB
+  middlewares/      # Sesión, permisos y origen de las peticiones
+  routes/           # Rutas de la API
+  seeds/            # Lectura, validación y carga de CSV
+  utils/            # Errores y reglas comunes
 frontend/src/
-  app/             # Rutas de la web
-  features/        # Marca, catálogo, acceso y citas
-  shared/          # Componentes, hooks y conexión HTTP
-  styles/          # Variables, base y componentes
+  app/              # Rutas de la web
+  features/         # Marca, catálogo, acceso y citas
+  shared/           # Componentes, hooks, idiomas y conexión HTTP
+  styles/           # Variables y estilos por funcionalidad
 packages/
-  contracts/       # Validaciones compartidas
-  api-client/      # Cliente de la API reutilizable
-apps/mobile/       # Carpeta reservada para la futura app
+  contracts/        # Validaciones compartidas
+  api-client/       # Cliente HTTP reutilizable
 data/
-  csv/             # Datos que puede leer la semilla
-  media/           # Fotografías, fuentes y créditos
-docs/              # Arquitectura, diseño y seguimiento
+  csv/              # Datos que lee la semilla
+  media/            # Fuentes y créditos de fotografías
+docs/               # Memoria técnica, guías y evidencias
 ```
 
-## Tecnologías
+**Frontend:** React, React Router, Vite, Leaflet y CSS. **Backend:** Node.js, Express, Mongoose, JWT, bcrypt, Zod, Multer y Cloudinary. **Datos:** MongoDB Atlas y lectura de CSV con `node:fs/promises`. **Pruebas:** `node:test`, Supertest y Vitest.
 
-**Frontend:** React, React Router, Vite, Leaflet y CSS.
+`useResource` utiliza `useReducer` para los estados de carga, error y resultado, cancela peticiones con `AbortController` y permite reintentarlas. Los contextos comparten la sesión y el idioma; el mapa reúne su lógica de ubicación en un hook. Los colores y espaciados se definen en `style.css`.
 
-**Backend:** Node.js, Express, Mongoose, JWT, bcrypt, Zod, Multer y Cloudinary.
-
-**Datos:** MongoDB Atlas y lectura de CSV con `node:fs/promises`.
-**Pruebas:** `node:test`, Supertest y Vitest.
-
-Utilizo Zod para validar los datos en la web y en la API. Los permisos se comprueban en el backend: una persona que se registra no puede asignarse el rol de administradora desde el formulario.
-
-## Instalación local
+### Instalación local
 
 Requisito: Node.js 22 o posterior.
 
@@ -171,7 +99,7 @@ npm run dev -w frontend
 
 Con este comando puedes ver la portada, Nuestra esencia, Servicios, la selección de modelos y los créditos. Para consultar el catálogo y utilizar la cuenta o las citas necesitas tener también el backend en marcha.
 
-## Variables de entorno
+### Variables de entorno
 
 | Variable | Uso |
 | --- | --- |
@@ -186,7 +114,7 @@ Con este comando puedes ver la portada, Nuestra esencia, Servicios, la selecció
 
 Los archivos `.env` y la carpeta `DocBase/` están excluidos de Git.
 
-## Scripts
+### Scripts
 
 ```bash
 npm run dev          # web y API
@@ -200,7 +128,7 @@ npm run seed         # inserción en la base de datos configurada
 
 La semilla carga los datos de los CSV en MongoDB. Cada registro tiene una clave para evitar duplicados. Al repetirla, se añaden los vehículos que faltan y se actualizan los datos de las sedes; los vehículos ya guardados y sus imágenes se conservan. Por eso, cambiar un vehículo en el CSV no modifica automáticamente su ficha en la base de datos.
 
-## Datos y fotografías
+### Datos y fotografías
 
 El proceso Excel → CSV → fs → MongoDB se explica en la [guía de datos](docs/DATOS-EXCEL.md). El libro permite revisar y editar las tres colecciones iniciales; la semilla transforma sus claves de relación en referencias de MongoDB.
 
@@ -218,7 +146,7 @@ La biblioteca reúne 80 fotografías diferentes: he añadido 38 imágenes para l
 
 Fuentes y licencias en [Recursos](docs/RECURSOS.md) y en la página `/creditos`.
 
-## API
+### API y permisos
 
 La dirección base de la API es `/api/v1`.
 
@@ -234,68 +162,164 @@ La dirección base de la API es `/api/v1`.
 
 La API devuelve `{ success, data }` cuando la petición funciona y `{ success: false, error }` si hay un error. La sesión se guarda en una cookie `HttpOnly`. Para crear o modificar datos se comprueba el origen de la petición; en Insomnia hay que incluir un `Origin` permitido. Solo puede haber una cita activa en una misma sede y franja horaria.
 
-## Documentación
+#El footer reúne los cuatro proyectos de Universo KelseTS y mis redes sociales. El aviso académico explica la finalidad de la web y se muestra en el idioma elegido.
+
+## Comunicaciones
+
+He adaptado el planteamiento de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), otro proyecto de mi portfolio. Cada alta o cambio de cita genera un mensaje dirigido a la cuenta que corresponde. La bandeja privada muestra el contenido en el idioma elegido y conserva el historial.
+
+También he preparado diez muestras HTML y texto recibidas en Mailtrap Sandbox. Todas mantienen el logo de la web y un footer común editable, con una imagen exclusiva según el contenido. El Sandbox permite revisar esas muestras sin enviar mensajes a buzones personales. Los eventos de la aplicación guardan comunicaciones simuladas en la cuenta; este proceso es independiente de las muestras de Mailtrap.
+
+Una administradora gestiona las fotografías desde la ficha del vehículo: selecciona JPEG, PNG o WebP de hasta 4 MB, revisa la vista previa y guarda. React envía el archivo con `FormData`; Node comprueba sesión, rol, tamaño y firma del archivo antes de subirlo a Cloudinary. Las claves privadas permanecen en el backend y Atlas guarda la referencia de la fotografía.
+
+### Pruebas y aprendizajes
+
+La compilación y las **44 pruebas locales** pasan: 25 del backend, 14 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales tienen sus informes independientes y no se cuentan como aprobadas en esa ejecución local.
+
+Insomnia pasa **171 comprobaciones en 76 peticiones** sobre una base temporal de Atlas y **36 en 15 peticiones** públicas contra Vercel. El recorrido privado en producción pasa **101 comprobaciones HTTP**, incluyendo permisos, talleres, citas y comunicaciones. Las pruebas de subida y sustitución de imágenes, los mensajes de Mailtrap y la comparación Excel–CSV tienen sus evidencias propias.
+
+Las correcciones de entregas anteriores me han servido para revisar esta: he separado componentes y estilos, retirado recursos sin uso y conservado una sola implementación de los helpers. También he comprobado que el footer muestre un único idioma y que los botones de las citas correspondan a su estado. La respuesta de subida incluye la sede del vehículo y la sustitución de fotografías tiene un servicio propio. He añadido metadatos para compartir la web y revisado las atribuciones de las imágenes.
+
+La [revisión técnica](docs/REVISION-TECNICA.md) explica los cambios. La [memoria](MEMORIA.md) desarrolla las decisiones y las pruebas con sus capturas. Cada informe identifica el entorno utilizado: Safari en el Mac, dispositivo real, API, Insomnia o Mailtrap.
+
+### Capturas del proyecto
+
+Las capturas acompañan el recorrido de la web, sus datos y las pruebas. Puedes pulsar cualquiera para verla a tamaño completo. Esta misma selección aparece en la versión inglesa.
+
+### La web publicada
+
+La portada y el catálogo muestran la propuesta de KelseTS Cars. La cuenta de demostración permite comprobar que la sesión se conserva al recargar.
+
+<a href="docs/evidencias/despliegue/01-home-safari.png"><img src="docs/evidencias/despliegue/01-home-safari.png" alt="Portada publicada en Vercel" width="720"></a>
+
+<a href="docs/evidencias/despliegue/02-catalogo-safari.png"><img src="docs/evidencias/despliegue/02-catalogo-safari.png" alt="Catálogo con 148 vehículos" width="720"></a>
+
+<a href="docs/evidencias/despliegue/03-sesion-safari.png"><img src="docs/evidencias/despliegue/03-sesion-safari.png" alt="Área de cliente con sesión activa" width="720"></a>
+
+### Buscar y elegir un vehículo
+
+La búsqueda libre ofrece sugerencias mientras escribes. Los filtros permiten comparar por características; ambos modos se presentan como alternativas para que resulte claro cuál estás utilizando. Estas capturas corresponden a la revisión local en Safari.
+
+<a href="docs/evidencias/buscador-predictivo-2026-10-04.png"><img src="docs/evidencias/buscador-predictivo-2026-10-04.png" alt="Sugerencias de marcas y modelos" width="720"></a>
+
+<a href="docs/evidencias/modos-busqueda-2026-10-04.png"><img src="docs/evidencias/modos-busqueda-2026-10-04.png" alt="Elección entre búsqueda libre y filtros" width="720"></a>
+
+<a href="docs/evidencias/ficha-lujo-2026-10-04.png"><img src="docs/evidencias/ficha-lujo-2026-10-04.png" alt="Ficha de un vehículo de gama alta" width="720"></a>
+
+### Clientes, Team y talleres
+
+El recorrido de mantenimiento conecta los tres perfiles. El cliente solicita una cita, Team la coordina y el taller consulta el trabajo asignado. Las pruebas locales utilizan datos ficticios en una base temporal.
+
+<a href="docs/evidencias/recorrido/01-cliente-solicitud.png"><img src="docs/evidencias/recorrido/01-cliente-solicitud.png" alt="Solicitud del cliente" width="720"></a>
+
+<a href="docs/evidencias/recorrido/02-team-confirmacion.png"><img src="docs/evidencias/recorrido/02-team-confirmacion.png" alt="Confirmación desde Team" width="720"></a>
+
+<a href="docs/evidencias/recorrido/04-taller-asignacion.png"><img src="docs/evidencias/recorrido/04-taller-asignacion.png" alt="Cita asignada al taller" width="720"></a>
+
+### Comunicaciones e identidad de marca
+
+Las muestras de correo conservan el logo aprobado, una fotografía exclusiva para cada contenido y un footer común. La bienvenida inglesa muestra cómo se adapta el contenido al idioma; sus capturas son vistas previas locales. Los mensajes recibidos en Mailtrap tienen su propio informe.
+
+<a href="docs/evidencias/correo-identidad-2026-10-04.png"><img src="docs/evidencias/correo-identidad-2026-10-04.png" alt="Identidad visual del correo" width="720"></a>
+
+<a href="docs/evidencias/correo-footer-2026-10-04.png"><img src="docs/evidencias/correo-footer-2026-10-04.png" alt="Footer del correo" width="720"></a>
+
+<a href="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png"><img src="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png" alt="Bienvenida en inglés" width="720"></a>
+
+### Gestión de fotografías
+
+La administradora selecciona una imagen desde la ficha, revisa la vista previa y la guarda en Cloudinary. Las primeras dos capturas son locales; la tercera muestra una fotografía servida desde la web publicada.
+
+<a href="docs/evidencias/cloudinary/01-vista-previa-safari.png"><img src="docs/evidencias/cloudinary/01-vista-previa-safari.png" alt="Vista previa antes de guardar" width="720"></a>
+
+<a href="docs/evidencias/cloudinary/02-guardado-safari.png"><img src="docs/evidencias/cloudinary/02-guardado-safari.png" alt="Confirmación de guardado" width="720"></a>
+
+<a href="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png"><img src="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png" alt="Fotografía de Cloudinary publicada" width="720"></a>
+
+### El entorno de las sedes
+
+Cada concesionario y taller tiene una fotografía distinta del barrio, sus créditos y un enlace a Street View. Los centros son ficticios. La captura corresponde a una ventana estrecha de Safari en el Mac.
+
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga y fotografías del entorno" width="720"></a>
+
+### El libro de datos
+
+El Excel se ha abierto en Numbers para revisar sus cuatro hojas. Vehículos incluye el inventario inicial y la ampliación de gama alta. La comparación completa con los CSV confirma los datos y sus relaciones.
+
+<a href="docs/evidencias/datos/01-guia-numbers.png"><img src="docs/evidencias/datos/01-guia-numbers.png" alt="Guía y recuentos" width="720"></a>
+
+<a href="docs/evidencias/datos/02-vehiculos-numbers.png"><img src="docs/evidencias/datos/02-vehiculos-numbers.png" alt="Hoja Vehículos" width="720"></a>
+
+<a href="docs/evidencias/datos/03-ampliacion-lujo-numbers.png"><img src="docs/evidencias/datos/03-ampliacion-lujo-numbers.png" alt="Ampliación del catálogo" width="720"></a>
+
+<a href="docs/evidencias/datos/04-sedes-numbers.png"><img src="docs/evidencias/datos/04-sedes-numbers.png" alt="Hoja Sedes" width="720"></a>
+
+<a href="docs/evidencias/datos/05-talleres-numbers.png"><img src="docs/evidencias/datos/05-talleres-numbers.png" alt="Hoja Talleres" width="720"></a>
+
+### Colecciones y relaciones en MongoDB
+
+Atlas muestra las seis colecciones de la aplicación. El inventario contiene 148 vehículos y cuatro concesionarios. El filtro de talleres públicos devuelve cuatro; la colección conserva también registros ocultos de demostración. Las referencias de vehículo y taller coinciden con el identificador de su sede. Las citas relacionan cliente, vehículo, concesionario y taller. El [informe de Atlas](docs/evidencias/mongodb/README.md) explica cada captura.
+
+<a href="docs/evidencias/mongodb/01-colecciones-atlas.png"><img src="docs/evidencias/mongodb/01-colecciones-atlas.png" alt="Las seis colecciones en Atlas" width="720"></a>
+
+<a href="docs/evidencias/mongodb/02-vehiculos-atlas.png"><img src="docs/evidencias/mongodb/02-vehiculos-atlas.png" alt="148 vehículos y referencia de sede" width="720"></a>
+
+<a href="docs/evidencias/mongodb/03-sedes-atlas.png"><img src="docs/evidencias/mongodb/03-sedes-atlas.png" alt="Concesionarios y sus identificadores" width="720"></a>
+
+<a href="docs/evidencias/mongodb/04-talleres-atlas.png"><img src="docs/evidencias/mongodb/04-talleres-atlas.png" alt="Talleres públicos y su relación con las sedes" width="720"></a>
+
+<a href="docs/evidencias/mongodb/05-citas-atlas.png"><img src="docs/evidencias/mongodb/05-citas-atlas.png" alt="Referencias de las citas" width="720"></a>
+
+### Pruebas con Insomnia
+
+La colección principal pasa 171 comprobaciones en 76 peticiones sobre una base temporal. La colección pública pasa 36 comprobaciones en 15 peticiones contra Vercel. La memoria explica el recorrido con 23 capturas, incluyendo permisos y respuestas de error esperadas.
+
+<a href="docs/evidencias/insomnia/01-ronda-completa-171.png"><img src="docs/evidencias/insomnia/01-ronda-completa-171.png" alt="Resultado de la colección principal" width="720"></a>
+
+<a href="docs/evidencias/insomnia/15-taller-aprobado.png"><img src="docs/evidencias/insomnia/15-taller-aprobado.png" alt="Aprobación de un taller desde Team" width="720"></a>
+
+<a href="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png"><img src="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png" alt="Resultado de la colección pública de Vercel" width="720"></a>
+
+### Mi iPhone 13
+
+He grabado la navegación en mi iPhone 13 y extraído siete fotogramas de la web publicada. Aquí muestro la portada, el buscador y el menú inglés. El informe incluye también el contenido editorial, las tarjetas, la ficha y el acceso. Es una revisión visual del dispositivo real, distinta de las pruebas de escritorio.
+
+<a href="docs/evidencias/iphone-real/01-home.png"><img src="docs/evidencias/iphone-real/01-home.png" alt="Portada en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/03-buscador.png"><img src="docs/evidencias/iphone-real/03-buscador.png" alt="Buscador y contador en iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/06-menu-ingles.png"><img src="docs/evidencias/iphone-real/06-menu-ingles.png" alt="Menú inglés en iPhone 13" width="280"></a>
+
+
+### Documentación y despliegue
 
 - [Memoria del proyecto](MEMORIA.md).
-- [Arquitectura y evolución hacia la app](docs/ARQUITECTURA.md).
-- [Dirección visual](docs/DISENO.md).
-- [Logo e identidad de marca](docs/MARCA.md).
-- [Revisión del enunciado](docs/REVISION-ENTREGA.md).
-- [Fotografías y recursos](docs/RECURSOS.md).
-- [Registro de talleres y comunicaciones](docs/COMUNICACIONES-Y-TALLERES.md), siguiendo el planteamiento de KelseTS Talks.
+- [Arquitectura](docs/ARQUITECTURA.md), [dirección visual](docs/DISENO.md) y [marca](docs/MARCA.md).
+- [Requisitos y evidencias de entrega](docs/REVISION-ENTREGA.md).
+- [Excel y semilla](docs/DATOS-EXCEL.md).
+- [Registro de talleres y comunicaciones](docs/COMUNICACIONES-Y-TALLERES.md).
+- [Insomnia](docs/INSOMNIA.md), [Mailtrap](docs/MAILTRAP.md) y [resultados de validación](docs/VALIDACION.md).
+- [Índice de capturas e informes](docs/evidencias/README.md).
 
-## Despliegue
+Frontend y backend son dos proyectos de Vercel conectados al mismo repositorio. La web consulta `/api/v1` en su propio dominio mediante una reescritura al backend; la API conecta con Atlas y Cloudinary. Las variables privadas se guardan en el backend. La [guía de despliegue](docs/DESPLIEGUE.md) explica la configuración.
 
-La web y el backend están publicados en Vercel desde el 10 de octubre de 2026:
+### Redes sociales
 
-- [Abrir KelseTS Cars](https://kelsets-cars.vercel.app).
-- [Comprobar la salud de la API](https://kelsets-cars-api.vercel.app/api/v1/health).
+[GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/) · [X](https://x.com/AraceliFradejas) · [Medium](https://medium.com/@araceli.fradejas) · [YouTube](https://www.youtube.com/@aracelifradejasmunoz2758)
 
-He comprobado el catálogo con 148 vehículos, las cuatro sedes, los cuatro talleres, los recursos públicos y las rutas directas. Una cuenta ficticia de demostración permite verificar registro, acceso, consulta de sesión y cierre. En Safari la sesión se conserva al recargar y aparece la bienvenida en la bandeja privada.
+### Aviso legal
 
-![Portada de KelseTS Cars publicada en Vercel, revisada en Safari](docs/evidencias/despliegue/01-home-safari.png)
+KelseTS es una marca ficticia creada por Araceli Fradejas Muñoz con fines exclusivamente educativos, académicos y de portfolio. KelseTS Cars se inspira creativamente en la cultura pop, la música y el deporte, pero no está afiliado, patrocinado, autorizado ni respaldado por Taylor Swift, Travis Kelce, los Kansas City Chiefs, la National Football League, sus representantes ni ninguna entidad relacionada. Tampoco existe vinculación comercial con los fabricantes de automóviles mostrados. Los concesionarios, talleres, personas, inventario y servicios de la propuesta son ficticios; la web no ofrece ventas ni servicios reales.
 
-![Catálogo publicado con 148 vehículos](docs/evidencias/despliegue/02-catalogo-safari.png)
+Las escenas de marca y las imágenes de las comunicaciones son creaciones para este proyecto, con personas y espacios ficticios. No se emplean fotografías oficiales ni imágenes promocionales de celebridades. El catálogo y las tarjetas de barrios sí utilizan fotografías reales de terceros, identificadas como referencias y con sus autores, fuentes y licencias en [Recursos](docs/RECURSOS.md), la [galería de vehículos](docs/GALERIA-VEHICULOS.md) y la página de créditos. Las marcas de vehículos que aparecen en esas fotografías pertenecen a sus respectivos titulares. La música del vídeo de portada está creada con Suno.
 
-![Sesión de cliente conservada después de recargar Safari](docs/evidencias/despliegue/03-sesion-safari.png)
+### Autora
 
-La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) identifican el entorno y el alcance de cada prueba. El recorrido de citas en producción, la subida desde Vercel y las comunicaciones bilingües tienen sus evidencias posteriores. Las capturas responsive proceden de Safari de escritorio. El corte local de conexión con Cloudinary se resolvió para la entrega de imágenes mediante la API publicada.
+**Araceli Fradejas Muñoz**
 
-## Aviso académico y autora
-
-KelseTS Cars es una marca ficticia para fines educativos y de portfolio. No existe afiliación ni patrocinio de los fabricantes. No se ofrecen ventas, reservas comerciales ni servicios reales de mantenimiento.
-
-**Araceli Fradejas Muñoz** · Rock The Code · The Power Tech School.
-
-[GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/)
-
-La [guía de secciones](docs/SECCIONES.md) recoge lo previsto para esta entrega y las ideas que desarrollaré después para BigSchool.
-
-Para revisar el backend sin usar la web, he incluido una [colección de pruebas de Insomnia y su guía](docs/INSOMNIA.md). Las credenciales se configuran en un entorno privado; el archivo del repositorio contiene solo datos ficticios.
-
-Las [diez comunicaciones](docs/MAILTRAP.md) ya se han recibido en Mailtrap Sandbox con datos ficticios, HTML y texto. Cada una tiene una imagen exclusiva según su contenido, el mismo logo de la web y un footer común editable. He guardado los mensajes recibidos y su verificación en [evidencias](docs/evidencias/README.md). Los eventos de la aplicación siguen dejando mensajes en la bandeja privada de demostración. Los diez tipos tienen capturas del preset móvil de Mailtrap revisadas en Safari. La revisión corresponde al Sandbox y su preset móvil; no es una prueba en Gmail u Outlook.
-
-Las muestras de correo y el registro de pruebas se pueden consultar en [las evidencias locales](docs/evidencias/README.md).
-
-## Fotografías desde KelseTS Cars Team
-
-Una cuenta administradora puede entrar en **Gestionar fotografías**, buscar un vehículo y abrir su ficha. Allí selecciona una imagen, comprueba la vista previa y la guarda. Se admiten JPEG, PNG y WebP de hasta 4 MB. La ficha se actualiza al terminar y muestra la confirmación sin recargar la página.
-
-React envía el archivo con `FormData` al backend. Node comprueba la sesión, el rol, el tamaño y la firma del archivo antes de subirlo a Cloudinary. Las credenciales permanecen en el backend; Atlas guarda la URL HTTPS y el identificador de la imagen. Al sustituir una foto se elimina la anterior si pertenece a nuestra carpeta de Cloudinary.
-
-He probado la subida y la sustitución con datos temporales de Atlas, junto con los rechazos por permisos y archivos incorrectos. También he subido desde Safari la fotografía ya asignada al Porsche 911 Carrera de Barcelona, conservando sus créditos. El resto de la biblioteca sigue sirviéndose como hasta ahora. Las capturas y el informe están en [las evidencias de Cloudinary](docs/evidencias/cloudinary/README.md).
+Proyecto académico del máster Rock The Code de The Power Tech School.
 
 ---
-
-
-
-### Revisión de idiomas
-
-He incorporado el selector ES/EN y las traducciones de la interfaz. La selección se mantiene al recargar; los filtros traducen sus etiquetas y conservan los valores que espera la API. He revisado el acceso de la cuenta ficticia y la cabecera de la portada a 320 y 390 px en marcos de Safari. La revisión posterior incorpora también las diez comunicaciones en inglés; el historial no reconocido conserva el original.
-
-![Portada inglesa a 320 y 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
-
-El [informe de idiomas](docs/evidencias/idiomas/README.md) describe las comprobaciones del catálogo y del área de cliente.
 
 ## English version
 
@@ -305,123 +329,74 @@ Full stack final project for **Rock The Code · The Power Tech School**.
 
 KelseTS Cars is a fictional luxury dealership network. Visitors can browse the catalogue, discover its four locations and request an appointment for a test drive, advice or maintenance.
 
+**Website:** [Open KelseTS Cars](https://kelsets-cars.vercel.app). **Backend:** [Check the API](https://kelsets-cars-api.vercel.app/api/v1/health).
+
 ### Contents
 
 - [A personal story](#a-personal-story)
-- [Current status](#current-status)
-- [Project screenshots](#project-screenshots)
-- [Two stages](#two-stages)
-- [Architecture and technologies](#architecture-and-technologies)
+- [What you can do on the website](#what-you-can-do-on-the-website)
+- [Structure and technologies](#structure-and-technologies)
 - [Local setup](#local-setup)
-- [Environment variables](#environment-variables)
 - [Scripts and data](#scripts-and-data)
 - [Photographs and uploads](#photographs-and-uploads)
-- [API and access](#api-and-access)
-- [Communications and validation](#communications-and-validation)
+- [API and permissions](#api-and-permissions)
+- [Communications](#communications)
+- [Tests and lessons learned](#tests-and-lessons-learned)
+- [Project screenshots](#project-screenshots)
 - [Documentation and deployment](#documentation-and-deployment)
-- [Academic notice and author](#academic-notice-and-author)
+- [Social media](#social-media)
+- [Legal notice](#legal-notice)
 
 ### A personal story
 
-KelseTS Cars continues the fictional KelseTS brand after KelseTS Lifestyle, KelseTS Store, KelseTS Business School and KelseTS Talks. Music, sport and the Swiftie universe remain part of its inspiration, now applied to luxury cars.
+KelseTS Cars continues the fictional brand I have used in KelseTS Lifestyle, KelseTS Store, KelseTS Business School and KelseTS Talks. Music, sport and the Swiftie universe remain part of the inspiration, now applied to a website about luxury cars.
 
-For my final Rock The Code project, I wanted a website with its own identity and a clear purpose. It is intended for people who want to explore models, compare options and plan a dealership visit. The visual design also gives me an opportunity to apply what I have learned about React, Node.js and databases.
+For my final Rock The Code project, I wanted an idea I would enjoy developing and that had a clear purpose. I imagined someone looking for their next car: they need to compare models, find out where to see them and arrange a visit without getting lost between pages. That journey shaped the catalogue, locations and appointments.
 
-### Current status
+The relationship continues when the vehicle needs care. I therefore added partner workshops and a team that coordinates their appointments with customers. The design keeps the KelseTS identity, and each profile has its own area within the same website.
 
-**The project is still in development and is not ready for final submission.**
+### What you can do on the website
 
-MongoDB Atlas is connected. The CSV seeds have loaded 148 vehicles, four dealerships and four workshops; repeating the seed does not create duplicate records.
+- Discover the brand through a video homepage with sound and pause controls.
+- Browse 148 vehicles, search by brand or model with suggestions, and use filters.
+- Open a vehicle page and request an appointment at its dealership.
+- Find four dealerships and four workshops on the map, calculate distances and explore their neighbourhoods through photographs and Street View links.
+- Register as a customer or apply as a partner workshop.
+- View your appointments and messages. Team reviews applications, coordinates visits and assigns maintenance appointments; workshops see their own jobs.
+- Upload and replace catalogue photographs using an administrator account.
+- Switch between Spanish and English without losing the current page or session.
 
-The website includes:
+Inventory, dealerships and workshops are loaded from CSV into MongoDB Atlas. Repeating the seed preserves existing records and does not duplicate the catalogue. People, addresses and operations are demonstration examples.
 
-- A video homepage with sound and pause controls.
-- A catalogue with free text search, brand and model suggestions, filters and vehicle details.
-- Four dealerships and four partner workshops on a map, with approximate distances from an automatic or manually selected location. Each card includes a different neighbourhood photo, credits and a Street View link.
-- Services and Our essence pages with dedicated brand imagery.
-- Account access, appointment requests and appointment management.
-- Customer, workshop and KelseTS Cars Team areas, with workshop applications reviewed by an administrator and maintenance appointments assigned to approved workshops.
-- A private demonstration inbox for registrations, applications and appointment updates.
-- Administrator photo uploads to Cloudinary from vehicle details.
+### Structure and technologies
 
-The build and 44 local tests pass: 25 backend, 14 frontend and five API client tests. Two optional integrations are skipped in this local run and have separate evidence. Workshop registration and review and the maintenance workflow were checked in Safari using an isolated database. The production HTTP workflow passed 101 checks. Insomnia passed 171 assertions for the main workflow and 36 for the public Vercel collection. Production image uploads were also verified. Responsive evidence uses desktop Safari at controlled widths.
-
-**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; the ten communications also have Spanish and English versions. Public routes and private profile layouts have evidence in both languages, using desktop Safari.**
-
-### Project screenshots
-
-These screenshots were captured during local checks on 4 October 2026. They do not show a deployed production application.
-
-**Catalogue search:** suggestions help visitors find a brand or model while typing.
-
-![Catalogue search with brand and model suggestions](docs/evidencias/buscador-predictivo-2026-10-04.png)
-
-**Vehicle details:** the expanded catalogue adds examples that fit the luxury theme. Images are illustrative and unverified details remain unset.
-
-![Vehicle details from the expanded catalogue](docs/evidencias/ficha-lujo-2026-10-04.png)
-
-**Customer, Team and workshop:** a maintenance request is reviewed and assigned to a partner workshop, which only sees its own appointments.
-
-![Customer maintenance request](docs/evidencias/recorrido/01-cliente-solicitud.png)
-
-![Appointment confirmation in the Team area](docs/evidencias/recorrido/02-team-confirmacion.png)
-
-![Maintenance appointment assigned to a workshop](docs/evidencias/recorrido/04-taller-asignacion.png)
-
-**Email identity:** samples use the website logo, a dedicated image for each message and a shared footer.
-
-![KelseTS Cars email branding sample](docs/evidencias/correo-identidad-2026-10-04.png)
-
-![Footer of the KelseTS Cars email sample](docs/evidencias/correo-footer-2026-10-04.png)
-
-**Cloudinary:** administrators preview a selected image and save it from the vehicle page.
-
-![Preview before uploading a photograph to Cloudinary](docs/evidencias/cloudinary/01-vista-previa-safari.png)
-
-![Successful photo upload in Safari](docs/evidencias/cloudinary/02-guardado-safari.png)
-
-**Neighbourhoods:** the cards show real surroundings, while the centres and addresses remain fictional. This is a narrow desktop Safari window, not a physical phone test.
-
-![Málaga location cards with neighbourhood photographs and links](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
-
-The [evidence index](docs/evidencias/README.md) explains the scope of each check and links to the remaining screenshots and reports. The application supports Spanish and English, and the evidence includes both languages.
-
-### Two stages
-
-The first stage covers the **Rock The Code** requirements: Node.js backend, React frontend, related collections, users, protected routes, Excel data exported to CSV and read with `fs`, and deployment of both applications.
-
-After that submission, I will continue the project for **BigSchool**, including a mobile app and additional modules. `apps/mobile/` reserves space for that stage; the app has not been developed. The [delivery review](docs/REVISION-ENTREGA.md) maps the requirements to their evidence.
-
-### Architecture and technologies
-
-The backend groups models and controllers into domain modules. The frontend separates brand, catalogue, authentication and appointment features. Shared packages contain validation contracts and an API client that can be reused by the future app.
+I organised the code by feature so each part is easy to find. Pages coordinate data loading and navigation; filters, cards, forms and appointment rows have their own components. Validation and HTTP requests are shared by the website and backend.
 
 ```text
 backend/src/
-  modules/          # Authentication, catalogue, appointments and partner modules
-  config/           # Environment and database connection
-  middlewares/      # Session and request origin checks
+  modules/          # Users, catalogue, appointments, workshops and messages
+  config/           # Environment and MongoDB connection
+  middlewares/      # Session, permissions and request origin
   routes/           # API routes
   seeds/            # CSV reading, validation and loading
-  utils/            # Shared backend rules
+  utils/            # Errors and shared rules
 frontend/src/
   app/              # Website routes
-  features/         # Brand, catalogue, authentication and appointments
-  shared/           # Components, hooks and HTTP connection
-  styles/           # Variables and reusable styles
+  features/         # Brand, catalogue, access and appointments
+  shared/           # Components, hooks, languages and HTTP connection
+  styles/           # Variables and styles by feature
 packages/
-  contracts/        # Shared validation schemas
-  api-client/       # Reusable API client
-apps/mobile/        # Reserved for the future app
+  contracts/        # Shared validation
+  api-client/       # Reusable HTTP client
 data/
-  csv/              # Seed input
+  csv/              # Seed input data
   media/            # Photo sources and credits
-docs/               # Architecture, design and evidence
+docs/               # Technical report, guides and evidence
 ```
 
-**Frontend:** React, React Router, Vite, Leaflet and CSS. **Backend:** Node.js, Express, Mongoose, JWT, bcrypt, Zod, Multer and Cloudinary. **Data:** MongoDB Atlas and `node:fs/promises`. **Tests:** `node:test`, Supertest and Vitest.
+**Frontend:** React, React Router, Vite, Leaflet and CSS. **Backend:** Node.js, Express, Mongoose, JWT, bcrypt, Zod, Multer and Cloudinary. **Data:** MongoDB Atlas and CSV reading with `node:fs/promises`. **Tests:** `node:test`, Supertest and Vitest.
 
-Zod validates input on both sides. Permissions are checked in the backend; public registration cannot grant an administrator role. `useResource` combines `useReducer`, request cancellation and retry, and the authentication context shares session state across pages.
+`useResource` uses `useReducer` for loading, error and result states, cancels requests with `AbortController` and supports retry. Contexts share the session and language; a dedicated hook handles map location. Colours and spacing are defined in `style.css`.
 
 ### Local setup
 
@@ -487,9 +462,9 @@ Brand scenes represent fictional people and places. The homepage video was provi
 
 From **Manage photographs** in Team, an administrator can find a vehicle, preview a JPEG, PNG or WebP file of up to 4 MB, discard it or save it. React sends `FormData`; Node checks the session, role, size and file signature before uploading to Cloudinary. Secrets stay in the backend. Atlas stores the HTTPS URL and image identifier. A replacement removes the previous image when it belongs to our Cloudinary folder.
 
-Upload and replacement were tested through the API with temporary data and in Safari using the existing reference photo for the Barcelona Porsche 911 Carrera, retaining its credits. The rest of the image library has not been migrated. The [Cloudinary evidence](docs/evidencias/cloudinary/README.md) records the tests and responsive layout checks; mobile file selection and error states still need review.
+Upload and replacement were tested through the API with temporary data and in Safari using the existing reference photo for the Barcelona Porsche 911 Carrera, retaining its credits. The rest of the image library has not been migrated. The [Cloudinary evidence](docs/evidencias/cloudinary/README.md) records the tests and responsive layout checks.
 
-### API and access
+### API and permissions
 
 The base path is `/api/v1`.
 
@@ -505,181 +480,161 @@ The base path is `/api/v1`.
 
 Success responses use `{ success, data }`; errors use `{ success: false, error }`. Sessions use an `HttpOnly` cookie. Writes check the request origin, including requests from Insomnia. Only one active appointment can occupy the same dealership and time slot.
 
-### Communications and validation
+#The footer brings together the four KelseTS universe projects and my social profiles. Its academic notice explains the purpose of the website and follows the selected language.
 
-I adapted the communication approach from [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), another project in my portfolio. Cars stores event messages in each recipient's private demonstration inbox. Ten fictional HTML and plain text samples have also been received in Mailtrap Sandbox. Each uses the same logo as the website, its own image and an editable common footer. This does not establish automatic email delivery from application events or delivery to personal inboxes.
+## Communications
 
-The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. The review covers Mailtrap’s Phone preset, rather than Gmail, Outlook or physical devices. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
+I adapted the approach from [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT), another project in my portfolio. Each registration or appointment update generates a message for the relevant account. The private inbox follows the selected language and keeps its history.
 
-The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 44 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Earlier responsive screenshots use desktop Safari. The [physical iPhone recording](docs/evidencias/iphone-real/README.md) provides separate visual evidence.
+I also prepared ten HTML and plain text samples received in Mailtrap Sandbox. They all use the website logo and an editable shared footer, with an exclusive image for each message. The Sandbox allows these samples to be reviewed without sending email to personal inboxes. Application events store simulated messages in the account; this process is separate from the Mailtrap samples.
+
+### Tests and lessons learned
+
+The build and **44 local tests** pass: 25 backend, 14 frontend and five API client tests. Two optional integrations have separate reports and are not counted as passed in that local run.
+
+Insomnia passes **171 assertions across 76 requests** against an isolated Atlas database and **36 across 15 public requests** against Vercel. The private production workflow passes **101 HTTP checks**, covering permissions, workshops, appointments and messages. Image uploads and replacement, Mailtrap samples and the Excel–CSV comparison have their own evidence.
+
+Feedback on earlier submissions helped me review this project: I separated components and styles, removed unused resources and kept shared helpers in one place. I checked that the footer shows only the selected language and that appointment buttons match their state. Upload responses include the vehicle's dealership, and image replacement has its own service. I also added metadata for sharing the website and reviewed photo credits.
+
+The [technical review](docs/REVISION-TECNICA.md) explains the changes. The [project report](MEMORIA.md) develops the decisions and tests with screenshots. Each evidence report identifies the environment used: Safari on the Mac, a physical device, the API, Insomnia or Mailtrap.
+
+### Project screenshots
+
+Screenshots accompany the website journey, data and tests. Click any image to open it at full size. This is the same selection shown in the Spanish version.
+
+### The published website
+
+The homepage and catalogue show the KelseTS Cars concept. A demonstration account was used to check that the session survives a reload.
+
+<a href="docs/evidencias/despliegue/01-home-safari.png"><img src="docs/evidencias/despliegue/01-home-safari.png" alt="Homepage published on Vercel" width="720"></a>
+
+<a href="docs/evidencias/despliegue/02-catalogo-safari.png"><img src="docs/evidencias/despliegue/02-catalogo-safari.png" alt="Catalogue with 148 vehicles" width="720"></a>
+
+<a href="docs/evidencias/despliegue/03-sesion-safari.png"><img src="docs/evidencias/despliegue/03-sesion-safari.png" alt="Customer area with an active session" width="720"></a>
+
+### Finding and choosing a vehicle
+
+Free text search offers suggestions while typing. Filters let visitors compare by vehicle characteristics; the two modes are presented as alternatives. These screenshots come from the local Safari review.
+
+<a href="docs/evidencias/buscador-predictivo-2026-10-04.png"><img src="docs/evidencias/buscador-predictivo-2026-10-04.png" alt="Brand and model suggestions" width="720"></a>
+
+<a href="docs/evidencias/modos-busqueda-2026-10-04.png"><img src="docs/evidencias/modos-busqueda-2026-10-04.png" alt="Choice between free text search and filters" width="720"></a>
+
+<a href="docs/evidencias/ficha-lujo-2026-10-04.png"><img src="docs/evidencias/ficha-lujo-2026-10-04.png" alt="Luxury vehicle details" width="720"></a>
+
+### Customers, Team and workshops
+
+The maintenance workflow connects all three profiles. The customer requests an appointment, Team coordinates it and the workshop sees its assigned work. Local tests use fictional data in an isolated database.
+
+<a href="docs/evidencias/recorrido/01-cliente-solicitud.png"><img src="docs/evidencias/recorrido/01-cliente-solicitud.png" alt="Customer request" width="720"></a>
+
+<a href="docs/evidencias/recorrido/02-team-confirmacion.png"><img src="docs/evidencias/recorrido/02-team-confirmacion.png" alt="Team confirmation" width="720"></a>
+
+<a href="docs/evidencias/recorrido/04-taller-asignacion.png"><img src="docs/evidencias/recorrido/04-taller-asignacion.png" alt="Appointment assigned to the workshop" width="720"></a>
+
+### Communications and brand identity
+
+Email samples keep the approved logo, an exclusive image for each message and a shared footer. The English welcome shows how content follows the selected language; its screenshots are local previews. Received Mailtrap messages have a separate report.
+
+<a href="docs/evidencias/correo-identidad-2026-10-04.png"><img src="docs/evidencias/correo-identidad-2026-10-04.png" alt="Email brand identity" width="720"></a>
+
+<a href="docs/evidencias/correo-footer-2026-10-04.png"><img src="docs/evidencias/correo-footer-2026-10-04.png" alt="Email footer" width="720"></a>
+
+<a href="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png"><img src="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png" alt="Welcome in English" width="720"></a>
+
+### Photograph management
+
+An administrator selects an image on the vehicle page, checks the preview and saves it to Cloudinary. The first two screenshots are local; the third shows an image served by the deployed website.
+
+<a href="docs/evidencias/cloudinary/01-vista-previa-safari.png"><img src="docs/evidencias/cloudinary/01-vista-previa-safari.png" alt="Preview before saving" width="720"></a>
+
+<a href="docs/evidencias/cloudinary/02-guardado-safari.png"><img src="docs/evidencias/cloudinary/02-guardado-safari.png" alt="Save confirmation" width="720"></a>
+
+<a href="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png"><img src="docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png" alt="Published Cloudinary photograph" width="720"></a>
+
+### The neighbourhoods around our locations
+
+Each dealership and workshop has a different neighbourhood photograph, credits and a Street View link. The centres are fictional. This screenshot shows a narrow Safari window on the Mac.
+
+<a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Málaga cards and neighbourhood photographs" width="720"></a>
+
+### The data workbook
+
+The Excel workbook was opened in Numbers to inspect all four sheets. Vehicles contains the initial inventory and the luxury additions. A complete CSV comparison verifies the data and relationships.
+
+<a href="docs/evidencias/datos/01-guia-numbers.png"><img src="docs/evidencias/datos/01-guia-numbers.png" alt="Guide and counts" width="720"></a>
+
+<a href="docs/evidencias/datos/02-vehiculos-numbers.png"><img src="docs/evidencias/datos/02-vehiculos-numbers.png" alt="Vehicles sheet" width="720"></a>
+
+<a href="docs/evidencias/datos/03-ampliacion-lujo-numbers.png"><img src="docs/evidencias/datos/03-ampliacion-lujo-numbers.png" alt="Catalogue additions" width="720"></a>
+
+<a href="docs/evidencias/datos/04-sedes-numbers.png"><img src="docs/evidencias/datos/04-sedes-numbers.png" alt="Dealerships sheet" width="720"></a>
+
+<a href="docs/evidencias/datos/05-talleres-numbers.png"><img src="docs/evidencias/datos/05-talleres-numbers.png" alt="Workshops sheet" width="720"></a>
+
+### Collections and relationships in MongoDB
+
+Atlas shows the application's six collections. The inventory contains 148 vehicles and four dealerships. The public workshop filter returns four entries; the collection also retains hidden demonstration records. Vehicle and workshop references match their dealership identifier. Appointments link the customer, vehicle, dealership and workshop. The [Atlas report](docs/evidencias/mongodb/README.md) explains each screenshot.
+
+<a href="docs/evidencias/mongodb/01-colecciones-atlas.png"><img src="docs/evidencias/mongodb/01-colecciones-atlas.png" alt="Six collections in Atlas" width="720"></a>
+
+<a href="docs/evidencias/mongodb/02-vehiculos-atlas.png"><img src="docs/evidencias/mongodb/02-vehiculos-atlas.png" alt="148 vehicles and dealership reference" width="720"></a>
+
+<a href="docs/evidencias/mongodb/03-sedes-atlas.png"><img src="docs/evidencias/mongodb/03-sedes-atlas.png" alt="Dealerships and their identifiers" width="720"></a>
+
+<a href="docs/evidencias/mongodb/04-talleres-atlas.png"><img src="docs/evidencias/mongodb/04-talleres-atlas.png" alt="Public workshops and their dealership references" width="720"></a>
+
+<a href="docs/evidencias/mongodb/05-citas-atlas.png"><img src="docs/evidencias/mongodb/05-citas-atlas.png" alt="Appointment references" width="720"></a>
+
+### Insomnia tests
+
+The main collection passes 171 assertions across 76 requests against an isolated database. The public collection passes 36 assertions across 15 requests against Vercel. The report explains the workflow with 23 screenshots, including permissions and expected error responses.
+
+<a href="docs/evidencias/insomnia/01-ronda-completa-171.png"><img src="docs/evidencias/insomnia/01-ronda-completa-171.png" alt="Main collection results" width="720"></a>
+
+<a href="docs/evidencias/insomnia/15-taller-aprobado.png"><img src="docs/evidencias/insomnia/15-taller-aprobado.png" alt="Workshop approval by Team" width="720"></a>
+
+<a href="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png"><img src="docs/evidencias/insomnia/06-vercel-36-comprobaciones.png" alt="Public Vercel collection results" width="720"></a>
+
+### My iPhone 13
+
+I recorded navigation on my iPhone 13 and extracted seven frames of the deployed website. These show the homepage, search and English menu. The report also includes editorial content, cards, vehicle details and sign-in. This is a visual review on a physical device, separate from desktop tests.
+
+<a href="docs/evidencias/iphone-real/01-home.png"><img src="docs/evidencias/iphone-real/01-home.png" alt="Homepage on iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/03-buscador.png"><img src="docs/evidencias/iphone-real/03-buscador.png" alt="Search and result count on iPhone 13" width="280"></a>
+
+<a href="docs/evidencias/iphone-real/06-menu-ingles.png"><img src="docs/evidencias/iphone-real/06-menu-ingles.png" alt="English menu on iPhone 13" width="280"></a>
+
 
 ### Documentation and deployment
 
-The technical documentation currently uses Spanish:
+The technical reports are in Spanish:
 
 - [Project report](MEMORIA.md).
-- [Architecture and future app](docs/ARQUITECTURA.md).
-- [Visual design](docs/DISENO.md) and [brand identity](docs/MARCA.md).
-- [Delivery review](docs/REVISION-ENTREGA.md).
-- [Resources](docs/RECURSOS.md).
+- [Architecture](docs/ARQUITECTURA.md), [visual design](docs/DISENO.md) and [brand](docs/MARCA.md).
+- [Requirements and delivery evidence](docs/REVISION-ENTREGA.md).
+- [Excel and seed](docs/DATOS-EXCEL.md).
 - [Workshop registration and communications](docs/COMUNICACIONES-Y-TALLERES.md).
-- [Section plan](docs/SECCIONES.md) and [validation](docs/VALIDACION.md).
+- [Insomnia](docs/INSOMNIA.md), [Mailtrap](docs/MAILTRAP.md) and [validation results](docs/VALIDACION.md).
+- [Screenshot and report index](docs/evidencias/README.md).
 
-The website and backend have been published on Vercel since 10 October 2026:
+Frontend and backend are two Vercel projects connected to the same repository. The website calls `/api/v1` on its own domain through a rewrite to the backend; the API connects to Atlas and Cloudinary. Private environment variables stay in the backend. The [deployment guide](docs/DESPLIEGUE.md) explains the configuration.
 
-- [Open KelseTS Cars](https://kelsets-cars.vercel.app).
-- [Check API health](https://kelsets-cars-api.vercel.app/api/v1/health).
+[Back to Spanish / Volver a la versión en castellano](#versión-en-castellano)
 
-Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, public assets and direct page URLs. Registration, login, session lookup and logout were tested with an authorised fictional demonstration account. In Safari, the session survives a reload and the welcome message appears in the private inbox.
+### Social media
 
-![Homepage published on Vercel and reviewed in Safari](docs/evidencias/despliegue/01-home-safari.png)
+[GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/) · [X](https://x.com/AraceliFradejas) · [Medium](https://medium.com/@araceli.fradejas) · [YouTube](https://www.youtube.com/@aracelifradejasmunoz2758)
 
-![Published catalogue with 148 vehicles](docs/evidencias/despliegue/02-catalogo-safari.png)
+### Legal notice
 
-![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
+KelseTS is a fictional brand created by Araceli Fradejas Muñoz exclusively for educational, academic and portfolio purposes. KelseTS Cars draws creative inspiration from pop culture, music and sport, but is not affiliated with, sponsored, authorised or endorsed by Taylor Swift, Travis Kelce, the Kansas City Chiefs, the National Football League, their representatives or any related organisation. There is no commercial affiliation with the car manufacturers shown. The dealerships, workshops, people, inventory and services in the concept are fictional; the website does not offer real sales or services.
 
-The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Earlier responsive screenshots use desktop Safari. The [physical iPhone recording](docs/evidencias/iphone-real/README.md) provides separate visual evidence. The local Cloudinary connection issue was resolved for image delivery through the published API.
+Brand scenes and communication images were created for this project using fictional people and settings. They do not use official photographs or promotional images of celebrities. The catalogue and neighbourhood cards do use real third-party photographs, labelled as references, with authors, sources and licences listed in [Resources](docs/RECURSOS.md), the [vehicle gallery](docs/GALERIA-VEHICULOS.md) and the credits page. Vehicle brands visible in those photographs belong to their respective owners. The homepage video uses music created with Suno.
 
-### Academic notice and author
+### Author
 
-KelseTS Cars is a fictional educational and portfolio brand. It is not affiliated with or sponsored by the manufacturers. It does not offer real vehicle sales, commercial bookings or maintenance services.
+**Araceli Fradejas Muñoz**
 
-**Araceli Fradejas Muñoz** · Rock The Code · The Power Tech School.
-
-[GitHub](https://github.com/AraceliFradejas) · [LinkedIn](https://www.linkedin.com/in/araceli-fradejas-munoz-transformaciondigital/)
-
-[Volver a la versión en castellano / Back to Spanish](#versión-en-castellano)
-
-
-### Language review
-
-The ES/EN selector remembers the choice after a reload. Filter labels are translated while API values stay unchanged. The fictional customer’s access and the home header at 320 and 390 px have been checked in Safari frames. Stored communications still retain their original texts.
-
-![English home at 320 and 390 px](docs/evidencias/idiomas/01-home-en-320-390-safari.png)
-
-The [language report](docs/evidencias/idiomas/README.md) documents the catalogue and customer-area checks.
-
-### Comunicaciones bilingües / Bilingual communications
-
-Cada comunicación nueva guarda los textos de ambos idiomas con los datos del momento en que se crea. La bandeja utiliza el idioma elegido. Los mensajes antiguos se traducen solo cuando coinciden con una plantilla reconocida; si no, se conserva el original. Los nombres y motivos escritos por usuarios no se traducen.
-
-New messages store both languages using the event’s original data. The inbox follows the selected language. Older messages are translated only when their original template can be verified; otherwise the original is preserved. Names and user-written reasons remain unchanged.
-
-![Correo inglés con el logo de la marca](docs/evidencias/idiomas/05-bienvenida-email-en-safari.png)
-
-![Footer inglés de la comunicación](docs/evidencias/idiomas/06-footer-email-en-safari.png)
-
-Estas capturas son vistas previas locales de Safari, sin envío nuevo a Mailtrap. / These screenshots show local Safari previews; no new Mailtrap email was sent.
-
-La bienvenida inglesa también se ha comprobado en la bandeja publicada con la cuenta ficticia de despliegue. El cambio a ES conserva la sesión y recupera el castellano. / The English welcome message was also checked in the published inbox using the fictional deployment account; switching to ES preserves the session and restores Spanish.
-
-![Bandeja inglesa publicada](docs/evidencias/idiomas/08-bandeja-en-vercel-safari.png)
-
-### Navegación y fotografías publicadas / Navigation and published photographs
-
-He revisado las rutas públicas en ES/EN y el buscador predictivo, los filtros y la paginación en Vercel. El registro y revisión de talleres y el recorrido completo de mantenimiento se han repetido en Safari con una base temporal separada, eliminada al terminar. Los [resultados de navegación](docs/evidencias/navegacion/README.md) distinguen ambos entornos.
-
-Public routes, predictive search, filters and pagination were reviewed on Vercel. Workshop registration and review, plus the maintenance lifecycle, were repeated in Safari against an isolated temporary database, removed afterwards. The [navigation report](docs/evidencias/navegacion/README.md) distinguishes both environments.
-
-![Visita completada en la prueba temporal / Completed visit in the temporary test](docs/evidencias/navegacion/08-visita-completada-temporal-safari.png)
-
-La subida de fotografías también funciona desde la web publicada. La imagen queda en Cloudinary y Atlas y se muestra mediante nuestra API. El [informe de fotografías](docs/evidencias/cloudinary/README.md) explica el recorrido y el alcance de las capturas de Safari.
-
-Photograph uploads also work from the published website. Images are saved in Cloudinary and Atlas and displayed through our API. The [photograph report](docs/evidencias/cloudinary/README.md) explains the checks and remaining mobile cases.
-
-![Fotografía de Cloudinary publicada / Published Cloudinary photograph](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
-
-### Cabecera móvil / Mobile header
-
-La cabecera utiliza ahora un menú de tres líneas en móvil y tablet para evitar que los enlaces se apilen. Incluye idioma y acceso privado, cierre con Escape y cierre al navegar. He guardado [las capturas responsive](docs/evidencias/movil/README.md) de las páginas públicas ES/EN a 390 px y de los tres perfiles privados en varios anchos.
-
-The header now uses a three-line menu on mobile and tablet to avoid stacked navigation. It includes language and account access, closes with Escape and closes after navigation. The [responsive screenshots](docs/evidencias/movil/README.md) cover public pages in both languages at 390 px and all three private profiles at multiple widths.
-
-![Menú móvil / Mobile menu](docs/evidencias/movil/02-menu-es-390.png)
-
-Son marcos de Safari de escritorio, no capturas del iPhone físico. / These are desktop Safari frames, not captures from a physical iPhone.
-
-### Revisión de producción · Production checks
-
-El 10 de octubre han pasado 101 comprobaciones HTTP en Vercel: catálogo, sesiones, permisos, privacidad, comunicaciones en castellano e inglés, entrega de imágenes y recorrido completo de mantenimiento y cancelación. Los dos talleres ficticios utilizados están ocultos del directorio público. El [informe de producción](docs/evidencias/produccion/README.md) recoge los resultados y sus límites.
-
-All 101 live HTTP checks passed on 10 October: catalogue, sessions, permissions, privacy, Spanish and English communications, image delivery, and the maintenance and cancellation workflows. The two fictional test workshops are hidden from the public directory. See the [production report](docs/evidencias/produccion/README.md) for results and scope.
-
-### Capturas de Insomnia · Insomnia screenshots
-
-La colección se ha importado y ejecutado en Insomnia 13.2.0: **76 peticiones y 171 comprobaciones correctas** sobre una base temporal, eliminada al terminar. La colección pública ha pasado otras **36 comprobaciones en 15 peticiones contra Vercel**. El [informe con capturas](docs/evidencias/insomnia/README.md) recoge el alcance y los ajustes de los scripts de sesión.
-
-![Resultado de la colección completa en Insomnia](docs/evidencias/insomnia/01-ronda-completa-171.png)
-
-The actual Insomnia app passed **171 assertions across 76 requests** against an isolated temporary database, removed afterwards. The public Vercel collection also passed **36 assertions across 15 requests**. The [screenshot report](docs/evidencias/insomnia/README.md) explains the scope and session scripting fixes.
-
-### Recorrido del backend con evidencias · Backend workflow evidence
-
-He ampliado la memoria con **23 capturas de Insomnia**. Los pasos de registro, revisión de talleres, asignación, confirmación y cancelación tienen su objetivo, petición, resultado e interpretación. También se muestra el rechazo de una franja ocupada, la protección de una cita ajena y la separación de comunicaciones entre perfiles. El [anexo de validación](docs/insomnia/VALIDACION-DETALLADA.md) relaciona los 76 casos ejecutados con sus resultados y las evidencias disponibles.
-
-![Taller aprobado desde Team](docs/evidencias/insomnia/15-taller-aprobado.png)
-
-![Comunicaciones dirigidas al cliente](docs/evidencias/insomnia/21-comunicaciones-cliente.png)
-
-The academic report now includes **23 Insomnia screenshots**. Selected steps explain their objective, request, result and meaning: client registration, workshop review, assignment, confirmation, cancellation, duplicate rejection and protection of another client's appointment. The [detailed validation report](docs/insomnia/VALIDACION-DETALLADA.md) maps all 76 executed cases to their results and available evidence. Additional screenshots use the successful run's stored responses; they are not another run or new production records. Message delivery was simulated in this round.
-
-### Libro de datos revisado · Data workbook reviewed
-
-El [Excel de entrega](outputs/kelsets-tfm/KelseTS-datos.xlsx) se ha abierto en Numbers para macOS. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres; la comparación completa con los CSV y la validación de la semilla pasan. Se conserva el XLSX original sin cambios. El [informe y sus cinco capturas](docs/evidencias/datos/README.md) documentan la revisión.
-
-The delivery XLSX was opened and inspected in Numbers on macOS. The guide displays 148 vehicles, four dealerships and four workshops. The complete CSV comparison and seed validation passed. The original XLSX remains unchanged; Microsoft Excel and CSV export from Numbers were not tested.
-
-### Capturas de las cuatro hojas · Screenshots of all four sheets
-
-Estas capturas corresponden al libro abierto en Numbers. La hoja Vehículos tiene una vista del inventario inicial y otra de la ampliación de lujo. Las imágenes muestran las filas y columnas visibles; el informe incluye la comprobación completa frente a los CSV.
-
-These screenshots show the workbook opened in Numbers: Guide, Vehicles, Dealerships and Workshops. Vehicles has a second view of the luxury models added to the catalogue. Screenshots show visible rows and columns; the linked report documents the complete CSV comparison.
-
-**Guía · Guide**
-
-![Guía y recuentos de las tres colecciones](docs/evidencias/datos/01-guia-numbers.png)
-
-**Vehículos · Vehicles**
-
-![Hoja Vehículos: inventario inicial](docs/evidencias/datos/02-vehiculos-numbers.png)
-
-![Hoja Vehículos: ampliación de lujo](docs/evidencias/datos/03-ampliacion-lujo-numbers.png)
-
-**Sedes · Dealerships**
-
-![Hoja Sedes: cuatro concesionarios](docs/evidencias/datos/04-sedes-numbers.png)
-
-**Talleres · Workshops**
-
-![Hoja Talleres: cuatro talleres relacionados con las sedes](docs/evidencias/datos/05-talleres-numbers.png)
-
-
-### Organización y revisión técnica / Code structure and technical review
-
-El catálogo separa el hero, los filtros, la barra de búsqueda, las tarjetas y la paginación. Las citas utilizan una fila compartida para sus datos y acciones; el registro separa la elección de perfil y los campos de taller. La ubicación del mapa tiene su propio hook. Los estilos de acceso y cuentas están en `private.css`, y los del barrio en `neighborhood.css`. La [revisión técnica](docs/REVISION-TECNICA.md) documenta también los recursos retirados, los metadatos y las pruebas de sustitución de imágenes.
-
-The catalogue separates its hero, filters, search toolbar, cards and pagination. Appointments share a row component for their details and actions; registration separates account selection and workshop fields. Map location has its own hook. Account styles live in `private.css`, and neighbourhood styles in `neighborhood.css`. The [technical review](docs/REVISION-TECNICA.md) also documents asset cleanup, metadata and image replacement tests.
-
-
-### Lo aprendido en entregas anteriores / Lessons from earlier projects
-
-Las correcciones de proyectos anteriores me han servido como referencia para revisar esta entrega. He prestado especial atención a separar componentes y estilos, retirar archivos sin uso y mantener una sola implementación de los helpers. También he comprobado que el footer muestre únicamente el idioma elegido y que las acciones de una cita correspondan a su estado.
-
-En el backend he revisado los datos relacionados que devuelve cada operación. La subida de una fotografía incluye ahora la sede del vehículo, y la sustitución de imágenes tiene un servicio propio para que el controlador resulte más fácil de seguir. En los datos he comprobado que no existan filas idénticas con claves distintas. El documento HTML ya tenía descripción y otros metadatos básicos; he añadido los de Open Graph y la tarjeta de Twitter. Estas mejoras y sus pruebas están recogidas en la [revisión técnica](docs/REVISION-TECNICA.md).
-
-Feedback on earlier projects guided this review. I focused on separating components and styles, removing unused files and keeping shared helpers in one place. I also checked that the footer uses only the selected language and that appointment actions match their current state.
-
-On the backend, I reviewed the related data returned by each operation. Image uploads now include the vehicle’s dealership, and image replacement has its own service to keep the controller readable. I checked the dataset for identical rows with different keys. The HTML document already had a description and basic metadata; I added Open Graph and Twitter card metadata. The changes and their tests are documented in the [technical review](docs/REVISION-TECNICA.md).
-
-
-### Capturas de mi iPhone / Screenshots from my iPhone
-
-He grabado la web publicada en mi iPhone 13. Estos fotogramas muestran la home, el buscador con su contador y el menú en inglés. El [informe con las siete capturas](docs/evidencias/iphone-real/README.md) incluye también las tarjetas, la ficha y el formulario de acceso. Son imágenes del dispositivo real, separadas de las pruebas anteriores en Safari de escritorio.
-
-I recorded the deployed website on my physical iPhone 13. These frames show the home page, search and result count, and English menu. The [seven-frame report](docs/evidencias/iphone-real/README.md) also includes catalogue cards, vehicle details and the sign-in form. This visual evidence is separate from the earlier desktop Safari review.
-
-![Home en iPhone 13 real](docs/evidencias/iphone-real/01-home.png)
-
-![Buscador y contador en iPhone 13 real](docs/evidencias/iphone-real/03-buscador.png)
-
-![Menú en inglés en iPhone 13 real](docs/evidencias/iphone-real/06-menu-ingles.png)
+Academic project for the Rock The Code master's programme at The Power Tech School.

@@ -2,7 +2,7 @@
 
 ## Por qué lo incorporo
 
-KelseTS Cars no termina cuando una persona elige un coche. Las revisiones y las reparaciones también necesitan atención, y para eso he añadido una solicitud de registro para talleres colaboradores. Las especialidades contemplan mantenimiento, mecánica, chapa y pintura, lunas y vehículos eléctricos. Chapa, pintura y lunas permiten preparar la futura atención de daños y siniestros; esta versión no tramita seguros ni gestiona el progreso de una reparación. Team sí puede asignar una cita de mantenimiento a un taller aprobado.
+KelseTS Cars no termina cuando una persona elige un coche. Las revisiones y las reparaciones también necesitan atención, y para eso he añadido una solicitud de registro para talleres colaboradores. Las especialidades contemplan mantenimiento, mecánica, chapa y pintura, lunas y vehículos eléctricos. Team sí puede asignar una cita de mantenimiento a un taller aprobado.
 
 He tomado como referencias la [posventa de Renault](https://www.renault.es/servicio-posventa.html?country=es), que relaciona mantenimiento, vehículo y cita, y la [red de talleres colaboradores de Línea Directa](https://empresas.lineadirecta.com/web/guest/talleres), que distingue talleres y especialidades. Son referencias de organización del servicio; KelseTS conserva su identidad y no reproduce sus coberturas ni promete sus prestaciones.
 
@@ -47,7 +47,7 @@ Cada evento tiene una clave única para evitar duplicar comunicaciones. Las oper
 npm run email:preview -w backend
 ```
 
-Genera diez muestras con datos ficticios en `backend/.email-previews/`, excluido de Git. Sirven para revisar el diseño de los correos sin conexión a Mailtrap. La bandeja de la web presenta el texto y los enlaces del mismo mensaje; el HTML queda preparado para las muestras y una futura integración. Los enlaces relativos de las muestras locales son orientativos; las acciones funcionales están en la web y necesitan sesión. Al añadir SMTP habrá que configurar la URL pública del frontend.
+Genera diez muestras con datos ficticios en `backend/.email-previews/`, excluido de Git. Sirven para revisar el diseño de los correos sin conexión a Mailtrap. La bandeja de la web presenta el texto y los enlaces del mismo mensaje; el HTML se utiliza en las muestras de correo. Los enlaces relativos de las muestras locales son orientativos; las acciones funcionales están en la web y necesitan sesión. Las muestras utilizan la URL web configurada en su entorno.
 
 ## API y relaciones
 

@@ -535,5 +535,9 @@
   "Abrir menú": "Open menu",
   "Cerrar menú": "Close menu",
   "Menú": "Menu",
-  "Cerrar": "Close"
+  "Cerrar": "Close",
+  "Universo KelseTS": "The KelseTS universe",
+  "Conecta": "Connect",
+  "KelseTS es un proyecto ficticio creado por Araceli Fradejas Muñoz para el máster Rock The Code de": "KelseTS is a fictional project created by Araceli Fradejas Muñoz for the Rock The Code master’s programme at",
+  "Esta web demuestra el desarrollo de una aplicación full stack para consultar vehículos y gestionar citas entre clientes, concesionarios y talleres, con soporte multilingüe. Tiene fines exclusivamente educativos y no representa un producto o servicio real.": "This website demonstrates a full stack application for browsing vehicles and managing appointments between customers, dealerships and workshops, with multilingual support. It is intended exclusively for educational purposes and does not represent a real product or service."
 }
