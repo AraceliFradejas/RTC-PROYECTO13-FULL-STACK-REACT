@@ -8,6 +8,15 @@ export function Layout() {
   const { t } = useLanguage();
   const { user } = useAuth();
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
+  useEffect(() => { setMenuOpen(false); }, [location.pathname, location.search]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = event => { if (event.key === "Escape") { setMenuOpen(false); menuButton.current?.focus(); } };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [menuOpen]);
   const [scrolled, setScrolled] = useState(false);
   const isHome = location.pathname === '/';
   useEffect(() => {
@@ -33,10 +42,11 @@ export function Layout() {
   }, [location.pathname, location.hash]);
   return <>
     <a className="skip-link" href="#contenido">{t("Saltar al contenido")}</a>
-    <header className={`site-header ${isHome ? 'cinematic-header' : ''} ${isHome && scrolled ? 'is-scrolled' : ''}`}>
+    <header onClick={event => { if (event.target.closest("a")) setMenuOpen(false); }} className={`site-header ${isHome ? 'cinematic-header' : ''} ${isHome && scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <Link className="wordmark" to="/" aria-label={t("KelseTS Cars, inicio")}><BrandLogo /></Link>
-      <nav aria-label={t("Navegación principal")}><NavLink to="/catalogo">{t("Colección")}</NavLink><NavLink to="/servicios">{t("Servicios")}</NavLink><NavLink to="/experiencia">{t("Nuestra esencia")}</NavLink><NavLink to="/sedes">{t("Sedes")}</NavLink></nav>
-      <LanguageSwitch /><Link className="account-link" to={user ? '/mi-cuenta' : '/acceso'}>{user ? t("Mi cuenta") : t("Acceder")} <span aria-hidden="true">↗</span></Link>
+      <button ref={menuButton} className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="site-navigation header-tools" aria-label={t(menuOpen ? "Cerrar menú" : "Abrir menú")} onClick={() => setMenuOpen(open => !open)}><span className="menu-icon" aria-hidden="true"><span /><span /><span /></span><span>{t(menuOpen ? "Cerrar" : "Menú")}</span></button>
+      <nav id="site-navigation" aria-label={t("Navegación principal")}><NavLink to="/catalogo">{t("Colección")}</NavLink><NavLink to="/servicios">{t("Servicios")}</NavLink><NavLink to="/experiencia">{t("Nuestra esencia")}</NavLink><NavLink to="/sedes">{t("Sedes")}</NavLink></nav>
+      <div id="header-tools" className="header-tools"><LanguageSwitch /><Link className="account-link" to={user ? '/mi-cuenta' : '/acceso'}>{user ? t("Mi cuenta") : t("Acceder")} <span aria-hidden="true">↗</span></Link></div>
     </header>
     <main id="contenido" ref={main} tabIndex={-1}><Outlet /></main>
     <footer className="site-footer"><div><Link className="wordmark footer-wordmark" to="/" aria-label={t("KelseTS Cars, inicio")}><BrandLogo /></Link><p>{t("El carácter se lleva dentro.")}<br />{t("El camino lo eliges tú.")}</p></div><div><p>Madrid · Barcelona<br />San Sebastián · Málaga</p><Link to="/creditos">{t("Fotografías y créditos")}</Link></div><p className="legal">{t("Marca ficticia · Proyecto académico de Araceli Fradejas Muñoz.")}<br />{t("Sin vinculación con los fabricantes. Las fotografías ilustran modelos, no unidades a la venta.")}</p></footer>

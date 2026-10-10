@@ -1,0 +1,562 @@
+{
+  "checkedAt": "2026-10-10T15:34:43.324Z",
+  "scope": "Safari de escritorio en marcos de anchura controlada; no simulador iOS ni capturas del dispositivo físico",
+  "publicData": "API publicada mediante proxy local; las últimas capturas de home no necesitan inventario",
+  "privateData": "Base Atlas temporal aislada",
+  "interactions": [
+    "Apertura y cierre de menú",
+    "Escape devuelve foco al botón",
+    "Cambio ES/EN dentro del menú",
+    "Navegación cierra menú",
+    "Fecha de fin de semana muestra error",
+    "Vista previa de imagen y descarte sin subida"
+  ],
+  "captures": [
+    {
+      "path": "/catalogo",
+      "language": "es",
+      "width": 390,
+      "file": "03-catalogo-es-390.png",
+      "headings": [
+        "15 encabezamiento Value: 1, Encuentra tu",
+        "23 encabezamiento ¿Cómo quieres encontrar tu próximo coche?, Value: 2"
+      ]
+    },
+    {
+      "path": "/servicios",
+      "language": "es",
+      "width": 390,
+      "file": "05-servicios-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Tu próximo paso.",
+        "21 encabezamiento Value: 2, Cada paso",
+        "26 encabezamiento Prueba de conducción, Value: 3"
+      ]
+    },
+    {
+      "path": "/experiencia",
+      "language": "es",
+      "width": 390,
+      "file": "06-esencia-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Tu camino.",
+        "21 encabezamiento Una historia que se mueve contigo., Value: 2",
+        "31 encabezamiento Personalidad., Value: 2"
+      ]
+    },
+    {
+      "path": "/sedes",
+      "language": "es",
+      "width": 390,
+      "file": "07-sedes-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Cuatro ciudades.",
+        "21 encabezamiento Tu próximo encuentro., Value: 2",
+        "35 encabezamiento KelseTS Cars Barcelona, Value: 3"
+      ]
+    },
+    {
+      "path": "/creditos",
+      "language": "es",
+      "width": 390,
+      "file": "08-creditos-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Imágenes y película.",
+        "18 encabezamiento Identidad y escenas de marca, Value: 2",
+        "21 encabezamiento Los barrios de nuestra red, Value: 2"
+      ]
+    },
+    {
+      "path": "/modelos/porsche-taycan",
+      "language": "es",
+      "width": 390,
+      "file": "09-porsche-es-390.png",
+      "headings": [
+        "15 encabezamiento Taycan, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/ferrari-roma",
+      "language": "es",
+      "width": 390,
+      "file": "10-ferrari-es-390.png",
+      "headings": [
+        "15 encabezamiento Roma, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/mercedes-s-class",
+      "language": "es",
+      "width": 390,
+      "file": "11-mercedes-es-390.png",
+      "headings": [
+        "15 encabezamiento Clase S, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/tesla-model-s",
+      "language": "es",
+      "width": 390,
+      "file": "12-tesla-es-390.png",
+      "headings": [
+        "15 encabezamiento Model S, Value: 1"
+      ]
+    },
+    {
+      "path": "/vehiculos/6ac269702927fe45e0f85b78",
+      "language": "es",
+      "width": 390,
+      "file": "13-ficha-es-390.png",
+      "headings": [
+        "15 encabezamiento 911 Carrera, Value: 1"
+      ]
+    },
+    {
+      "path": "/acceso",
+      "language": "es",
+      "width": 390,
+      "file": "14-acceso-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Cada detalle.",
+        "20 encabezamiento Bienvenida de nuevo, Value: 2"
+      ]
+    },
+    {
+      "path": "/ruta-inexistente",
+      "language": "es",
+      "width": 390,
+      "file": "15-404-es-390.png",
+      "headings": [
+        "13 encabezamiento Ese camino no existe., Value: 1"
+      ]
+    },
+    {
+      "path": "/",
+      "language": "en",
+      "width": 390,
+      "file": "16-home-en-390.png",
+      "headings": [
+        "15 encabezamiento Value: 1, The road",
+        "23 encabezamiento Value: 2, One character.",
+        "29 encabezamiento Taycan, Value: 3"
+      ]
+    },
+    {
+      "path": "/catalogo",
+      "language": "en",
+      "width": 390,
+      "file": "17-catalogo-en-390.png",
+      "headings": [
+        "15 encabezamiento Value: 1, Find your",
+        "23 encabezamiento How would you like to find your next car?, Value: 2",
+        "42 encabezamiento MDX, Value: 2"
+      ]
+    },
+    {
+      "path": "/servicios",
+      "language": "en",
+      "width": 390,
+      "file": "18-servicios-en-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Your next step.",
+        "21 encabezamiento Value: 2, Every step",
+        "26 encabezamiento Test drive, Value: 3"
+      ]
+    },
+    {
+      "path": "/experiencia",
+      "language": "en",
+      "width": 390,
+      "file": "19-esencia-en-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Your road.",
+        "21 encabezamiento A story that moves with you., Value: 2",
+        "31 encabezamiento Personality., Value: 2"
+      ]
+    },
+    {
+      "path": "/sedes",
+      "language": "en",
+      "width": 390,
+      "file": "20-sedes-en-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Four cities.",
+        "21 encabezamiento Your next meeting., Value: 2",
+        "35 encabezamiento KelseTS Cars Barcelona, Value: 3"
+      ]
+    },
+    {
+      "path": "/creditos",
+      "language": "en",
+      "width": 390,
+      "file": "21-creditos-en-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Images and film.",
+        "18 encabezamiento Identity and brand scenes, Value: 2",
+        "21 encabezamiento Our network’s neighbourhoods, Value: 2"
+      ]
+    },
+    {
+      "path": "/modelos/porsche-taycan",
+      "language": "en",
+      "width": 390,
+      "file": "22-porsche-en-390.png",
+      "headings": [
+        "15 encabezamiento Taycan, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/ferrari-roma",
+      "language": "en",
+      "width": 390,
+      "file": "23-ferrari-en-390.png",
+      "headings": [
+        "15 encabezamiento Roma, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/mercedes-s-class",
+      "language": "en",
+      "width": 390,
+      "file": "24-mercedes-en-390.png",
+      "headings": [
+        "15 encabezamiento Clase S, Value: 1"
+      ]
+    },
+    {
+      "path": "/modelos/tesla-model-s",
+      "language": "en",
+      "width": 390,
+      "file": "25-tesla-en-390.png",
+      "headings": [
+        "15 encabezamiento Model S, Value: 1"
+      ]
+    },
+    {
+      "path": "/vehiculos/6ac269702927fe45e0f85b78",
+      "language": "en",
+      "width": 390,
+      "file": "26-ficha-en-390.png",
+      "headings": [
+        "15 encabezamiento 911 Carrera, Value: 1"
+      ]
+    },
+    {
+      "path": "/acceso",
+      "language": "en",
+      "width": 390,
+      "file": "27-acceso-en-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Every detail.",
+        "20 encabezamiento Welcome back, Value: 2"
+      ]
+    },
+    {
+      "path": "/ruta-inexistente",
+      "language": "en",
+      "width": 390,
+      "file": "28-404-en-390.png",
+      "headings": [
+        "13 encabezamiento This road does not exist., Value: 1"
+      ]
+    },
+    {
+      "path": "/acceso",
+      "language": "es",
+      "width": 390,
+      "file": "29-acceso-temporal-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Cada detalle.",
+        "20 encabezamiento Bienvenida de nuevo, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 320,
+      "file": "33-cliente-es-320.png",
+      "headings": [
+        "14 encabezamiento Tu camino continúa aquí., Value: 1",
+        "18 encabezamiento Hola, Cliente Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 390,
+      "file": "33-cliente-es-390.png",
+      "headings": [
+        "14 encabezamiento Tu camino continúa aquí., Value: 1",
+        "18 encabezamiento Hola, Cliente Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 768,
+      "file": "33-cliente-es-768.png",
+      "headings": [
+        "14 encabezamiento Tu camino continúa aquí., Value: 1",
+        "18 encabezamiento Hola, Cliente Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 1440,
+      "file": "33-cliente-es-1440.png",
+      "headings": [
+        "22 encabezamiento Tu camino continúa aquí., Value: 1",
+        "26 encabezamiento Hola, Cliente Demo Revisión Móvil., Value: 2",
+        "31 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/citas/nueva?vehicle=6aca5a73e92bc2fe7b49e744&dealership=6aca5a72e92bc2fe7b49e733",
+      "language": "es",
+      "width": 390,
+      "file": "34-cita-es-390.png",
+      "headings": [
+        "14 encabezamiento Value: 1, Hagamos sitio.",
+        "19 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "en",
+      "width": 390,
+      "file": "36-cliente-en-390.png",
+      "headings": [
+        "14 encabezamiento Your journey continues here., Value: 1",
+        "18 encabezamiento Hello, Cliente Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 320,
+      "file": "37-taller-es-320.png",
+      "headings": [
+        "14 encabezamiento Tu taller. Nuestra conexión., Value: 1",
+        "18 encabezamiento Hola, Profesional Demo Revisión Móvil., Value: 2",
+        "21 encabezamiento Tu solicitud de colaboración., Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 390,
+      "file": "37-taller-es-390.png",
+      "headings": [
+        "14 encabezamiento Tu taller. Nuestra conexión., Value: 1",
+        "18 encabezamiento Hola, Profesional Demo Revisión Móvil., Value: 2",
+        "21 encabezamiento Tu solicitud de colaboración., Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 768,
+      "file": "37-taller-es-768.png",
+      "headings": [
+        "14 encabezamiento Tu taller. Nuestra conexión., Value: 1",
+        "18 encabezamiento Hola, Profesional Demo Revisión Móvil., Value: 2",
+        "21 encabezamiento Tu solicitud de colaboración., Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 1440,
+      "file": "37-taller-es-1440.png",
+      "headings": [
+        "22 encabezamiento Tu taller. Nuestra conexión., Value: 1",
+        "26 encabezamiento Hola, Profesional Demo Revisión Móvil., Value: 2",
+        "29 encabezamiento Tu solicitud de colaboración., Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "en",
+      "width": 390,
+      "file": "38-taller-en-390.png",
+      "headings": [
+        "14 encabezamiento Your workshop. Our connection., Value: 1",
+        "18 encabezamiento Hello, Profesional Demo Revisión Móvil., Value: 2",
+        "21 encabezamiento Your partnership application., Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 320,
+      "file": "39-team-es-320.png",
+      "headings": [
+        "14 encabezamiento Cada persona. Una misma atención., Value: 1",
+        "18 encabezamiento Hola, Team Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 390,
+      "file": "39-team-es-390.png",
+      "headings": [
+        "14 encabezamiento Cada persona. Una misma atención., Value: 1",
+        "18 encabezamiento Hola, Team Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 768,
+      "file": "39-team-es-768.png",
+      "headings": [
+        "14 encabezamiento Cada persona. Una misma atención., Value: 1",
+        "18 encabezamiento Hola, Team Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "es",
+      "width": 1440,
+      "file": "39-team-es-1440.png",
+      "headings": [
+        "22 encabezamiento Cada persona. Una misma atención., Value: 1",
+        "26 encabezamiento Hola, Team Demo Revisión Móvil., Value: 2",
+        "31 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/mi-cuenta",
+      "language": "en",
+      "width": 390,
+      "file": "40-team-en-390.png",
+      "headings": [
+        "14 encabezamiento Every person. The same care., Value: 1",
+        "18 encabezamiento Hello, Team Demo Revisión Móvil., Value: 2",
+        "23 encabezamiento Porsche 911 Carrera, Value: 2"
+      ]
+    },
+    {
+      "path": "/vehiculos/6aca5a73e92bc2fe7b49e744",
+      "language": "en",
+      "width": 390,
+      "file": "42-fotografia-team-en-390.png",
+      "headings": [
+        "15 encabezamiento 911 Carrera, Value: 1",
+        "39 encabezamiento Care for the first impression., Value: 2"
+      ]
+    },
+    {
+      "path": "/",
+      "language": "es",
+      "width": 390,
+      "file": "01-home-es-390.png",
+      "headings": [
+        "15 encabezamiento Value: 1, El camino",
+        "23 encabezamiento Value: 2, Un carácter.",
+        "29 encabezamiento Taycan, Value: 3"
+      ]
+    },
+    {
+      "path": "/",
+      "language": "es",
+      "width": 320,
+      "file": "45-home-es-320.png",
+      "headings": [
+        "15 encabezamiento Value: 1, El camino",
+        "23 encabezamiento Value: 2, Un carácter.",
+        "29 encabezamiento Taycan, Value: 3"
+      ]
+    },
+    {
+      "path": "/",
+      "language": "es",
+      "width": 768,
+      "file": "45-home-es-768.png",
+      "headings": [
+        "15 encabezamiento Value: 1, El camino",
+        "23 encabezamiento Value: 2, Un carácter.",
+        "29 encabezamiento Taycan, Value: 3"
+      ]
+    },
+    {
+      "path": "/",
+      "language": "es",
+      "width": 844,
+      "file": "45-home-es-844.png",
+      "headings": [
+        "15 encabezamiento Value: 1, El camino",
+        "23 encabezamiento Value: 2, Un carácter.",
+        "29 encabezamiento Taycan, Value: 3"
+      ]
+    }
+  ],
+  "files": [
+    "01-home-es-390.png",
+    "02-menu-es-390.png",
+    "03-catalogo-es-390.png",
+    "04-buscador-es-390.png",
+    "05-servicios-es-390.png",
+    "06-esencia-es-390.png",
+    "07-sedes-es-390.png",
+    "08-creditos-es-390.png",
+    "09-porsche-es-390.png",
+    "10-ferrari-es-390.png",
+    "11-mercedes-es-390.png",
+    "12-tesla-es-390.png",
+    "13-ficha-es-390.png",
+    "14-acceso-es-390.png",
+    "15-404-es-390.png",
+    "16-home-en-390.png",
+    "17-catalogo-en-390.png",
+    "18-servicios-en-390.png",
+    "19-esencia-en-390.png",
+    "20-sedes-en-390.png",
+    "21-creditos-en-390.png",
+    "22-porsche-en-390.png",
+    "23-ferrari-en-390.png",
+    "24-mercedes-en-390.png",
+    "25-tesla-en-390.png",
+    "26-ficha-en-390.png",
+    "27-acceso-en-390.png",
+    "28-404-en-390.png",
+    "29-acceso-temporal-es-390.png",
+    "30-registro-cliente-es-390.png",
+    "31-registro-taller-es-390.png",
+    "32-especialidades-taller-es-390.png",
+    "33-cliente-es-1440.png",
+    "33-cliente-es-320.png",
+    "33-cliente-es-390.png",
+    "33-cliente-es-768.png",
+    "34-cita-es-390.png",
+    "35-error-cita-es-390.png",
+    "36-cliente-en-390.png",
+    "37-taller-es-1440.png",
+    "37-taller-es-320.png",
+    "37-taller-es-390.png",
+    "37-taller-es-768.png",
+    "38-taller-en-390.png",
+    "39-team-es-1440.png",
+    "39-team-es-320.png",
+    "39-team-es-390.png",
+    "39-team-es-768.png",
+    "40-team-en-390.png",
+    "41-team-acciones-en-390.png",
+    "42-fotografia-team-en-390.png",
+    "43-vista-previa-en-390.png",
+    "44-menu-en-390.png",
+    "45-home-es-320.png",
+    "45-home-es-768.png",
+    "45-home-es-844.png"
+  ],
+  "temporaryDatabaseRemoved": true
+}

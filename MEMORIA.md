@@ -255,3 +255,13 @@ También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web
 ![Fotografía publicada desde Cloudinary](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
 
 Quedan la revisión completa de formularios y errores en móvil, dispositivos físicos, la ronda final de Insomnia y repetir el ciclo de citas en producción. Estas capturas de escritorio no sustituyen esas pruebas.
+
+## Cabecera y revisión responsive · 10 de octubre
+
+Al revisar la web en su iPhone 13, la cabecera anterior apilaba navegación, idioma y acceso. He sustituido esa distribución por un menú desplegable en móvil y tablet, conservando el logo aprobado. Los enlaces tienen espacio para pulsarlos; el idioma y el acceso siguen dentro del menú. Escape recupera el foco y navegar lo cierra.
+
+He preparado capturas de todas las rutas públicas en castellano e inglés a 390 px, de los perfiles de cliente, taller y Team a 320, 390, 768 y 1440 px y de formularios y vista previa de fotografías. Safari mostraba los selectores de las citas con una altura reducida; ahora tienen un mínimo de 48 px. El error de fecha también se ha revisado.
+
+![Menú al ancho de revisión del iPhone 13](docs/evidencias/movil/02-menu-es-390.png)
+
+El [informe responsive](docs/evidencias/movil/README.md) incluye las capturas y sus límites. Se han tomado en marcos de Safari de escritorio con el frontend local; los perfiles utilizaron una base temporal eliminada al terminar. No sustituyen la comprobación del teclado, barras del navegador, orientación y subida desde Fotos en el iPhone físico.

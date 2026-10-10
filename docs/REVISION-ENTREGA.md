@@ -58,3 +58,7 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 ## Revisión del 10 de octubre
 
 Rutas públicas ES/EN, sugerencias por teclado, filtros y paginación comprobados en Vercel. Registro y revisión de talleres y ciclo completo de mantenimiento repetidos en Safari con base temporal eliminada. Subida de fotografías comprobada en la web publicada y entrega JPEG desde la API verificada visualmente. Los informes de [navegación](evidencias/navegacion/README.md) y [Cloudinary](evidencias/cloudinary/README.md) separan entornos y límites. Siguen pendientes dispositivos físicos, estados responsive completos y ronda final de Insomnia.
+
+## Capturas responsive y menú móvil
+
+Páginas públicas ES/EN capturadas a 390 px; cliente, taller y Team a 320, 390, 768 y 1440 px. Formularios de registro, error de fecha y vista previa revisados. Menú desplegable incorporado para evitar la cabecera apilada. [Informe y capturas](evidencias/movil/README.md). Siguen pendientes estados adicionales y comprobación completa en dispositivos físicos; los marcos de Safari no equivalen a una prueba de iOS.

@@ -588,3 +588,13 @@ La subida de fotografías también funciona desde la web publicada. La imagen qu
 Photograph uploads also work from the published website. Images are saved in Cloudinary and Atlas and displayed through our API. The [photograph report](docs/evidencias/cloudinary/README.md) explains the checks and remaining mobile cases.
 
 ![Fotografía de Cloudinary publicada / Published Cloudinary photograph](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
+
+### Cabecera móvil / Mobile header
+
+La cabecera utiliza ahora un menú de tres líneas en móvil y tablet para evitar que los enlaces se apilen. Incluye idioma y acceso privado, cierre con Escape y cierre al navegar. He guardado [las capturas responsive](docs/evidencias/movil/README.md) de las páginas públicas ES/EN a 390 px y de los tres perfiles privados en varios anchos.
+
+The header now uses a three-line menu on mobile and tablet to avoid stacked navigation. It includes language and account access, closes with Escape and closes after navigation. The [responsive screenshots](docs/evidencias/movil/README.md) cover public pages in both languages at 390 px and all three private profiles at multiple widths.
+
+![Menú móvil / Mobile menu](docs/evidencias/movil/02-menu-es-390.png)
+
+Son marcos de Safari de escritorio, no capturas del iPhone físico. / These are desktop Safari frames, not captures from a physical iPhone.
