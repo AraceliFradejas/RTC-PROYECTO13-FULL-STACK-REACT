@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-10",
+  "application": "Insomnia 13.2.0 macOS",
+  "execution": "Interfaz nativa y Collection Runner",
+  "rounds": [
+    {
+      "environment": "Backend local http://localhost:3003/api/v1, base temporal aislada en Atlas",
+      "requests": 76,
+      "assertions": 171,
+      "passed": 171,
+      "failed": 0,
+      "databaseRemoved": true,
+      "excludedRequests": [
+        77,
+        78
+      ]
+    },
+    {
+      "environment": "https://kelsets-cars.vercel.app/api/v1",
+      "requests": 15,
+      "cases": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        76
+      ],
+      "assertions": 36,
+      "passed": 36,
+      "failed": 0,
+      "newAccountsOrAppointments": false
+    }
+  ],
+  "screenshots": [
+    "01-ronda-completa-171.png",
+    "02-sin-fallos.png",
+    "03-visita-completada.png",
+    "04-agenda-taller-privacidad.png",
+    "05-cliente-permiso-denegado.png",
+    "06-vercel-36-comprobaciones.png",
+    "07-vercel-sin-fallos.png",
+    "08-vercel-inventario-148.png",
+    "09-vercel-sin-sesion.png"
+  ]
+}

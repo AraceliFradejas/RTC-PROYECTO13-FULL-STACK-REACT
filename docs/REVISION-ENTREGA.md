@@ -2,9 +2,9 @@
 
 | Requisito | Estado actual | Pendiente para entrega |
 | --- | --- | --- |
-| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Registro y revisión comprobados en base temporal; repetir ciclo privado en producción |
+| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Registro y revisión comprobados en base temporal; ciclo HTTP privado comprobado en producción |
 | Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Revisar en Excel de escritorio |
-| Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Comprobar también en producción |
+| Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Relaciones y recorrido de citas comprobados por HTTP en producción |
 | Semilla con lectura de archivos `fs` | CSV exportados del Excel y carga repetida en Atlas | Conservar evidencias al ampliar inventario |
 | Usuarios y rutas protegidas | Roles y sesión implementados | Casos positivos y negativos completos |
 | Variables en `style.css` | Definidas | Ajustes del diseño definitivo |
@@ -14,7 +14,7 @@
 | Castellano e inglés, requisito de marca KelseTS | Selector ES/EN y traducciones de interfaz incorporados | Comunicaciones bilingües comprobadas; completar revisión responsive y contenidos dinámicos |
 | Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Subida y lectura comprobadas en Vercel; revisar estados móviles |
 | README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Actualizar evidencias con los recorridos finales |
-| Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido completo de citas, talleres y fotografías en producción |
+| Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido HTTP privado y fotografías comprobados; quedan dispositivos físicos |
 | DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
 
 La app, el configurador completo y las integraciones específicas pertenecen a la segunda etapa. No se cuentan como requisitos cumplidos de esta entrega.
@@ -41,7 +41,7 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 ## Tareas añadidas · 4 de octubre
 
 - [x] Preparar una colección importable de Insomnia para validar el backend, con datos ficticios, casos correctos, errores y permisos.
-- [ ] Importar y ejecutar la colección en Insomnia; guardar resultados y capturas de la ronda final.
+- [x] Importar y ejecutar la colección en Insomnia; 171 comprobaciones del recorrido completo y 36 públicas de Vercel, con resultados y capturas.
 - [x] Completar el recorrido en navegador de cliente, cita, asignación y confirmación desde Team, agenda del taller y cierre.
 - [x] Completar registro de taller y su aprobación y rechazo desde Team en navegador, con base temporal aislada.
 
@@ -57,8 +57,12 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 
 ## Revisión del 10 de octubre
 
-Rutas públicas ES/EN, sugerencias por teclado, filtros y paginación comprobados en Vercel. Registro y revisión de talleres y ciclo completo de mantenimiento repetidos en Safari con base temporal eliminada. Subida de fotografías comprobada en la web publicada y entrega JPEG desde la API verificada visualmente. Los informes de [navegación](evidencias/navegacion/README.md) y [Cloudinary](evidencias/cloudinary/README.md) separan entornos y límites. Siguen pendientes dispositivos físicos, estados responsive completos y ronda final de Insomnia.
+Rutas públicas ES/EN, sugerencias por teclado, filtros y paginación comprobados en Vercel. Registro y revisión de talleres y ciclo completo de mantenimiento repetidos en Safari con base temporal eliminada. Subida de fotografías comprobada en la web publicada y entrega JPEG desde la API verificada visualmente. Los informes de [navegación](evidencias/navegacion/README.md) y [Cloudinary](evidencias/cloudinary/README.md) separan entornos y límites. La revisión responsive tiene su informe posterior. Quedan las comprobaciones en dispositivos físicos; la ronda final de Insomnia se ha completado y documentado.
 
 ## Capturas responsive y menú móvil
 
 Páginas públicas ES/EN capturadas a 390 px; cliente, taller y Team a 320, 390, 768 y 1440 px. Formularios de registro, error de fecha y vista previa revisados. Menú desplegable incorporado para evitar la cabecera apilada. [Informe y capturas](evidencias/movil/README.md). Siguen pendientes estados adicionales y comprobación completa en dispositivos físicos; los marcos de Safari no equivalen a una prueba de iOS.
+
+## Actualización tras las pruebas de producción e Insomnia
+
+El ciclo HTTP privado en producción ha pasado sus 101 comprobaciones. En Insomnia 13.2.0 han pasado 171 comprobaciones de las 76 peticiones principales sobre una base temporal eliminada al terminar, y 36 comprobaciones de 15 peticiones públicas contra Vercel. Se han guardado nueve capturas. Ver los informes de [producción](evidencias/produccion/README.md) e [Insomnia](evidencias/insomnia/README.md). Quedan la revisión física del móvil, el libro en Excel de escritorio y el cierre final de entrega.

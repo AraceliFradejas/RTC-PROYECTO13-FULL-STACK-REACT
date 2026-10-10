@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la revisión bilingüe y móvil completa y el recorrido completo en producción.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; la revisión bilingüe, móvil y de producción tiene sus informes posteriores; queda la comprobación física de dispositivos.
 
 ## 4. Tecnologías
 
@@ -46,7 +46,7 @@ El backend es un monolito modular: comparte despliegue y base de datos, pero agr
 
 La portada editorial permite conocer la marca y los modelos seleccionados. El catálogo consulta el inventario mediante la API. Una ficha enlaza con la solicitud de cita; si falta sesión, la navegación pasa por acceso y conserva el destino. El área personal consulta citas y permite solicitar su cancelación.
 
-El recorrido de mantenimiento se ha comprobado con Atlas desde Safari, entre cliente, Team y taller. El registro y la revisión de talleres en navegador siguen pendientes.
+El recorrido de mantenimiento se ha comprobado con Atlas desde Safari, entre cliente, Team y taller. El registro y la revisión de talleres también se han comprobado después en Safari con una base temporal.
 
 ## 7. Modelos y relaciones
 
@@ -100,9 +100,9 @@ La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de or
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. El registro y la revisión de talleres en navegador, la revisión móvil completa y el recorrido completo de citas y talleres en producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. Los informes posteriores documentan el registro y la revisión de talleres en Safari, la revisión responsive y el recorrido HTTP en producción. Quedan las comprobaciones físicas del móvil. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
 
-Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. La primera revisión del despliegue se recoge al final de esta memoria; queda pendiente el recorrido completo de citas y talleres en producción. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
+Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. La primera revisión del despliegue se recoge al final de esta memoria; el recorrido HTTP completo en producción está documentado al final. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
 
 ### Catálogo y búsqueda
 
@@ -254,7 +254,7 @@ También he subido la fotografía del Porsche 911 Carrera de Madrid desde la web
 
 ![Fotografía publicada desde Cloudinary](docs/evidencias/cloudinary/09-imagen-publicada-vercel-safari.png)
 
-Quedan la revisión completa de formularios y errores en móvil, dispositivos físicos, la ronda final de Insomnia y repetir el ciclo de citas en producción. Estas capturas de escritorio no sustituyen esas pruebas.
+Quedan las comprobaciones en dispositivos físicos. La ronda final de Insomnia y el ciclo HTTP de citas en producción se han completado después y tienen sus informes correspondientes. Estas capturas de escritorio no sustituyen esas pruebas.
 
 ## Cabecera y revisión responsive · 10 de octubre
 
@@ -271,3 +271,17 @@ El [informe responsive](docs/evidencias/movil/README.md) incluye las capturas y 
 El 10 de octubre se han ejecutado 101 comprobaciones HTTP contra la web y la API de Vercel, todas correctas. La revisión incluye catálogo, sesiones, permisos, privacidad, comunicaciones en ambos idiomas y entrega de imágenes de Cloudinary. Con dos talleres ficticios autorizados y ocultos del directorio público se han probado la aprobación y el rechazo con motivo. Cliente Demo Despliegue ha solicitado una cita de mantenimiento que Team ha asignado, confirmado y completado; una segunda cita se ha cancelado desde el perfil de cliente. También se han comprobado los bloqueos de duplicados y cambios de estado incorrectos.
 
 Los registros ficticios se conservan como demostración. El [informe de producción](docs/evidencias/produccion/README.md) incluye los resultados esperados y obtenidos y explica el alcance: son peticiones HTTP reales, no una ejecución de la interfaz de Insomnia ni pruebas físicas del teléfono. No se han añadido credenciales a la documentación.
+
+## Ejecución y capturas de Insomnia
+
+He importado la colección en Insomnia 13.2.0 y ejecutado las 76 peticiones principales sobre una base temporal de Atlas con el backend local. Pasan sus 171 comprobaciones. La ronda permite seguir el registro y la separación de perfiles, aprobar y rechazar talleres, asignar un mantenimiento, cancelar una cita propia y completar otra visita. El taller recibe el nombre del cliente sin su correo. La base temporal se eliminó al terminar.
+
+![Ronda completa de Insomnia: 171 comprobaciones correctas](docs/evidencias/insomnia/01-ronda-completa-171.png)
+
+La ejecución encontró dos ajustes necesarios en la colección: usar el código HTTP numérico y conservar en el jar la cookie que devuelve el registro o login. Tras corregirlos, se repitió la ronda completa. No fue necesario modificar los permisos ni la autenticación de la API.
+
+![El cliente no puede revisar solicitudes de talleres](docs/evidencias/insomnia/05-cliente-permiso-denegado.png)
+
+También he ejecutado 15 peticiones públicas contra Vercel, con 36 comprobaciones correctas y sin crear más cuentas o citas. Esta colección se puede repetir sin credenciales. Las dos peticiones de subida manual de imágenes no se incluyen en el runner; su prueba desde Safari está documentada en Cloudinary. El [informe de Insomnia](docs/evidencias/insomnia/README.md) conserva nueve capturas y distingue esta ejecución de las pruebas HTTP anteriores.
+
+![Resultado de Insomnia contra Vercel](docs/evidencias/insomnia/06-vercel-36-comprobaciones.png)

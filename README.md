@@ -259,7 +259,7 @@ He comprobado el catálogo con 148 vehículos, las cuatro sedes, los cuatro tall
 
 ![Sesión de cliente conservada después de recargar Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. Falta el recorrido completo de citas y talleres en producción, la subida desde Vercel, la revisión bilingüe completa y los dispositivos reales. La nueva prueba local de Cloudinary del 10 de octubre encontró un corte de conexión; no sustituye a la integración correcta documentada del 4 de octubre.
+La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. El recorrido de citas en producción, la subida desde Vercel y las comunicaciones bilingües tienen sus evidencias posteriores. Queda la revisión de los dispositivos físicos. El corte local de conexión con Cloudinary se resolvió para la entrega de imágenes mediante la API publicada.
 
 ## Aviso académico y autora
 
@@ -604,3 +604,11 @@ Son marcos de Safari de escritorio, no capturas del iPhone físico. / These are 
 El 10 de octubre han pasado 101 comprobaciones HTTP en Vercel: catálogo, sesiones, permisos, privacidad, comunicaciones en castellano e inglés, entrega de imágenes y recorrido completo de mantenimiento y cancelación. Los dos talleres ficticios utilizados están ocultos del directorio público. El [informe de producción](docs/evidencias/produccion/README.md) recoge los resultados y sus límites.
 
 All 101 live HTTP checks passed on 10 October: catalogue, sessions, permissions, privacy, Spanish and English communications, image delivery, and the maintenance and cancellation workflows. The two fictional test workshops are hidden from the public directory. See the [production report](docs/evidencias/produccion/README.md) for results and scope.
+
+### Capturas de Insomnia · Insomnia screenshots
+
+La colección se ha importado y ejecutado en Insomnia 13.2.0: **76 peticiones y 171 comprobaciones correctas** sobre una base temporal, eliminada al terminar. La colección pública ha pasado otras **36 comprobaciones en 15 peticiones contra Vercel**. El [informe con capturas](docs/evidencias/insomnia/README.md) recoge el alcance y los ajustes de los scripts de sesión.
+
+![Resultado de la colección completa en Insomnia](docs/evidencias/insomnia/01-ronda-completa-171.png)
+
+The actual Insomnia app passed **171 assertions across 76 requests** against an isolated temporary database, removed afterwards. The public Vercel collection also passed **36 assertions across 15 requests**. The [screenshot report](docs/evidencias/insomnia/README.md) explains the scope and session scripting fixes.

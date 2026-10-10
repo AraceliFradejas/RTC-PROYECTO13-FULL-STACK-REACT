@@ -81,7 +81,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "const run = Date.now().toString();\nfor (const kind of ['client', 'workshop', 'rejected', 'other']) insomnia.environment.set(kind + '_email', kind + '.' + run + '@kelsets.example');\nfor (const key of ['vehicle_id', 'dealership_id', 'workshop_id', 'rejected_workshop_id', 'appointment_id', 'other_appointment_id']) insomnia.environment.set(key, '');\nconst next = new Date(Date.now() + 7 * 86400000);\nfunction slot(value) {\n while ([0,6].includes(value.getUTCDay())) value.setUTCDate(value.getUTCDate() + 1);\n const day = value.toISOString().slice(0,10);\n const probe = new Date(day + 'T10:00:00Z');\n const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(probe).map(p => [p.type,p.value]));\n const offset = Date.UTC(+parts.year,+parts.month-1,+parts.day,+parts.hour,+parts.minute,+parts.second) - probe.getTime();\n return new Date(probe.getTime()-offset).toISOString();\n}\ninsomnia.environment.set('appointment_date', slot(next));\nnext.setUTCDate(next.getUTCDate()+1);\ninsomnia.environment.set('other_date', slot(next));\n",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -113,7 +113,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -145,7 +145,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.code).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 401. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -177,7 +177,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Sedes disponibles', () => insomnia.expect(payload.data.length).to.be.at.least(4));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Sedes disponibles', () => insomnia.expect(payload.data.length).to.be.at.least(4));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -209,7 +209,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Directorio sin cuentas', () => payload.data.forEach(item => { insomnia.expect(item).not.to.have.property('user'); insomnia.expect(item).not.to.have.property('email'); }));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Directorio sin cuentas', () => payload.data.forEach(item => { insomnia.expect(item).not.to.have.property('user'); insomnia.expect(item).not.to.have.property('email'); }));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -241,7 +241,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Inventario de al menos 100 registros', () => insomnia.expect(payload.data.total).to.be.at.least(100));\nconst vehicle = payload.data.items.find(item => !['Vendido','Reservado'].includes(item.status));\ninsomnia.test('Vehículo disponible con sede', () => insomnia.expect(Boolean(vehicle && vehicle.dealership)).to.eql(true));\nif (vehicle) { insomnia.environment.set('vehicle_id',vehicle._id); insomnia.environment.set('dealership_id',vehicle.dealership._id); }\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Inventario de al menos 100 registros', () => insomnia.expect(payload.data.total).to.be.at.least(100));\nconst vehicle = payload.data.items.find(item => !['Vendido','Reservado'].includes(item.status));\ninsomnia.test('Vehículo disponible con sede', () => insomnia.expect(Boolean(vehicle && vehicle.dealership)).to.eql(true));\nif (vehicle) { insomnia.environment.set('vehicle_id',vehicle._id); insomnia.environment.set('dealership_id',vehicle.dealership._id); }\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -273,7 +273,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -305,7 +305,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Coinciden los resultados', () => payload.data.items.forEach(item => insomnia.expect((item.brand+' '+item.model).toLowerCase()).to.include('audi')));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Coinciden los resultados', () => payload.data.items.forEach(item => insomnia.expect((item.brand+' '+item.model).toLowerCase()).to.include('audi')));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -337,7 +337,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Marca filtrada', () => payload.data.items.forEach(item => insomnia.expect(item.brand).to.eql('Porsche')));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Marca filtrada', () => payload.data.items.forEach(item => insomnia.expect(item.brand).to.eql('Porsche')));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -369,7 +369,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -401,7 +401,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -433,7 +433,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 404', () => insomnia.expect(insomnia.response.status).to.eql(404));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 404', () => insomnia.expect(insomnia.response.code).to.eql(404));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 404. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -478,7 +478,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "insomnia.request.addHeader({key:'Origin',value:'https://origen-ajeno.example'});",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -517,7 +517,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -556,7 +556,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol decidido por servidor y sin contraseña', () => { insomnia.expect(payload.data.role).to.eql('client'); insomnia.expect(payload.data).not.to.have.property('password'); });",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol decidido por servidor y sin contraseña', () => { insomnia.expect(payload.data.role).to.eql('client'); insomnia.expect(payload.data).not.to.have.property('password'); });\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -595,7 +595,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.code).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 409. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -627,7 +627,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -659,7 +659,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Bienvenida sin envío', () => { insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(true); payload.data.forEach(item => insomnia.expect(item.delivery).to.eql('simulated')); });",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Bienvenida sin envío', () => { insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(true); payload.data.forEach(item => insomnia.expect(item.delivery).to.eql('simulated')); });",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -691,7 +691,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -726,7 +726,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -765,7 +765,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -804,7 +804,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cita pendiente', () => insomnia.expect(payload.data.status).to.eql('Pendiente')); if(payload.success) insomnia.environment.set('appointment_id',payload.data._id);",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cita pendiente', () => insomnia.expect(payload.data.status).to.eql('Pendiente')); if(payload.success) insomnia.environment.set('appointment_id',payload.data._id);",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -843,7 +843,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.code).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 409. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -882,7 +882,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -921,7 +921,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -953,7 +953,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -992,7 +992,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.code).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 401. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1041,7 +1041,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1080,7 +1080,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1112,7 +1112,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Pendiente de aprobación', () => insomnia.expect(payload.data.status).to.eql('pending')); if(payload.success) insomnia.environment.set('workshop_id',payload.data._id);",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Pendiente de aprobación', () => insomnia.expect(payload.data.status).to.eql('pending')); if(payload.success) insomnia.environment.set('workshop_id',payload.data._id);",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1144,7 +1144,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo recepción propia', () => { insomnia.expect(payload.data.some(item => item.type==='workshop.received')).to.eql(true); insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(false); });",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo recepción propia', () => { insomnia.expect(payload.data.some(item => item.type==='workshop.received')).to.eql(true); insomnia.expect(payload.data.some(item => item.type==='client.welcome')).to.eql(false); });",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1176,7 +1176,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1208,7 +1208,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1247,7 +1247,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1279,7 +1279,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1318,7 +1318,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1350,7 +1350,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('rejected_workshop_id',payload.data._id);",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('rejected_workshop_id',payload.data._id);",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1382,7 +1382,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1431,7 +1431,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1470,7 +1470,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cuenta administradora', () => insomnia.expect(payload.data.role).to.eql('admin'));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Cuenta administradora', () => insomnia.expect(payload.data.role).to.eql('admin'));\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1502,7 +1502,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1541,7 +1541,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1580,7 +1580,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.code).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 409. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1619,7 +1619,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1658,7 +1658,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1690,7 +1690,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1729,7 +1729,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1768,7 +1768,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.code).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 409. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1807,7 +1807,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1839,7 +1839,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1874,7 +1874,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.status).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 400', () => insomnia.expect(insomnia.response.code).to.eql(400));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 400. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1906,7 +1906,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1955,7 +1955,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol profesional', () => insomnia.expect(payload.data.role).to.eql('workshop'));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Rol profesional', () => insomnia.expect(payload.data.role).to.eql('workshop'));\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -1987,7 +1987,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Asignación propia y privacidad', () => { insomnia.expect(payload.data.some(item => item._id===insomnia.environment.get('appointment_id'))).to.eql(true); payload.data.forEach(item=>{ insomnia.expect(item.user).not.to.have.property('email'); }); });",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Asignación propia y privacidad', () => { insomnia.expect(payload.data.some(item => item._id===insomnia.environment.get('appointment_id'))).to.eql(true); payload.data.forEach(item=>{ insomnia.expect(item.user).not.to.have.property('email'); }); });",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2019,7 +2019,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2051,7 +2051,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Aprobación y asignación notificadas', () => { for(const type of ['workshop.approved','workshop.assignment','appointment.confirmed']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true); insomnia.expect(payload.data.some(item=>item.type==='client.welcome')).to.eql(false); });",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Aprobación y asignación notificadas', () => { for(const type of ['workshop.approved','workshop.assignment','appointment.confirmed']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true); insomnia.expect(payload.data.some(item=>item.type==='client.welcome')).to.eql(false); });",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2083,7 +2083,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2122,7 +2122,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2154,7 +2154,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.status).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 403', () => insomnia.expect(insomnia.response.code).to.eql(403));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 403. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2186,7 +2186,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Resultado explicado',()=>insomnia.expect(payload.data.some(item=>item.type==='workshop.rejected')).to.eql(true));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Resultado explicado',()=>insomnia.expect(payload.data.some(item=>item.type==='workshop.rejected')).to.eql(true));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2218,7 +2218,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2267,7 +2267,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2299,7 +2299,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('No accede a cita ajena',()=>insomnia.expect(payload.data.some(item=>item._id===insomnia.environment.get('appointment_id'))).to.eql(false));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('No accede a cita ajena',()=>insomnia.expect(payload.data.some(item=>item._id===insomnia.environment.get('appointment_id'))).to.eql(false));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2338,7 +2338,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.status).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 409', () => insomnia.expect(insomnia.response.code).to.eql(409));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 409. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2370,7 +2370,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo bienvenida del segundo cliente',()=>insomnia.expect(payload.data.map(item=>item.type)).to.eql(['client.welcome']));",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Solo bienvenida del segundo cliente',()=>insomnia.expect(payload.data.map(item=>item.type)).to.eql(['client.welcome']));",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2409,7 +2409,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.status).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('other_appointment_id',payload.data._id);",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 201', () => insomnia.expect(insomnia.response.code).to.eql(201));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\nif(payload.success) insomnia.environment.set('other_appointment_id',payload.data._id);",
       "description": "Esperado: HTTP 201. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2441,7 +2441,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2480,7 +2480,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2519,7 +2519,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2551,7 +2551,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Ciclo de cita notificado',()=>{for(const type of ['appointment.pending','appointment.assigned','appointment.confirmed','appointment.cancelled']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true);});",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\ninsomnia.test('Ciclo de cita notificado',()=>{for(const type of ['appointment.pending','appointment.assigned','appointment.confirmed','appointment.cancelled']) insomnia.expect(payload.data.some(item=>item.type===type)).to.eql(true);});",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2583,7 +2583,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2622,7 +2622,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2661,7 +2661,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2700,7 +2700,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2732,7 +2732,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\nif (insomnia.response.code === 200) {\n const domain = new URL(insomnia.environment.get('base_url')).hostname;\n await new Promise((resolve, reject) => insomnia.cookies.jar().clear(domain, error => error ? reject(error) : resolve()));\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2764,7 +2764,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.status).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 401', () => insomnia.expect(insomnia.response.code).to.eql(401));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(false));\n",
       "description": "Esperado: HTTP 401. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2813,7 +2813,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "if (!insomnia.environment.get('admin_email') || !insomnia.environment.get('admin_password')) throw new Error('Configura las credenciales Team en el entorno privado de Insomnia.');",
-      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.status).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n",
+      "afterResponseScript": "const payload = insomnia.response.json();\ninsomnia.test('HTTP 200', () => insomnia.expect(insomnia.response.code).to.eql(200));\ninsomnia.test('Respuesta JSON coherente', () => insomnia.expect(payload.success).to.eql(true));\n\n// Keep the session returned by this response in the script cookie jar.\n// Insomnia 13.2 can otherwise restore the jar from before login.\nif ([200, 201].includes(insomnia.response.code)) {\n const header = insomnia.response.headers.find(h => h.key.toLowerCase() === 'set-cookie');\n const value = header?.value.match(/(?:^|;\\s*)session=([^;]+)/)?.[1];\n if (value) {\n  const domain = new URL(insomnia.environment.get('base_url')).hostname;\n  await new Promise((resolve, reject) => insomnia.cookies.jar().set(domain, 'session', { key: 'session', value, domain, path: '/api/v1', httpOnly: true, secure: insomnia.environment.get('base_url').startsWith('https:'), expires: new Date(Date.now() + 7 * 86400000) }, error => error ? reject(error) : resolve()));\n }\n}\n",
       "description": "Esperado: HTTP 200. Ver guía de ejecución.",
       "created": 1791115200000,
       "modified": 1791115200000
@@ -2855,7 +2855,7 @@
       "settingFollowRedirects": "global",
       "settingEncodeUrl": true,
       "preRequestScript": "",
-      "afterResponseScript": "insomnia.test('Subida correcta',()=>insomnia.expect(insomnia.response.status).to.eql(200));",
+      "afterResponseScript": "insomnia.test('Subida correcta',()=>insomnia.expect(insomnia.response.code).to.eql(200));",
       "description": "Manual. Seleccionar archivo JPEG/PNG/WebP <5 MB. Modifica la imagen del vehículo. Esperado 200 con Cloudinary configurado; 503 sin credenciales. No incluir en la ronda general.",
       "created": 1791115200000,
       "modified": 1791115200000
