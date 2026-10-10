@@ -556,7 +556,16 @@
     "44-menu-en-390.png",
     "45-home-es-320.png",
     "45-home-es-768.png",
-    "45-home-es-844.png"
+    "45-home-es-844.png",
+    "46-menu-vercel-es-390.png"
   ],
-  "temporaryDatabaseRemoved": true
+  "temporaryDatabaseRemoved": true,
+  "productionCheck": {
+    "commit": "ffe45a1",
+    "url": "https://kelsets-cars.vercel.app/",
+    "width": 390,
+    "safariMenuOpens": true,
+    "servicesNavigationClosesMenu": true,
+    "file": "46-menu-vercel-es-390.png"
+  }
 }
