@@ -31,7 +31,7 @@ He mantenido los colores y el estilo de KelseTS, con imágenes aspiracionales y 
 
 ## Estado actual
 
-**El proyecto sigue en desarrollo y todavía no está listo para la entrega final.**
+**La versión de Rock The Code está en revisión final de entrega.**
 
 La conexión con MongoDB Atlas está configurada. Ya se han cargado 148 vehículos, cuatro concesionarios y cuatro talleres desde los CSV, y se ha comprobado que repetir la carga no duplica los registros.
 
@@ -47,7 +47,7 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil completa y el recorrido completo de citas y talleres en producción. La subida de fotografías a Cloudinary ya está conectada desde Team y comprobada en Safari.
+La compilación y las 37 pruebas locales pasan en la revisión del 10 de octubre: 21 del backend, 11 del frontend y cinco del cliente HTTP. Las dos integraciones opcionales no se ejecutan en esta ronda local; tienen evidencias independientes. Registro y revisión de talleres y el recorrido de mantenimiento entre cliente, Team y taller están comprobados en Safari con base temporal. El recorrido privado por HTTP en producción pasa 101 comprobaciones. Insomnia pasa 171 comprobaciones del recorrido principal y 36 de la colección pública de Vercel. La subida desde la web publicada y la entrega de la fotografía de Cloudinary también están verificadas. Quedan la comprobación completa en dispositivos físicos y el cierre de entrega. Las [evidencias](docs/evidencias/README.md) distinguen cada entorno y herramienta.
 
 El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. El selector ES/EN y las traducciones de la interfaz están incorporados. Las diez comunicaciones tienen versiones en castellano e inglés. Falta cerrar la revisión y las pruebas de entrega.
 
@@ -344,9 +344,9 @@ The website includes:
 - A private demonstration inbox for registrations, applications and appointment updates.
 - Administrator photo uploads to Cloudinary from vehicle details.
 
-The build and 24 local tests pass. API integration has also been checked in a temporary Atlas database. The maintenance journey between customer, Team and workshop has been completed in Safari, including completion and its messages. Workshop registration and review in the browser, full mobile checks and the complete production appointment journey remain pending.
+The build and 37 local tests pass: 21 backend, 11 frontend and five API client tests. Two optional integrations are skipped in this local run and have separate evidence. Workshop registration and review and the maintenance workflow were checked in Safari using an isolated database. The production HTTP workflow passed 101 checks. Insomnia passed 171 assertions for the main workflow and 36 for the public Vercel collection. Production image uploads were also verified. Physical device checks and final submission remain pending.
 
-**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; the ten communications also have Spanish and English versions. The complete bilingual review is still pending.**
+**This README is available in Spanish and English. The website now includes an ES/EN selector and interface translations; the ten communications also have Spanish and English versions. Public routes and private profile layouts have been reviewed in both languages; exhaustive dynamic error and physical device checks remain pending.**
 
 ### Project screenshots
 
@@ -384,7 +384,7 @@ These screenshots were captured during local checks on 4 October 2026. They do n
 
 ![Málaga location cards with neighbourhood photographs and links](docs/evidencias/sedes/01-tarjetas-safari-estrecho.png)
 
-The [evidence index](docs/evidencias/README.md) explains the scope of each check and links to the remaining screenshots and reports. The application and the screenshots currently use Spanish text.
+The [evidence index](docs/evidencias/README.md) explains the scope of each check and links to the remaining screenshots and reports. The application supports Spanish and English, and the evidence includes both languages.
 
 ### Two stages
 
@@ -511,7 +511,7 @@ I adapted the communication approach from [KelseTS Talks](https://github.com/Ara
 
 The ten sample types have been reviewed in Mailtrap's Phone preset using Safari, with captures of their content and footer. Real email clients and devices remain to be tested. The [Mailtrap guide](docs/MAILTRAP.md) and [evidence index](docs/evidencias/README.md) distinguish local previews, received messages and browser checks.
 
-The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 24 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Physical device checks remain pending.
+The [Insomnia collection and guide](docs/INSOMNIA.md) support backend validation. The committed collection contains fictional data; credentials belong in a private environment. The build and 37 local tests pass. Temporary Atlas integration and the browser maintenance journey provide separate evidence; the completed production HTTP journey is documented separately. Physical device checks remain pending.
 
 ### Documentation and deployment
 
@@ -538,7 +538,7 @@ Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, pub
 
 ![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
 
-The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The complete appointment and workshop journey in production, uploads from Vercel, the complete bilingual review and real devices remain to be checked. A new local Cloudinary test on 10 October encountered a network connection reset; the successful integration evidence from 4 October is retained.
+The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The private production HTTP workflow and uploads from Vercel have since been verified in their separate reports. Public routes and private profile layouts have evidence in both languages. Physical device checks remain pending. The local Cloudinary connection issue was resolved for image delivery through the published API.
 
 ### Academic notice and author
 

@@ -1,27 +1,27 @@
 # Seguimiento del TFM Rock The Code
 
-| Requisito | Estado actual | Pendiente para entrega |
+| Requisito | Estado comprobado | Evidencia o pendiente real |
 | --- | --- | --- |
-| Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Registro y revisión comprobados en base temporal; ciclo HTTP privado comprobado en producción |
-| Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Apertura en Numbers y recuentos comprobados; XLSX original conservado |
-| Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Relaciones y recorrido de citas comprobados por HTTP en producción |
-| Semilla con lectura de archivos `fs` | CSV exportados del Excel y carga repetida en Atlas | Conservar evidencias al ampliar inventario |
-| Usuarios y rutas protegidas | Roles y sesión implementados | Casos positivos y negativos completos |
-| Variables en `style.css` | Definidas | Ajustes del diseño definitivo |
-| Arquitectura y reutilización | Módulos, paquetes y componentes | Revisar al ampliar funcionalidades |
-| Hooks avanzados necesarios | Carga con reducer, cancelación y reintento | Comprobar en los recorridos completos |
-| UX/UI | Primera dirección visual y pantallas | Validación móvil, teclado y formularios |
-| Castellano e inglés, requisito de marca KelseTS | Selector ES/EN y traducciones de interfaz incorporados | Comunicaciones bilingües comprobadas; completar revisión responsive y contenidos dinámicos |
-| Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Subida y lectura comprobadas en Vercel; revisar estados móviles |
-| README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Actualizar evidencias con los recorridos finales |
-| Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido HTTP privado y fotografías comprobados; quedan dispositivos físicos |
-| DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
+| Node.js y React | Implementados e integrados | Safari: recorrido temporal; HTTP: recorrido privado publicado |
+| Excel con al menos 100 registros | 148 vehículos, cuatro sedes y cuatro talleres | [Numbers, CSV y validación](evidencias/datos/README.md) |
+| Dos colecciones relacionadas además de usuarios | Vehículos y sedes; talleres y citas amplían las relaciones | [Datos](DATOS-EXCEL.md) y [recorrido de producción](evidencias/produccion/README.md) |
+| Semilla con lectura de archivos fs | Excel exportado a CSV; semilla valida y carga sin duplicar | [Guía de datos](DATOS-EXCEL.md) |
+| Usuarios y rutas protegidas | Clientes, talleres y Team con permisos diferenciados | [76 casos de Insomnia](insomnia/VALIDACION-DETALLADA.md) |
+| Variables en style.css | Colores, espacios y estilos compartidos definidos | frontend/src/styles/style.css |
+| Arquitectura y reutilización | Organización por funcionalidades, componentes y cliente HTTP compartido | [Memoria](../MEMORIA.md) |
+| Hooks avanzados necesarios | useResource utiliza useReducer para carga, error y reintento; AbortController cancela peticiones | frontend/src/shared/hooks/useResource.js |
+| UX/UI | Navegación, teclado y layouts de perfiles revisados en Safari | [Responsive](evidencias/movil/README.md); pendiente recorrido físico completo |
+| Castellano e inglés, requisito de marca | Rutas públicas, layouts privados y comunicaciones tienen evidencias ES/EN | [Idiomas](evidencias/idiomas/README.md); completar errores dinámicos y dispositivo físico |
+| Cloudinary opcional | Subida, sustitución y entrega desde la web publicada comprobadas | [Fotografías](evidencias/cloudinary/README.md); pendiente selección desde Fotos del móvil |
+| README y memoria | README bilingüe; 23 capturas de Insomnia y cinco de Numbers incorporadas | Cierre editorial y coherencia final |
+| Despliegue frontend y backend | Web y API publicadas; catálogo, sesión, citas e imágenes comprobados | [Producción](evidencias/produccion/README.md) |
+| DocBase fuera del repositorio | Carpeta ignorada y sin archivos versionados | Exclusión comprobada el 10 de octubre |
 
 La app, el configurador completo y las integraciones específicas pertenecen a la segunda etapa. No se cuentan como requisitos cumplidos de esta entrega.
 
 ## Plan de entrega · 17–18 de octubre de 2026
 
-Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Web y API ya están publicadas y se ha incorporado el selector ES/EN. Siguen pendientes el responsive completo, la revisión bilingüe, el registro y la revisión de talleres en navegador y el recorrido completo en producción.
+Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Web y API ya están publicadas y se ha incorporado el selector ES/EN. Esos recorridos ya tienen sus informes de Safari, responsive, producción e Insomnia. La revisión final se centra en dispositivos físicos, estados dinámicos adicionales y documentación.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |
@@ -48,12 +48,14 @@ La gestión de personal y Cloudinary son mejoras propias del proyecto; el enunci
 - [x] Capturar y verificar las diez muestras en Mailtrap Sandbox, en HTML y texto, con sus cuerpos recibidos y registro de verificación.
 - [x] Revisar logo, imágenes, botones y footer de los diez correos en el preset Phone de Mailtrap desde Safari.
 - [ ] Probar dispositivos y clientes de correo reales.
-- [ ] Revisar cada perfil privado a 320, 390, 768 y 1440 px, incluyendo textos largos, formularios y errores; completar comprobación en dispositivo real.
+- [x] Revisar los perfiles privados a 320, 390, 768 y 1440 px; conservar capturas de textos largos, formularios y un error de fecha.
+- [ ] Completar los estados adicionales y el recorrido en dispositivo físico.
 
 - [x] Conectar Cloudinary y comprobar subida y sustitución con datos temporales.
 - [x] Incorporar selección, vista previa y guardado de fotografías desde React con acceso de administrador; comprobarlo en Safari.
 - [x] Revisar la distribución del formulario vacío de fotografías a 320, 390, 768 y 1440 px en Safari.
-- [ ] Revisar vista previa y errores del formulario a esos anchos y completar la prueba en dispositivo real.
+- [x] Revisar la vista previa y el descarte de fotografía en Safari a 390 px.
+- [ ] Completar errores de fotografía y selección de archivos en dispositivo físico.
 
 ## Revisión del 10 de octubre
 
@@ -68,3 +70,11 @@ Páginas públicas ES/EN capturadas a 390 px; cliente, taller y Team a 320, 390,
 El ciclo HTTP privado en producción ha pasado sus 101 comprobaciones. En Insomnia 13.2.0 han pasado 171 comprobaciones de las 76 peticiones principales sobre una base temporal eliminada al terminar, y 36 comprobaciones de 15 peticiones públicas contra Vercel. Se han guardado 23 capturas y un anexo con los 76 casos. Ver los informes de [producción](evidencias/produccion/README.md) e [Insomnia](evidencias/insomnia/README.md). El libro se ha abierto y revisado en Numbers, con recuentos y comparación completa frente a CSV correctos. Quedan la revisión física del móvil y el cierre final de entrega.
 
 La [revisión del libro en Numbers](evidencias/datos/README.md) conserva cinco capturas y el hash del XLSX original. No se ha convertido el archivo ni se presenta esta comprobación como una ejecución en Microsoft Excel.
+
+## Cierre técnico y editorial · 10 de octubre
+
+Pasan 37 pruebas locales y la compilación. Las dos integraciones opcionales quedan omitidas en esta ronda; no se contabilizan como correctas ni se repiten las pruebas ya documentadas en otros entornos. El build conserva avisos de anotaciones de Zod y de tamaño del paquete principal: genera los archivos de producción correctamente; dividir más la carga queda como mejora de rendimiento.
+
+El README se ha actualizado en ambos idiomas para retirar los pendientes de talleres y producción ya comprobados. Los informes históricos de VALIDACION.md conservan la situación de cada fecha; las revisiones posteriores completan su alcance. La autora realizará la prueba del iPhone 13 más tarde. No se marca como completada por las capturas de Safari.
+
+Antes de entregar: completar esa revisión física, resolver incidencias si aparecen, comprobar los enlaces publicados y marcar en Git la versión de entrega de Rock The Code. La app y los módulos de BigSchool permanecen fuera de este cierre.

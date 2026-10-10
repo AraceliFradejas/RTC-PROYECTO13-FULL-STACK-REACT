@@ -140,3 +140,9 @@ También pasan 15 peticiones y 36 comprobaciones de la colección pública contr
 ## Libro de datos en Numbers · 10 de octubre de 2026
 
 El XLSX original se ha abierto en Numbers para macOS y se han recorrido sus cuatro hojas. La guía muestra 148, 4 y 4 como resultados de sus fórmulas. Pasan `data:check` y `seed:check`; el archivo mantiene su SHA-256. Se conservan [cinco capturas y el informe](evidencias/datos/README.md). No se modificaron celdas ni se guardó, convirtió o exportó desde Numbers. No se ha probado Microsoft Excel.
+
+## Comprobación final local y cierre editorial · 10 de octubre de 2026
+
+`npm test` pasa 37 pruebas: 21 backend, 11 frontend y cinco del cliente HTTP. Dos integraciones opcionales se omiten, sin contarlas como aprobadas. `npm run build` termina correctamente; conserva avisos de anotaciones de Zod y tamaño del paquete principal (552,36 kB, 160,40 kB gzip). No se ha cambiado código para ocultarlos. Las comprobaciones de Atlas, Cloudinary, Insomnia y producción mantienen sus informes separados.
+
+README castellano e inglés y la revisión de entrega se han actualizado para retirar pendientes resueltos. DocBase continúa ignorada y sin archivos versionados. La autora deja la prueba física del iPhone 13 para más tarde; sigue pendiente.
