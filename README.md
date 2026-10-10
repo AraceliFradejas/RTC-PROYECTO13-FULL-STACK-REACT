@@ -628,3 +628,27 @@ The academic report now includes **23 Insomnia screenshots**. Selected steps exp
 El [Excel de entrega](outputs/kelsets-tfm/KelseTS-datos.xlsx) se ha abierto en Numbers para macOS. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres; la comparación completa con los CSV y la validación de la semilla pasan. Se conserva el XLSX original sin cambios. El [informe y sus cinco capturas](docs/evidencias/datos/README.md) documentan la revisión.
 
 The delivery XLSX was opened and inspected in Numbers on macOS. The guide displays 148 vehicles, four dealerships and four workshops. The complete CSV comparison and seed validation passed. The original XLSX remains unchanged; Microsoft Excel and CSV export from Numbers were not tested.
+
+### Capturas de las cuatro hojas · Screenshots of all four sheets
+
+Estas capturas corresponden al libro abierto en Numbers. La hoja Vehículos tiene una vista del inventario inicial y otra de la ampliación de lujo. Las imágenes muestran las filas y columnas visibles; el informe incluye la comprobación completa frente a los CSV.
+
+These screenshots show the workbook opened in Numbers: Guide, Vehicles, Dealerships and Workshops. Vehicles has a second view of the luxury models added to the catalogue. Screenshots show visible rows and columns; the linked report documents the complete CSV comparison.
+
+**Guía · Guide**
+
+![Guía y recuentos de las tres colecciones](docs/evidencias/datos/01-guia-numbers.png)
+
+**Vehículos · Vehicles**
+
+![Hoja Vehículos: inventario inicial](docs/evidencias/datos/02-vehiculos-numbers.png)
+
+![Hoja Vehículos: ampliación de lujo](docs/evidencias/datos/03-ampliacion-lujo-numbers.png)
+
+**Sedes · Dealerships**
+
+![Hoja Sedes: cuatro concesionarios](docs/evidencias/datos/04-sedes-numbers.png)
+
+**Talleres · Workshops**
+
+![Hoja Talleres: cuatro talleres relacionados con las sedes](docs/evidencias/datos/05-talleres-numbers.png)

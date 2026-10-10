@@ -510,7 +510,17 @@ He abierto el Excel de entrega en Numbers y revisado Guía, Vehículos, Sedes y 
 
 ![Libro de entrega abierto en Numbers con los recuentos](docs/evidencias/datos/01-guia-numbers.png)
 
+### Vehículos
+
+![Inicio de la hoja Vehículos](docs/evidencias/datos/02-vehiculos-numbers.png)
+
 ![Ampliación de modelos de lujo en el libro](docs/evidencias/datos/03-ampliacion-lujo-numbers.png)
+
+### Sedes
+
+![Hoja Sedes con los cuatro concesionarios](docs/evidencias/datos/04-sedes-numbers.png)
+
+### Talleres
 
 ![Talleres con referencias a las sedes](docs/evidencias/datos/05-talleres-numbers.png)
 
