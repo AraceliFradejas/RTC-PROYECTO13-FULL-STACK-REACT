@@ -124,3 +124,7 @@ La integración opcional de Cloudinary se ha intentado dos veces: supera los cas
 ## Idiomas · 10 de octubre de 2026
 
 Pasan once pruebas del frontend y la compilación. El [informe de idiomas](evidencias/idiomas/README.md) incluye capturas locales de Safari: portada en marcos de 320/390 px, catálogo inglés con filtro Tesla/Electric y cuenta ficticia. El envío conserva `fuel=Eléctrico`; la recarga conserva el idioma. El cambio a castellano conserva la sesión de cliente. Servicios y Nuestra esencia muestran sus encabezados en inglés. Quedan pendientes los mensajes guardados en inglés, la revisión completa de vistas privadas y errores, y dispositivos reales.
+
+### Comunicaciones bilingües · 10 de octubre
+
+Diez plantillas inglesas, conservación de destinos y datos históricos, fallback castellano ante contenido no reconocido y selección de idioma en la bandeja. Pasan 18 pruebas de backend (dos integraciones opcionales omitidas en la ejecución general), once de frontend y cinco del cliente API. La integración de registros, talleres y citas se ejecuta además con Atlas temporal y pasa, incluida la persistencia del texto inglés y la exclusión de datos privados. Compilación correcta. Las capturas 05 y 06 del informe de idiomas son vistas previas locales de Safari; no representan nuevos envíos a Mailtrap.

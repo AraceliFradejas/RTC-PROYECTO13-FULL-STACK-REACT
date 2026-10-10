@@ -22,6 +22,15 @@ test('Atlas: registros, revisión de talleres, privacidad y comunicaciones de ci
     let response = await client.post('/api/v1/auth/register').set('Origin', origin).send({ ...base, role: 'admin' }); assert.equal(response.status, 400);
     response = await client.post('/api/v1/auth/register').set('Origin', origin).send(base); assert.equal(response.status, 201); assert.equal(response.body.data.role, 'client');
     assert.equal((await client.get('/api/v1/messages')).body.data[0].type, 'client.welcome');
+    const storedWelcome = await Message.findOne({ type: 'client.welcome' }).lean();
+    const englishWelcome = (await client.get('/api/v1/messages?language=en')).body.data[0];
+    assert.equal(englishWelcome.subject, storedWelcome.translations.en.subject);
+    assert.equal(englishWelcome.language, 'en');
+    assert.match(englishWelcome.html, /lang="en"/);
+    assert.equal(englishWelcome.translations, undefined);
+    assert.equal(englishWelcome.user, undefined);
+    assert.equal(englishWelcome.eventKey, undefined);
+    assert.equal((await client.get('/api/v1/messages?language=fr')).body.data[0].subject, storedWelcome.subject);
     assert.equal((await client.post('/api/v1/auth/register').set('Origin', origin).send(base)).status, 409);
     const workshop = { ...base, accountType: 'workshop', email: 'workshop@example.com', workshopName: 'Taller Demo', city: 'Madrid', address: 'Calle Demo 10', phone: '600000000', specialties: ['Mecánica', 'Chapa y pintura'] };
     assert.equal((await partner.post('/api/v1/auth/register').set('Origin', origin).send(workshop)).status, 201);

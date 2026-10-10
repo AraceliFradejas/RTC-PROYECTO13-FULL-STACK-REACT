@@ -1,3 +1,4 @@
+import { englishFooter, englishScenes } from './emailBrand.en.js';
 import { readFile } from 'node:fs/promises';
 
 // Compartido por las vistas locales y las muestras Sandbox. Editar aquí el footer.
@@ -18,9 +19,11 @@ export const emailScenes = {
   'appointment.assigned': { heading: 'Tu coche, acompañado en cada paso.', image: 'email-cita-asignada-v1.png', alt: 'Asesor explicando a una cliente la atención de su taller.' },
   'workshop.assignment': { heading: 'Una nueva cita. El mismo compromiso.', image: 'email-taller-asignacion-v1.png', alt: 'Profesional preparando una intervención en el taller.' },
 };
-export function emailIdentity(type = 'client.welcome') {
+export function getEmailFooter(language = 'es') { return language === 'en' ? englishFooter : emailFooter; }
+export function emailIdentity(type = 'client.welcome', language = 'es') {
   const scene = emailScenes[type];
   if (!scene) throw new Error('Tipo de identidad de correo desconocido.');
+  if (language === 'en') return { ...scene, ...englishScenes[type], audience: type.startsWith('workshop.') ? 'WORKSHOP NETWORK' : 'YOUR KELSETS EXPERIENCE', alt: `${englishScenes[type].alt} Conceptual image.` };
   return { ...scene, audience: type.startsWith('workshop.') ? 'RED DE TALLERES' : 'TU EXPERIENCIA KELSETS', alt: `${scene.alt} Imagen conceptual.` };
 }
 const logo = new URL('./assets/logo-email.png', import.meta.url);

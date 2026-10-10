@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes las comunicaciones en inglés, la revisión bilingüe y móvil completa y el recorrido completo en producción.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la revisión bilingüe y móvil completa y el recorrido completo en producción.
 
 ## 4. Tecnologías
 
@@ -225,3 +225,15 @@ La traducción afecta a la presentación: los valores de motorización, servicio
 El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Pasan once pruebas del frontend y la compilación. La segunda fase podrá reutilizar las traducciones y la lógica de idioma; el almacenamiento y el selector de una app nativa necesitarán su propia adaptación.
 
 La portada inglesa también se ha comprobado en el dominio de Vercel después de publicar el commit `6d2f9b3`. La [captura de producción](docs/evidencias/idiomas/04-home-en-vercel-safari.png) se conserva separada de las pruebas locales.
+
+## Comunicaciones en ambos idiomas · 10 de octubre
+
+Las diez comunicaciones tienen ahora versión inglesa, incluido el footer. He conservado el logo aprobado y una imagen distinta para cada tipo de mensaje. Al crear una comunicación se guardan los dos idiomas dentro de la misma operación de base de datos: una cita posterior o un cambio de nombre no alteran ese contenido histórico.
+
+La bandeja solicita el idioma seleccionado y sigue mostrando solo los mensajes del usuario conectado. Para el historial anterior, compruebo que se puede reproducir exactamente la plantilla castellana antes de ofrecer su traducción. Si hay información distinta o ambigua, mantengo el original. No traduzco nombres, direcciones ni motivos introducidos por usuarios.
+
+Pasan las pruebas automáticas y la integración de registros, talleres y citas en una base temporal de Atlas, eliminada al terminar. He revisado la bienvenida inglesa y su footer en Safari. Son vistas previas locales, no nuevos envíos a Mailtrap ni una comprobación de todos los clientes de correo.
+
+![Bienvenida inglesa con el logo aprobado](docs/evidencias/idiomas/05-bienvenida-email-en-safari.png)
+
+![Footer inglés y enlaces](docs/evidencias/idiomas/06-footer-email-en-safari.png)

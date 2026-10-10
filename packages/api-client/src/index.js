@@ -36,7 +36,7 @@ export function createApiClient({ baseUrl, fetchImpl = globalThis.fetch, getHead
       update: (id, body) => request(`/appointments/${encodeURIComponent(id)}`, { method: 'PATCH', body }),
       assignWorkshop: (id, body) => request(`/appointments/${encodeURIComponent(id)}/workshop`, { method: 'POST', body }),
     },
-    messages: { list: options => request('/messages', options) },
+    messages: { list: ({ language = 'es', ...options } = {}) => request(`/messages?language=${language === 'en' ? 'en' : 'es'}`, options) },
     workshops: {
       list: options => request('/workshops', options),
       assignable: options => request('/workshops/assignable', options),

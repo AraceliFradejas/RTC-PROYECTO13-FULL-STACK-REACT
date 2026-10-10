@@ -2,7 +2,7 @@
 
 He añadido el selector ES/EN a la cabecera. La elección se conserva en el navegador, se comparte entre pestañas y actualiza el idioma del documento y su título. Los textos ingleses están separados en un archivo de traducciones; no se modifican los datos de Atlas.
 
-La interfaz incorpora traducciones en navegación, portada, Servicios, Nuestra esencia, catálogo, fichas, sedes, créditos, acceso, citas y paneles privados. Los nombres propios, las direcciones, las licencias y los valores enviados a la API conservan su contenido original. Los mensajes ya guardados en la bandeja mantienen por ahora su cuerpo y asunto en castellano.
+La interfaz incorpora traducciones en navegación, portada, Servicios, Nuestra esencia, catálogo, fichas, sedes, créditos, acceso, citas y paneles privados. Los nombres propios, las direcciones, las licencias y los valores enviados a la API conservan su contenido original. La primera captura de cliente es anterior a la incorporación de comunicaciones inglesas.
 
 ## Comprobaciones realizadas
 
@@ -21,7 +21,7 @@ La interfaz incorpora traducciones en navegación, portada, Servicios, Nuestra e
 
 ## Pendiente
 
-Preparar versiones inglesas de las comunicaciones guardadas, revisar el conjunto de errores y contenidos dinámicos, recorrer Team y talleres en ambos idiomas y completar formularios y dispositivos reales. Las tres primeras capturas corresponden a la revisión local contra Atlas. La captura siguiente corresponde a la web publicada.
+Revisar el conjunto de errores y contenidos dinámicos, recorrer Team y talleres en ambos idiomas y completar formularios y dispositivos reales. Las tres primeras capturas corresponden a la revisión local contra Atlas. La captura siguiente corresponde a la web publicada.
 
 
 ## Comprobación en producción
@@ -29,3 +29,13 @@ Preparar versiones inglesas de las comunicaciones guardadas, revisar el conjunto
 Vercel ha publicado el commit `6d2f9b3` con estado Ready. En Safari he abierto [kelsets-cars.vercel.app](https://kelsets-cars.vercel.app), pulsado EN y comprobado la navegación inglesa y el hero The road is yours. El resto del recorrido publicado todavía necesita su revisión completa.
 
 ![Portada inglesa publicada en Vercel](04-home-en-vercel-safari.png)
+
+## Comunicaciones bilingües
+
+Las diez plantillas tienen versión inglesa. Los mensajes nuevos guardan ambas versiones; el historial anterior se traduce solo tras verificar su plantilla original. Nombres y motivos personales se conservan. La integración en Atlas temporal comprueba almacenamiento, selección de idioma y ausencia de metadatos privados en la respuesta. La base temporal se elimina al terminar.
+
+Las siguientes capturas muestran la bienvenida inglesa generada localmente, sin nuevos envíos a Mailtrap. El logo y las diez imágenes exclusivas se mantienen. No sustituyen la revisión en Outlook, Gmail o dispositivos físicos.
+
+![Bienvenida inglesa en Safari](05-bienvenida-email-en-safari.png)
+
+![Footer inglés en Safari](06-footer-email-en-safari.png)

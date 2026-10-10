@@ -21,7 +21,7 @@ La app, el configurador completo y las integraciones específicas pertenecen a l
 
 ## Plan de entrega · 17–18 de octubre de 2026
 
-Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Web y API ya están publicadas y se ha incorporado el selector ES/EN. Siguen pendientes el responsive completo, las comunicaciones inglesas, la revisión bilingüe, el registro y la revisión de talleres en navegador y el recorrido completo en producción.
+Retomamos el 10 de octubre. El catálogo, la semilla del Excel, el recorrido de mantenimiento y la subida a Cloudinary están comprobados. El README tiene versiones en castellano e inglés y, junto con la memoria, incluye capturas. Web y API ya están publicadas y se ha incorporado el selector ES/EN. Siguen pendientes el responsive completo, la revisión bilingüe, el registro y la revisión de talleres en navegador y el recorrido completo en producción.
 
 | Fecha objetivo | Trabajo | Condición para darlo por terminado |
 | --- | --- | --- |
