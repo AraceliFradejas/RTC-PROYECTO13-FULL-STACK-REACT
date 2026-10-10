@@ -223,3 +223,5 @@ La traducción afecta a la presentación: los valores de motorización, servicio
 ![Área de cliente en inglés, con la bienvenida original pendiente de traducir](docs/evidencias/idiomas/03-cliente-en-safari.png)
 
 El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Pasan once pruebas del frontend y la compilación. La segunda fase podrá reutilizar las traducciones y la lógica de idioma; el almacenamiento y el selector de una app nativa necesitarán su propia adaptación.
+
+La portada inglesa también se ha comprobado en el dominio de Vercel después de publicar el commit `6d2f9b3`. La [captura de producción](docs/evidencias/idiomas/04-home-en-vercel-safari.png) se conserva separada de las pruebas locales.
