@@ -47,13 +47,13 @@ La web incluye:
 
 El diseño se ha ajustado para móvil, tableta y escritorio. Las tarjetas de historias de la portada enlazan con sus apartados en Nuestra esencia. Las imágenes del catálogo tienen sus créditos y las escenas de marca representan personas y espacios ficticios.
 
-La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil completa y preparar el despliegue. La subida de fotografías a Cloudinary ya está conectada desde Team y comprobada en Safari.
+La compilación y las 24 pruebas locales han pasado. También he probado registro, acceso, aprobación de talleres y asignación de citas en una base temporal de Atlas, que se elimina al terminar. En Safari he completado el recorrido de mantenimiento entre cliente, Team y taller, hasta el cierre y sus comunicaciones. Las capturas están en [evidencias](docs/evidencias/README.md). Quedan el registro y la revisión de talleres en navegador, la revisión móvil completa y el recorrido completo de citas y talleres en producción. La subida de fotografías a Cloudinary ya está conectada desde Team y comprobada en Safari.
 
 El [Excel de datos](outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 100 vehículos del ejemplo del curso y 48 registros de demostración de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado su exportación a CSV y la carga de la semilla en Atlas. Falta completar la versión en inglés y cerrar la documentación y las pruebas de entrega.
 
 ## Capturas del proyecto
 
-Capturas de la aplicación y sus comunicaciones tomadas durante las pruebas locales del 4 de octubre de 2026. El despliegue sigue pendiente.
+Capturas de la aplicación y sus comunicaciones tomadas durante las pruebas locales del 4 de octubre de 2026. Las capturas del despliegue del 10 de octubre aparecen en su propio apartado.
 
 ### Catálogo y búsqueda
 
@@ -246,7 +246,20 @@ La API devuelve `{ success, data }` cuando la petición funciona y `{ success: f
 
 ## Despliegue
 
-El despliegue todavía está pendiente. Ya hay archivos de configuración para Vercel, pero falta indicar la dirección definitiva de la API y comprobar el funcionamiento de la sesión, los permisos de conexión y los enlaces directos a cada página. Cuando estén publicados el frontend y el backend, añadiré aquí los enlaces.
+La web y el backend están publicados en Vercel desde el 10 de octubre de 2026:
+
+- [Abrir KelseTS Cars](https://kelsets-cars.vercel.app).
+- [Comprobar la salud de la API](https://kelsets-cars-api.vercel.app/api/v1/health).
+
+He comprobado el catálogo con 148 vehículos, las cuatro sedes, los cuatro talleres, los recursos públicos y las rutas directas. Una cuenta ficticia de demostración permite verificar registro, acceso, consulta de sesión y cierre. En Safari la sesión se conserva al recargar y aparece la bienvenida en la bandeja privada.
+
+![Portada de KelseTS Cars publicada en Vercel, revisada en Safari](docs/evidencias/despliegue/01-home-safari.png)
+
+![Catálogo publicado con 148 vehículos](docs/evidencias/despliegue/02-catalogo-safari.png)
+
+![Sesión de cliente conservada después de recargar Safari](docs/evidencias/despliegue/03-sesion-safari.png)
+
+La [guía de despliegue](docs/DESPLIEGUE.md) explica las variables y la conexión entre los dos proyectos. Las [evidencias publicadas](docs/evidencias/despliegue/README.md) distinguen lo comprobado de lo pendiente. Falta el recorrido completo de citas y talleres en producción, la subida desde Vercel, el inglés de la web y los dispositivos reales. La nueva prueba local de Cloudinary del 10 de octubre encontró un corte de conexión; no sustituye a la integración correcta documentada del 4 de octubre.
 
 ## Aviso académico y autora
 
@@ -321,7 +334,7 @@ The website includes:
 - A private demonstration inbox for registrations, applications and appointment updates.
 - Administrator photo uploads to Cloudinary from vehicle details.
 
-The build and 24 local tests pass. API integration has also been checked in a temporary Atlas database. The maintenance journey between customer, Team and workshop has been completed in Safari, including completion and its messages. Workshop registration and review in the browser, full mobile checks and deployment remain pending.
+The build and 24 local tests pass. API integration has also been checked in a temporary Atlas database. The maintenance journey between customer, Team and workshop has been completed in Safari, including completion and its messages. Workshop registration and review in the browser, full mobile checks and the complete production appointment journey remain pending.
 
 **This README is available in Spanish and English. The website's English interface is still pending.**
 
@@ -502,7 +515,20 @@ The technical documentation currently uses Spanish:
 - [Workshop registration and communications](docs/COMUNICACIONES-Y-TALLERES.md).
 - [Section plan](docs/SECCIONES.md) and [validation](docs/VALIDACION.md).
 
-Deployment is pending. Vercel configuration files exist, but the final API address, session behaviour, connection permissions and direct page links still need checking. Frontend and backend links will be added when both are published.
+The website and backend have been published on Vercel since 10 October 2026:
+
+- [Open KelseTS Cars](https://kelsets-cars.vercel.app).
+- [Check API health](https://kelsets-cars-api.vercel.app/api/v1/health).
+
+Checks cover the catalogue's 148 vehicles, four dealerships, four workshops, public assets and direct page URLs. Registration, login, session lookup and logout were tested with an authorised fictional demonstration account. In Safari, the session survives a reload and the welcome message appears in the private inbox.
+
+![Homepage published on Vercel and reviewed in Safari](docs/evidencias/despliegue/01-home-safari.png)
+
+![Published catalogue with 148 vehicles](docs/evidencias/despliegue/02-catalogo-safari.png)
+
+![Customer session retained after reloading Safari](docs/evidencias/despliegue/03-sesion-safari.png)
+
+The [deployment guide](docs/DESPLIEGUE.md) explains the configuration. The [deployment evidence](docs/evidencias/despliegue/README.md) records the scope of validation. The complete appointment and workshop journey in production, uploads from Vercel, the English interface and real devices remain to be checked. A new local Cloudinary test on 10 October encountered a network connection reset; the successful integration evidence from 4 October is retained.
 
 ### Academic notice and author
 

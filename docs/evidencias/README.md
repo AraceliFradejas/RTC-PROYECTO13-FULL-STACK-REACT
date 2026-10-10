@@ -92,3 +92,7 @@ La visita del 7 de octubre se cierra anticipadamente para comprobar el flujo de 
 ## Entorno de concesionarios y talleres
 
 La [revisión de las tarjetas de sedes](sedes/README.md) recoge las ocho fotografías diferentes, las atribuciones y una captura de Safari en ventana estrecha.
+
+## Primera revisión del despliegue · 10 de octubre
+
+[Web y API publicadas: capturas de Safari e informe HTTP](despliegue/README.md). Incluye la cuenta ficticia autorizada y distingue los recorridos que todavía necesitan revisión en producción.

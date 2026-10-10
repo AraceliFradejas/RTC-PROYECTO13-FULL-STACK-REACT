@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-10T11:58:29.635Z",
+  "web": "https://kelsets-cars.vercel.app",
+  "api": "https://kelsets-cars-api.vercel.app/api/v1",
+  "scope": "HTTP público y sesión de la cuenta ficticia autorizada; revisión de Safari documentada por separado",
+  "checks": [
+    {
+      "case": "web/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "case": "web/catalogo",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "case": "web/sedes",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "case": "web/vehiculos/6ac269702927fe45e0f85b79",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "case": "web/videos/kelsets-hero.mp4",
+      "status": 200,
+      "contentType": "video/mp4"
+    },
+    {
+      "case": "web/acceso",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "case": "web/images/neighborhoods/madrid-2.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "case": "api/health",
+      "status": 200
+    },
+    {
+      "case": "api/vehicles",
+      "status": 200,
+      "total": 148
+    },
+    {
+      "case": "api/dealerships",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "case": "api/workshops",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "case": "client-login",
+      "status": 200,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "case": "session/auth/me",
+      "status": 200
+    },
+    {
+      "case": "session/appointments",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "case": "session/messages",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "case": "client-image-denied",
+      "status": 403
+    },
+    {
+      "case": "logout",
+      "status": 200
+    },
+    {
+      "case": "anonymous-session-denied",
+      "status": 401
+    },
+    {
+      "case": "foreign-origin-denied",
+      "status": 403
+    }
+  ],
+  "pending": [
+    "Recorrido completo de citas y talleres en producción",
+    "Subida a Cloudinary desde Vercel",
+    "Dispositivos reales y versión inglesa"
+  ]
+}

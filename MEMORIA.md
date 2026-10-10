@@ -9,7 +9,7 @@
 | Autora | Araceli Fradejas Muñoz |
 | Tecnologías | JavaScript, Node.js, Express, React y MongoDB |
 | Etapa | Desarrollo y validación · 4 de octubre de 2026 |
-| Despliegue | Pendiente |
+| Despliegue | Web y API publicadas en Vercel · 10 de octubre de 2026 |
 | Evolución posterior | TFM BigSchool con app y módulos específicos |
 
 Esta memoria sigue la organización de [KelseTS Talks](https://github.com/AraceliFradejas/RTC-PROYECTO10-FULL-STACK-JAVASCRIPT/blob/main/MEMORIA.md). Recoge el estado real del trabajo: las pantallas creadas no equivalen a una integración comprobada, y las funcionalidades futuras se identifican como pendientes.
@@ -28,7 +28,7 @@ Como objetivo de arquitectura, la app debe poder consultar la misma API y reutil
 
 ## 3. Requisitos y cumplimiento
 
-La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la versión en inglés de la web, la revisión móvil completa y el despliegue.
+La [revisión del enunciado](docs/REVISION-ENTREGA.md) contiene el seguimiento. El catálogo, las cuentas y las citas están conectados a Atlas. Las pruebas de integración y las capturas documentan los recorridos comprobados; siguen pendientes la versión en inglés de la web, la revisión móvil completa y el recorrido completo en producción.
 
 ## 4. Tecnologías
 
@@ -100,9 +100,9 @@ La biblioteca contiene 80 fotografías reales con autor, licencia y enlace de or
 
 ## 12. Pruebas y evidencias
 
-Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. El registro y la revisión de talleres en navegador, la revisión móvil completa y la producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
+Las comprobaciones de esta base se registran en [VALIDACION.md](docs/VALIDACION.md). El registro, las citas, la aprobación de talleres y sus permisos se han probado mediante la API en una base temporal de Atlas, eliminada al terminar. El recorrido de mantenimiento entre cliente, Team y taller también se ha revisado desde los formularios en Safari. El registro y la revisión de talleres en navegador, la revisión móvil completa y el recorrido completo de citas y talleres en producción siguen pendientes. La subida a Cloudinary se ha comprobado el 4 de octubre desde Safari y mediante la API.
 
-Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. El recorrido del despliegue sigue pendiente. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
+Las evidencias diferencian las pruebas locales, la integración con servicios y la revisión desde Safari. La primera revisión del despliegue se recoge al final de esta memoria; queda pendiente el recorrido completo de citas y talleres en producción. He incorporado las capturas junto a su explicación, siguiendo la presentación de mis proyectos anteriores.
 
 ### Catálogo y búsqueda
 
@@ -134,7 +134,7 @@ Después de entregar Rock The Code se abordarán la app, el configurador y otros
 
 ## 14. Aprendizaje y próximos pasos
 
-La decisión inicial es separar la lógica compartida de la plataforma. Atlas y el Excel relacionado ya permiten cargar el inventario inicial. Los siguientes pasos son completar la revisión móvil de Cloudinary, la versión bilingüe y las pruebas de entrega y publicar ambas aplicaciones.
+La decisión inicial es separar la lógica compartida de la plataforma. Atlas y el Excel relacionado ya permiten cargar el inventario inicial. Los siguientes pasos son completar la revisión móvil de Cloudinary, la versión bilingüe y las pruebas de entrega y completar los recorridos de las aplicaciones publicadas.
 
 ## Desarrollo de las secciones editoriales
 
@@ -196,3 +196,17 @@ En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el 
 He ajustado el límite de las fotografías a 4 MB, compartido entre React y Multer. Las pruebas anteriores utilizaron el límite inicial de 5 MB; Vercel limita el cuerpo completo de las peticiones a 4,5 MB, por lo que he dejado margen para el formulario multipart. El formulario y sus mensajes muestran el nuevo límite.
 
 La API utiliza la detección nativa de Express en Vercel, exportando la aplicación desde `src/app.js`. La web se conectará a través de `/api` en su propio dominio mediante una reescritura hacia el backend. Los proyectos necesitan los paquetes compartidos que están fuera de sus carpetas raíz.
+
+## Primera revisión del despliegue · 10 de octubre
+
+He publicado la [web](https://kelsets-cars.vercel.app) y la [API](https://kelsets-cars-api.vercel.app/api/v1/health) como dos proyectos de Vercel conectados al mismo repositorio. La API utiliza Atlas y la web conserva las peticiones bajo `/api/v1` en su propio dominio. Las variables privadas se guardan como sensibles en el backend.
+
+He comprobado las consultas de los 148 vehículos, cuatro sedes y cuatro talleres, los recursos públicos y la apertura directa de páginas interiores. Con una cuenta ficticia autorizada para esta revisión he probado registro, acceso, sesión y cierre. Safari conserva la sesión al recargar y muestra la comunicación de bienvenida. Las peticiones sin sesión y desde un origen ajeno se rechazan.
+
+![Portada publicada en Vercel, revisada desde Safari](docs/evidencias/despliegue/01-home-safari.png)
+
+![Catálogo publicado con el inventario de Atlas](docs/evidencias/despliegue/02-catalogo-safari.png)
+
+![Área de cliente después de recargar Safari con sesión activa](docs/evidencias/despliegue/03-sesion-safari.png)
+
+El [informe de despliegue](docs/evidencias/despliegue/README.md) recoge el alcance. No acredita todavía el recorrido completo de citas y talleres en producción ni la subida a Cloudinary desde Vercel. La nueva prueba local de subida encontró un corte HTTPS con Cloudinary; se mantienen las evidencias correctas del 4 de octubre y queda la comprobación desde el servidor publicado.

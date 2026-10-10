@@ -14,7 +14,7 @@
 | Castellano e inglés, requisito de marca KelseTS | Documentado; interfaz actual en castellano | Selector, traducciones completas y revisión de ambos idiomas |
 | Cloudinary opcional | Subida y sustitución comprobadas mediante API y Safari | Revisar estados móviles y funcionamiento desplegado |
 | README y memoria | README bilingüe y capturas incorporadas en ambos documentos | Añadir URLs y evidencias del despliegue |
-| Despliegue frontend y backend | Configuración base | Publicar y comprobar ambas URLs |
+| Despliegue frontend y backend | Web y API publicadas; catálogo, recursos y sesión comprobados | Recorrido completo de citas, talleres y fotografías en producción |
 | DocBase fuera del repositorio | Exclusión verificada y repositorio subido | Mantener la exclusión |
 
 La app, el configurador completo y las integraciones específicas pertenecen a la segunda etapa. No se cuentan como requisitos cumplidos de esta entrega.

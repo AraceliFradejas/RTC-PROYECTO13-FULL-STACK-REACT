@@ -1,12 +1,12 @@
 # Despliegue de KelseTS Cars
 
-Preparación del 10 de octubre de 2026. El despliegue todavía no está verificado.
+Web y API publicadas el 10 de octubre de 2026. La primera revisión comprueba catálogo, recursos y sesión; el recorrido completo de citas y talleres y la subida desde Vercel siguen pendientes.
 
 Se utiliza el mismo repositorio para dos proyectos de Vercel. Los paquetes compartidos y el archivo de dependencias están en la raíz del repositorio: ambos proyectos necesitan incluir los archivos externos a su carpeta raíz.
 
 | Ajuste | Backend | Frontend |
 | --- | --- | --- |
-| Proyecto previsto | `kelsets-cars-api` | `kelsets-cars` |
+| Proyecto publicado | `kelsets-cars-api` | `kelsets-cars` |
 | Carpeta raíz | `backend` | `frontend` |
 | Aplicación | Express | Vite |
 | Instalación | Detección de npm workspaces | Detección de npm workspaces |
@@ -21,7 +21,7 @@ Configurar en Vercel los valores de `MONGODB_URI`, `JWT_SECRET`, `CLOUDINARY_CLO
 
 ## Web y sesión
 
-El cliente utiliza `/api/v1` y el archivo `frontend/vercel.json` reenvía `/api` al backend. Antes de publicar la web hay que sustituir la dirección provisional por la URL confirmada de la API. No configurar `VITE_API_URL` con una dirección externa para este despliegue: se conserva la ruta relativa para que las peticiones de la web usen su mismo dominio.
+El cliente utiliza `/api/v1` y el archivo `frontend/vercel.json` reenvía `/api` al backend. La dirección confirmada es `https://kelsets-cars-api.vercel.app`. No configurar `VITE_API_URL` con una dirección externa para este despliegue: se conserva la ruta relativa para que las peticiones de la web usen su mismo dominio.
 
 Las rutas de React deben poder abrirse directamente y recargarse. Las imágenes y los archivos públicos deben servirse como archivos, sin convertirse en el HTML de la aplicación.
 
@@ -50,3 +50,9 @@ No repetir la semilla en producción solo para probar el despliegue: Atlas ya co
 - [Reescrituras hacia otros proyectos](https://vercel.com/docs/routing/rewrites).
 - [Límites de las funciones](https://vercel.com/docs/functions/limitations).
 - [Cabeceras de Vercel](https://vercel.com/docs/headers/request-headers).
+
+## URLs y evidencias
+
+- [Web publicada](https://kelsets-cars.vercel.app).
+- [Salud del backend](https://kelsets-cars-api.vercel.app/api/v1/health).
+- [Capturas e informe de la primera revisión](evidencias/despliegue/README.md).

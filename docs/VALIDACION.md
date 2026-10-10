@@ -112,3 +112,10 @@ La suite de esta ronda pasa con 24 pruebas ordinarias y una integración opciona
 Conexión comprobada con las credenciales privadas del backend. La integración real ha superado diez casos de HTTP multipart: sesión y roles, ausencia de archivo, firma falsa, límite de 5 MB, campo incorrecto, subida y lectura pública, sustitución y borrado del recurso anterior. La base de Atlas y las imágenes temporales se han eliminado. El informe está en [cloudinary/verificacion.json](evidencias/cloudinary/verificacion.json).
 
 En Safari se ha comprobado Team → catálogo → ficha → selección → vista previa → guardado. La fotografía del Porsche 911 Carrera de Barcelona queda en Cloudinary y su URL en Atlas. Se conserva la imagen ya asignada y sus créditos. Hay capturas de la vista previa y la confirmación. La distribución del formulario vacío se ha revisado a 320, 390, 768 y 1440 px dentro de un marco de Safari que carga la ficha real; hay cuatro capturas adicionales. Quedan los estados de vista previa y error a esos anchos y la prueba en un dispositivo real.
+
+
+## Despliegue en Vercel · 10 de octubre de 2026
+
+Las 24 pruebas locales y la compilación pasan. La web y la API están publicadas en proyectos separados de Vercel. El [informe del despliegue](evidencias/despliegue/README.md) incluye tres capturas de Safari y las 19 comprobaciones HTTP: catálogo con 148 vehículos, cuatro sedes, cuatro talleres, recursos, sesión y rechazos de acceso. Se ha creado una cuenta ficticia con autorización de la autora y comprobado en Safari el acceso, la sesión tras recargar y el cierre de sesión.
+
+La integración opcional de Cloudinary se ha intentado dos veces: supera los casos de permisos y validación, pero falla en la subida. La conexión HTTPS directa al servicio también se corta con un reinicio de conexión. No se considera validada la subida en esta ronda ni desde Vercel; las evidencias del 4 de octubre corresponden a su revisión anterior. Quedan pendientes el recorrido completo de citas y talleres en producción, los dispositivos reales y la versión inglesa de la web.
