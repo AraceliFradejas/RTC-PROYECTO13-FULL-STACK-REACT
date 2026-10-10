@@ -3,7 +3,7 @@
 | Requisito | Estado actual | Pendiente para entrega |
 | --- | --- | --- |
 | Node.js y React | Recorrido de mantenimiento integrado y comprobado en Safari | Registro y revisión comprobados en base temporal; ciclo HTTP privado comprobado en producción |
-| Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Revisar en Excel de escritorio |
+| Excel con al menos 100 registros | Libro con 148 vehículos, 4 sedes y 4 talleres; exportación y comparación completa comprobadas | Apertura en Numbers y recuentos comprobados; XLSX original conservado |
 | Dos colecciones relacionadas además de usuarios | Vehículos, sedes y talleres relacionados; citas y usuarios persistidos | Relaciones y recorrido de citas comprobados por HTTP en producción |
 | Semilla con lectura de archivos `fs` | CSV exportados del Excel y carga repetida en Atlas | Conservar evidencias al ampliar inventario |
 | Usuarios y rutas protegidas | Roles y sesión implementados | Casos positivos y negativos completos |
@@ -65,4 +65,6 @@ Páginas públicas ES/EN capturadas a 390 px; cliente, taller y Team a 320, 390,
 
 ## Actualización tras las pruebas de producción e Insomnia
 
-El ciclo HTTP privado en producción ha pasado sus 101 comprobaciones. En Insomnia 13.2.0 han pasado 171 comprobaciones de las 76 peticiones principales sobre una base temporal eliminada al terminar, y 36 comprobaciones de 15 peticiones públicas contra Vercel. Se han guardado nueve capturas. Ver los informes de [producción](evidencias/produccion/README.md) e [Insomnia](evidencias/insomnia/README.md). Quedan la revisión física del móvil, el libro en Excel de escritorio y el cierre final de entrega.
+El ciclo HTTP privado en producción ha pasado sus 101 comprobaciones. En Insomnia 13.2.0 han pasado 171 comprobaciones de las 76 peticiones principales sobre una base temporal eliminada al terminar, y 36 comprobaciones de 15 peticiones públicas contra Vercel. Se han guardado 23 capturas y un anexo con los 76 casos. Ver los informes de [producción](evidencias/produccion/README.md) e [Insomnia](evidencias/insomnia/README.md). El libro se ha abierto y revisado en Numbers, con recuentos y comparación completa frente a CSV correctos. Quedan la revisión física del móvil y el cierre final de entrega.
+
+La [revisión del libro en Numbers](evidencias/datos/README.md) conserva cinco capturas y el hash del XLSX original. No se ha convertido el archivo ni se presenta esta comprobación como una ejecución en Microsoft Excel.

@@ -622,3 +622,9 @@ He ampliado la memoria con **23 capturas de Insomnia**. Los pasos de registro, r
 ![Comunicaciones dirigidas al cliente](docs/evidencias/insomnia/21-comunicaciones-cliente.png)
 
 The academic report now includes **23 Insomnia screenshots**. Selected steps explain their objective, request, result and meaning: client registration, workshop review, assignment, confirmation, cancellation, duplicate rejection and protection of another client's appointment. The [detailed validation report](docs/insomnia/VALIDACION-DETALLADA.md) maps all 76 executed cases to their results and available evidence. Additional screenshots use the successful run's stored responses; they are not another run or new production records. Message delivery was simulated in this round.
+
+### Libro de datos revisado · Data workbook reviewed
+
+El [Excel de entrega](outputs/kelsets-tfm/KelseTS-datos.xlsx) se ha abierto en Numbers para macOS. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres; la comparación completa con los CSV y la validación de la semilla pasan. Se conserva el XLSX original sin cambios. El [informe y sus cinco capturas](docs/evidencias/datos/README.md) documentan la revisión.
+
+The delivery XLSX was opened and inspected in Numbers on macOS. The guide displays 148 vehicles, four dealerships and four workshops. The complete CSV comparison and seed validation passed. The original XLSX remains unchanged; Microsoft Excel and CSV export from Numbers were not tested.

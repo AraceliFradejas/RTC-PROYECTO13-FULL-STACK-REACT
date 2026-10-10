@@ -60,7 +60,7 @@ El CSV original contiene 100 registros de ejemplo. La normalización conserva pr
 
 La semilla valida datos y referencias antes de conectar a MongoDB. Su modo `--check` no escribe en la base de datos. La carga utiliza `seedKey` e inserta los registros que faltan, sin vaciar colecciones ni restablecer contraseñas.
 
-He preparado un Excel con los 100 vehículos iniciales y 48 registros de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado todos sus datos frente a los CSV, exportado las hojas y repetido la semilla en Atlas. La [guía de datos](docs/DATOS-EXCEL.md) explica sus claves y el proceso de exportación. Los modelos añadidos tienen fuente oficial para carrocería y motorización; los datos de cada unidad quedan pendientes. Falta revisar el libro en Excel de escritorio.
+He preparado un Excel con los 100 vehículos iniciales y 48 registros de doce modelos de gama alta, cuatro sedes y cuatro talleres relacionados. He comprobado todos sus datos frente a los CSV, exportado las hojas y repetido la semilla en Atlas. La [guía de datos](docs/DATOS-EXCEL.md) explica sus claves y el proceso de exportación. Los modelos añadidos tienen fuente oficial para carrocería y motorización; los datos de cada unidad quedan pendientes. El libro se ha abierto y revisado en Numbers para macOS; la guía muestra los recuentos calculados 148, 4 y 4. La comparación completa con los CSV pasa y el XLSX original se conserva sin cambios.
 
 ### Ampliación del catálogo y relación con la propuesta
 
@@ -503,3 +503,15 @@ En la ronda pública de Vercel, el filtro de fallos también queda vacío, el ca
 ![148 vehículos publicados](docs/evidencias/insomnia/08-vercel-inventario-148.png)
 
 ![Perfil privado protegido en Vercel](docs/evidencias/insomnia/09-vercel-sin-sesion.png)
+
+## Apertura del libro de datos en Numbers
+
+He abierto el Excel de entrega en Numbers y revisado Guía, Vehículos, Sedes y Talleres. La guía muestra 148 vehículos, cuatro sedes y cuatro talleres como resultados de sus fórmulas. El inventario conserva los 100 ejemplos del curso y las 48 unidades añadidas. Las claves de sede relacionan vehículos y talleres con los concesionarios.
+
+![Libro de entrega abierto en Numbers con los recuentos](docs/evidencias/datos/01-guia-numbers.png)
+
+![Ampliación de modelos de lujo en el libro](docs/evidencias/datos/03-ampliacion-lujo-numbers.png)
+
+![Talleres con referencias a las sedes](docs/evidencias/datos/05-talleres-numbers.png)
+
+Después de la apertura, `data:check` confirma que todos los datos y relaciones del libro coinciden con los CSV; `seed:check` también pasa. No he cambiado celdas, guardado una conversión ni exportado desde Numbers. El archivo original mantiene su SHA-256. El [informe con las cinco capturas](docs/evidencias/datos/README.md) documenta esta revisión en Numbers; no la presenta como una prueba en Microsoft Excel.

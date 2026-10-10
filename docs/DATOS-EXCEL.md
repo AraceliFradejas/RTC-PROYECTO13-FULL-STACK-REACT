@@ -31,4 +31,8 @@ La semilla lee los CSV mediante `node:fs/promises`, valida los datos y utiliza `
 
 ## Comprobación del 4 de octubre de 2026
 
-Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. Las 21 pruebas locales pasan; esta ronda omite la integración opcional de Atlas. La apertura y recálculo en Microsoft Excel de escritorio siguen pendientes, La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
+Se han revisado las cuatro hojas mediante renderizado y los recuentos calculados dan 148, 4 y 4. La comparación completa de los datos del Excel y los CSV pasa. Se han exportado los tres CSV, validado con `seed:check` y repetido la carga en Atlas con éxito. Las 21 pruebas locales pasan; esta ronda omite la integración opcional de Atlas. En esa fecha quedaba pendiente abrir el libro en una aplicación de escritorio. La búsqueda Porsche y la ficha del 911 Carrera se han revisado en Safari; se ha guardado una captura.
+
+## Apertura en Numbers · 10 de octubre de 2026
+
+Se han abierto las cuatro hojas del XLSX original en Numbers para macOS. La guía muestra las fórmulas con resultados 148, 4 y 4. La comparación completa `data:check` y la validación `seed:check` pasan. El archivo mantiene su SHA-256: no se editaron celdas ni se guardó una conversión. Las [cinco capturas y el informe](evidencias/datos/README.md) documentan la comprobación. No se ha ejecutado Microsoft Excel ni exportado CSV desde Numbers; la entrega conserva el XLSX y el exportador del proyecto.

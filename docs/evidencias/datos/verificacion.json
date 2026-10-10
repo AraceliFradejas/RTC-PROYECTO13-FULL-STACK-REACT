@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-10",
+  "application": "Apple Numbers para macOS",
+  "file": "outputs/kelsets-tfm/KelseTS-datos.xlsx",
+  "sha256": "5cde531167a28e8ffcb5e975fe659f525ace5815de52751a159a0577e0b523ae",
+  "originalFileUnchanged": true,
+  "guideFormulaResults": {
+    "vehicles": 148,
+    "dealerships": 4,
+    "workshops": 4
+  },
+  "checks": {
+    "data:check": "Todos los datos y relaciones del XLSX coinciden con los CSV",
+    "seed:check": "148 vehículos, 4 sedes y 4 talleres válidos y relacionados"
+  },
+  "screenshots": [
+    "01-guia-numbers.png",
+    "02-vehiculos-numbers.png",
+    "03-ampliacion-lujo-numbers.png",
+    "04-sedes-numbers.png",
+    "05-talleres-numbers.png"
+  ],
+  "scope": "Apertura e inspección en Numbers. Sin edición de celdas, guardado, conversión o exportación desde Numbers. No se ha probado Microsoft Excel."
+}
