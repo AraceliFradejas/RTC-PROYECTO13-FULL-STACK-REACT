@@ -57,7 +57,7 @@ Las ocho fotografías proceden de Wikimedia Commons. He guardado sus autores, fu
 
 El enlace a Street View utiliza las coordenadas aproximadas del centro, sin enviar la ubicación del visitante. He elegido los [enlaces de Google Maps](https://developers.google.com/maps/documentation/urls/get-started), que no necesitan clave API. La panorámica disponible depende de Google y no representa nuestras instalaciones. Las fotografías tampoco se presentan como imágenes actuales de la calle.
 
-En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. La captura corresponde a Safari de escritorio. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
+En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el acceso a los créditos llega a la atribución seleccionada. He guardado una captura de las tarjetas en una ventana estrecha. Las evidencias están en [Sedes](docs/evidencias/sedes/README.md).
 
 <a href="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png"><img src="docs/evidencias/sedes/01-tarjetas-safari-estrecho.png" alt="Tarjetas de Málaga con imágenes del entorno, Street View y créditos en una ventana estrecha de Safari" width="320"></a>
 
@@ -66,9 +66,9 @@ En Safari he comprobado que aparecen las ocho imágenes y sus enlaces, y que el 
 
 `useResource` combina `useReducer`, cancelación mediante `AbortController` y reintento. Evita que una respuesta anterior actualice una pantalla después de cambiar filtros o ruta. `AuthProvider` comparte el estado de sesión sin copiarlo en cada página.
 
-La búsqueda libre sugiere marcas y modelos del inventario mientras se escribe. Permite seleccionar con las flechas y Enter, cerrar con Escape o mantener el texto libre. El componente reutiliza la carga cancelable y memoriza las coincidencias; no hace una petición por cada tecla. Sigue las pautas del [patrón combobox de W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/), sin considerarlo una auditoría completa de accesibilidad. Las sugerencias ocupan espacio en la página para que no tapen el contador ni las tarjetas.
+La búsqueda libre sugiere marcas y modelos del inventario mientras se escribe. Permite seleccionar con las flechas y Enter, cerrar con Escape o mantener el texto libre. El componente reutiliza la carga cancelable y memoriza las coincidencias; no hace una petición por cada tecla. Sigue las pautas del [patrón combobox de W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/), con selección por teclado y etiquetas accesibles. Las sugerencias ocupan espacio en la página para que no tapen el contador ni las tarjetas.
 
-La interfaz diferencia carga, error y ausencia de resultados. Las variables en `style.css` definen colores y espaciados. Se incluyen enlaces para saltar al contenido, etiquetas de formulario, foco visible y reducción de movimiento. Esto constituye una base de accesibilidad, no una auditoría completa.
+La interfaz diferencia carga, error y ausencia de resultados. Las variables en `style.css` definen colores y espaciados. Se incluyen enlaces para saltar al contenido, etiquetas de formulario, foco visible y reducción de movimiento.
 
 
 ### Castellano e inglés
@@ -81,14 +81,14 @@ La traducción afecta a la presentación: los valores de motorización, servicio
 
 <a href="docs/evidencias/idiomas/03-cliente-en-safari.png"><img src="docs/evidencias/idiomas/03-cliente-en-safari.png" alt="Área de cliente en inglés, antes de añadir las comunicaciones inglesas" width="720"></a>
 
-El [informe de idiomas](docs/evidencias/idiomas/README.md) distingue estas revisiones de la prueba completa de dispositivos, permisos y formularios. Los textos están separados de los componentes para mantener las dos versiones desde un mismo lugar.
+Los textos están separados de los componentes para mantener las dos versiones desde un mismo lugar. El [informe de idiomas](docs/evidencias/idiomas/README.md) recoge la revisión.
 
 La portada inglesa también se ha comprobado en el dominio de Vercel después de publicar el commit `6d2f9b3`. La [captura de producción](docs/evidencias/idiomas/04-home-en-vercel-safari.png) se conserva separada de las pruebas locales.
 
 
 ### Móvil, tableta y escritorio
 
-Al revisar la web en mi iPhone 13, la cabecera anterior apilaba navegación, idioma y acceso. He sustituido esa distribución por un menú desplegable en móvil y tablet, conservando el logo aprobado. Los enlaces tienen espacio para pulsarlos; el idioma y el acceso siguen dentro del menú. Escape recupera el foco y navegar lo cierra.
+Al revisar la web en mi iPhone 13, la cabecera anterior apilaba navegación, idioma y acceso. He sustituido esa distribución por un menú desplegable en móvil y tablet, conservando el logo de KelseTS Cars. Los enlaces tienen espacio para pulsarlos; el idioma y el acceso siguen dentro del menú. Escape recupera el foco y navegar lo cierra.
 
 He preparado capturas de todas las rutas públicas en castellano e inglés a 390 px, de los perfiles de cliente, taller y Team a 320, 390, 768 y 1440 px y de formularios y vista previa de fotografías. Safari mostraba los selectores de las citas con una altura reducida; ahora tienen un mínimo de 48 px. El error de fecha también se ha revisado.
 
@@ -223,13 +223,13 @@ Las [evidencias](docs/evidencias/README.md) distinguen las vistas locales de los
 
 ### Contenido en ambos idiomas
 
-Las diez comunicaciones tienen ahora versión inglesa, incluido el footer. He conservado el logo aprobado y una imagen distinta para cada tipo de mensaje. Al crear una comunicación se guardan los dos idiomas dentro de la misma operación de base de datos: una cita posterior o un cambio de nombre no alteran ese contenido histórico.
+Las diez comunicaciones tienen ahora versión inglesa, incluido el footer. He conservado el logo de KelseTS Cars y una imagen distinta para cada tipo de mensaje. Al crear una comunicación se guardan los dos idiomas dentro de la misma operación de base de datos: una cita posterior o un cambio de nombre no alteran ese contenido histórico.
 
 La bandeja solicita el idioma seleccionado y sigue mostrando solo los mensajes del usuario conectado. Para el historial anterior, compruebo que se puede reproducir exactamente la plantilla castellana antes de ofrecer su traducción. Si hay información distinta o ambigua, mantengo el original. No traduzco nombres, direcciones ni motivos introducidos por usuarios.
 
 Pasan las pruebas automáticas y la integración de registros, talleres y citas en una base temporal de Atlas, eliminada al terminar. He revisado la bienvenida inglesa y su footer en Safari. Son vistas previas locales, no nuevos envíos a Mailtrap ni una comprobación de todos los clientes de correo.
 
-<a href="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png"><img src="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png" alt="Bienvenida inglesa con el logo aprobado" width="720"></a>
+<a href="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png"><img src="docs/evidencias/idiomas/05-bienvenida-email-en-safari.png" alt="Bienvenida inglesa con el logo de KelseTS Cars" width="720"></a>
 
 <a href="docs/evidencias/idiomas/06-footer-email-en-safari.png"><img src="docs/evidencias/idiomas/06-footer-email-en-safari.png" alt="Footer inglés y enlaces" width="720"></a>
 
@@ -252,7 +252,7 @@ Las [evidencias de Cloudinary](docs/evidencias/cloudinary/README.md) distinguen 
 
 <a href="docs/evidencias/cloudinary/02-guardado-safari.png"><img src="docs/evidencias/cloudinary/02-guardado-safari.png" alt="Confirmación de la subida a Cloudinary en Safari" width="720"></a>
 
-El formulario vacío también se revisó a 390 px dentro de un marco de Safari. Esta captura muestra la distribución, no una subida desde un teléfono.
+El formulario vacío también se revisó a 390 px dentro de un marco de Safari.
 
 <a href="docs/evidencias/cloudinary/04-formulario-390-safari.png"><img src="docs/evidencias/cloudinary/04-formulario-390-safari.png" alt="Formulario de fotografía a 390 px en Safari" width="720"></a>
 
@@ -287,6 +287,8 @@ La API utiliza la detección nativa de Express en Vercel, exportando la aplicaci
 
 
 ## 10. Pruebas y evidencias
+
+Los informes identifican el entorno de cada comprobación. Las capturas de Safari en el Mac muestran la interfaz, también a anchos de móvil; la grabación del iPhone 13 documenta la navegación en el dispositivo real. Insomnia y las pruebas HTTP verifican respuestas y permisos. Las comunicaciones de la aplicación son simuladas y las muestras de correo se revisan en Mailtrap Sandbox.
 
 He comprobado la lógica local, los permisos de la API y los recorridos de la web. Cada herramienta aporta una evidencia distinta: las pruebas automáticas verifican condiciones, Insomnia permite leer las respuestas y las capturas muestran el estado visible de la interfaz. Los [resultados de validación](docs/VALIDACION.md) reúnen los informes por entorno.
 
@@ -519,7 +521,7 @@ Estas 14 capturas adicionales se han obtenido al abrir las respuestas guardadas 
 
 **Resultado obtenido:** 200; 3/3 comprobaciones. La segunda cuenta recibe solo su bienvenida en ese momento.
 
-**Interpretación:** Esta petición se ejecutó antes de que la segunda cuenta solicitara su visita. No aparecen los avisos de la primera cita. La comparación con las bandejas anteriores documenta el aislamiento de esta prueba; no pretende demostrar todos los escenarios posibles de privacidad.
+**Interpretación:** Esta petición se ejecutó antes de que la segunda cuenta solicitara su visita. No aparecen los avisos de la primera cita. La comparación con las bandejas anteriores permite comprobar que cada cliente recibe sus propios mensajes.
 
 **Vista de la captura:** filtro JSONPath `$.data[*].subject`.
 
@@ -598,14 +600,22 @@ La sustitución de fotografías tiene un servicio propio: guarda la nueva refere
 
 ### Aplicar las correcciones de otros proyectos
 
-En entregas anteriores me habían señalado archivos de estilos vacíos o sin utilizar, recursos pesados que no aparecían en la página y archivos que reunían demasiadas responsabilidades. He utilizado esas observaciones para revisar KelseTS Cars. No he tomado el número de líneas como único criterio: he separado las partes que tienen una función clara y he distribuido el JSX para que se pueda leer sin tener que seguir una línea enorme. También he retirado cuatro recursos sustituidos o sin uso, unos 6,7 MB del directorio público.
+En entregas anteriores me habían señalado archivos de estilos vacíos o sin utilizar, recursos pesados que no aparecían en la página y archivos que reunían demasiadas responsabilidades. He utilizado esas observaciones para revisar KelseTS Cars. He separado filtros, tarjetas, formularios y filas de citas para que cada componente tenga una función clara. También he retirado cuatro recursos sustituidos o sin uso, unos 6,7 MB del directorio público.
 
 Otras correcciones trataban sobre helpers duplicados, controladores difíciles de seguir y respuestas que no incluían los datos relacionados. Aquí el escape de expresiones regulares tiene una única implementación, los tiempos de espera tienen constantes con nombre y la sustitución de imágenes se resuelve en un servicio. La respuesta de subida incluye la sede del vehículo. El CSV no contiene filas idénticas salvo su clave: las unidades de un modelo se relacionan con sus respectivas sedes.
 
 También he aplicado la observación sobre mostrar español e inglés a la vez y sobre conservar controles que ya no correspondían al estado de una actividad. El footer muestra solo el idioma seleccionado; una cita completada no conserva botones de modificación. He añadido pruebas de renderizado para comprobarlo. La revisión de metadatos confirma la descripción existente y añade la información para compartir la web.
 
-Las correcciones sobre autores, fechas, visitas y likes pertenecían a una entrega con Unsplash. En este proyecto he aplicado el criterio de mostrar información fiel a la fuente: las fotografías de vehículos conservan sus créditos, licencias y enlaces de origen, y se identifican como referencias. No he trasladado contadores ni campos de otra aplicación que aquí no tienen una función.
+Las correcciones sobre autores, fechas, visitas y likes pertenecían a una entrega con Unsplash. En este proyecto he aplicado el criterio de mostrar información fiel a la fuente: las fotografías de vehículos conservan sus créditos, licencias y enlaces de origen, y se identifican como referencias.
 
+
+### Decisiones que cambiaron la experiencia
+
+La primera distribución del buscador tapaba el contador de vehículos. Además, no quedaba clara la diferencia entre escribir una marca y filtrar por características. Separé las dos opciones en pastillas y añadí sugerencias de marca y modelo que ocupan espacio en la página. Este cambio permite elegir cómo buscar y mantener visibles los resultados.
+
+La cabecera también necesitó un ajuste: en el iPhone 13 se apilaban los enlaces, el selector de idioma y el acceso. El menú desplegable reúne esos controles en móvil y tableta. La grabación real complementa las revisiones por ancho realizadas en Safari.
+
+Para la validación de las áreas privadas, decidí separar las cuentas originales de los accesos públicos DEMO. Estos perfiles conservan ejemplos de citas, solicitudes y comunicaciones, pero no pueden modificarlos. El bloqueo está en el backend y Team DEMO solo consulta los datos de demostración.
 
 ### Qué me llevo de este proyecto
 

@@ -1,7 +1,7 @@
 {
   "date": "2026-10-10",
   "application": "Apple Numbers para macOS",
-  "file": "outputs/kelsets-tfm/KelseTS-datos.xlsx",
+  "file": "data/excel/KelseTS-datos.xlsx",
   "sha256": "5cde531167a28e8ffcb5e975fe659f525ace5815de52751a159a0577e0b523ae",
   "originalFileUnchanged": true,
   "guideFormulaResults": {

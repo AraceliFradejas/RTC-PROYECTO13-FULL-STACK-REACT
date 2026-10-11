@@ -1,6 +1,6 @@
 # Del Excel a MongoDB
 
-El libro [KelseTS-datos.xlsx](../outputs/kelsets-tfm/KelseTS-datos.xlsx) contiene 148 vehículos, cuatro sedes y cuatro talleres, además de una guía con recuentos calculados. Las hojas de datos tienen filtros y cabeceras inmovilizadas.
+El libro [KelseTS-datos.xlsx](../data/excel/KelseTS-datos.xlsx) contiene 148 vehículos, cuatro sedes y cuatro talleres, además de una guía con recuentos calculados. Las hojas de datos tienen filtros y cabeceras inmovilizadas.
 
 La hoja Vehículos conserva los 100 registros del ejemplo del curso y añade 48 registros de demostración: doce modelos Porsche, Ferrari, Mercedes-Benz, Audi y Tesla repartidos entre las cuatro sedes. Carrocería y motorización tienen fuente oficial en `sourceUrl`. Año, kilometraje, precio, VIN y adquisición de las unidades añadidas se dejan vacíos cuando no están contrastados. Las sedes, talleres y disponibilidad son ficticios. Los datos del ejemplo no representan unidades reales a la venta.
 

@@ -15,7 +15,7 @@ if (process.argv.slice(2).some(argument => argument !== '--check')) throw new Er
 const workbook = new ExcelJS.Workbook();
 // ExcelJS necesita el espacio de nombres principal sin prefijo. La adaptación
 // se aplica a una copia en memoria y conserva el Excel original.
-const archive = await JSZip.loadAsync(await readFile(new URL('outputs/kelsets-tfm/KelseTS-datos.xlsx', root)));
+const archive = await JSZip.loadAsync(await readFile(new URL('data/excel/KelseTS-datos.xlsx', root)));
 for (const entry of Object.values(archive.files)) {
   if (entry.dir || !entry.name.startsWith('xl/')) continue;
   if (entry.name.endsWith('.rels')) {

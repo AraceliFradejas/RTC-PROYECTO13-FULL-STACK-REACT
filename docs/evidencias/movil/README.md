@@ -1,6 +1,6 @@
 # Revisión responsive
 
-He incorporado un menú desplegable hasta 1000 px. La cabecera muestra el logo aprobado y un botón con icono de tres líneas; las secciones, el idioma y el acceso aparecen al abrirlo. Escape cierra el menú y devuelve el foco al botón. Elegir una página también lo cierra. El menú puede desplazarse si la pantalla tiene poca altura.
+He incorporado un menú desplegable hasta 1000 px. La cabecera muestra el logo de KelseTS Cars y un botón con icono de tres líneas; las secciones, el idioma y el acceso aparecen al abrirlo. Escape cierra el menú y devuelve el foco al botón. Elegir una página también lo cierra. El menú puede desplazarse si la pantalla tiene poca altura.
 
 Las páginas públicas tienen capturas en castellano e inglés a 390 × 844 CSS px, el tamaño de diseño utilizado para revisar el iPhone 13. Cliente, taller y Team tienen además capturas a 320, 768 y 1440 px, con datos ficticios largos. Se incluyen los formularios de registro, el error de fecha de una cita y la vista previa de fotografías con descarte. Los desplegables de citas utilizan ahora una altura mínima de 48 px.
 
